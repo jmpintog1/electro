@@ -4,4 +4,4 @@
 format: jb-book
 root: intro
 chapters:
-- file: 01_electrostatica
+- file: 01_campo

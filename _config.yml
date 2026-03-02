@@ -5,7 +5,6 @@ title: Curso de Electricidad y Magnetismo
 author: José Miguel Pinto
 copyright: "2026"
 logo: logo.png
-# logo: logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
