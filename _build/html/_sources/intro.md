@@ -1,11 +1,12 @@
 # Bienvenidos al curso de Electricidad y Magnetismo
 
-Este no es un libro de texto tradicional. Es un entorno interactivo diseñado para estudiantes de ingeniería de la Universidad Santa María.
+Este espacio no es un libro de texto convencional; es un entorno interactivo diseñado específicamente para los desafíos de la ingeniería en la Universidad. Aquí, la teoría deja de ser estática para convertirse en una herramienta de experimentación.
 
-## ¿Cómo usar este libro?
-A diferencia del *Sears-Zemansky*, aquí puedes:
-* **Visualizar** campos eléctricos reales.
-* **Modificar** las variables del código.
-* **Experimentar** con la física sin miedo a romper nada.
+## ¿Por qué este libro?
+A diferencia de los textos clásicos como el Sears-Zemansky, este recurso te permite:
 
-Comienza explorando el primer capítulo en la barra lateral.
+* Visualizar dinámicamente: Observa cómo se comportan los campos eléctricos y magnéticos en tiempo real.
+* Interactuar con el código: Modifica variables y observa los resultados de inmediato para validar tu intuición física.
+* Aprender haciendo: Experimenta con modelos computacionales sin restricciones, integrando la física con las capacidades de la programación moderna.
+
+El conocimiento está a un clic de distancia. Comienza explorando el primer capítulo en la barra lateral.
