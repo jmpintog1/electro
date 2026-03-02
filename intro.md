@@ -1,4 +1,4 @@
-# Bienvenidos a la Física Viva
+# Bienvenidos al curso de Electricidad y Magnetismo
 
 Este no es un libro de texto tradicional. Es un entorno interactivo diseñado para estudiantes de ingeniería de la Universidad Santa María.
 
