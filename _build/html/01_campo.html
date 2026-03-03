@@ -517,8 +517,390 @@ document.write(`
 <section id="problema-equilibrio-de-fuerzas-electricas">
 <h2>Problema: Equilibrio de fuerzas eléctricas<a class="headerlink" href="#problema-equilibrio-de-fuerzas-electricas" title="Permalink to this heading">#</a></h2>
 <p>Considere dos cargas eléctricas puntuales, <span class="math notranslate nohighlight">\(q_1 = +q\)</span> y <span class="math notranslate nohighlight">\(q_2 = +2q\)</span>, separadas por una distancia <span class="math notranslate nohighlight">\(d\)</span>.</p>
-<p>Se desea encontrar la posición exacta en la que una tercera carga <span class="math notranslate nohighlight">\(q_3\)</span> debe ser colocada a lo largo de la línea que une <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span>, de modo que la <strong>fuerza eléctrica neta</strong> sobre <span class="math notranslate nohighlight">\(q_3\)</span> sea cero. Es decir, que las fuerzas ejercidas por <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span> sobre <span class="math notranslate nohighlight">\(q_3\)</span> se cancelen mutuamente.</p>
 <a class="reference internal image-reference" href="_images/01_05.svg"><img alt="Coulomb" class="align-center" src="_images/01_05.svg" width="60%" /></a>
+<p>Se desea encontrar la posición exacta en la que una tercera carga <span class="math notranslate nohighlight">\(q_3\)</span> debe ser colocada a lo largo de la línea que une <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span>, de modo que la <strong>fuerza eléctrica neta</strong> sobre <span class="math notranslate nohighlight">\(q_3\)</span> sea cero. Es decir, que las fuerzas ejercidas por <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span> sobre <span class="math notranslate nohighlight">\(q_3\)</span> se cancelen mutuamente.</p>
+<p>Preguntas de Comprensión</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="c1"># Código ajustado con las nuevas preguntas de comprensión de la Ley de Coulomb</span>
+<span class="n">quiz_html_coulomb</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #007bff;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #0056b3; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-coulomb-1&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. ¿En qué región a lo largo de la línea que une &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;1&lt;/sub&gt; y &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;2&lt;/sub&gt; debe ubicarse la carga &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;3&lt;/sub&gt; para que la fuerza neta sobre ella sea cero, considerando que &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;1&lt;/sub&gt; = +&lt;i&gt;q&lt;/i&gt; y &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;2&lt;/sub&gt; = +2&lt;i&gt;q&lt;/i&gt;?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qc1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. A la izquierda de ambas cargas, las dos fuerzas apuntarían hacia la izquierda (repulsión), por lo que se sumarían en lugar de cancelarse.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;A la izquierda de &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;1&lt;/sub&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qc1&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. A la derecha de ambas cargas, las dos fuerzas apuntarían hacia la derecha, sumándose.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;A la derecha de &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qc1&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Como ambas cargas tienen el mismo signo, las fuerzas solo pueden tener sentidos opuestos si la carga de prueba se coloca entre ellas.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Entre &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;1&lt;/sub&gt; y &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qc1&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. El equilibrio depende de la posición relativa y las magnitudes de las fuentes, no de que q3 sea cero.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;En cualquier punto, ya que la magnitud de &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;3&lt;/sub&gt; es cero&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-c1&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-c1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-coulomb-2&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. Si la carga &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;3&lt;/sub&gt; es colocada entre &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;1&lt;/sub&gt; y &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;2&lt;/sub&gt;, ¿cuál es la dirección de la fuerza &lt;b&gt;F&lt;/b&gt;&lt;sub&gt;31&lt;/sub&gt; (de &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;1&lt;/sub&gt; sobre &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;3&lt;/sub&gt;) y &lt;b&gt;F&lt;/b&gt;&lt;sub&gt;32&lt;/sub&gt; (de &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;2&lt;/sub&gt; sobre &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;3&lt;/sub&gt;)?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qc2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Esto significaría que una carga atrae y la otra repele desde el mismo lado.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Ambas apuntan hacia la derecha&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qc2&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Las fuerzas deben ser opuestas para que exista equilibrio.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Ambas apuntan hacia la izquierda&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qc2&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;Muy bien. &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;1&lt;/sub&gt; (a la izquierda) empuja hacia la derecha y &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;2&lt;/sub&gt; (a la derecha) empuja hacia la izquierda. Esta oposición es la que permite el equilibrio.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;F&lt;/b&gt;&lt;sub&gt;31&lt;/sub&gt; apunta hacia la derecha y &lt;b&gt;F&lt;/b&gt;&lt;sub&gt;32&lt;/sub&gt; apunta hacia la izquierda&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qc2&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Eso ocurriría si las cargas estuvieran en posiciones invertidas.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;F&lt;/b&gt;&lt;sub&gt;31&lt;/sub&gt; apunta hacia la izquierda y &lt;b&gt;F&lt;/b&gt;&lt;sub&gt;32&lt;/sub&gt; apunta hacia la derecha&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-c2&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-c2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-coulomb-3&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. Para que la fuerza neta sobre &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;3&lt;/sub&gt; sea cero, ¿qué condición deben cumplir las magnitudes de las fuerzas &lt;b&gt;F&lt;/b&gt;&lt;sub&gt;31&lt;/sub&gt; y &lt;b&gt;F&lt;/b&gt;&lt;sub&gt;32&lt;/sub&gt;?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qc3&quot; value=&quot;a&quot; data-fb=&quot;No. Si una magnitud es mayor que la otra, la carga se acelerará hacia la fuerza dominante.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;F&lt;sub&gt;31&lt;/sub&gt; &gt; F&lt;sub&gt;32&lt;/sub&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qc3&quot; value=&quot;b&quot; data-fb=&quot;No. Si una magnitud es menor, no se lograría la anulación vectorial.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;F&lt;sub&gt;31&lt;/sub&gt; &lt; F&lt;sub&gt;32&lt;/sub&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qc3&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;Exacto. Para que la suma vectorial de dos fuerzas colineales y opuestas sea cero, sus magnitudes deben ser idénticas.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;F&lt;sub&gt;31&lt;/sub&gt; = F&lt;sub&gt;32&lt;/sub&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-c3&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-c3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    (function() {</span>
+<span class="s2">        function setupQuiz(btnId, radioName, feedbackId) {</span>
+<span class="s2">            var btn = document.getElementById(btnId);</span>
+<span class="s2">            if (!btn) return;</span>
+
+<span class="s2">            btn.addEventListener(&#39;click&#39;, function() {</span>
+<span class="s2">                var radios = document.getElementsByName(radioName);</span>
+<span class="s2">                var selected = null;</span>
+<span class="s2">                var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">                </span>
+<span class="s2">                for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                    if (radios[i].checked) {</span>
+<span class="s2">                        selected = radios[i];</span>
+<span class="s2">                        break;</span>
+<span class="s2">                    }</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">                </span>
+<span class="s2">                if (!selected) {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                    return;</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">                var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">                </span>
+<span class="s2">                if (isCorrect) {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">                } else {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">                }</span>
+<span class="s2">            });</span>
+<span class="s2">        }</span>
+
+<span class="s2">        setTimeout(function() {</span>
+<span class="s2">            setupQuiz(&#39;btn-check-c1&#39;, &#39;qc1&#39;, &#39;feedback-c1&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-c2&#39;, &#39;qc2&#39;, &#39;feedback-c2&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-c3&#39;, &#39;qc3&#39;, &#39;feedback-c3&#39;);</span>
+<span class="s2">        }, 500);</span>
+<span class="s2">    })();</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_html_coulomb</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #0056b3; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<div class="fisi-quiz-container" id="quiz-coulomb-1">
+    <div class="fisi-question">
+        1. ¿En qué región a lo largo de la línea que une <i>q</i><sub>1</sub> y <i>q</i><sub>2</sub> debe ubicarse la carga <i>q</i><sub>3</sub> para que la fuerza neta sobre ella sea cero, considerando que <i>q</i><sub>1</sub> = +<i>q</i> y <i>q</i><sub>2</sub> = +2<i>q</i>?
+    </div>
+    
+    <label class="fisi-option">
+        <input type="radio" name="qc1" value="a" data-fb="Incorrecto. A la izquierda de ambas cargas, las dos fuerzas apuntarían hacia la izquierda (repulsión), por lo que se sumarían en lugar de cancelarse."> 
+        <span>A la izquierda de <i>q</i><sub>1</sub></span>
+    </label>
+    
+    <label class="fisi-option">
+        <input type="radio" name="qc1" value="b" data-fb="Incorrecto. A la derecha de ambas cargas, las dos fuerzas apuntarían hacia la derecha, sumándose."> 
+        <span>A la derecha de <i>q</i><sub>2</sub></span>
+    </label>
+    
+    <label class="fisi-option">
+        <input type="radio" name="qc1" value="c" data-correct="true" data-fb="¡Correcto! Como ambas cargas tienen el mismo signo, las fuerzas solo pueden tener sentidos opuestos si la carga de prueba se coloca entre ellas."> 
+        <span>Entre <i>q</i><sub>1</sub> y <i>q</i><sub>2</sub></span>
+    </label>
+
+    <label class="fisi-option">
+        <input type="radio" name="qc1" value="d" data-fb="Incorrecto. El equilibrio depende de la posición relativa y las magnitudes de las fuentes, no de que q3 sea cero."> 
+        <span>En cualquier punto, ya que la magnitud de <i>q</i><sub>3</sub> es cero</span>
+    </label>
+    
+    <button class="fisi-check-btn" id="btn-check-c1">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-c1"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-coulomb-2">
+    <div class="fisi-question">
+        2. Si la carga <i>q</i><sub>3</sub> es colocada entre <i>q</i><sub>1</sub> y <i>q</i><sub>2</sub>, ¿cuál es la dirección de la fuerza <b>F</b><sub>31</sub> (de <i>q</i><sub>1</sub> sobre <i>q</i><sub>3</sub>) y <b>F</b><sub>32</sub> (de <i>q</i><sub>2</sub> sobre <i>q</i><sub>3</sub>)?
+    </div>
+    
+    <label class="fisi-option">
+        <input type="radio" name="qc2" value="a" data-fb="Incorrecto. Esto significaría que una carga atrae y la otra repele desde el mismo lado."> 
+        <span>Ambas apuntan hacia la derecha</span>
+    </label>
+    
+    <label class="fisi-option">
+        <input type="radio" name="qc2" value="b" data-fb="Incorrecto. Las fuerzas deben ser opuestas para que exista equilibrio."> 
+        <span>Ambas apuntan hacia la izquierda</span>
+    </label>
+    
+    <label class="fisi-option">
+        <input type="radio" name="qc2" value="c" data-correct="true" data-fb="Muy bien. <i>q</i><sub>1</sub> (a la izquierda) empuja hacia la derecha y <i>q</i><sub>2</sub> (a la derecha) empuja hacia la izquierda. Esta oposición es la que permite el equilibrio."> 
+        <span><b>F</b><sub>31</sub> apunta hacia la derecha y <b>F</b><sub>32</sub> apunta hacia la izquierda</span>
+    </label>
+
+    <label class="fisi-option">
+        <input type="radio" name="qc2" value="d" data-fb="Incorrecto. Eso ocurriría si las cargas estuvieran en posiciones invertidas."> 
+        <span><b>F</b><sub>31</sub> apunta hacia la izquierda y <b>F</b><sub>32</sub> apunta hacia la derecha</span>
+    </label>
+    
+    <button class="fisi-check-btn" id="btn-check-c2">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-c2"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-coulomb-3">
+    <div class="fisi-question">
+        3. Para que la fuerza neta sobre <i>q</i><sub>3</sub> sea cero, ¿qué condición deben cumplir las magnitudes de las fuerzas <b>F</b><sub>31</sub> y <b>F</b><sub>32</sub>?
+    </div>
+    
+    <label class="fisi-option">
+        <input type="radio" name="qc3" value="a" data-fb="No. Si una magnitud es mayor que la otra, la carga se acelerará hacia la fuerza dominante."> 
+        <span>F<sub>31</sub> > F<sub>32</sub></span>
+    </label>
+    
+    <label class="fisi-option">
+        <input type="radio" name="qc3" value="b" data-fb="No. Si una magnitud es menor, no se lograría la anulación vectorial."> 
+        <span>F<sub>31</sub> < F<sub>32</sub></span>
+    </label>
+    
+    <label class="fisi-option">
+        <input type="radio" name="qc3" value="c" data-correct="true" data-fb="Exacto. Para que la suma vectorial de dos fuerzas colineales y opuestas sea cero, sus magnitudes deben ser idénticas."> 
+        <span>F<sub>31</sub> = F<sub>32</sub></span>
+    </label>
+    
+    <button class="fisi-check-btn" id="btn-check-c3">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-c3"></div>
+</div>
+
+<script>
+    (function() {
+        function setupQuiz(btnId, radioName, feedbackId) {
+            var btn = document.getElementById(btnId);
+            if (!btn) return;
+
+            btn.addEventListener('click', function() {
+                var radios = document.getElementsByName(radioName);
+                var selected = null;
+                var feedbackDiv = document.getElementById(feedbackId);
+                
+                for (var i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        selected = radios[i];
+                        break;
+                    }
+                }
+                
+                feedbackDiv.style.display = 'block';
+                
+                if (!selected) {
+                    feedbackDiv.style.backgroundColor = '#fff3cd';
+                    feedbackDiv.style.color = '#856404';
+                    feedbackDiv.style.border = '1px solid #ffeeba';
+                    feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                    return;
+                }
+                
+                var isCorrect = selected.getAttribute('data-correct') === 'true';
+                var msg = selected.getAttribute('data-fb');
+                
+                if (isCorrect) {
+                    feedbackDiv.style.backgroundColor = '#d4edda';
+                    feedbackDiv.style.color = '#155724';
+                    feedbackDiv.style.border = '1px solid #c3e6cb';
+                    feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+                } else {
+                    feedbackDiv.style.backgroundColor = '#f8d7da';
+                    feedbackDiv.style.color = '#721c24';
+                    feedbackDiv.style.border = '1px solid #f5c6cb';
+                    feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+                }
+            });
+        }
+
+        setTimeout(function() {
+            setupQuiz('btn-check-c1', 'qc1', 'feedback-c1');
+            setupQuiz('btn-check-c2', 'qc2', 'feedback-c2');
+            setupQuiz('btn-check-c3', 'qc3', 'feedback-c3');
+        }, 500);
+    })();
+</script>
+</div></div>
+</div>
+<p>Preguntas de Análisis</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
