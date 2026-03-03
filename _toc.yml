@@ -4,4 +4,4 @@
 format: jb-book
 root: intro
 chapters:
-- file: 01_campo
+- file: 01_coulomb
