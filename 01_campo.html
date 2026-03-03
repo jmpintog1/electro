@@ -1275,6 +1275,121 @@ document.write(`
 </script>
 </div></div>
 </div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_numerico_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-num-1&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        4. &lt;b&gt;Desafío Analítico:&lt;/b&gt; Si la distancia entre las cargas es &lt;i&gt;d&lt;/i&gt; = 1.0 m, calcula el valor exacto de la posición &lt;i&gt;x&lt;/i&gt; (medida desde &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;1&lt;/sub&gt;) donde &lt;i&gt;q&lt;/i&gt;&lt;sub&gt;3&lt;/sub&gt; está en equilibrio. </span>
+<span class="s2">        &lt;br&gt;&lt;small&gt;(Ingresa el valor con tres decimales, ej: 0.500)&lt;/small&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;margin-bottom: 15px;&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;text&quot; id=&quot;input-ans-1&quot; placeholder=&quot;0.000&quot; style=&quot;padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100px;&quot;&gt;</span>
+<span class="s2">        &lt;span style=&quot;font-weight: 500;&quot;&gt; m&lt;/span&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-num&quot;&gt;Verificar Resultado&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-num&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    (function() {</span>
+<span class="s2">        var btn = document.getElementById(&#39;btn-check-num&#39;);</span>
+<span class="s2">        btn.addEventListener(&#39;click&#39;, function() {</span>
+<span class="s2">            var input = document.getElementById(&#39;input-ans-1&#39;).value;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(&#39;feedback-num&#39;);</span>
+<span class="s2">            var val = parseFloat(input.replace(&#39;,&#39;, &#39;.&#39;)); // Acepta coma o punto</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            // Valor teórico: 1 / (1 + sqrt(2)) ≈ 0.414</span>
+<span class="s2">            var target = 0.414;</span>
+<span class="s2">            var tolerancia = 0.01;</span>
+<span class="s2">            </span>
+<span class="s2">            if (isNaN(val)) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, ingresa un número válido.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            if (Math.abs(val - target) &lt;= tolerancia) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;b&gt;¡Excelente!&lt;/b&gt; El valor es aproximadamente 0.414 m. &lt;br&gt;Derivaste correctamente: &lt;i&gt;x = d / (1 + √(q₂/q₁))&lt;/i&gt;.&#39;;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;b&gt;Casi...&lt;/b&gt; Revisa el álgebra. Recuerda que al igualar las fuerzas y simplificar &lt;i&gt;k, q₁ y q₃&lt;/i&gt;, debes resolver para &lt;i&gt;x&lt;/i&gt; considerando que √(2) ≈ 1.414.&#39;;</span>
+<span class="s2">            }</span>
+<span class="s2">        });</span>
+<span class="s2">    })();</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_numerico_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div class="fisi-quiz-container" id="quiz-num-1">
+    <div class="fisi-question">
+        4. <b>Desafío Analítico:</b> Si la distancia entre las cargas es <i>d</i> = 1.0 m, calcula el valor exacto de la posición <i>x</i> (medida desde <i>q</i><sub>1</sub>) donde <i>q</i><sub>3</sub> está en equilibrio. 
+        <br><small>(Ingresa el valor con tres decimales, ej: 0.500)</small>
+    </div>
+    
+    <div style="margin-bottom: 15px;">
+        <input type="text" id="input-ans-1" placeholder="0.000" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100px;">
+        <span style="font-weight: 500;"> m</span>
+    </div>
+    
+    <button class="fisi-check-btn" id="btn-check-num">Verificar Resultado</button>
+    <div class="fisi-feedback" id="feedback-num"></div>
+</div>
+
+<script>
+    (function() {
+        var btn = document.getElementById('btn-check-num');
+        btn.addEventListener('click', function() {
+            var input = document.getElementById('input-ans-1').value;
+            var feedbackDiv = document.getElementById('feedback-num');
+            var val = parseFloat(input.replace(',', '.')); // Acepta coma o punto
+            
+            feedbackDiv.style.display = 'block';
+            
+            // Valor teórico: 1 / (1 + sqrt(2)) ≈ 0.414
+            var target = 0.414;
+            var tolerancia = 0.01;
+            
+            if (isNaN(val)) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.innerHTML = '⚠️ Por favor, ingresa un número válido.';
+                return;
+            }
+            
+            if (Math.abs(val - target) <= tolerancia) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.innerHTML = '✅ <b>¡Excelente!</b> El valor es aproximadamente 0.414 m. <br>Derivaste correctamente: <i>x = d / (1 + √(q₂/q₁))</i>.';
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.innerHTML = '❌ <b>Casi...</b> Revisa el álgebra. Recuerda que al igualar las fuerzas y simplificar <i>k, q₁ y q₃</i>, debes resolver para <i>x</i> considerando que √(2) ≈ 1.414.';
+            }
+        });
+    })();
+</script>
+</div></div>
+</div>
 </section>
 </section>
 
