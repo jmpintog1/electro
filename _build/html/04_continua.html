@@ -401,7 +401,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guia-rapida-cual-densidad-utilizar">Guía rápida: ¿Cuál densidad utilizar?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-campo-electrico-de-una-barra-uniforme-sobre-el-punto-p">Problema: Campo eléctrico de una barra uniforme sobre el punto <span class="math notranslate nohighlight">\(P\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-campo-electrico-generado-por-una-barra-uniforme">Problema: Campo eléctrico generado por una barra uniforme</a></li>
 </ul>
             </nav>
         </div>
@@ -463,10 +463,476 @@ document.write(`
 <div><p><strong>💡 Consejo para el cálculo:</strong> Recuerda que si la carga está distribuida de manera <strong>uniforme</strong>, puedes calcular la densidad como la carga total dividida por la longitud, área o volumen total (<span class="math notranslate nohighlight">\(Q/L\)</span>, <span class="math notranslate nohighlight">\(Q/A\)</span> o <span class="math notranslate nohighlight">\(Q/V\)</span>).</p>
 </div></blockquote>
 </section>
-<section id="problema-campo-electrico-de-una-barra-uniforme-sobre-el-punto-p">
-<h2>Problema: Campo eléctrico de una barra uniforme sobre el punto <span class="math notranslate nohighlight">\(P\)</span><a class="headerlink" href="#problema-campo-electrico-de-una-barra-uniforme-sobre-el-punto-p" title="Permalink to this heading">#</a></h2>
+<section id="problema-campo-electrico-generado-por-una-barra-uniforme">
+<h2>Problema: Campo eléctrico generado por una barra uniforme<a class="headerlink" href="#problema-campo-electrico-generado-por-una-barra-uniforme" title="Permalink to this heading">#</a></h2>
 <p>Una barra uniforme de largo <span class="math notranslate nohighlight">\(L\)</span> y densidad de carga lineal <span class="math notranslate nohighlight">\(\lambda\)</span> se encuentra ubicada en el eje horizontal. Se desea calcular el campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> que esta barra ejerce sobre un punto <span class="math notranslate nohighlight">\(P\)</span> ubicado a una distancia <span class="math notranslate nohighlight">\(d\)</span> de uno de sus extremos, como se indica en la figura.</p>
 <a class="reference internal image-reference" href="_images/01_08.svg"><img alt="Barra uniforme" class="align-center" src="_images/01_08.svg" width="80%" /></a>
+<p><strong>Preguntas de Comprensión:</strong></p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_html_barra</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #007bff;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #0056b3; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;h3&gt;Preguntas de Comprensión (Antes de la Resolución)&lt;/h3&gt;</span>
+<span class="s2">&lt;p&gt;Estas preguntas están diseñadas para evaluar la comprensión de los conceptos fundamentales necesarios para abordar el problema de la fuerza eléctrica sobre una carga puntual debido a una barra cargada.&lt;/p&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-1&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. ¿Cómo se define el elemento diferencial de carga &lt;i&gt;dq&#39;&lt;/i&gt; para una barra con densidad de carga lineal uniforme &amp;lambda; y un elemento de longitud &lt;i&gt;dx&lt;/i&gt;?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. La densidad lineal es carga por unidad de longitud. Al dividir por longitud, no obtienes carga.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;i&gt;dq&#39;&lt;/i&gt; = &amp;lambda; / &lt;i&gt;dx&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! La carga es el producto de la densidad de carga (carga/longitud) por la longitud del elemento infinitesimal.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;i&gt;dq&#39;&lt;/i&gt; = &amp;lambda; &amp;middot; &lt;i&gt;dx&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Dimensionalmente no es posible sumar una densidad de carga con una longitud.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;i&gt;dq&#39;&lt;/i&gt; = &amp;lambda; + &lt;i&gt;dx&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb1&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Dimensionalmente no es posible restar una longitud a una densidad de carga.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;i&gt;dq&#39;&lt;/i&gt; = &amp;lambda; - &lt;i&gt;dx&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-b1&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-b1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-2&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. Si la barra se extiende desde &lt;i&gt;x&lt;/i&gt; = 0 hasta &lt;i&gt;x&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt;, y la carga puntual &lt;i&gt;q&lt;/i&gt; se encuentra en &lt;i&gt;x&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;, ¿cuál es el vector de posición &lt;b&gt;r&lt;/b&gt;&#39; de un elemento infinitesimal de carga &lt;i&gt;dq&#39;&lt;/i&gt; ubicado en un punto genérico &lt;i&gt;x&lt;/i&gt; de la barra?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Ese es el vector de posición de la carga puntual que siente la fuerza, no de la fuente.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt;&#39; = (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! El vector primado siempre apunta a la fuente que genera el campo. Como tomamos un diferencial en la posición &lt;i&gt;x&lt;/i&gt;, el vector es simplemente &lt;i&gt;x&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt;&#39; = &lt;i&gt;x&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Esa expresión representa la distancia relativa entre un punto de la barra y la carga puntual.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt;&#39; = (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt; - &lt;i&gt;x&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Esa es solo la distancia entre el final de la barra y la carga puntual.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt;&#39; = &lt;i&gt;d&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-b2&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-b2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-3&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. ¿Cuál es el vector de posición &lt;b&gt;r&lt;/b&gt; de la carga puntual &lt;i&gt;q&lt;/i&gt; en el sistema de coordenadas definido?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb3&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Ese es el vector que apunta a un elemento de la barra (la fuente).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt; = &lt;i&gt;x&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb3&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! El vector sin primar apunta al punto de observación, que según el enunciado se ubica en &lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt; = (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb3&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Esta sería la diferencia entre el punto de observación y la fuente.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt; = (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt; - &lt;i&gt;x&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb3&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. La carga se encuentra a una distancia &lt;i&gt;d&lt;/i&gt; del final de la barra, no del origen.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt; = &lt;i&gt;d&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-b3&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-b3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-4&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        4. ¿Cuál es la expresión del vector (&lt;b&gt;r&lt;/b&gt; - &lt;b&gt;r&lt;/b&gt;&#39;) que conecta el elemento de carga &lt;i&gt;dq&#39;&lt;/i&gt; con la carga puntual &lt;i&gt;q&lt;/i&gt;?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb4&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Revisa los signos al realizar la resta vectorial.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;(&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt; + &lt;i&gt;x&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb4&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Recuerda que &lt;b&gt;r&lt;/b&gt; apunta a &lt;i&gt;L&lt;/i&gt;+&lt;i&gt;d&lt;/i&gt; y &lt;b&gt;r&lt;/b&gt;&#39; apunta a &lt;i&gt;x&lt;/i&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;(&lt;i&gt;L&lt;/i&gt; - &lt;i&gt;d&lt;/i&gt; - &lt;i&gt;x&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb4&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Simplemente restamos el vector fuente del vector de observación: (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt; - &lt;i&gt;x&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;(&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt; - &lt;i&gt;x&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb4&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Eso representaría un vector que apunta desde la carga hacia la barra (&lt;b&gt;r&lt;/b&gt;&#39; - &lt;b&gt;r&lt;/b&gt;).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;(&lt;i&gt;x&lt;/i&gt; - (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;))&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-b4&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-b4&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-5&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        5. La fuerza eléctrica sobre la carga &lt;i&gt;q&lt;/i&gt; será el resultado de la integración de las contribuciones de todos los elementos &lt;i&gt;dq&#39;&lt;/i&gt;. ¿Entre qué límites se debe realizar la integral para abarcar toda la longitud de la barra?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb5&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. La distancia &lt;i&gt;d&lt;/i&gt; es donde empieza el vacío hasta la carga puntual, no la barra misma.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;De 0 a &lt;i&gt;d&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb5&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. La barra no se ubica en ese segmento del eje.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;De &lt;i&gt;d&lt;/i&gt; a &lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb5&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Muy bien! Estás integrando sobre los elementos de la fuente (la barra), que según el enunciado se extiende desde el origen (0) hasta una longitud &lt;i&gt;L&lt;/i&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;De 0 a &lt;i&gt;L&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb5&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Ese sería el segmento vacío entre la barra y la carga puntual.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;De &lt;i&gt;L&lt;/i&gt; a &lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-b5&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-b5&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    (function() {</span>
+<span class="s2">        function setupQuiz(btnId, radioName, feedbackId) {</span>
+<span class="s2">            var btn = document.getElementById(btnId);</span>
+<span class="s2">            if (!btn) return;</span>
+
+<span class="s2">            btn.addEventListener(&#39;click&#39;, function() {</span>
+<span class="s2">                var radios = document.getElementsByName(radioName);</span>
+<span class="s2">                var selected = null;</span>
+<span class="s2">                var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">                </span>
+<span class="s2">                for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                    if (radios[i].checked) {</span>
+<span class="s2">                        selected = radios[i];</span>
+<span class="s2">                        break;</span>
+<span class="s2">                    }</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">                </span>
+<span class="s2">                if (!selected) {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                    return;</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">                var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">                </span>
+<span class="s2">                if (isCorrect) {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">                } else {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">                }</span>
+<span class="s2">            });</span>
+<span class="s2">        }</span>
+
+<span class="s2">        setTimeout(function() {</span>
+<span class="s2">            setupQuiz(&#39;btn-check-b1&#39;, &#39;qb1&#39;, &#39;feedback-b1&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-b2&#39;, &#39;qb2&#39;, &#39;feedback-b2&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-b3&#39;, &#39;qb3&#39;, &#39;feedback-b3&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-b4&#39;, &#39;qb4&#39;, &#39;feedback-b4&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-b5&#39;, &#39;qb5&#39;, &#39;feedback-b5&#39;);</span>
+<span class="s2">        }, 500);</span>
+<span class="s2">    })();</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_html_barra</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #0056b3; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<h3>Preguntas de Comprensión (Antes de la Resolución)</h3>
+<p>Estas preguntas están diseñadas para evaluar la comprensión de los conceptos fundamentales necesarios para abordar el problema de la fuerza eléctrica sobre una carga puntual debido a una barra cargada.</p>
+
+<div class="fisi-quiz-container" id="quiz-bar-1">
+    <div class="fisi-question">
+        1. ¿Cómo se define el elemento diferencial de carga <i>dq'</i> para una barra con densidad de carga lineal uniforme &lambda; y un elemento de longitud <i>dx</i>?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qb1" value="a" data-fb="Incorrecto. La densidad lineal es carga por unidad de longitud. Al dividir por longitud, no obtienes carga."> 
+        <span><i>dq'</i> = &lambda; / <i>dx</i></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb1" value="b" data-correct="true" data-fb="¡Correcto! La carga es el producto de la densidad de carga (carga/longitud) por la longitud del elemento infinitesimal."> 
+        <span><i>dq'</i> = &lambda; &middot; <i>dx</i></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb1" value="c" data-fb="Incorrecto. Dimensionalmente no es posible sumar una densidad de carga con una longitud."> 
+        <span><i>dq'</i> = &lambda; + <i>dx</i></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb1" value="d" data-fb="Incorrecto. Dimensionalmente no es posible restar una longitud a una densidad de carga."> 
+        <span><i>dq'</i> = &lambda; - <i>dx</i></span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-b1">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-b1"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-bar-2">
+    <div class="fisi-question">
+        2. Si la barra se extiende desde <i>x</i> = 0 hasta <i>x</i> = <i>L</i>, y la carga puntual <i>q</i> se encuentra en <i>x</i> = <i>L</i> + <i>d</i>, ¿cuál es el vector de posición <b>r</b>' de un elemento infinitesimal de carga <i>dq'</i> ubicado en un punto genérico <i>x</i> de la barra?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qb2" value="a" data-fb="Incorrecto. Ese es el vector de posición de la carga puntual que siente la fuerza, no de la fuente."> 
+        <span><b>r</b>' = (<i>L</i> + <i>d</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb2" value="b" data-correct="true" data-fb="¡Correcto! El vector primado siempre apunta a la fuente que genera el campo. Como tomamos un diferencial en la posición <i>x</i>, el vector es simplemente <i>x</i><b>î</b>."> 
+        <span><b>r</b>' = <i>x</i><b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb2" value="c" data-fb="Incorrecto. Esa expresión representa la distancia relativa entre un punto de la barra y la carga puntual."> 
+        <span><b>r</b>' = (<i>L</i> + <i>d</i> - <i>x</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb2" value="d" data-fb="Incorrecto. Esa es solo la distancia entre el final de la barra y la carga puntual."> 
+        <span><b>r</b>' = <i>d</i><b>î</b></span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-b2">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-b2"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-bar-3">
+    <div class="fisi-question">
+        3. ¿Cuál es el vector de posición <b>r</b> de la carga puntual <i>q</i> en el sistema de coordenadas definido?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qb3" value="a" data-fb="Incorrecto. Ese es el vector que apunta a un elemento de la barra (la fuente)."> 
+        <span><b>r</b> = <i>x</i><b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb3" value="b" data-correct="true" data-fb="¡Exacto! El vector sin primar apunta al punto de observación, que según el enunciado se ubica en <i>L</i> + <i>d</i>."> 
+        <span><b>r</b> = (<i>L</i> + <i>d</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb3" value="c" data-fb="Incorrecto. Esta sería la diferencia entre el punto de observación y la fuente."> 
+        <span><b>r</b> = (<i>L</i> + <i>d</i> - <i>x</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb3" value="d" data-fb="Incorrecto. La carga se encuentra a una distancia <i>d</i> del final de la barra, no del origen."> 
+        <span><b>r</b> = <i>d</i><b>î</b></span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-b3">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-b3"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-bar-4">
+    <div class="fisi-question">
+        4. ¿Cuál es la expresión del vector (<b>r</b> - <b>r</b>') que conecta el elemento de carga <i>dq'</i> con la carga puntual <i>q</i>?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qb4" value="a" data-fb="Incorrecto. Revisa los signos al realizar la resta vectorial."> 
+        <span>(<i>L</i> + <i>d</i> + <i>x</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb4" value="b" data-fb="Incorrecto. Recuerda que <b>r</b> apunta a <i>L</i>+<i>d</i> y <b>r</b>' apunta a <i>x</i>."> 
+        <span>(<i>L</i> - <i>d</i> - <i>x</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb4" value="c" data-correct="true" data-fb="¡Correcto! Simplemente restamos el vector fuente del vector de observación: (<i>L</i> + <i>d</i>)<b>î</b> - <i>x</i><b>î</b>."> 
+        <span>(<i>L</i> + <i>d</i> - <i>x</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb4" value="d" data-fb="Incorrecto. Eso representaría un vector que apunta desde la carga hacia la barra (<b>r</b>' - <b>r</b>)."> 
+        <span>(<i>x</i> - (<i>L</i> + <i>d</i>))<b>î</b></span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-b4">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-b4"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-bar-5">
+    <div class="fisi-question">
+        5. La fuerza eléctrica sobre la carga <i>q</i> será el resultado de la integración de las contribuciones de todos los elementos <i>dq'</i>. ¿Entre qué límites se debe realizar la integral para abarcar toda la longitud de la barra?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qb5" value="a" data-fb="Incorrecto. La distancia <i>d</i> es donde empieza el vacío hasta la carga puntual, no la barra misma."> 
+        <span>De 0 a <i>d</i></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb5" value="b" data-fb="Incorrecto. La barra no se ubica en ese segmento del eje."> 
+        <span>De <i>d</i> a <i>L</i> + <i>d</i></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb5" value="c" data-correct="true" data-fb="¡Muy bien! Estás integrando sobre los elementos de la fuente (la barra), que según el enunciado se extiende desde el origen (0) hasta una longitud <i>L</i>."> 
+        <span>De 0 a <i>L</i></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb5" value="d" data-fb="Incorrecto. Ese sería el segmento vacío entre la barra y la carga puntual."> 
+        <span>De <i>L</i> a <i>L</i> + <i>d</i></span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-b5">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-b5"></div>
+</div>
+
+<script>
+    (function() {
+        function setupQuiz(btnId, radioName, feedbackId) {
+            var btn = document.getElementById(btnId);
+            if (!btn) return;
+
+            btn.addEventListener('click', function() {
+                var radios = document.getElementsByName(radioName);
+                var selected = null;
+                var feedbackDiv = document.getElementById(feedbackId);
+                
+                for (var i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        selected = radios[i];
+                        break;
+                    }
+                }
+                
+                feedbackDiv.style.display = 'block';
+                
+                if (!selected) {
+                    feedbackDiv.style.backgroundColor = '#fff3cd';
+                    feedbackDiv.style.color = '#856404';
+                    feedbackDiv.style.border = '1px solid #ffeeba';
+                    feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                    return;
+                }
+                
+                var isCorrect = selected.getAttribute('data-correct') === 'true';
+                var msg = selected.getAttribute('data-fb');
+                
+                if (isCorrect) {
+                    feedbackDiv.style.backgroundColor = '#d4edda';
+                    feedbackDiv.style.color = '#155724';
+                    feedbackDiv.style.border = '1px solid #c3e6cb';
+                    feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+                } else {
+                    feedbackDiv.style.backgroundColor = '#f8d7da';
+                    feedbackDiv.style.color = '#721c24';
+                    feedbackDiv.style.border = '1px solid #f5c6cb';
+                    feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+                }
+            });
+        }
+
+        setTimeout(function() {
+            setupQuiz('btn-check-b1', 'qb1', 'feedback-b1');
+            setupQuiz('btn-check-b2', 'qb2', 'feedback-b2');
+            setupQuiz('btn-check-b3', 'qb3', 'feedback-b3');
+            setupQuiz('btn-check-b4', 'qb4', 'feedback-b4');
+            setupQuiz('btn-check-b5', 'qb5', 'feedback-b5');
+        }, 500);
+    })();
+</script>
+</div></div>
+</div>
 </section>
 </section>
 
@@ -525,7 +991,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guia-rapida-cual-densidad-utilizar">Guía rápida: ¿Cuál densidad utilizar?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-campo-electrico-de-una-barra-uniforme-sobre-el-punto-p">Problema: Campo eléctrico de una barra uniforme sobre el punto <span class="math notranslate nohighlight">\(P\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-campo-electrico-generado-por-una-barra-uniforme">Problema: Campo eléctrico generado por una barra uniforme</a></li>
 </ul>
   </nav></div>
 
