@@ -67,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '02_coulomb';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Campo Eléctrico" href="03_campo.html" />
     <link rel="prev" title="Carga Eléctrica" href="01_carga.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -172,6 +173,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_carga.html">Carga Eléctrica</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Ley de Coulomb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_campo.html">Campo Eléctrico</a></li>
 </ul>
 
     </div>
@@ -403,6 +405,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulacion-vectorial">Formulación Vectorial</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principio-de-superposicion-cargas-discretas">Principio de Superposición (Cargas Discretas)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-equilibrio-de-fuerzas-electricas">Problema: Equilibrio de fuerzas eléctricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-cargas-y-campos-de-phet">🌐 Simulación: Cargas y Campos de PhET</a></li>
 </ul>
             </nav>
         </div>
@@ -484,6 +487,68 @@ document.write(`
 <p>Considere dos cargas eléctricas puntuales, <span class="math notranslate nohighlight">\(q_1 = +q\)</span> y <span class="math notranslate nohighlight">\(q_2 = +2q\)</span>, separadas por una distancia <span class="math notranslate nohighlight">\(d\)</span>.</p>
 <a class="reference internal image-reference" href="_images/01_05.svg"><img alt="Equilibrio" class="align-center" src="_images/01_05.svg" width="60%" /></a>
 <p>Se desea encontrar la posición exacta en la que una tercera carga <span class="math notranslate nohighlight">\(q_3\)</span> debe ser colocada a lo largo de la línea que une <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span>, de modo que la <strong>fuerza eléctrica neta</strong> sobre <span class="math notranslate nohighlight">\(q_3\)</span> sea cero. Es decir, que las fuerzas ejercidas por <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span> sobre <span class="math notranslate nohighlight">\(q_3\)</span> se cancelen mutuamente.</p>
+</section>
+<section id="simulacion-cargas-y-campos-de-phet">
+<h2>🌐 Simulación: Cargas y Campos de PhET<a class="headerlink" href="#simulacion-cargas-y-campos-de-phet" title="Permalink to this heading">#</a></h2>
+<p>Para fortalecer tu intuición física, utilizaremos la simulación que está a continuación:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">phet_iframe</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;div style=&quot;width: 100%; text-align: center; margin-bottom: 20px;&quot;&gt;</span>
+<span class="s2">    &lt;h3 style=&quot;margin-bottom: 10px;&quot;&gt;Laboratorio Virtual: Cargas y Campos&lt;/h3&gt;</span>
+<span class="s2">    &lt;iframe src=&quot;https://phet.colorado.edu/sims/html/charges-and-fields/latest/charges-and-fields_es.html&quot;</span>
+<span class="s2">        width=&quot;100%&quot;</span>
+<span class="s2">        height=&quot;500&quot;</span>
+<span class="s2">        scrolling=&quot;no&quot;</span>
+<span class="s2">        allowfullscreen&gt;</span>
+<span class="s2">    &lt;/iframe&gt;</span>
+<span class="s2">    &lt;p style=&quot;font-size: 0.9em; color: #666;&quot;&gt;</span>
+<span class="s2">        &lt;i&gt;Instrucciones: Arrastra las cargas +1nC y +1nC (superpuestas para hacer +2nC) al escenario para replicar el problema.&lt;/i&gt;</span>
+<span class="s2">    &lt;/p&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">phet_iframe</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div style="width: 100%; text-align: center; margin-bottom: 20px;">
+    <h3 style="margin-bottom: 10px;">Laboratorio Virtual: Cargas y Campos</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/charges-and-fields/latest/charges-and-fields_es.html"
+        width="100%"
+        height="500"
+        scrolling="no"
+        allowfullscreen>
+    </iframe>
+    <p style="font-size: 0.9em; color: #666;">
+        <i>Instrucciones: Arrastra las cargas +1nC y +1nC (superpuestas para hacer +2nC) al escenario para replicar el problema.</i>
+    </p>
+</div>
+</div></div>
+</div>
+<p>Sigue estos pasos para experimentar con los conceptos de equilibrio:</p>
+<ol class="arabic simple">
+<li><p><strong>Colocar cargas:</strong> Arrastra y suelta cargas positivas y negativas en el espacio de trabajo. Puedes representar la relación del problema original colocando una carga de <span class="math notranslate nohighlight">\(+1\text{ nC}\)</span> para <span class="math notranslate nohighlight">\(q_1\)</span> y dos cargas superpuestas (o una de <span class="math notranslate nohighlight">\(+2\text{ nC}\)</span>) para <span class="math notranslate nohighlight">\(q_2\)</span>.</p></li>
+<li><p><strong>Colocar carga de prueba (<span class="math notranslate nohighlight">\(q_3\)</span>):</strong> Utiliza el sensor amarillo (carga de prueba) y desplázalo por el escenario. Al moverlo, la simulación mostrará vectores que representan la intensidad y dirección del campo (o fuerza) en ese punto.</p></li>
+<li><p><strong>Visualizar fuerzas:</strong> Observa cómo los vectores cambian de magnitud y dirección según la cercanía a <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span>. Esto te permitirá ver gráficamente la influencia de cada carga sobre <span class="math notranslate nohighlight">\(q_3\)</span>.</p></li>
+<li><p><strong>Encontrar el punto de equilibrio:</strong> Tu objetivo es mover la carga de prueba hasta que el vector de fuerza neta desaparezca o se haga lo más pequeño posible. Este es el punto de equilibrio donde las fuerzas se cancelan.</p></li>
+<li><p><strong>Explorar escenarios:</strong></p>
+<ul class="simple">
+<li><p><strong>Cambio de signos:</strong> Cambia la polaridad de <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span> para observar cómo el punto de equilibrio se desplaza fuera de la región central.</p></li>
+<li><p><strong>Cambio de magnitudes:</strong> Modifica los valores de las cargas fuente para ver cómo el punto de equilibrio se “aleja” de la carga más intensa.</p></li>
+</ul>
+</li>
+</ol>
 <p><strong>Preguntas de Comprensión:</strong></p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -1397,6 +1462,15 @@ document.write(`
         <p class="prev-next-title">Carga Eléctrica</p>
       </div>
     </a>
+    <a class="right-next"
+       href="03_campo.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Campo Eléctrico</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1417,6 +1491,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulacion-vectorial">Formulación Vectorial</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principio-de-superposicion-cargas-discretas">Principio de Superposición (Cargas Discretas)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-equilibrio-de-fuerzas-electricas">Problema: Equilibrio de fuerzas eléctricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-cargas-y-campos-de-phet">🌐 Simulación: Cargas y Campos de PhET</a></li>
 </ul>
   </nav></div>
 
