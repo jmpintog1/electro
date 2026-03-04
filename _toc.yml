@@ -4,4 +4,5 @@
 format: jb-book
 root: intro
 chapters:
-- file: 01_coulomb
+- file: 01_carga
+- file: 02_coulomb
