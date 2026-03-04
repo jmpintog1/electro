@@ -1,0 +1,96 @@
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/client.py", line 1085, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/client.py", line 551, in async_execute
+    await self.async_execute_cell(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/client.py", line 846, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/client.py", line 748, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import plotly.graph_objects as go
+
+# 1. Generar datos base
+x = np.linspace(-5, 5, 15)
+y = np.linspace(-5, 5, 15)
+X, Y = np.meshgrid(x, y)
+k = 8.99e9
+
+# 2. Crear la figura base
+fig = go.Figure()
+
+# 3. Crear "Frames" para la animación/slider (moviendo la carga en X)
+pasos_x = np.linspace(-4, 4, 20)
+for xc in pasos_x:
+    dx = X - xc
+    dy = Y - 0  # Carga fija en Y=0 para este ejemplo
+    r = np.sqrt(dx**2 + dy**2)
+    r_safe = np.where(r < 0.2, 0.2, r)
+    Ex = k * 1e-6 * dx / r_safe**3
+    Ey = k * 1e-6 * dy / r_safe**3
+    
+    # Añadir flechas y la bolita de la carga
+    fig.add_trace(go.Quiver(
+        x=X, y=Y, u=Ex, v=Ey, 
+        scale=0.1, arrow_scale=.4, name=f"pos_{xc}", visible=False
+    ))
+
+# Hacer visible el primer frame
+fig.data[0].visible = True
+
+# 4. Crear el Slider de Plotly (JavaScript puro)
+steps = []
+for i in range(len(pasos_x)):
+    step = dict(
+        method="update",
+        args=[{"visible": [False] * len(fig.data)}],
+        label=f"{pasos_x[i]:.1f}"
+    )
+    step["args"][0]["visible"][i] = True  
+    steps.append(step)
+
+sliders = [dict(active=0, currentvalue={"prefix": "Posición X: "}, pad={"t": 50}, steps=steps)]
+
+fig.update_layout(sliders=sliders, xaxis_range=[-5,5], yaxis_range=[-5,5], height=600)
+fig.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[4], line 24[0m
+[1;32m     21[0m     Ey [38;5;241m=[39m k [38;5;241m*[39m [38;5;241m1e-6[39m [38;5;241m*[39m dy [38;5;241m/[39m r_safe[38;5;241m*[39m[38;5;241m*[39m[38;5;241m3[39m
+[1;32m     23[0m     [38;5;66;03m# Añadir flechas y la bolita de la carga[39;00m
+[0;32m---> 24[0m     fig[38;5;241m.[39madd_trace([43mgo[49m[38;5;241;43m.[39;49m[43mQuiver[49m(
+[1;32m     25[0m         x[38;5;241m=[39mX, y[38;5;241m=[39mY, u[38;5;241m=[39mEx, v[38;5;241m=[39mEy, 
+[1;32m     26[0m         scale[38;5;241m=[39m[38;5;241m0.1[39m, arrow_scale[38;5;241m=[39m[38;5;241m.4[39m, name[38;5;241m=[39m[38;5;124mf[39m[38;5;124m"[39m[38;5;124mpos_[39m[38;5;132;01m{[39;00mxc[38;5;132;01m}[39;00m[38;5;124m"[39m, visible[38;5;241m=[39m[38;5;28;01mFalse[39;00m
+[1;32m     27[0m     ))
+[1;32m     29[0m [38;5;66;03m# Hacer visible el primer frame[39;00m
+[1;32m     30[0m fig[38;5;241m.[39mdata[[38;5;241m0[39m][38;5;241m.[39mvisible [38;5;241m=[39m [38;5;28;01mTrue[39;00m
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/plotly/graph_objects/__init__.py:299[0m, in [0;36m__getattr__[0;34m(import_name)[0m
+[1;32m    295[0m         [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmissing_ipywidgets[39;00m [38;5;28;01mimport[39;00m FigureWidget
+[1;32m    297[0m         [38;5;28;01mreturn[39;00m FigureWidget
+[0;32m--> 299[0m [38;5;28;01mreturn[39;00m [43morig_getattr[49m[43m([49m[43mimport_name[49m[43m)[49m
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/_plotly_utils/importers.py:39[0m, in [0;36mrelative_import.<locals>.__getattr__[0;34m(import_name)[0m
+[1;32m     36[0m     class_module [38;5;241m=[39m importlib[38;5;241m.[39mimport_module(rel_module, parent_name)
+[1;32m     37[0m     [38;5;28;01mreturn[39;00m [38;5;28mgetattr[39m(class_module, class_name)
+[0;32m---> 39[0m [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(
+[1;32m     40[0m     [38;5;124m"[39m[38;5;124mmodule [39m[38;5;132;01m{__name__!r}[39;00m[38;5;124m has no attribute [39m[38;5;132;01m{name!r}[39;00m[38;5;124m"[39m[38;5;241m.[39mformat(
+[1;32m     41[0m         name[38;5;241m=[39mimport_name, [38;5;18m__name__[39m[38;5;241m=[39mparent_name
+[1;32m     42[0m     )
+[1;32m     43[0m )
+
+[0;31mAttributeError[0m: module 'plotly.graph_objects' has no attribute 'Quiver'
+AttributeError: module 'plotly.graph_objects' has no attribute 'Quiver'
+
