@@ -467,7 +467,6 @@ document.write(`
 <h2>Problema: Campo eléctrico generado por una barra uniforme<a class="headerlink" href="#problema-campo-electrico-generado-por-una-barra-uniforme" title="Permalink to this heading">#</a></h2>
 <p>Una barra uniforme de largo <span class="math notranslate nohighlight">\(L\)</span> y densidad de carga lineal <span class="math notranslate nohighlight">\(\lambda\)</span> se encuentra ubicada en el eje horizontal. Se desea calcular el campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> que esta barra ejerce sobre un punto <span class="math notranslate nohighlight">\(P\)</span> ubicado a una distancia <span class="math notranslate nohighlight">\(d\)</span> de uno de sus extremos, como se indica en la figura.</p>
 <a class="reference internal image-reference" href="_images/01_08.svg"><img alt="Barra uniforme" class="align-center" src="_images/01_08.svg" width="80%" /></a>
-<p><strong>Preguntas de Comprensión:</strong></p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -523,8 +522,8 @@ document.write(`
 <span class="s2">    }</span>
 <span class="s2">&lt;/style&gt;</span>
 
-<span class="s2">&lt;h3&gt;Preguntas de Comprensión (Antes de la Resolución)&lt;/h3&gt;</span>
-<span class="s2">&lt;p&gt;Estas preguntas están diseñadas para evaluar la comprensión de los conceptos fundamentales necesarios para abordar el problema de la fuerza eléctrica sobre una carga puntual debido a una barra cargada.&lt;/p&gt;</span>
+<span class="s2">&lt;h3&gt;Preguntas de Comprensión:&lt;/h3&gt;</span>
+<span class="s2">&lt;p&gt;Estas preguntas están diseñadas para evaluar la comprensión de los conceptos fundamentales necesarios para abordar el problema del campo eléctrico sobre un punto en el espacio debido a una barra cargada.&lt;/p&gt;</span>
 
 <span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-1&quot;&gt;</span>
 <span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
@@ -552,10 +551,10 @@ document.write(`
 
 <span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-2&quot;&gt;</span>
 <span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
-<span class="s2">        2. Si la barra se extiende desde &lt;i&gt;x&lt;/i&gt; = 0 hasta &lt;i&gt;x&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt;, y la carga puntual &lt;i&gt;q&lt;/i&gt; se encuentra en &lt;i&gt;x&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;, ¿cuál es el vector de posición &lt;b&gt;r&lt;/b&gt;&#39; de un elemento infinitesimal de carga &lt;i&gt;dq&#39;&lt;/i&gt; ubicado en un punto genérico &lt;i&gt;x&lt;/i&gt; de la barra?</span>
+<span class="s2">        2. Si la barra se extiende desde &lt;i&gt;x&lt;/i&gt; = 0 hasta &lt;i&gt;x&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt;, y el punto &lt;i&gt;P&lt;/i&gt; se encuentra en &lt;i&gt;x&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;, ¿cuál es el vector de posición &lt;b&gt;r&lt;/b&gt;&#39; de un elemento infinitesimal de carga &lt;i&gt;dq&#39;&lt;/i&gt; ubicado en un punto genérico &lt;i&gt;x&lt;/i&gt; de la barra?</span>
 <span class="s2">    &lt;/div&gt;</span>
 <span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
-<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Ese es el vector de posición de la carga puntual que siente la fuerza, no de la fuente.&quot;&gt; </span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Ese es el vector de posición del punto &lt;i&gt;P&lt;/i&gt;, no de la fuente.&quot;&gt; </span>
 <span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt;&#39; = (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
 <span class="s2">    &lt;/label&gt;</span>
 <span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
@@ -563,11 +562,11 @@ document.write(`
 <span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt;&#39; = &lt;i&gt;x&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
 <span class="s2">    &lt;/label&gt;</span>
 <span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
-<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Esa expresión representa la distancia relativa entre un punto de la barra y la carga puntual.&quot;&gt; </span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Esa expresión representa la distancia relativa entre un punto de la barra y el punto &lt;i&gt;P&lt;/i&gt;.&quot;&gt; </span>
 <span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt;&#39; = (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt; - &lt;i&gt;x&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
 <span class="s2">    &lt;/label&gt;</span>
 <span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
-<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Esa es solo la distancia entre el final de la barra y la carga puntual.&quot;&gt; </span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Esa es solo la distancia entre el final de la barra y el punto &lt;i&gt;P&lt;/i&gt;.&quot;&gt; </span>
 <span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt;&#39; = &lt;i&gt;d&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
 <span class="s2">    &lt;/label&gt;</span>
 <span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-b2&quot;&gt;Comprobar&lt;/button&gt;</span>
@@ -576,7 +575,7 @@ document.write(`
 
 <span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-3&quot;&gt;</span>
 <span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
-<span class="s2">        3. ¿Cuál es el vector de posición &lt;b&gt;r&lt;/b&gt; de la carga puntual &lt;i&gt;q&lt;/i&gt; en el sistema de coordenadas definido?</span>
+<span class="s2">        3. ¿Cuál es el vector de posición &lt;b&gt;r&lt;/b&gt; del punto &lt;i&gt;P&lt;/i&gt; en el sistema de coordenadas definido?</span>
 <span class="s2">    &lt;/div&gt;</span>
 <span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
 <span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb3&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Ese es el vector que apunta a un elemento de la barra (la fuente).&quot;&gt; </span>
@@ -600,7 +599,7 @@ document.write(`
 
 <span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-4&quot;&gt;</span>
 <span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
-<span class="s2">        4. ¿Cuál es la expresión del vector (&lt;b&gt;r&lt;/b&gt; - &lt;b&gt;r&lt;/b&gt;&#39;) que conecta el elemento de carga &lt;i&gt;dq&#39;&lt;/i&gt; con la carga puntual &lt;i&gt;q&lt;/i&gt;?</span>
+<span class="s2">        4. ¿Cuál es la expresión del vector (&lt;b&gt;r&lt;/b&gt; - &lt;b&gt;r&lt;/b&gt;&#39;) que conecta el elemento de carga &lt;i&gt;dq&#39;&lt;/i&gt; con el punto &lt;i&gt;P&lt;/i&gt;?</span>
 <span class="s2">    &lt;/div&gt;</span>
 <span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
 <span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb4&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Revisa los signos al realizar la resta vectorial.&quot;&gt; </span>
@@ -624,10 +623,10 @@ document.write(`
 
 <span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-5&quot;&gt;</span>
 <span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
-<span class="s2">        5. La fuerza eléctrica sobre la carga &lt;i&gt;q&lt;/i&gt; será el resultado de la integración de las contribuciones de todos los elementos &lt;i&gt;dq&#39;&lt;/i&gt;. ¿Entre qué límites se debe realizar la integral para abarcar toda la longitud de la barra?</span>
+<span class="s2">        5. El campo eléctrico sobre el punto &lt;i&gt;P&lt;/i&gt; será el resultado de la integración de las contribuciones de todos los elementos &lt;i&gt;dq&#39;&lt;/i&gt;. ¿Entre qué límites se debe realizar la integral para abarcar toda la longitud de la barra?</span>
 <span class="s2">    &lt;/div&gt;</span>
 <span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
-<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb5&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. La distancia &lt;i&gt;d&lt;/i&gt; es donde empieza el vacío hasta la carga puntual, no la barra misma.&quot;&gt; </span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb5&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. La distancia &lt;i&gt;d&lt;/i&gt; es donde empieza el vacío hasta el punto &lt;i&gt;P&lt;/i&gt;, no la barra misma.&quot;&gt; </span>
 <span class="s2">        &lt;span&gt;De 0 a &lt;i&gt;d&lt;/i&gt;&lt;/span&gt;</span>
 <span class="s2">    &lt;/label&gt;</span>
 <span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
@@ -639,7 +638,7 @@ document.write(`
 <span class="s2">        &lt;span&gt;De 0 a &lt;i&gt;L&lt;/i&gt;&lt;/span&gt;</span>
 <span class="s2">    &lt;/label&gt;</span>
 <span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
-<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb5&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Ese sería el segmento vacío entre la barra y la carga puntual.&quot;&gt; </span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb5&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Ese sería el segmento vacío entre la barra y el punto &lt;i&gt;P&lt;/i&gt;.&quot;&gt; </span>
 <span class="s2">        &lt;span&gt;De &lt;i&gt;L&lt;/i&gt; a &lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;&lt;/span&gt;</span>
 <span class="s2">    &lt;/label&gt;</span>
 <span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-b5&quot;&gt;Comprobar&lt;/button&gt;</span>
@@ -754,8 +753,8 @@ document.write(`
     }
 </style>
 
-<h3>Preguntas de Comprensión (Antes de la Resolución)</h3>
-<p>Estas preguntas están diseñadas para evaluar la comprensión de los conceptos fundamentales necesarios para abordar el problema de la fuerza eléctrica sobre una carga puntual debido a una barra cargada.</p>
+<h3>Preguntas de Comprensión:</h3>
+<p>Estas preguntas están diseñadas para evaluar la comprensión de los conceptos fundamentales necesarios para abordar el problema del campo eléctrico sobre un punto en el espacio debido a una barra cargada.</p>
 
 <div class="fisi-quiz-container" id="quiz-bar-1">
     <div class="fisi-question">
@@ -783,10 +782,10 @@ document.write(`
 
 <div class="fisi-quiz-container" id="quiz-bar-2">
     <div class="fisi-question">
-        2. Si la barra se extiende desde <i>x</i> = 0 hasta <i>x</i> = <i>L</i>, y la carga puntual <i>q</i> se encuentra en <i>x</i> = <i>L</i> + <i>d</i>, ¿cuál es el vector de posición <b>r</b>' de un elemento infinitesimal de carga <i>dq'</i> ubicado en un punto genérico <i>x</i> de la barra?
+        2. Si la barra se extiende desde <i>x</i> = 0 hasta <i>x</i> = <i>L</i>, y el punto <i>P</i> se encuentra en <i>x</i> = <i>L</i> + <i>d</i>, ¿cuál es el vector de posición <b>r</b>' de un elemento infinitesimal de carga <i>dq'</i> ubicado en un punto genérico <i>x</i> de la barra?
     </div>
     <label class="fisi-option">
-        <input type="radio" name="qb2" value="a" data-fb="Incorrecto. Ese es el vector de posición de la carga puntual que siente la fuerza, no de la fuente."> 
+        <input type="radio" name="qb2" value="a" data-fb="Incorrecto. Ese es el vector de posición del punto <i>P</i>, no de la fuente."> 
         <span><b>r</b>' = (<i>L</i> + <i>d</i>)<b>î</b></span>
     </label>
     <label class="fisi-option">
@@ -794,11 +793,11 @@ document.write(`
         <span><b>r</b>' = <i>x</i><b>î</b></span>
     </label>
     <label class="fisi-option">
-        <input type="radio" name="qb2" value="c" data-fb="Incorrecto. Esa expresión representa la distancia relativa entre un punto de la barra y la carga puntual."> 
+        <input type="radio" name="qb2" value="c" data-fb="Incorrecto. Esa expresión representa la distancia relativa entre un punto de la barra y el punto <i>P</i>."> 
         <span><b>r</b>' = (<i>L</i> + <i>d</i> - <i>x</i>)<b>î</b></span>
     </label>
     <label class="fisi-option">
-        <input type="radio" name="qb2" value="d" data-fb="Incorrecto. Esa es solo la distancia entre el final de la barra y la carga puntual."> 
+        <input type="radio" name="qb2" value="d" data-fb="Incorrecto. Esa es solo la distancia entre el final de la barra y el punto <i>P</i>."> 
         <span><b>r</b>' = <i>d</i><b>î</b></span>
     </label>
     <button class="fisi-check-btn" id="btn-check-b2">Comprobar</button>
@@ -807,7 +806,7 @@ document.write(`
 
 <div class="fisi-quiz-container" id="quiz-bar-3">
     <div class="fisi-question">
-        3. ¿Cuál es el vector de posición <b>r</b> de la carga puntual <i>q</i> en el sistema de coordenadas definido?
+        3. ¿Cuál es el vector de posición <b>r</b> del punto <i>P</i> en el sistema de coordenadas definido?
     </div>
     <label class="fisi-option">
         <input type="radio" name="qb3" value="a" data-fb="Incorrecto. Ese es el vector que apunta a un elemento de la barra (la fuente)."> 
@@ -831,7 +830,7 @@ document.write(`
 
 <div class="fisi-quiz-container" id="quiz-bar-4">
     <div class="fisi-question">
-        4. ¿Cuál es la expresión del vector (<b>r</b> - <b>r</b>') que conecta el elemento de carga <i>dq'</i> con la carga puntual <i>q</i>?
+        4. ¿Cuál es la expresión del vector (<b>r</b> - <b>r</b>') que conecta el elemento de carga <i>dq'</i> con el punto <i>P</i>?
     </div>
     <label class="fisi-option">
         <input type="radio" name="qb4" value="a" data-fb="Incorrecto. Revisa los signos al realizar la resta vectorial."> 
@@ -855,10 +854,10 @@ document.write(`
 
 <div class="fisi-quiz-container" id="quiz-bar-5">
     <div class="fisi-question">
-        5. La fuerza eléctrica sobre la carga <i>q</i> será el resultado de la integración de las contribuciones de todos los elementos <i>dq'</i>. ¿Entre qué límites se debe realizar la integral para abarcar toda la longitud de la barra?
+        5. El campo eléctrico sobre el punto <i>P</i> será el resultado de la integración de las contribuciones de todos los elementos <i>dq'</i>. ¿Entre qué límites se debe realizar la integral para abarcar toda la longitud de la barra?
     </div>
     <label class="fisi-option">
-        <input type="radio" name="qb5" value="a" data-fb="Incorrecto. La distancia <i>d</i> es donde empieza el vacío hasta la carga puntual, no la barra misma."> 
+        <input type="radio" name="qb5" value="a" data-fb="Incorrecto. La distancia <i>d</i> es donde empieza el vacío hasta el punto <i>P</i>, no la barra misma."> 
         <span>De 0 a <i>d</i></span>
     </label>
     <label class="fisi-option">
@@ -870,7 +869,7 @@ document.write(`
         <span>De 0 a <i>L</i></span>
     </label>
     <label class="fisi-option">
-        <input type="radio" name="qb5" value="d" data-fb="Incorrecto. Ese sería el segmento vacío entre la barra y la carga puntual."> 
+        <input type="radio" name="qb5" value="d" data-fb="Incorrecto. Ese sería el segmento vacío entre la barra y el punto <i>P</i>."> 
         <span>De <i>L</i> a <i>L</i> + <i>d</i></span>
     </label>
     <button class="fisi-check-btn" id="btn-check-b5">Comprobar</button>
