@@ -783,7 +783,7 @@ document.write(`
 <span class="n">codigo_sonido</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">&lt;div style=&quot;background-color: #f0f8ff; border-left: 6px solid #2196F3; padding: 20px; border-radius: 8px; font-family: sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1);&quot;&gt;</span>
 <span class="s1">    &lt;h3 style=&quot;color: #0d47a1; margin-top: 0;&quot;&gt;🎧 Experimento: Escucha el Campo Eléctrico&lt;/h3&gt;</span>
-<span class="s1">    &lt;p&gt;Mueve la &quot;Carga de Prueba&quot; hacia la izquierda. El sonido representa la intensidad del campo ($E </span><span class="se">\\</span><span class="s1">propto 1/r^2$).&lt;/p&gt;</span>
+<span class="s1">    &lt;p&gt;Mueve la &quot;Carga de Prueba&quot; hacia la izquierda. El sonido representa la intensidad del campo eléctrico.&lt;/p&gt;</span>
 
 <span class="s1">    &lt;div style=&quot;display: flex; align-items: center; gap: 15px; margin: 20px 0;&quot;&gt;</span>
 <span class="s1">        &lt;button id=&quot;btnAudio&quot; onclick=&quot;toggleAudio()&quot; style=&quot;background-color: #2196F3; color: white; border: none; padding: 10px 24px; border-radius: 50px; cursor: pointer; font-weight: bold; transition: all 0.3s;&quot;&gt;</span>
@@ -792,7 +792,7 @@ document.write(`
 <span class="s1">        &lt;span id=&quot;statusText&quot; style=&quot;color: #666; font-style: italic;&quot;&gt;Silencio&lt;/span&gt;</span>
 <span class="s1">    &lt;/div&gt;</span>
 
-<span class="s1">    &lt;label style=&quot;font-weight: bold; color: #333;&quot;&gt;Distancia ($r$):&lt;/label&gt;</span>
+<span class="s1">    &lt;label style=&quot;font-weight: bold; color: #333;&quot;&gt;Distancia (r):&lt;/label&gt;</span>
 <span class="s1">    &lt;input type=&quot;range&quot; id=&quot;distSlider&quot; min=&quot;0.5&quot; max=&quot;10&quot; step=&quot;0.1&quot; value=&quot;5&quot; style=&quot;width: 100%; margin-top: 10px; cursor: pointer;&quot;&gt;</span>
 <span class="s1">    </span>
 <span class="s1">    &lt;p style=&quot;margin-top: 15px;&quot;&gt;Frecuencia percibida: &lt;span id=&quot;freqDisplay&quot; style=&quot;font-weight: bold; color: #2196F3; font-size: 1.2em;&quot;&gt;--- Hz&lt;/span&gt;&lt;/p&gt;</span>
@@ -886,7 +886,7 @@ document.write(`
 <div class="output text_html">
 <div style="background-color: #f0f8ff; border-left: 6px solid #2196F3; padding: 20px; border-radius: 8px; font-family: sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
     <h3 style="color: #0d47a1; margin-top: 0;">🎧 Experimento: Escucha el Campo Eléctrico</h3>
-    <p>Mueve la "Carga de Prueba" hacia la izquierda. El sonido representa la intensidad del campo ($E \propto 1/r^2$).</p>
+    <p>Mueve la "Carga de Prueba" hacia la izquierda. El sonido representa la intensidad del campo eléctrico.</p>
 
     <div style="display: flex; align-items: center; gap: 15px; margin: 20px 0;">
         <button id="btnAudio" onclick="toggleAudio()" style="background-color: #2196F3; color: white; border: none; padding: 10px 24px; border-radius: 50px; cursor: pointer; font-weight: bold; transition: all 0.3s;">
@@ -895,7 +895,7 @@ document.write(`
         <span id="statusText" style="color: #666; font-style: italic;">Silencio</span>
     </div>
 
-    <label style="font-weight: bold; color: #333;">Distancia ($r$):</label>
+    <label style="font-weight: bold; color: #333;">Distancia (r):</label>
     <input type="range" id="distSlider" min="0.5" max="10" step="0.1" value="5" style="width: 100%; margin-top: 10px; cursor: pointer;">
     
     <p style="margin-top: 15px;">Frecuencia percibida: <span id="freqDisplay" style="font-weight: bold; color: #2196F3; font-size: 1.2em;">--- Hz</span></p>
