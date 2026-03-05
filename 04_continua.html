@@ -111,8 +111,8 @@ const thebe_selector_output = ".output, .cell_output"
          class="form-control"
          name="q"
          id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
+         placeholder="Search..."
+         aria-label="Search..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -161,14 +161,6 @@ const thebe_selector_output = ".output, .cell_output"
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    Bienvenidos al Curso de Electricidad y Magnetismo
-                </a>
-            </li>
-        </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_carga.html">Carga Eléctrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_coulomb.html">Ley de Coulomb</a></li>
@@ -215,84 +207,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/jmpintog1/libro-fisica-vivo/blob/main/./04_continua.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onColab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/jmpintog1/libro-fisica-vivo" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/jmpintog1/libro-fisica-vivo/issues/new?title=Issue%20on%20page%20%2F04_continua.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -402,6 +316,14 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guia-rapida-cual-densidad-utilizar">Guía rápida: ¿Cuál densidad utilizar?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-campo-electrico-generado-por-una-barra-uniforme">Problema: Campo eléctrico generado por una barra uniforme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-analitica-fuerza-y-campo-de-una-barra-cargada">📝 Resolución Analítica: Fuerza y Campo de una Barra Cargada</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">1. Identificación de los Vectores y Diferenciales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">2. Planteamiento de la Integral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica">3. Resolución Matemática</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final-del-campo-electrico">4. Resultado Final del Campo Eléctrico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fuerza-sobre-la-carga-q">5. Fuerza sobre la carga <span class="math notranslate nohighlight">\(q\)</span></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -1444,6 +1366,62 @@ document.write(`
 </div></div>
 </div>
 </section>
+<section id="resolucion-analitica-fuerza-y-campo-de-una-barra-cargada">
+<h2>📝 Resolución Analítica: Fuerza y Campo de una Barra Cargada<a class="headerlink" href="#resolucion-analitica-fuerza-y-campo-de-una-barra-cargada" title="Permalink to this heading">#</a></h2>
+<p>A continuación, formalizaremos matemáticamente el problema que acabamos de analizar. Nuestro objetivo es calcular el campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> y la fuerza <span class="math notranslate nohighlight">\(\vec{F}\)</span> sobre una carga de prueba <span class="math notranslate nohighlight">\(q\)</span> ubicada a una distancia <span class="math notranslate nohighlight">\(d\)</span> del extremo derecho de una barra cargada uniformemente.</p>
+<section id="identificacion-de-los-vectores-y-diferenciales">
+<h3>1. Identificación de los Vectores y Diferenciales<a class="headerlink" href="#identificacion-de-los-vectores-y-diferenciales" title="Permalink to this heading">#</a></h3>
+<p>De acuerdo con nuestro sistema de referencia, la barra se encuentra sobre el eje <span class="math notranslate nohighlight">\(x\)</span>, comenzando en el origen (<span class="math notranslate nohighlight">\(x=0\)</span>) y terminando en <span class="math notranslate nohighlight">\(x=L\)</span>. La carga puntual se ubica en <span class="math notranslate nohighlight">\(x = L+d\)</span>.</p>
+<p>Rescatando las respuestas de nuestro análisis previo:</p>
+<ul class="simple">
+<li><p><strong>Diferencial de carga de la fuente:</strong> <span class="math notranslate nohighlight">\(dq' = \lambda dx\)</span></p></li>
+<li><p><strong>Vector de posición de la fuente:</strong> <span class="math notranslate nohighlight">\(\vec{r}' = x\hat{\imath}\)</span></p></li>
+<li><p><strong>Vector de posición de observación:</strong> <span class="math notranslate nohighlight">\(\vec{r} = (L+d)\hat{\imath}\)</span></p></li>
+<li><p><strong>Vector diferencia (distancia relativa):</strong> <span class="math notranslate nohighlight">\(\vec{r} - \vec{r}' = (L+d-x)\hat{\imath}\)</span></p></li>
+</ul>
+</section>
+<section id="planteamiento-de-la-integral">
+<h3>2. Planteamiento de la Integral<a class="headerlink" href="#planteamiento-de-la-integral" title="Permalink to this heading">#</a></h3>
+<p>Partimos de la definición general para el campo eléctrico generado por una distribución continua:</p>
+<div class="math notranslate nohighlight">
+\[d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{dq'}{|\vec{r} - \vec{r}'|^3} (\vec{r} - \vec{r}')\]</div>
+<p>Reemplazamos nuestros términos específicos:</p>
+<div class="math notranslate nohighlight">
+\[d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{\lambda dx}{(L+d-x)^3} (L+d-x)\hat{\imath}\]</div>
+<p>Simplificando el exponente, obtenemos la expresión a integrar. Como la barra va de <span class="math notranslate nohighlight">\(x=0\)</span> a <span class="math notranslate nohighlight">\(x=L\)</span>, esos serán nuestros límites de integración:</p>
+<div class="math notranslate nohighlight">
+\[\vec{E} = \frac{\lambda}{4\pi\epsilon_0} \int_{0}^{L} \frac{dx}{(L+d-x)^2} \hat{\imath}\]</div>
+</section>
+<section id="resolucion-matematica">
+<h3>3. Resolución Matemática<a class="headerlink" href="#resolucion-matematica" title="Permalink to this heading">#</a></h3>
+<p>Para resolver la integral, podemos hacer una sustitución simple.
+Sea <span class="math notranslate nohighlight">\(u = L+d-x\)</span>, entonces <span class="math notranslate nohighlight">\(du = -dx\)</span>.
+Los límites cambian: si <span class="math notranslate nohighlight">\(x=0 \rightarrow u=L+d\)</span>; si <span class="math notranslate nohighlight">\(x=L \rightarrow u=d\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\int \frac{dx}{(L+d-x)^2} = \int_{L+d}^{d} \frac{-du}{u^2} = \int_{d}^{L+d} u^{-2} du\]</div>
+<p>Integramos aplicando la regla de la potencia:</p>
+<div class="math notranslate nohighlight">
+\[\left[ -u^{-1} \right]_{d}^{L+d} = \left[ -\frac{1}{u} \right]_{d}^{L+d} = -\frac{1}{L+d} - \left(-\frac{1}{d}\right) = \frac{1}{d} - \frac{1}{L+d}\]</div>
+<p>Si operamos las fracciones algebraicamente para tener un denominador común:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{d} - \frac{1}{L+d} = \frac{(L+d) - d}{d(L+d)} = \frac{L}{d(L+d)}\]</div>
+</section>
+<section id="resultado-final-del-campo-electrico">
+<h3>4. Resultado Final del Campo Eléctrico<a class="headerlink" href="#resultado-final-del-campo-electrico" title="Permalink to this heading">#</a></h3>
+<p>Sustituyendo el resultado de la integral en nuestra ecuación del campo:</p>
+<div class="math notranslate nohighlight">
+\[\vec{E} = \frac{\lambda L}{4\pi\epsilon_0 d(L+d)} \hat{\imath}\]</div>
+<blockquote>
+<div><p><strong>💡 Análisis físico:</strong> Nota que <span class="math notranslate nohighlight">\(\lambda L\)</span> es simplemente la carga total de la barra (<span class="math notranslate nohighlight">\(Q\)</span>). Por lo tanto, el campo también se puede escribir como <span class="math notranslate nohighlight">\(\vec{E} = \frac{Q}{4\pi\epsilon_0 d(L+d)} \hat{\imath}\)</span>. Si nos alejamos mucho de la barra (<span class="math notranslate nohighlight">\(d \gg L\)</span>), el término <span class="math notranslate nohighlight">\((L+d)\)</span> se aproxima a <span class="math notranslate nohighlight">\(d\)</span>, y la fórmula se reduce a <span class="math notranslate nohighlight">\(\frac{Q}{4\pi\epsilon_0 d^2}\)</span>, ¡exactamente el campo de una carga puntual!</p>
+</div></blockquote>
+</section>
+<section id="fuerza-sobre-la-carga-q">
+<h3>5. Fuerza sobre la carga <span class="math notranslate nohighlight">\(q\)</span><a class="headerlink" href="#fuerza-sobre-la-carga-q" title="Permalink to this heading">#</a></h3>
+<p>Finalmente, la fuerza eléctrica neta sobre la carga puntual <span class="math notranslate nohighlight">\(q\)</span> se obtiene mediante la relación <span class="math notranslate nohighlight">\(\vec{F} = q\vec{E}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\vec{F} = \frac{q \lambda L}{4\pi\epsilon_0 d(L+d)} \hat{\imath}\]</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1502,6 +1480,14 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guia-rapida-cual-densidad-utilizar">Guía rápida: ¿Cuál densidad utilizar?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-campo-electrico-generado-por-una-barra-uniforme">Problema: Campo eléctrico generado por una barra uniforme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-analitica-fuerza-y-campo-de-una-barra-cargada">📝 Resolución Analítica: Fuerza y Campo de una Barra Cargada</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">1. Identificación de los Vectores y Diferenciales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">2. Planteamiento de la Integral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica">3. Resolución Matemática</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final-del-campo-electrico">4. Resultado Final del Campo Eléctrico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fuerza-sobre-la-carga-q">5. Fuerza sobre la carga <span class="math notranslate nohighlight">\(q\)</span></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
