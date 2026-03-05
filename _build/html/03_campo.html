@@ -770,6 +770,216 @@ document.write(`
 </div>
 </div></div>
 </div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="c1"># Usamos triple comilla simple (&#39;&#39;&#39;) para poder pegar el HTML tal cual</span>
+<span class="n">codigo_sonido</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;div style=&quot;background-color: #f0f8ff; border-left: 6px solid #2196F3; padding: 20px; border-radius: 8px; font-family: sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1);&quot;&gt;</span>
+<span class="s1">    &lt;h3 style=&quot;color: #0d47a1; margin-top: 0;&quot;&gt;🎧 Experimento: Escucha el Campo Eléctrico&lt;/h3&gt;</span>
+<span class="s1">    &lt;p&gt;Mueve la &quot;Carga de Prueba&quot; hacia la izquierda. El sonido representa la intensidad del campo ($E </span><span class="se">\\</span><span class="s1">propto 1/r^2$).&lt;/p&gt;</span>
+
+<span class="s1">    &lt;div style=&quot;display: flex; align-items: center; gap: 15px; margin: 20px 0;&quot;&gt;</span>
+<span class="s1">        &lt;button id=&quot;btnAudio&quot; onclick=&quot;toggleAudio()&quot; style=&quot;background-color: #2196F3; color: white; border: none; padding: 10px 24px; border-radius: 50px; cursor: pointer; font-weight: bold; transition: all 0.3s;&quot;&gt;</span>
+<span class="s1">            ▶️ Activar Sonido</span>
+<span class="s1">        &lt;/button&gt;</span>
+<span class="s1">        &lt;span id=&quot;statusText&quot; style=&quot;color: #666; font-style: italic;&quot;&gt;Silencio&lt;/span&gt;</span>
+<span class="s1">    &lt;/div&gt;</span>
+
+<span class="s1">    &lt;label style=&quot;font-weight: bold; color: #333;&quot;&gt;Distancia ($r$):&lt;/label&gt;</span>
+<span class="s1">    &lt;input type=&quot;range&quot; id=&quot;distSlider&quot; min=&quot;0.5&quot; max=&quot;10&quot; step=&quot;0.1&quot; value=&quot;5&quot; style=&quot;width: 100%; margin-top: 10px; cursor: pointer;&quot;&gt;</span>
+<span class="s1">    </span>
+<span class="s1">    &lt;p style=&quot;margin-top: 15px;&quot;&gt;Frecuencia percibida: &lt;span id=&quot;freqDisplay&quot; style=&quot;font-weight: bold; color: #2196F3; font-size: 1.2em;&quot;&gt;--- Hz&lt;/span&gt;&lt;/p&gt;</span>
+
+<span class="s1">    &lt;script&gt;</span>
+<span class="s1">        var audioCtx_v2;</span>
+<span class="s1">        var oscillator_v2;</span>
+<span class="s1">        var gainNode_v2;</span>
+<span class="s1">        var isPlaying_v2 = false;</span>
+
+<span class="s1">        function initAudio() {</span>
+<span class="s1">            if (!audioCtx_v2) {</span>
+<span class="s1">                audioCtx_v2 = new (window.AudioContext || window.webkitAudioContext)();</span>
+<span class="s1">            }</span>
+<span class="s1">        }</span>
+
+<span class="s1">        function toggleAudio() {</span>
+<span class="s1">            initAudio();</span>
+<span class="s1">            var btn = document.getElementById(&quot;btnAudio&quot;);</span>
+<span class="s1">            var status = document.getElementById(&quot;statusText&quot;);</span>
+
+<span class="s1">            if (isPlaying_v2) {</span>
+<span class="s1">                // Detener suavemente</span>
+<span class="s1">                var now = audioCtx_v2.currentTime;</span>
+<span class="s1">                gainNode_v2.gain.exponentialRampToValueAtTime(0.001, now + 0.1);</span>
+<span class="s1">                oscillator_v2.stop(now + 0.1);</span>
+<span class="s1">                </span>
+<span class="s1">                btn.innerHTML = &quot;▶️ Activar Sonido&quot;;</span>
+<span class="s1">                btn.style.backgroundColor = &quot;#2196F3&quot;;</span>
+<span class="s1">                status.innerHTML = &quot;Silencio&quot;;</span>
+<span class="s1">                isPlaying_v2 = false;</span>
+<span class="s1">            } else {</span>
+<span class="s1">                // Iniciar</span>
+<span class="s1">                oscillator_v2 = audioCtx_v2.createOscillator();</span>
+<span class="s1">                gainNode_v2 = audioCtx_v2.createGain();</span>
+
+<span class="s1">                oscillator_v2.type = &#39;sine&#39;;</span>
+<span class="s1">                oscillator_v2.connect(gainNode_v2);</span>
+<span class="s1">                gainNode_v2.connect(audioCtx_v2.destination);</span>
+<span class="s1">                </span>
+<span class="s1">                // Volumen inicial bajo para no asustar</span>
+<span class="s1">                gainNode_v2.gain.setValueAtTime(0.1, audioCtx_v2.currentTime);</span>
+<span class="s1">                </span>
+<span class="s1">                updateSound(); </span>
+<span class="s1">                oscillator_v2.start();</span>
+<span class="s1">                </span>
+<span class="s1">                btn.innerHTML = &quot;⏹ Detener&quot;;</span>
+<span class="s1">                btn.style.backgroundColor = &quot;#ef5350&quot;; // Rojo suave</span>
+<span class="s1">                status.innerHTML = &quot;🔊 Emitiendo señal...&quot;;</span>
+<span class="s1">                isPlaying_v2 = true;</span>
+<span class="s1">            }</span>
+<span class="s1">        }</span>
+
+<span class="s1">        function updateSound() {</span>
+<span class="s1">            if (!isPlaying_v2) return;</span>
+
+<span class="s1">            var r = parseFloat(document.getElementById(&quot;distSlider&quot;).value);</span>
+<span class="s1">            </span>
+<span class="s1">            // Física: f = Base + (Constante / r^2)</span>
+<span class="s1">            // Cuando r es pequeño (cerca), el denominador es pequeño -&gt; frecuencia explota</span>
+<span class="s1">            var frecuencia = 150 + (3000 / (r * r)); </span>
+<span class="s1">            </span>
+<span class="s1">            // Limitador de seguridad para oídos (máx 1500Hz)</span>
+<span class="s1">            if (frecuencia &gt; 1500) frecuencia = 1500;</span>
+
+<span class="s1">            // Transición suave de frecuencia (para que no suene &quot;robótico&quot;)</span>
+<span class="s1">            oscillator_v2.frequency.setTargetAtTime(frecuencia, audioCtx_v2.currentTime, 0.1);</span>
+<span class="s1">            </span>
+<span class="s1">            // También aumentamos el volumen al acercarse</span>
+<span class="s1">            var volumen = 0.5 / (r * 0.5); </span>
+<span class="s1">            if (volumen &gt; 1) volumen = 1;</span>
+<span class="s1">            gainNode_v2.gain.setTargetAtTime(volumen, audioCtx_v2.currentTime, 0.1);</span>
+
+<span class="s1">            document.getElementById(&quot;freqDisplay&quot;).innerHTML = Math.round(frecuencia) + &quot; Hz&quot;;</span>
+<span class="s1">        }</span>
+
+<span class="s1">        // Listener para el slider</span>
+<span class="s1">        var slider = document.getElementById(&quot;distSlider&quot;);</span>
+<span class="s1">        slider.removeEventListener(&quot;input&quot;, updateSound); // Limpiar previos</span>
+<span class="s1">        slider.addEventListener(&quot;input&quot;, updateSound);</span>
+<span class="s1">    &lt;/script&gt;</span>
+<span class="s1">&lt;/div&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="n">codigo_sonido</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div style="background-color: #f0f8ff; border-left: 6px solid #2196F3; padding: 20px; border-radius: 8px; font-family: sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <h3 style="color: #0d47a1; margin-top: 0;">🎧 Experimento: Escucha el Campo Eléctrico</h3>
+    <p>Mueve la "Carga de Prueba" hacia la izquierda. El sonido representa la intensidad del campo ($E \propto 1/r^2$).</p>
+
+    <div style="display: flex; align-items: center; gap: 15px; margin: 20px 0;">
+        <button id="btnAudio" onclick="toggleAudio()" style="background-color: #2196F3; color: white; border: none; padding: 10px 24px; border-radius: 50px; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+            ▶️ Activar Sonido
+        </button>
+        <span id="statusText" style="color: #666; font-style: italic;">Silencio</span>
+    </div>
+
+    <label style="font-weight: bold; color: #333;">Distancia ($r$):</label>
+    <input type="range" id="distSlider" min="0.5" max="10" step="0.1" value="5" style="width: 100%; margin-top: 10px; cursor: pointer;">
+    
+    <p style="margin-top: 15px;">Frecuencia percibida: <span id="freqDisplay" style="font-weight: bold; color: #2196F3; font-size: 1.2em;">--- Hz</span></p>
+
+    <script>
+        var audioCtx_v2;
+        var oscillator_v2;
+        var gainNode_v2;
+        var isPlaying_v2 = false;
+
+        function initAudio() {
+            if (!audioCtx_v2) {
+                audioCtx_v2 = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function toggleAudio() {
+            initAudio();
+            var btn = document.getElementById("btnAudio");
+            var status = document.getElementById("statusText");
+
+            if (isPlaying_v2) {
+                // Detener suavemente
+                var now = audioCtx_v2.currentTime;
+                gainNode_v2.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+                oscillator_v2.stop(now + 0.1);
+                
+                btn.innerHTML = "▶️ Activar Sonido";
+                btn.style.backgroundColor = "#2196F3";
+                status.innerHTML = "Silencio";
+                isPlaying_v2 = false;
+            } else {
+                // Iniciar
+                oscillator_v2 = audioCtx_v2.createOscillator();
+                gainNode_v2 = audioCtx_v2.createGain();
+
+                oscillator_v2.type = 'sine';
+                oscillator_v2.connect(gainNode_v2);
+                gainNode_v2.connect(audioCtx_v2.destination);
+                
+                // Volumen inicial bajo para no asustar
+                gainNode_v2.gain.setValueAtTime(0.1, audioCtx_v2.currentTime);
+                
+                updateSound(); 
+                oscillator_v2.start();
+                
+                btn.innerHTML = "⏹ Detener";
+                btn.style.backgroundColor = "#ef5350"; // Rojo suave
+                status.innerHTML = "🔊 Emitiendo señal...";
+                isPlaying_v2 = true;
+            }
+        }
+
+        function updateSound() {
+            if (!isPlaying_v2) return;
+
+            var r = parseFloat(document.getElementById("distSlider").value);
+            
+            // Física: f = Base + (Constante / r^2)
+            // Cuando r es pequeño (cerca), el denominador es pequeño -> frecuencia explota
+            var frecuencia = 150 + (3000 / (r * r)); 
+            
+            // Limitador de seguridad para oídos (máx 1500Hz)
+            if (frecuencia > 1500) frecuencia = 1500;
+
+            // Transición suave de frecuencia (para que no suene "robótico")
+            oscillator_v2.frequency.setTargetAtTime(frecuencia, audioCtx_v2.currentTime, 0.1);
+            
+            // También aumentamos el volumen al acercarse
+            var volumen = 0.5 / (r * 0.5); 
+            if (volumen > 1) volumen = 1;
+            gainNode_v2.gain.setTargetAtTime(volumen, audioCtx_v2.currentTime, 0.1);
+
+            document.getElementById("freqDisplay").innerHTML = Math.round(frecuencia) + " Hz";
+        }
+
+        // Listener para el slider
+        var slider = document.getElementById("distSlider");
+        slider.removeEventListener("input", updateSound); // Limpiar previos
+        slider.addEventListener("input", updateSound);
+    </script>
+</div>
+</div></div>
+</div>
 </section>
 </section>
 
