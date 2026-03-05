@@ -22,9 +22,9 @@ bibtex_bibfiles:
 
 # Información del repositorio (NECESARIO para que Colab encuentre tus archivos)
 repository:
-  url: https://github.com/jmpintog1/libro-fisica-vivo  # La URL de tu repo
-  path_to_book: "."  # Donde está el libro (raíz)
-  branch: main  # La rama principal
+  url: https://github.com/jmpintog1/electro  # Corregido a tu repo actual
+  path_to_book: "."  
+  branch: main
 
 # Configuración de los botones de lanzamiento
 launch_buttons:
@@ -42,4 +42,5 @@ html:
 sphinx:
   config:
     html_theme_options:
-      google_analytics_id: "G-WS812N6BJ2"
+      analytics:
+        google_analytics_id: "G-WS812N6BJ2"
