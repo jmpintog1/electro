@@ -402,12 +402,11 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guia-rapida-cual-densidad-utilizar">Guía rápida: ¿Cuál densidad utilizar?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-campo-electrico-generado-por-una-barra-uniforme">Problema: Campo eléctrico generado por una barra uniforme</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-analitica-fuerza-y-campo-de-una-barra-cargada">📝 Resolución Analítica: Fuerza y Campo de una Barra Cargada</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-analitica-campo-electrico-de-una-barra-cargada">📝 Resolución Analítica: Campo Eléctrico de una Barra Cargada</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">1. Identificación de los Vectores y Diferenciales</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">2. Planteamiento de la Integral</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica">3. Resolución Matemática</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final-del-campo-electrico">4. Resultado Final del Campo Eléctrico</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fuerza-sobre-la-carga-q">5. Fuerza sobre la carga <span class="math notranslate nohighlight">\(q\)</span></a></li>
 </ul>
 </li>
 </ul>
@@ -1452,9 +1451,9 @@ document.write(`
 </div></div>
 </div>
 </section>
-<section id="resolucion-analitica-fuerza-y-campo-de-una-barra-cargada">
-<h2>📝 Resolución Analítica: Fuerza y Campo de una Barra Cargada<a class="headerlink" href="#resolucion-analitica-fuerza-y-campo-de-una-barra-cargada" title="Permalink to this heading">#</a></h2>
-<p>A continuación, formalizaremos matemáticamente el problema que acabamos de analizar. Nuestro objetivo es calcular el campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> y la fuerza <span class="math notranslate nohighlight">\(\vec{F}\)</span> sobre una carga de prueba <span class="math notranslate nohighlight">\(q\)</span> ubicada a una distancia <span class="math notranslate nohighlight">\(d\)</span> del extremo derecho de una barra cargada uniformemente.</p>
+<section id="resolucion-analitica-campo-electrico-de-una-barra-cargada">
+<h2>📝 Resolución Analítica: Campo Eléctrico de una Barra Cargada<a class="headerlink" href="#resolucion-analitica-campo-electrico-de-una-barra-cargada" title="Permalink to this heading">#</a></h2>
+<p>A continuación, formalizaremos matemáticamente el problema que acabamos de analizar. Nuestro objetivo es calcular el campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> sobre un punto <span class="math notranslate nohighlight">\(P\)</span> ubicado a una distancia <span class="math notranslate nohighlight">\(d\)</span> del extremo derecho de una barra cargada uniformemente.</p>
 <section id="identificacion-de-los-vectores-y-diferenciales">
 <h3>1. Identificación de los Vectores y Diferenciales<a class="headerlink" href="#identificacion-de-los-vectores-y-diferenciales" title="Permalink to this heading">#</a></h3>
 <p>De acuerdo con nuestro sistema de referencia, la barra se encuentra sobre el eje <span class="math notranslate nohighlight">\(x\)</span>, comenzando en el origen (<span class="math notranslate nohighlight">\(x=0\)</span>) y terminando en <span class="math notranslate nohighlight">\(x=L\)</span>. La carga puntual se ubica en <span class="math notranslate nohighlight">\(x = L+d\)</span>.</p>
@@ -1500,12 +1499,6 @@ Los límites cambian: si <span class="math notranslate nohighlight">\(x=0 \right
 <blockquote>
 <div><p><strong>💡 Análisis físico:</strong> Nota que <span class="math notranslate nohighlight">\(\lambda L\)</span> es simplemente la carga total de la barra (<span class="math notranslate nohighlight">\(Q\)</span>). Por lo tanto, el campo también se puede escribir como <span class="math notranslate nohighlight">\(\vec{E} = \frac{Q}{4\pi\epsilon_0 d(L+d)} \hat{\imath}\)</span>. Si nos alejamos mucho de la barra (<span class="math notranslate nohighlight">\(d \gg L\)</span>), el término <span class="math notranslate nohighlight">\((L+d)\)</span> se aproxima a <span class="math notranslate nohighlight">\(d\)</span>, y la fórmula se reduce a <span class="math notranslate nohighlight">\(\frac{Q}{4\pi\epsilon_0 d^2}\)</span>, ¡exactamente el campo de una carga puntual!</p>
 </div></blockquote>
-</section>
-<section id="fuerza-sobre-la-carga-q">
-<h3>5. Fuerza sobre la carga <span class="math notranslate nohighlight">\(q\)</span><a class="headerlink" href="#fuerza-sobre-la-carga-q" title="Permalink to this heading">#</a></h3>
-<p>Finalmente, la fuerza eléctrica neta sobre la carga puntual <span class="math notranslate nohighlight">\(q\)</span> se obtiene mediante la relación <span class="math notranslate nohighlight">\(\vec{F} = q\vec{E}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\vec{F} = \frac{q \lambda L}{4\pi\epsilon_0 d(L+d)} \hat{\imath}\]</div>
 </section>
 </section>
 </section>
@@ -1566,12 +1559,11 @@ Los límites cambian: si <span class="math notranslate nohighlight">\(x=0 \right
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guia-rapida-cual-densidad-utilizar">Guía rápida: ¿Cuál densidad utilizar?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-campo-electrico-generado-por-una-barra-uniforme">Problema: Campo eléctrico generado por una barra uniforme</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-analitica-fuerza-y-campo-de-una-barra-cargada">📝 Resolución Analítica: Fuerza y Campo de una Barra Cargada</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-analitica-campo-electrico-de-una-barra-cargada">📝 Resolución Analítica: Campo Eléctrico de una Barra Cargada</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">1. Identificación de los Vectores y Diferenciales</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">2. Planteamiento de la Integral</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica">3. Resolución Matemática</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final-del-campo-electrico">4. Resultado Final del Campo Eléctrico</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fuerza-sobre-la-carga-q">5. Fuerza sobre la carga <span class="math notranslate nohighlight">\(q\)</span></a></li>
 </ul>
 </li>
 </ul>
