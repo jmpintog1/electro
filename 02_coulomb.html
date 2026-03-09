@@ -175,6 +175,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Ley de Coulomb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_campo.html">Campo Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_continua.html">Distribución de Carga</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_anillo.html">Campo eléctrico en el centro de un anillo uniformemente cargado</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06_disco.html">💿 Campo Eléctrico de un Disco Cargado Uniformemente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_alambre.html">➖ Campo Eléctrico de un Alambre Infinito</a></li>
 </ul>
 
     </div>
@@ -1421,6 +1425,59 @@ document.write(`
 </script>
 </div></div>
 </div>
+<p><strong>Solución:</strong></p>
+<p>Para que la fuerza neta sobre la carga <span class="math notranslate nohighlight">\(q_3\)</span> sea nula, la fuerza ejercida por <span class="math notranslate nohighlight">\(q_1\)</span> sobre <span class="math notranslate nohighlight">\(q_3\)</span> (<span class="math notranslate nohighlight">\(\vec{F}_{31}\)</span>) y la fuerza ejercida por <span class="math notranslate nohighlight">\(q_2\)</span> sobre <span class="math notranslate nohighlight">\(q_3\)</span> (<span class="math notranslate nohighlight">\(\vec{F}_{32}\)</span>) deben ser de igual magnitud y dirección opuesta. Dado que <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span> son ambas cargas positivas, la carga <span class="math notranslate nohighlight">\(q_3\)</span> debe colocarse entre ellas para que las fuerzas sean de repulsión y apunten en direcciones opuestas, permitiendo su anulación.</p>
+<a class="reference internal image-reference" href="_images/01_05b.svg"><img alt="Equilibrio" class="align-center" src="_images/01_05b.svg" width="60%" /></a>
+<p>Sea <span class="math notranslate nohighlight">\(x\)</span> la distancia desde <span class="math notranslate nohighlight">\(q_1\)</span> hasta <span class="math notranslate nohighlight">\(q_3\)</span>. Entonces, la distancia desde <span class="math notranslate nohighlight">\(q_2\)</span> hasta <span class="math notranslate nohighlight">\(q_3\)</span> será <span class="math notranslate nohighlight">\(d-x\)</span>.</p>
+<p>La magnitud de la fuerza entre dos cargas se rige por la Ley de Coulomb:</p>
+<div class="math notranslate nohighlight">
+\[F = k \frac{|q_i q_j|}{r^2}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(k = \frac{1}{4\pi\epsilon_0}\)</span> es la constante de Coulomb.</p>
+<p>Para que la fuerza neta sobre <span class="math notranslate nohighlight">\(q_3\)</span> sea cero, las magnitudes de las fuerzas <span class="math notranslate nohighlight">\(\vec{F}_{31}\)</span> y <span class="math notranslate nohighlight">\(\vec{F}_{32}\)</span> deben ser iguales:</p>
+<div class="math notranslate nohighlight">
+\[F_{31} = F_{32}\]</div>
+<div class="math notranslate nohighlight">
+\[k \frac{|q_1 q_3|}{x^2} = k \frac{|q_2 q_3|}{(d-x)^2}\]</div>
+<p>Podemos cancelar la constante <span class="math notranslate nohighlight">\(k\)</span> y la magnitud de la carga <span class="math notranslate nohighlight">\(q_3\)</span> de ambos lados:</p>
+<div class="math notranslate nohighlight">
+\[\frac{|q_1|}{x^2} = \frac{|q_2|}{(d-x)^2}\]</div>
+<p>Sustituyendo los valores de las cargas <span class="math notranslate nohighlight">\(q_1 = +q\)</span> y <span class="math notranslate nohighlight">\(q_2 = +2q\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\frac{q}{x^2} = \frac{2q}{(d-x)^2}\]</div>
+<p>Cancelando <span class="math notranslate nohighlight">\(q\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{x^2} = \frac{2}{(d-x)^2}\]</div>
+<p>Reorganizando la ecuación:</p>
+<div class="math notranslate nohighlight">
+\[(d-x)^2 = 2x^2\]</div>
+<p>Tomando la raíz cuadrada de ambos lados:</p>
+<div class="math notranslate nohighlight">
+\[d-x = \pm\sqrt{2}x\]</div>
+<p>Consideramos las dos posibles soluciones:</p>
+<p><strong>Caso 1:</strong> <span class="math notranslate nohighlight">\(d-x = \sqrt{2}x\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+d &amp;= x + \sqrt{2}x \\
+d &amp;= x(1 + \sqrt{2}) \\
+x &amp;= \frac{d}{1 + \sqrt{2}}
+\end{aligned}\end{split}\]</div>
+<p>Para racionalizar el denominador, multiplicamos por el conjugado <span class="math notranslate nohighlight">\((\sqrt{2}-1)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+x &amp;= \frac{d}{(1 + \sqrt{2})} \cdot \frac{(\sqrt{2}-1)}{(\sqrt{2}-1)} \\
+x &amp;= (\sqrt{2}-1)d
+\end{aligned}\end{split}\]</div>
+<p>Este valor de <span class="math notranslate nohighlight">\(x\)</span> es positivo y menor que <span class="math notranslate nohighlight">\(d\)</span> (<span class="math notranslate nohighlight">\(\sqrt{2} \approx 1.414\)</span>, por lo que <span class="math notranslate nohighlight">\(\sqrt{2}-1 \approx 0.414\)</span>), lo cual indica que la carga <span class="math notranslate nohighlight">\(q_3\)</span> se encuentra entre <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span>, lo cual es consistente con nuestra predicción inicial para cargas de igual signo.</p>
+<p><strong>Caso 2:</strong> <span class="math notranslate nohighlight">\(d-x = -\sqrt{2}x\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+d &amp;= x - \sqrt{2}x \\
+d &amp;= x(1 - \sqrt{2}) \\
+x &amp;= \frac{d}{1 - \sqrt{2}}
+\end{aligned}\end{split}\]</div>
+<p>Este valor de <span class="math notranslate nohighlight">\(x\)</span> sería negativo (ya que <span class="math notranslate nohighlight">\(1 - \sqrt{2}\)</span> es negativo). Un valor negativo de <span class="math notranslate nohighlight">\(x\)</span> implicaría que <span class="math notranslate nohighlight">\(q_3\)</span> se encuentra a la izquierda de <span class="math notranslate nohighlight">\(q_1\)</span>. En esa posición, las fuerzas de <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span> sobre <span class="math notranslate nohighlight">\(q_3\)</span> (ambas repulsivas, ya que <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span> son positivas) apuntarían en la misma dirección (hacia la izquierda), por lo que no podrían cancelarse. Por lo tanto, esta solución no es físicamente válida para el problema.</p>
+<p><strong>Conclusión:</strong></p>
+<p>La posición donde la fuerza eléctrica neta sobre la carga <span class="math notranslate nohighlight">\(q_3\)</span> es cero es a una distancia de <span class="math notranslate nohighlight">\(x = (\sqrt{2}-1)d\)</span> a partir de la carga <span class="math notranslate nohighlight">\(q_1\)</span>.</p>
 </section>
 </section>
 
