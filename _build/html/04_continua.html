@@ -67,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '04_continua';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Campo eléctrico en el centro de un anillo uniformemente cargado" href="05_anillo.html" />
     <link rel="prev" title="Campo Eléctrico" href="03_campo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -174,6 +175,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="02_coulomb.html">Ley de Coulomb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_campo.html">Campo Eléctrico</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Distribución de Carga</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_anillo.html">Campo eléctrico en el centro de un anillo uniformemente cargado</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06_disco.html">💿 Campo Eléctrico de un Disco Cargado Uniformemente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_alambre.html">➖ Campo Eléctrico de un Alambre Infinito</a></li>
 </ul>
 
     </div>
@@ -1499,6 +1504,389 @@ Los límites cambian: si <span class="math notranslate nohighlight">\(x=0 \right
 <blockquote>
 <div><p><strong>💡 Análisis físico:</strong> Nota que <span class="math notranslate nohighlight">\(\lambda L\)</span> es simplemente la carga total de la barra (<span class="math notranslate nohighlight">\(Q\)</span>). Por lo tanto, el campo también se puede escribir como <span class="math notranslate nohighlight">\(\vec{E} = \frac{Q}{4\pi\epsilon_0 d(L+d)} \hat{\imath}\)</span>. Si nos alejamos mucho de la barra (<span class="math notranslate nohighlight">\(d \gg L\)</span>), el término <span class="math notranslate nohighlight">\((L+d)\)</span> se aproxima a <span class="math notranslate nohighlight">\(d\)</span>, y la fórmula se reduce a <span class="math notranslate nohighlight">\(\frac{Q}{4\pi\epsilon_0 d^2}\)</span>, ¡exactamente el campo de una carga puntual!</p>
 </div></blockquote>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_analisis_barra_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #007bff;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #0056b3; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;h3&gt;Análisis de la Resolución: Barra Cargada&lt;/h3&gt;</span>
+<span class="s2">&lt;p&gt;Verifica tu comprensión de los pasos matemáticos y el significado físico de la fórmula obtenida.&lt;/p&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-barra-ana-1&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Durante el cálculo de la integral, se realiza el cambio de variable &lt;i&gt;u&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt; - &lt;i&gt;x&lt;/i&gt;. ¿Por qué los límites de integración cambian de [0, &lt;i&gt;L&lt;/i&gt;] a [&lt;i&gt;L&lt;/i&gt;+&lt;i&gt;d&lt;/i&gt;, &lt;i&gt;d&lt;/i&gt;]?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. El signo del diferencial afecta a la función a integrar, pero los límites cambian por una simple evaluación algebraica.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque el diferencial &lt;i&gt;du&lt;/i&gt; = -&lt;i&gt;dx&lt;/i&gt; introduce un signo negativo que invierte automáticamente el sentido geométrico.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Es una evaluación directa de la nueva variable: cuando &lt;i&gt;x&lt;/i&gt;=0, &lt;i&gt;u&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt;+&lt;i&gt;d&lt;/i&gt;-0 = &lt;i&gt;L&lt;/i&gt;+&lt;i&gt;d&lt;/i&gt;. Cuando &lt;i&gt;x&lt;/i&gt;=&lt;i&gt;L&lt;/i&gt;, &lt;i&gt;u&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt;+&lt;i&gt;d&lt;/i&gt;-&lt;i&gt;L&lt;/i&gt; = &lt;i&gt;d&lt;/i&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Al evaluar el límite inferior (&lt;i&gt;x&lt;/i&gt;=0) en la ecuación de &lt;i&gt;u&lt;/i&gt; se obtiene &lt;i&gt;L&lt;/i&gt;+&lt;i&gt;d&lt;/i&gt;, y al evaluar el límite superior (&lt;i&gt;x&lt;/i&gt;=&lt;i&gt;L&lt;/i&gt;) se obtiene &lt;i&gt;d&lt;/i&gt;.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Los límites de integración están dictados estrictamente por la ubicación de la barra, no de la carga de prueba.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque ahora estamos integrando desde la posición de la carga puntual hacia la barra.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-ba1&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-ba1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-barra-ana-2&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. En el resultado final del campo eléctrico, aparece el término &amp;lambda;&lt;i&gt;L&lt;/i&gt; en el numerador. ¿Qué representa físicamente esta cantidad?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. La densidad superficial se denota con &amp;sigma; y se asocia a áreas, no a longitudes.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La densidad superficial total de la barra.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba2&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Es un valor constante, pero su significado físico es mucho más específico que una constante de proporcionalidad.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Una constante de integración adimensional.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba2&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Como &amp;lambda; es la carga por unidad de longitud (&lt;i&gt;Q/L&lt;/i&gt;), al multiplicar por la longitud total (&lt;i&gt;L&lt;/i&gt;), recuperamos la carga neta (&lt;i&gt;Q&lt;/i&gt;) de la barra.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La carga total &lt;i&gt;Q&lt;/i&gt; distribuida a lo largo de toda la barra.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-ba2&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-ba2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-barra-ana-3&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. El análisis físico menciona el caso límite donde la distancia &lt;i&gt;d&lt;/i&gt; es muchísimo mayor que la longitud &lt;i&gt;L&lt;/i&gt; (&lt;i&gt;d&lt;/i&gt; &amp;gg; &lt;i&gt;L&lt;/i&gt;). ¿Qué nos enseña físicamente que la ecuación se reduzca a &lt;i&gt;E&lt;/i&gt; = &lt;i&gt;Q&lt;/i&gt; / (4&amp;pi;&amp;epsilon;₀ &lt;i&gt;d&lt;/i&gt;²)?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba3&quot; value=&quot;a&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Muy bien! Desde muy lejos, las dimensiones del objeto pierden importancia. La barra entera se comporta y se &#39;ve&#39; eléctricamente como si fuera una sola carga puntual.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que a grandes distancias, cualquier distribución finita de carga se percibe y se comporta como una simple carga puntual.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba3&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Todo lo contrario; la fórmula nos demuestra que a gran distancia el campo decae siguiendo exactamente la ley del inverso del cuadrado (1/d²).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el campo eléctrico se vuelve constante e independiente de la distancia cuando nos alejamos lo suficiente.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba3&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Aunque el campo disminuye drásticamente, matemáticamente nunca se hace cero absoluto, solo tiende asintóticamente a cero.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el campo eléctrico se anula por completo debido a la pérdida de influencia de la densidad &amp;lambda;.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-ba3&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-ba3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-barra-ana-4&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        4. Durante toda la resolución, el vector unitario &lt;b&gt;î&lt;/b&gt; se mantiene constante y sale de la integral. ¿Qué implica esto sobre las componentes del campo eléctrico en el punto &lt;i&gt;P&lt;/i&gt;?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba4&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Un campo nulo requeriría que la integral completa de cero o que haya otra carga cancelando el efecto.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el campo eléctrico neto en &lt;i&gt;P&lt;/i&gt; es nulo.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba4&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Como el punto P está colineal a la barra en el eje X, todas las contribuciones diferenciales &lt;i&gt;d&lt;/i&gt;&lt;b&gt;E&lt;/b&gt; empujan en la misma dirección horizontal, sin componentes en &lt;i&gt;Y&lt;/i&gt; o &lt;i&gt;Z&lt;/i&gt; que deban cancelarse o sumarse.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que todas las contribuciones diferenciales apuntan exclusivamente en la misma dirección (eje X), por lo que la suma es directa y colineal.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba4&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. La presencia de un solo vector unitario (&lt;b&gt;î&lt;/b&gt;) nos indica exactamente lo opuesto: no hay componente en Y (&lt;b&gt;ĵ&lt;/b&gt;).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el campo tiene componentes tanto en el eje X como en el eje Y que deben calcularse por separado.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-ba4&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-ba4&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    (function() {</span>
+<span class="s2">        function setupQuiz(btnId, radioName, feedbackId) {</span>
+<span class="s2">            var btn = document.getElementById(btnId);</span>
+<span class="s2">            if (!btn) return;</span>
+
+<span class="s2">            btn.addEventListener(&#39;click&#39;, function() {</span>
+<span class="s2">                var radios = document.getElementsByName(radioName);</span>
+<span class="s2">                var selected = null;</span>
+<span class="s2">                var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">                </span>
+<span class="s2">                for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                    if (radios[i].checked) {</span>
+<span class="s2">                        selected = radios[i];</span>
+<span class="s2">                        break;</span>
+<span class="s2">                    }</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">                </span>
+<span class="s2">                if (!selected) {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                    return;</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">                var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">                </span>
+<span class="s2">                if (isCorrect) {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">                } else {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">                }</span>
+<span class="s2">            });</span>
+<span class="s2">        }</span>
+
+<span class="s2">        setTimeout(function() {</span>
+<span class="s2">            setupQuiz(&#39;btn-check-ba1&#39;, &#39;qba1&#39;, &#39;feedback-ba1&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-ba2&#39;, &#39;qba2&#39;, &#39;feedback-ba2&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-ba3&#39;, &#39;qba3&#39;, &#39;feedback-ba3&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-ba4&#39;, &#39;qba4&#39;, &#39;feedback-ba4&#39;);</span>
+<span class="s2">        }, 500);</span>
+<span class="s2">    })();</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_analisis_barra_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #0056b3; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<h3>Análisis de la Resolución: Barra Cargada</h3>
+<p>Verifica tu comprensión de los pasos matemáticos y el significado físico de la fórmula obtenida.</p>
+
+<div class="fisi-quiz-container" id="quiz-barra-ana-1">
+    <div class="fisi-question">
+        1. Durante el cálculo de la integral, se realiza el cambio de variable <i>u</i> = <i>L</i> + <i>d</i> - <i>x</i>. ¿Por qué los límites de integración cambian de [0, <i>L</i>] a [<i>L</i>+<i>d</i>, <i>d</i>]?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qba1" value="a" data-fb="Incorrecto. El signo del diferencial afecta a la función a integrar, pero los límites cambian por una simple evaluación algebraica."> 
+        <span>Porque el diferencial <i>du</i> = -<i>dx</i> introduce un signo negativo que invierte automáticamente el sentido geométrico.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba1" value="b" data-correct="true" data-fb="¡Correcto! Es una evaluación directa de la nueva variable: cuando <i>x</i>=0, <i>u</i> = <i>L</i>+<i>d</i>-0 = <i>L</i>+<i>d</i>. Cuando <i>x</i>=<i>L</i>, <i>u</i> = <i>L</i>+<i>d</i>-<i>L</i> = <i>d</i>."> 
+        <span>Al evaluar el límite inferior (<i>x</i>=0) en la ecuación de <i>u</i> se obtiene <i>L</i>+<i>d</i>, y al evaluar el límite superior (<i>x</i>=<i>L</i>) se obtiene <i>d</i>.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba1" value="c" data-fb="Incorrecto. Los límites de integración están dictados estrictamente por la ubicación de la barra, no de la carga de prueba."> 
+        <span>Porque ahora estamos integrando desde la posición de la carga puntual hacia la barra.</span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-ba1">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-ba1"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-barra-ana-2">
+    <div class="fisi-question">
+        2. En el resultado final del campo eléctrico, aparece el término &lambda;<i>L</i> en el numerador. ¿Qué representa físicamente esta cantidad?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qba2" value="a" data-fb="Incorrecto. La densidad superficial se denota con &sigma; y se asocia a áreas, no a longitudes."> 
+        <span>La densidad superficial total de la barra.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba2" value="b" data-fb="Incorrecto. Es un valor constante, pero su significado físico es mucho más específico que una constante de proporcionalidad."> 
+        <span>Una constante de integración adimensional.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba2" value="c" data-correct="true" data-fb="¡Exacto! Como &lambda; es la carga por unidad de longitud (<i>Q/L</i>), al multiplicar por la longitud total (<i>L</i>), recuperamos la carga neta (<i>Q</i>) de la barra."> 
+        <span>La carga total <i>Q</i> distribuida a lo largo de toda la barra.</span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-ba2">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-ba2"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-barra-ana-3">
+    <div class="fisi-question">
+        3. El análisis físico menciona el caso límite donde la distancia <i>d</i> es muchísimo mayor que la longitud <i>L</i> (<i>d</i> &gg; <i>L</i>). ¿Qué nos enseña físicamente que la ecuación se reduzca a <i>E</i> = <i>Q</i> / (4&pi;&epsilon;₀ <i>d</i>²)?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qba3" value="a" data-correct="true" data-fb="¡Muy bien! Desde muy lejos, las dimensiones del objeto pierden importancia. La barra entera se comporta y se 've' eléctricamente como si fuera una sola carga puntual."> 
+        <span>Que a grandes distancias, cualquier distribución finita de carga se percibe y se comporta como una simple carga puntual.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba3" value="b" data-fb="Incorrecto. Todo lo contrario; la fórmula nos demuestra que a gran distancia el campo decae siguiendo exactamente la ley del inverso del cuadrado (1/d²)."> 
+        <span>Que el campo eléctrico se vuelve constante e independiente de la distancia cuando nos alejamos lo suficiente.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba3" value="c" data-fb="Incorrecto. Aunque el campo disminuye drásticamente, matemáticamente nunca se hace cero absoluto, solo tiende asintóticamente a cero."> 
+        <span>Que el campo eléctrico se anula por completo debido a la pérdida de influencia de la densidad &lambda;.</span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-ba3">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-ba3"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-barra-ana-4">
+    <div class="fisi-question">
+        4. Durante toda la resolución, el vector unitario <b>î</b> se mantiene constante y sale de la integral. ¿Qué implica esto sobre las componentes del campo eléctrico en el punto <i>P</i>?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qba4" value="a" data-fb="Incorrecto. Un campo nulo requeriría que la integral completa de cero o que haya otra carga cancelando el efecto."> 
+        <span>Que el campo eléctrico neto en <i>P</i> es nulo.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba4" value="b" data-correct="true" data-fb="¡Exacto! Como el punto P está colineal a la barra en el eje X, todas las contribuciones diferenciales <i>d</i><b>E</b> empujan en la misma dirección horizontal, sin componentes en <i>Y</i> o <i>Z</i> que deban cancelarse o sumarse."> 
+        <span>Que todas las contribuciones diferenciales apuntan exclusivamente en la misma dirección (eje X), por lo que la suma es directa y colineal.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba4" value="c" data-fb="Incorrecto. La presencia de un solo vector unitario (<b>î</b>) nos indica exactamente lo opuesto: no hay componente en Y (<b>ĵ</b>)."> 
+        <span>Que el campo tiene componentes tanto en el eje X como en el eje Y que deben calcularse por separado.</span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-ba4">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-ba4"></div>
+</div>
+
+<script>
+    (function() {
+        function setupQuiz(btnId, radioName, feedbackId) {
+            var btn = document.getElementById(btnId);
+            if (!btn) return;
+
+            btn.addEventListener('click', function() {
+                var radios = document.getElementsByName(radioName);
+                var selected = null;
+                var feedbackDiv = document.getElementById(feedbackId);
+                
+                for (var i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        selected = radios[i];
+                        break;
+                    }
+                }
+                
+                feedbackDiv.style.display = 'block';
+                
+                if (!selected) {
+                    feedbackDiv.style.backgroundColor = '#fff3cd';
+                    feedbackDiv.style.color = '#856404';
+                    feedbackDiv.style.border = '1px solid #ffeeba';
+                    feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                    return;
+                }
+                
+                var isCorrect = selected.getAttribute('data-correct') === 'true';
+                var msg = selected.getAttribute('data-fb');
+                
+                if (isCorrect) {
+                    feedbackDiv.style.backgroundColor = '#d4edda';
+                    feedbackDiv.style.color = '#155724';
+                    feedbackDiv.style.border = '1px solid #c3e6cb';
+                    feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+                } else {
+                    feedbackDiv.style.backgroundColor = '#f8d7da';
+                    feedbackDiv.style.color = '#721c24';
+                    feedbackDiv.style.border = '1px solid #f5c6cb';
+                    feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+                }
+            });
+        }
+
+        setTimeout(function() {
+            setupQuiz('btn-check-ba1', 'qba1', 'feedback-ba1');
+            setupQuiz('btn-check-ba2', 'qba2', 'feedback-ba2');
+            setupQuiz('btn-check-ba3', 'qba3', 'feedback-ba3');
+            setupQuiz('btn-check-ba4', 'qba4', 'feedback-ba4');
+        }, 500);
+    })();
+</script>
+</div></div>
+</div>
 </section>
 </section>
 </section>
@@ -1541,6 +1929,15 @@ Los límites cambian: si <span class="math notranslate nohighlight">\(x=0 \right
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Campo Eléctrico</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="05_anillo.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Campo eléctrico en el centro de un anillo uniformemente cargado</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

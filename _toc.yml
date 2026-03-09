@@ -8,3 +8,6 @@ chapters:
 - file: 02_coulomb
 - file: 03_campo
 - file: 04_continua
+- file: 05_anillo
+- file: 06_disco
+- file: 07_alambre
