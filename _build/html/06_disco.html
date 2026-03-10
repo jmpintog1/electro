@@ -431,20 +431,23 @@ document.write(`
 <p>En lugar de dividir el disco en cargas puntuales infinitesimales (<span class="math notranslate nohighlight">\(dq' = \sigma dA\)</span>), lo dividiremos en una serie de <strong>anillos concéntricos</strong> de radio <span class="math notranslate nohighlight">\(r\)</span> y grosor infinitesimal <span class="math notranslate nohighlight">\(dr\)</span>.</p>
 <ul class="simple">
 <li><p><strong>Área del anillo diferencial:</strong> Si “desenrollamos” este anillo muy delgado, forma un rectángulo de longitud <span class="math notranslate nohighlight">\(2\pi r\)</span> y altura <span class="math notranslate nohighlight">\(dr\)</span>. Su área es <span class="math notranslate nohighlight">\(dA = 2\pi r dr\)</span>.</p></li>
-<li><p><strong>Carga del diferencial:</strong> Usando la densidad superficial (<span class="math notranslate nohighlight">\(\sigma = dq'/dA\)</span>), la carga de este anillo infinitesimal es:
-$<span class="math notranslate nohighlight">\(dq' = \sigma (2\pi r dr)\)</span>$</p></li>
+<li><p><strong>Carga del diferencial:</strong> Usando la densidad superficial (<span class="math notranslate nohighlight">\(\sigma = dq'/dA\)</span>), la carga de este anillo infinitesimal es <span class="math notranslate nohighlight">\(dq' = \sigma (2\pi r dr)\)</span></p></li>
 </ul>
 </section>
 <section id="uso-del-resultado-previo">
 <h2>2. Uso del Resultado Previo<a class="headerlink" href="#uso-del-resultado-previo" title="Permalink to this heading">#</a></h2>
-<p>En el apartado anterior, demostramos que el campo en el eje de un anillo de radio <span class="math notranslate nohighlight">\(R\)</span> y carga <span class="math notranslate nohighlight">\(Q\)</span> es:
-$<span class="math notranslate nohighlight">\(E_{anillo} = \frac{1}{4\pi\epsilon_0} \frac{Q z}{(R^2 + z^2)^{3/2}}\)</span>$</p>
-<p>Para nuestro disco, cada anillo diferencial de radio <span class="math notranslate nohighlight">\(r\)</span> y carga <span class="math notranslate nohighlight">\(dq'\)</span> produce un “campo diferencial” <span class="math notranslate nohighlight">\(dE_z\)</span> en el punto <span class="math notranslate nohighlight">\(P\)</span>. Simplemente adaptamos la fórmula del anillo:
-$<span class="math notranslate nohighlight">\(dE_z = \frac{1}{4\pi\epsilon_0} \frac{z \, dq'}{(r^2 + z^2)^{3/2}}\)</span>$</p>
-<p>Sustituyendo <span class="math notranslate nohighlight">\(dq'\)</span>:
-$<span class="math notranslate nohighlight">\(dE_z = \frac{1}{4\pi\epsilon_0} \frac{z (\sigma 2\pi r dr)}{(r^2 + z^2)^{3/2}}\)</span>$</p>
-<p>Simplificando constantes (<span class="math notranslate nohighlight">\(2\pi\)</span> se cancela con parte del <span class="math notranslate nohighlight">\(4\pi\)</span>):
-$<span class="math notranslate nohighlight">\(dE_z = \frac{\sigma z}{2\epsilon_0} \frac{r}{(r^2 + z^2)^{3/2}} dr\)</span>$</p>
+<p>En el apartado anterior, demostramos que el campo en el eje de un anillo de radio <span class="math notranslate nohighlight">\(R\)</span> y carga <span class="math notranslate nohighlight">\(Q\)</span> es:</p>
+<div class="math notranslate nohighlight">
+\[E_{anillo} = \frac{1}{4\pi\epsilon_0} \frac{Q z}{(R^2 + z^2)^{3/2}}\]</div>
+<p>Para nuestro disco, cada anillo diferencial de radio <span class="math notranslate nohighlight">\(r\)</span> y carga <span class="math notranslate nohighlight">\(dq'\)</span> produce un “campo diferencial” <span class="math notranslate nohighlight">\(dE_z\)</span> en el punto <span class="math notranslate nohighlight">\(P\)</span>. Simplemente adaptamos la fórmula del anillo:</p>
+<div class="math notranslate nohighlight">
+\[dE_z = \frac{1}{4\pi\epsilon_0} \frac{z \, dq'}{(r^2 + z^2)^{3/2}}\]</div>
+<p>Sustituyendo <span class="math notranslate nohighlight">\(dq'\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[dE_z = \frac{1}{4\pi\epsilon_0} \frac{z (\sigma 2\pi r dr)}{(r^2 + z^2)^{3/2}}\]</div>
+<p>Simplificando constantes (<span class="math notranslate nohighlight">\(2\pi\)</span> se cancela con parte del <span class="math notranslate nohighlight">\(4\pi\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[dE_z = \frac{\sigma z}{2\epsilon_0} \frac{r}{(r^2 + z^2)^{3/2}} dr\]</div>
 </section>
 <section id="integracion-sobre-el-disco">
 <h2>3. Integración sobre el Disco<a class="headerlink" href="#integracion-sobre-el-disco" title="Permalink to this heading">#</a></h2>
@@ -452,12 +455,15 @@ $<span class="math notranslate nohighlight">\(dE_z = \frac{\sigma z}{2\epsilon_0
 <div class="math notranslate nohighlight">
 \[E_z = \frac{\sigma z}{2\epsilon_0} \int_{0}^{R} \frac{r}{(r^2 + z^2)^{3/2}} dr\]</div>
 <p>Para resolver esta integral, utilizamos la sustitución <span class="math notranslate nohighlight">\(u = r^2 + z^2\)</span>, lo que implica <span class="math notranslate nohighlight">\(du = 2r dr\)</span>, o bien <span class="math notranslate nohighlight">\(\frac{du}{2} = r dr\)</span>.</p>
-<p>La integral se transforma en:
-$<span class="math notranslate nohighlight">\(\int u^{-3/2} \left(\frac{du}{2}\right) = -u^{-1/2} = \frac{-1}{\sqrt{r^2 + z^2}}\)</span>$</p>
-<p>Evaluando entre los límites <span class="math notranslate nohighlight">\(0\)</span> y <span class="math notranslate nohighlight">\(R\)</span>:
-$<span class="math notranslate nohighlight">\(\left[ \frac{-1}{\sqrt{r^2 + z^2}} \right]_{0}^{R} = \left( \frac{-1}{\sqrt{R^2 + z^2}} \right) - \left( \frac{-1}{\sqrt{0^2 + z^2}} \right)\)</span>$</p>
-<p>Asumiendo que <span class="math notranslate nohighlight">\(P\)</span> está en el lado positivo del eje (<span class="math notranslate nohighlight">\(z &gt; 0\)</span>), <span class="math notranslate nohighlight">\(\sqrt{z^2} = z\)</span>. Nos queda:
-$<span class="math notranslate nohighlight">\(\frac{1}{z} - \frac{1}{\sqrt{R^2 + z^2}}\)</span>$</p>
+<p>La integral se transforma en:</p>
+<div class="math notranslate nohighlight">
+\[\int u^{-3/2} \left(\frac{du}{2}\right) = -u^{-1/2} = \frac{-1}{\sqrt{r^2 + z^2}}\]</div>
+<p>Evaluando entre los límites <span class="math notranslate nohighlight">\(0\)</span> y <span class="math notranslate nohighlight">\(R\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\left[ \frac{-1}{\sqrt{r^2 + z^2}} \right]_{0}^{R} = \left( \frac{-1}{\sqrt{R^2 + z^2}} \right) - \left( \frac{-1}{\sqrt{0^2 + z^2}} \right)\]</div>
+<p>Asumiendo que <span class="math notranslate nohighlight">\(P\)</span> está en el lado positivo del eje (<span class="math notranslate nohighlight">\(z &gt; 0\)</span>), <span class="math notranslate nohighlight">\(\sqrt{z^2} = z\)</span>. Nos queda:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{z} - \frac{1}{\sqrt{R^2 + z^2}}\]</div>
 </section>
 <section id="resultado-final">
 <h2>4. Resultado Final<a class="headerlink" href="#resultado-final" title="Permalink to this heading">#</a></h2>
