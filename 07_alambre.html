@@ -460,21 +460,26 @@ document.write(`
 <p>Para resolver esta integral, la técnica más elegante es usar trigonometría. Si imaginamos un triángulo rectángulo de catetos <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(a\)</span>, el ángulo <span class="math notranslate nohighlight">\(\theta\)</span> formado con el eje <span class="math notranslate nohighlight">\(y\)</span> cumple que:</p>
 <div class="math notranslate nohighlight">
 \[x = a \tan\theta\]</div>
-<p>Si diferenciamos esta expresión respecto a <span class="math notranslate nohighlight">\(\theta\)</span>:
-$<span class="math notranslate nohighlight">\(dx = a \sec^2\theta d\theta\)</span>$</p>
+<p>Si diferenciamos esta expresión respecto a <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[dx = a \sec^2\theta d\theta\]</div>
 <p>¿Qué pasa con los límites de integración?</p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(x \to \infty\)</span>, el ángulo <span class="math notranslate nohighlight">\(\theta \to \pi/2\)</span> (<span class="math notranslate nohighlight">\(90^\circ\)</span>).</p></li>
 <li><p>Si <span class="math notranslate nohighlight">\(x \to -\infty\)</span>, el ángulo <span class="math notranslate nohighlight">\(\theta \to -\pi/2\)</span> (<span class="math notranslate nohighlight">\(-90^\circ\)</span>).</p></li>
 </ul>
-<p>Además, el denominador se transforma maravillosamente gracias a la identidad <span class="math notranslate nohighlight">\(1 + \tan^2\theta = \sec^2\theta\)</span>:
-$<span class="math notranslate nohighlight">\((x^2 + a^2)^{3/2} = (a^2 \tan^2\theta + a^2)^{3/2} = (a^2 \sec^2\theta)^{3/2} = a^3 \sec^3\theta\)</span>$</p>
-<p>Sustituimos todo en nuestra integral:
-$<span class="math notranslate nohighlight">\(\int_{-\pi/2}^{\pi/2} \frac{a \sec^2\theta d\theta}{a^3 \sec^3\theta} = \int_{-\pi/2}^{\pi/2} \frac{1}{a^2 \sec\theta} d\theta\)</span>$</p>
-<p>Como <span class="math notranslate nohighlight">\(\frac{1}{\sec\theta} = \cos\theta\)</span>, la integral se simplifica a:
-$<span class="math notranslate nohighlight">\(\frac{1}{a^2} \int_{-\pi/2}^{\pi/2} \cos\theta d\theta\)</span>$</p>
-<p>La integral del coseno es el seno. Evaluando en los límites:
-$<span class="math notranslate nohighlight">\(\frac{1}{a^2} \left[ \sin\theta \right]_{-\pi/2}^{\pi/2} = \frac{1}{a^2} \left( \sin(\pi/2) - \sin(-\pi/2) \right) = \frac{1}{a^2} (1 - (-1)) = \frac{2}{a^2}\)</span>$</p>
+<p>Además, el denominador se transforma maravillosamente gracias a la identidad <span class="math notranslate nohighlight">\(1 + \tan^2\theta = \sec^2\theta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[(x^2 + a^2)^{3/2} = (a^2 \tan^2\theta + a^2)^{3/2} = (a^2 \sec^2\theta)^{3/2} = a^3 \sec^3\theta\]</div>
+<p>Sustituimos todo en nuestra integral:</p>
+<div class="math notranslate nohighlight">
+\[\int_{-\pi/2}^{\pi/2} \frac{a \sec^2\theta d\theta}{a^3 \sec^3\theta} = \int_{-\pi/2}^{\pi/2} \frac{1}{a^2 \sec\theta} d\theta\]</div>
+<p>Como <span class="math notranslate nohighlight">\(\frac{1}{\sec\theta} = \cos\theta\)</span>, la integral se simplifica a:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{a^2} \int_{-\pi/2}^{\pi/2} \cos\theta d\theta\]</div>
+<p>La integral del coseno es el seno. Evaluando en los límites:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{a^2} \left[ \sin\theta \right]_{-\pi/2}^{\pi/2} = \frac{1}{a^2} \left( \sin(\pi/2) - \sin(-\pi/2) \right) = \frac{1}{a^2} (1 - (-1)) = \frac{2}{a^2}\]</div>
 </section>
 <section id="resultado-final">
 <h2>5. Resultado Final<a class="headerlink" href="#resultado-final" title="Permalink to this heading">#</a></h2>
