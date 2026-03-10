@@ -179,6 +179,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="06_disco.html">Disco Cargado Uniformemente</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_alambre.html">Alambre Infinito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_flujo.html">Flujo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_gauss.html">La Ley de Gauss</a></li>
 </ul>
 
     </div>
@@ -429,37 +431,37 @@ document.write(`
 <h1>Anillo Uniformemente Cargado<a class="headerlink" href="#anillo-uniformemente-cargado" title="Permalink to this heading">#</a></h1>
 <p>Para calcular el campo eléctrico en el centro de un anillo delgado de radio <span class="math notranslate nohighlight">\(R\)</span> con una carga total <span class="math notranslate nohighlight">\(Q\)</span> distribuida uniformemente, definimos una densidad de carga lineal constante <span class="math notranslate nohighlight">\(\lambda = \frac{Q}{2\pi R}\)</span>. Situamos el origen del sistema de coordenadas <span class="math notranslate nohighlight">\(O\)</span> en el centro del anillo en el plano <span class="math notranslate nohighlight">\(xy\)</span>.</p>
 <a class="reference internal image-reference" href="_images/01_09.svg"><img alt="Anillo cargado" class="align-center" src="_images/01_09.svg" width="60%" /></a>
-<p>El campo eléctrico <span class="math notranslate nohighlight">\(d\vec{E}\)</span> producido por un elemento diferencial de carga <span class="math notranslate nohighlight">\(dq'\)</span> ubicado en una posición <span class="math notranslate nohighlight">\(\vec{r}'\)</span> está dado por la ley de Coulomb:</p>
+<p>El campo eléctrico <span class="math notranslate nohighlight">\(d\vec{E}\)</span> producido por un elemento diferencial de carga <span class="math notranslate nohighlight">\(dq'\)</span> ubicado en una posición <span class="math notranslate nohighlight">\(\vec{r}\,'\)</span> está dado por la ley de Coulomb:</p>
 <div class="math notranslate nohighlight">
-\[d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{dq'}{|\vec{r} - \vec{r}'|^3} (\vec{r} - \vec{r}')\]</div>
+\[d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{dq'}{|\vec{r} - \vec{r}\,'|^3} (\vec{r} - \vec{r}\,')\]</div>
 <p>Definimos los vectores y variables del problema utilizando coordenadas polares:</p>
 <ul class="simple">
-<li><p><strong>Punto de observación:</strong> Buscamos el campo en el centro del anillo, por lo tanto <span class="math notranslate nohighlight">\(\vec{r} = 0 \hat{\imath} + 0 \hat{\jmath}\)</span>.</p></li>
-<li><p><strong>Vector de posición de la fuente:</strong> El elemento de carga se encuentra en el borde del anillo a una distancia fija <span class="math notranslate nohighlight">\(R\)</span>, por lo que <span class="math notranslate nohighlight">\(\vec{r}' = R\cos\theta \ \hat{\imath} + R\sin\theta \ \hat{\jmath}\)</span>.</p></li>
-<li><p><strong>Vector distancia:</strong> <span class="math notranslate nohighlight">\(\vec{r} - \vec{r}' = -R\cos\theta \ \hat{\imath} - R\sin\theta \ \hat{\jmath}\)</span>.</p></li>
-<li><p><strong>Magnitud de la distancia:</strong> <span class="math notranslate nohighlight">\(|\vec{r} - \vec{r}'| = R\)</span>.</p></li>
-<li><p><strong>Elemento diferencial de carga:</strong> Un elemento de longitud de arco es <span class="math notranslate nohighlight">\(dl = R d\theta\)</span>, por lo que la carga en ese elemento es <span class="math notranslate nohighlight">\(dq' = \lambda dl = \lambda R d\theta\)</span>.</p></li>
+<li><p><strong>Punto de observación:</strong> Buscamos el campo en el centro del anillo, por lo tanto <span class="math notranslate nohighlight">\(\vec{r} = 0 \,\hat{\imath} + 0\, \hat{\jmath}\)</span>.</p></li>
+<li><p><strong>Vector de posición de la fuente:</strong> El elemento de carga se encuentra en el borde del anillo a una distancia fija <span class="math notranslate nohighlight">\(R\)</span>, por lo que <span class="math notranslate nohighlight">\(\vec{r}\,' = R\cos\theta \ \hat{\imath} + R\sin\theta \ \hat{\jmath}\)</span>.</p></li>
+<li><p><strong>Vector distancia:</strong> <span class="math notranslate nohighlight">\(\vec{r} - \vec{r}\,' = -R\cos\theta \, \hat{\imath} - R\sin\theta \, \hat{\jmath}\)</span>.</p></li>
+<li><p><strong>Magnitud de la distancia:</strong> <span class="math notranslate nohighlight">\(|\vec{r} - \vec{r}\,'| = R\)</span>.</p></li>
+<li><p><strong>Elemento diferencial de carga:</strong> Un elemento de longitud de arco es <span class="math notranslate nohighlight">\(dl = R \, d\theta\)</span>, por lo que la carga en ese elemento es <span class="math notranslate nohighlight">\(dq' = \lambda \, dl = \lambda \, R \, d\theta\)</span>.</p></li>
 </ul>
 <p>Sustituyendo estos términos en la ecuación del campo eléctrico diferencial:</p>
 <div class="math notranslate nohighlight">
-\[d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{\lambda R d\theta}{R^3} (-R\cos\theta \hat{i} - R\sin\theta \hat{j})\]</div>
+\[d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{\lambda R d\theta}{R^3} (-R\cos\theta \,\hat{\imath} - R\sin\theta \,\hat{\jmath})\]</div>
 <p>Simplificando las <span class="math notranslate nohighlight">\(R\)</span> del numerador y extrayendo las constantes:</p>
 <div class="math notranslate nohighlight">
-\[d\vec{E} = -\frac{\lambda}{4\pi\epsilon_0 R} (\cos\theta \hat{i} + \sin\theta \hat{j}) d\theta\]</div>
+\[d\vec{E} = -\frac{\lambda}{4\pi\epsilon_0 R} (\cos\theta \, \hat{\imath} + \sin\theta \, \hat{\jmath}) d\theta\]</div>
 <p>Para encontrar el campo eléctrico total <span class="math notranslate nohighlight">\(\vec{E}\)</span> en el origen, integramos esta expresión sobre todo el anillo. La variable angular <span class="math notranslate nohighlight">\(\theta\)</span> recorre desde <span class="math notranslate nohighlight">\(0\)</span> hasta <span class="math notranslate nohighlight">\(2\pi\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\vec{E} = -\frac{\lambda}{4\pi\epsilon_0 R} \int_{0}^{2\pi} (\cos\theta \hat{i} + \sin\theta \hat{j}) d\theta\]</div>
+\[\vec{E} = -\frac{\lambda}{4\pi\epsilon_0 R} \int_{0}^{2\pi} (\cos\theta \,\hat{\imath} + \sin\theta \,\hat{\jmath}) d\theta\]</div>
 <p>Separando la integral en sus componentes espaciales ortogonales:</p>
 <div class="math notranslate nohighlight">
-\[\vec{E} = -\frac{\lambda}{4\pi\epsilon_0 R} \left[ \left( \int_{0}^{2\pi} \cos\theta d\theta \right)\hat{i} + \left( \int_{0}^{2\pi} \sin\theta d\theta \right)\hat{j} \right]\]</div>
+\[\vec{E} = -\frac{\lambda}{4\pi\epsilon_0 R} \left[ \left( \int_{0}^{2\pi} \cos\theta \, d\theta \right)\hat{\imath} + \left( \int_{0}^{2\pi} \sin\theta \, d\theta \right)\hat{\jmath} \right]\]</div>
 <p>Evaluamos las integrales trigonométricas:</p>
 <ul class="simple">
-<li><p>Componente en <span class="math notranslate nohighlight">\(x\)</span>: <span class="math notranslate nohighlight">\(\int_{0}^{2\pi} \cos\theta d\theta = [\sin\theta]_{0}^{2\pi} = \sin(2\pi) - \sin(0) = 0 - 0 = 0\)</span></p></li>
-<li><p>Componente en <span class="math notranslate nohighlight">\(y\)</span>: <span class="math notranslate nohighlight">\(\int_{0}^{2\pi} \sin\theta d\theta = [-\cos\theta]_{0}^{2\pi} = -\cos(2\pi) - (-\cos(0)) = -1 - (-1) = 0\)</span></p></li>
+<li><p>Componente en <span class="math notranslate nohighlight">\(x\)</span>: <span class="math notranslate nohighlight">\(\int_{0}^{2\pi} \cos\theta \, d\theta = [\sin\theta]_{0}^{2\pi} = \sin(2\pi) - \sin(0) = 0 - 0 = 0\)</span></p></li>
+<li><p>Componente en <span class="math notranslate nohighlight">\(y\)</span>: <span class="math notranslate nohighlight">\(\int_{0}^{2\pi} \sin\theta \, d\theta = [-\cos\theta]_{0}^{2\pi} = -\cos(2\pi) - (-\cos(0)) = -1 - (-1) = 0\)</span></p></li>
 </ul>
 <p>Sustituyendo estos resultados nulos en la ecuación principal:</p>
 <div class="math notranslate nohighlight">
-\[\vec{E} = -\frac{\lambda}{4\pi\epsilon_0 R} \left[ 0\hat{i} + 0\hat{j} \right] = \vec{0}\]</div>
+\[\vec{E} = -\frac{\lambda}{4\pi\epsilon_0 R} \left[ 0\,\hat{\imath} + 0\,\hat{\jmath} \right] = \vec{0}\]</div>
 <p><strong>Conclusión:</strong></p>
 <p>El desarrollo matemático confirma que el campo eléctrico total en el centro del anillo es estrictamente nulo (<span class="math notranslate nohighlight">\(\vec{E} = \vec{0}\)</span>). Este es un resultado directo de la simetría de la distribución de carga: para cualquier elemento de carga <span class="math notranslate nohighlight">\(dq'\)</span> en el anillo, existe un elemento idéntico diametralmente opuesto que genera un vector de campo eléctrico de igual magnitud pero en dirección exactamente contraria, logrando que todas las contribuciones se anulen vectorialmente en el centro.</p>
 <div class="cell tag_hide-input docutils container">
@@ -733,42 +735,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img7fba9fdf843a477494c77962cb064fbe">
+  <img id="_anim_img7b2b3571c0c64d9db3fe20b4885e6df9">
   <div class="anim-controls">
-    <input id="_anim_slider7fba9fdf843a477494c77962cb064fbe" type="range" class="anim-slider"
+    <input id="_anim_slider7b2b3571c0c64d9db3fe20b4885e6df9" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anim7fba9fdf843a477494c77962cb064fbe.set_frame(parseInt(this.value));">
+           oninput="anim7b2b3571c0c64d9db3fe20b4885e6df9.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim7fba9fdf843a477494c77962cb064fbe.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim7b2b3571c0c64d9db3fe20b4885e6df9.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim7fba9fdf843a477494c77962cb064fbe.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim7b2b3571c0c64d9db3fe20b4885e6df9.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim7fba9fdf843a477494c77962cb064fbe.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim7b2b3571c0c64d9db3fe20b4885e6df9.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim7fba9fdf843a477494c77962cb064fbe.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim7b2b3571c0c64d9db3fe20b4885e6df9.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim7fba9fdf843a477494c77962cb064fbe.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim7b2b3571c0c64d9db3fe20b4885e6df9.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim7fba9fdf843a477494c77962cb064fbe.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim7b2b3571c0c64d9db3fe20b4885e6df9.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim7fba9fdf843a477494c77962cb064fbe.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim7b2b3571c0c64d9db3fe20b4885e6df9.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim7fba9fdf843a477494c77962cb064fbe.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim7b2b3571c0c64d9db3fe20b4885e6df9.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim7fba9fdf843a477494c77962cb064fbe.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim7b2b3571c0c64d9db3fe20b4885e6df9.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select7fba9fdf843a477494c77962cb064fbe"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select7b2b3571c0c64d9db3fe20b4885e6df9"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_7fba9fdf843a477494c77962cb064fbe"
+      <input type="radio" name="state" value="once" id="_anim_radio1_7b2b3571c0c64d9db3fe20b4885e6df9"
              >
-      <label for="_anim_radio1_7fba9fdf843a477494c77962cb064fbe">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_7fba9fdf843a477494c77962cb064fbe"
+      <label for="_anim_radio1_7b2b3571c0c64d9db3fe20b4885e6df9">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_7b2b3571c0c64d9db3fe20b4885e6df9"
              checked>
-      <label for="_anim_radio2_7fba9fdf843a477494c77962cb064fbe">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_7fba9fdf843a477494c77962cb064fbe"
+      <label for="_anim_radio2_7b2b3571c0c64d9db3fe20b4885e6df9">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_7b2b3571c0c64d9db3fe20b4885e6df9"
              >
-      <label for="_anim_radio3_7fba9fdf843a477494c77962cb064fbe">Reflect</label>
+      <label for="_anim_radio3_7b2b3571c0c64d9db3fe20b4885e6df9">Reflect</label>
     </form>
   </div>
 </div>
@@ -778,9 +780,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img7fba9fdf843a477494c77962cb064fbe";
-    var slider_id = "_anim_slider7fba9fdf843a477494c77962cb064fbe";
-    var loop_select_id = "_anim_loop_select7fba9fdf843a477494c77962cb064fbe";
+    var img_id = "_anim_img7b2b3571c0c64d9db3fe20b4885e6df9";
+    var slider_id = "_anim_slider7b2b3571c0c64d9db3fe20b4885e6df9";
+    var loop_select_id = "_anim_loop_select7b2b3571c0c64d9db3fe20b4885e6df9";
     var frames = new Array(50);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAYAAACmKP9/AAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -30234,7 +30236,7 @@ K8sAAAAASUVORK5CYII=\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim7fba9fdf843a477494c77962cb064fbe = new Animation(frames, img_id, slider_id, 100.0,
+        anim7b2b3571c0c64d9db3fe20b4885e6df9 = new Animation(frames, img_id, slider_id, 100.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -30256,15 +30258,15 @@ K8sAAAAASUVORK5CYII=\
 </li>
 <li><p><strong>Vectores de posición:</strong></p>
 <ul class="simple">
-<li><p>Vector fuente (apunta a un segmento del anillo): <span class="math notranslate nohighlight">\(\vec{r}' = R\cos\theta'\hat{\imath} + R\sin\theta'\hat{\jmath}\)</span></p></li>
+<li><p>Vector fuente (apunta a un segmento del anillo): <span class="math notranslate nohighlight">\(\vec{r}\,' = R\cos\theta'\,\hat{\imath} + R\sin\theta'\,\hat{\jmath}\)</span></p></li>
 <li><p>Vector observación (apunta al punto <span class="math notranslate nohighlight">\(P\)</span>): <span class="math notranslate nohighlight">\(\vec{r} = z\hat{k}\)</span></p></li>
-<li><p>Vector de distancia relativa: <span class="math notranslate nohighlight">\(\vec{r} - \vec{r}' = -R\cos\theta'\hat{\imath} - R\sin\theta'\hat{\jmath} + z\hat{k}\)</span></p></li>
+<li><p>Vector de distancia relativa: <span class="math notranslate nohighlight">\(\vec{r} - \vec{r}\,' = -R\cos\theta'\,\hat{\imath} - R\sin\theta'\,\hat{\jmath} + z\,\hat{k}\)</span></p></li>
 </ul>
 </li>
 <li><p><strong>Magnitud de la distancia:</strong>
 La distancia desde cualquier punto del anillo hasta el punto <span class="math notranslate nohighlight">\(P\)</span> es constante y forma la hipotenusa de un triángulo rectángulo de catetos <span class="math notranslate nohighlight">\(R\)</span> y <span class="math notranslate nohighlight">\(z\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[|\vec{r} - \vec{r}'| = \sqrt{R^2 + z^2}\]</div>
+\[|\vec{r} - \vec{r}\,'| = \sqrt{R^2 + z^2}\]</div>
 </li>
 </ol>
 </section>

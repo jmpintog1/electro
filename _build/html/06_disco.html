@@ -179,6 +179,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Disco Cargado Uniformemente</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_alambre.html">Alambre Infinito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_flujo.html">Flujo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_gauss.html">La Ley de Gauss</a></li>
 </ul>
 
     </div>
@@ -438,7 +440,7 @@ document.write(`
 <h2>2. Uso del Resultado Previo<a class="headerlink" href="#uso-del-resultado-previo" title="Permalink to this heading">#</a></h2>
 <p>En el apartado anterior, demostramos que el campo en el eje de un anillo de radio <span class="math notranslate nohighlight">\(R\)</span> y carga <span class="math notranslate nohighlight">\(Q\)</span> es:</p>
 <div class="math notranslate nohighlight">
-\[E_{anillo} = \frac{1}{4\pi\epsilon_0} \frac{Q z}{(R^2 + z^2)^{3/2}}\]</div>
+\[E_{\text{anillo}} = \frac{1}{4\pi\epsilon_0} \frac{Q z}{(R^2 + z^2)^{3/2}}\]</div>
 <p>Para nuestro disco, cada anillo diferencial de radio <span class="math notranslate nohighlight">\(r\)</span> y carga <span class="math notranslate nohighlight">\(dq'\)</span> produce un “campo diferencial” <span class="math notranslate nohighlight">\(dE_z\)</span> en el punto <span class="math notranslate nohighlight">\(P\)</span>. Simplemente adaptamos la fórmula del anillo:</p>
 <div class="math notranslate nohighlight">
 \[dE_z = \frac{1}{4\pi\epsilon_0} \frac{z \, dq'}{(r^2 + z^2)^{3/2}}\]</div>
@@ -467,7 +469,7 @@ document.write(`
 </section>
 <section id="resultado-final">
 <h2>4. Resultado Final<a class="headerlink" href="#resultado-final" title="Permalink to this heading">#</a></h2>
-<p>Multiplicando este resultado por las constantes que sacamos de la integral (<span class="math notranslate nohighlight">\(\frac{\sigma z}{2\epsilon_0}\)</span>), obtenemos la expresión final:</p>
+<p>Multiplicando este resultado por las constantes que sacamos de la integral <span class="math notranslate nohighlight">\(\left(\dfrac{\sigma z}{2\epsilon_0}\right)\)</span>, obtenemos la expresión final:</p>
 <div class="math notranslate nohighlight">
 \[E_z = \frac{\sigma z}{2\epsilon_0} \left( \frac{1}{z} - \frac{1}{\sqrt{R^2 + z^2}} \right)\]</div>
 <p>Distribuyendo la <span class="math notranslate nohighlight">\(z\)</span> hacia adentro del paréntesis:</p>

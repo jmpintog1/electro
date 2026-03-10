@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>🌬️ Flujo Eléctrico: Una Nueva Forma de Ver el Campo &#8212; Curso de Electricidad y Magnetismo</title>
+    <title>Flujo Eléctrico &#8212; Curso de Electricidad y Magnetismo</title>
   
   
   
@@ -67,6 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '08_flujo';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="La Ley de Gauss" href="09_gauss.html" />
+    <link rel="prev" title="Alambre Infinito" href="07_alambre.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -168,15 +170,17 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_carga.html">Carga Eléctrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_coulomb.html">Ley de Coulomb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_campo.html">Campo Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_continua.html">Distribución de Carga</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_anillo.html">Campo eléctrico en el centro de un anillo uniformemente cargado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_anillo.html">Anillo Uniformemente Cargado</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="06_disco.html">💿 Campo Eléctrico de un Disco Cargado Uniformemente</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_alambre.html">➖ Campo Eléctrico de un Alambre Infinito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_disco.html">Disco Cargado Uniformemente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_alambre.html">Alambre Infinito</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Flujo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_gauss.html">La Ley de Gauss</a></li>
 </ul>
 
     </div>
@@ -393,7 +397,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>🌬️ Flujo Eléctrico: Una Nueva Forma de Ver el Campo</h1>
+    <h1>Flujo Eléctrico</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -421,8 +425,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="flujo-electrico-una-nueva-forma-de-ver-el-campo">
-<h1>🌬️ Flujo Eléctrico: Una Nueva Forma de Ver el Campo<a class="headerlink" href="#flujo-electrico-una-nueva-forma-de-ver-el-campo" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="flujo-electrico">
+<h1>Flujo Eléctrico<a class="headerlink" href="#flujo-electrico" title="Permalink to this heading">#</a></h1>
 <p>Hasta ahora, hemos calculado el campo eléctrico sumando pacientemente las contribuciones de cada diferencial de carga mediante la Ley de Coulomb. Sin embargo, para distribuciones con alta simetría, existe un “atajo” matemático extraordinariamente poderoso: la <strong>Ley de Gauss</strong>.</p>
 <p>Pero antes de poder usar esta ley, necesitamos entender su concepto fundamental: el <strong>Flujo Eléctrico</strong>.</p>
 <section id="la-analogia-del-viento">
@@ -468,6 +472,7 @@ document.write(`
 <h2>4. Generalización: La Integral de Flujo<a class="headerlink" href="#generalizacion-la-integral-de-flujo" title="Permalink to this heading">#</a></h2>
 <p>¿Qué pasa si el campo eléctrico no es uniforme (cambia de un punto a otro) o si nuestra superficie no es plana (como una esfera o un cilindro)?</p>
 <p>Aplicamos la misma lógica del cálculo diferencial: dividimos la superficie gigante en infinitos “parches” minúsculos. Cada parche es tan pequeño que se puede considerar plano, con un vector de área diferencial <span class="math notranslate nohighlight">\(d\vec{A}\)</span>. El flujo minúsculo que pasa por ese parche es <span class="math notranslate nohighlight">\(d\Phi_E = \vec{E} \cdot d\vec{A}\)</span>.</p>
+<a class="reference internal image-reference" href="_images/01_12.svg"><img alt="Distribución de carga" class="align-center" src="_images/01_12.svg" width="60%" /></a>
 <p>Para hallar el flujo total, sumamos (integramos) todos esos parches sobre toda la superficie <span class="math notranslate nohighlight">\(S\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\Phi_E = \int_{S} \vec{E} \cdot d\vec{A}\]</div>
@@ -961,6 +966,7 @@ document.write(`
 </script>
 </div></div>
 </div>
+<a class="reference internal image-reference" href="_images/01_13.svg"><img alt="Distribución de carga" class="align-center" src="_images/01_13.svg" width="60%" /></a>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -975,7 +981,7 @@ document.write(`
 <span class="n">simulacion_cubo_definitiva_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;div style=&quot;border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif;&quot;&gt;</span>
 <span class="s2">    &lt;h3 style=&quot;margin-top:0; color: #2c3e50;&quot;&gt;Simulación 3D: Cubo de Colores en Campo Uniforme (E)&lt;/h3&gt;</span>
-<span class="s2">    &lt;p style=&quot;font-size: 0.95em; color: #555; margin-bottom: 15px;&quot;&gt;Usa el deslizador &lt;span style=&quot;color:#0056b3; font-weight:bold;&quot;&gt;Rotar Cámara&lt;/span&gt; para ver cómo cada cara (con su color único) y su vector normal &lt;span style=&quot;color:#d9534f; font-weight:bold;&quot;&gt;n̂&lt;/span&gt;  interactúan con el Campo &lt;span style=&quot;color:#333; font-weight:bold;&quot;&gt;E&lt;/span&gt; (flechas grises).&lt;/p&gt;</span>
+<span class="s2">    &lt;p style=&quot;font-size: 0.95em; color: #555; margin-bottom: 15px;&quot;&gt;Usa el deslizador &lt;span style=&quot;color:#0056b3; font-weight:bold;&quot;&gt;Rotar Cámara&lt;/span&gt; para ver cómo cada cara (con su color único) y su vector normal interactúan con el Campo &lt;span style=&quot;color:#333; font-weight:bold;&quot;&gt;E&lt;/span&gt; (flechas grises).&lt;/p&gt;</span>
 <span class="s2">    </span>
 <span class="s2">    &lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;&quot;&gt;</span>
 <span class="s2">        &lt;div style=&quot;flex: 1; min-width: 250px;&quot;&gt;</span>
@@ -1202,7 +1208,7 @@ document.write(`
 <div class="output text_html">
 <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
     <h3 style="margin-top:0; color: #2c3e50;">Simulación 3D: Cubo de Colores en Campo Uniforme (E)</h3>
-    <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">Usa el deslizador <span style="color:#0056b3; font-weight:bold;">Rotar Cámara</span> para ver cómo cada cara (con su color único) y su vector normal <span style="color:#d9534f; font-weight:bold;">n̂</span>  interactúan con el Campo <span style="color:#333; font-weight:bold;">E</span> (flechas grises).</p>
+    <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">Usa el deslizador <span style="color:#0056b3; font-weight:bold;">Rotar Cámara</span> para ver cómo cada cara (con su color único) y su vector normal interactúan con el Campo <span style="color:#333; font-weight:bold;">E</span> (flechas grises).</p>
     
     <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;">
         <div style="flex: 1; min-width: 250px;">
@@ -1453,6 +1459,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="07_alambre.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Alambre Infinito</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="09_gauss.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">La Ley de Gauss</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

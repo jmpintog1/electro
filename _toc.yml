@@ -11,3 +11,5 @@ chapters:
 - file: 05_anillo
 - file: 06_disco
 - file: 07_alambre
+- file: 08_flujo
+- file: 09_gauss
