@@ -170,11 +170,22 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Carga Eléctrica y Campo Eléctrico</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_carga.html">Carga Eléctrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_coulomb.html">Ley de Coulomb</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Campo Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_continua.html">Distribución de Carga</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_anillo.html">Anillo Uniformemente Cargado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_disco.html">Disco Cargado Uniformemente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_alambre.html">Alambre Infinito</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ley de Gauss</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_flujo.html">Flujo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_gauss.html">La Ley de Gauss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_gauss_esfera.html">Aplicación 1: Simetría Esférica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_gauss_cilindro.html">Aplicación 2: Simetría Cilíndrica</a></li>
 </ul>
 
     </div>
@@ -420,7 +431,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\vec{E} = \frac{\vec{F}}{q}\]</div>
 <blockquote>
-<div><p><strong>Nota sobre la dirección:</strong> Se considera que la carga de prueba es positiva (<span class="math notranslate nohighlight">\(q &gt; 0\)</span>). Por lo tanto, el vector de fuerza (<span class="math notranslate nohighlight">\(\vec{F}\)</span>) siempre apuntará en la misma dirección que el vector de campo eléctrico (<span class="math notranslate nohighlight">\(\vec{E}\)</span>).</p>
+<div><p><strong>Nota:</strong> Se considera que la carga de prueba es positiva (<span class="math notranslate nohighlight">\(q &gt; 0\)</span>). Por lo tanto, el vector de fuerza (<span class="math notranslate nohighlight">\(\vec{F}\)</span>) siempre apuntará en la misma dirección que el vector de campo eléctrico (<span class="math notranslate nohighlight">\(\vec{E}\)</span>).</p>
 </div></blockquote>
 <hr class="docutils" />
 <section id="formulacion-para-una-carga-puntual">
@@ -781,12 +792,12 @@ document.write(`
 
 <span class="c1"># Usamos triple comilla simple (&#39;&#39;&#39;) para poder pegar el HTML tal cual</span>
 <span class="n">codigo_sonido</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&lt;div style=&quot;background-color: #f0f8ff; border-left: 6px solid #2196F3; padding: 20px; border-radius: 8px; font-family: sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1);&quot;&gt;</span>
-<span class="s1">    &lt;h3 style=&quot;color: #0d47a1; margin-top: 0;&quot;&gt;🎧 Experimento: Escucha el Campo Eléctrico&lt;/h3&gt;</span>
+<span class="s1">&lt;div style=&quot;background-color: #f0f8ff; border-left: 6px solid #f73bc5; padding: 20px; border-radius: 8px; font-family: sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1);&quot;&gt;</span>
+<span class="s1">    &lt;h3 style=&quot;color: #ab2988; margin-top: 0;&quot;&gt;🎧 Experimento: Escucha el Campo Eléctrico&lt;/h3&gt;</span>
 <span class="s1">    &lt;p&gt;Mueve la &quot;Carga de Prueba&quot; hacia la izquierda. El sonido representa la intensidad del campo eléctrico.&lt;/p&gt;</span>
 
 <span class="s1">    &lt;div style=&quot;display: flex; align-items: center; gap: 15px; margin: 20px 0;&quot;&gt;</span>
-<span class="s1">        &lt;button id=&quot;btnAudio&quot; onclick=&quot;toggleAudio()&quot; style=&quot;background-color: #2196F3; color: white; border: none; padding: 10px 24px; border-radius: 50px; cursor: pointer; font-weight: bold; transition: all 0.3s;&quot;&gt;</span>
+<span class="s1">        &lt;button id=&quot;btnAudio&quot; onclick=&quot;toggleAudio()&quot; style=&quot;background-color: #f73bc5; color: white; border: none; padding: 10px 24px; border-radius: 50px; cursor: pointer; font-weight: bold; transition: all 0.3s;&quot;&gt;</span>
 <span class="s1">            ▶️ Activar Sonido</span>
 <span class="s1">        &lt;/button&gt;</span>
 <span class="s1">        &lt;span id=&quot;statusText&quot; style=&quot;color: #666; font-style: italic;&quot;&gt;Silencio&lt;/span&gt;</span>
@@ -795,7 +806,7 @@ document.write(`
 <span class="s1">    &lt;label style=&quot;font-weight: bold; color: #333;&quot;&gt;Distancia (r):&lt;/label&gt;</span>
 <span class="s1">    &lt;input type=&quot;range&quot; id=&quot;distSlider&quot; min=&quot;0.5&quot; max=&quot;10&quot; step=&quot;0.1&quot; value=&quot;5&quot; style=&quot;width: 100%; margin-top: 10px; cursor: pointer;&quot;&gt;</span>
 <span class="s1">    </span>
-<span class="s1">    &lt;p style=&quot;margin-top: 15px;&quot;&gt;Frecuencia percibida: &lt;span id=&quot;freqDisplay&quot; style=&quot;font-weight: bold; color: #2196F3; font-size: 1.2em;&quot;&gt;--- Hz&lt;/span&gt;&lt;/p&gt;</span>
+<span class="s1">    &lt;p style=&quot;margin-top: 15px;&quot;&gt;Frecuencia percibida: &lt;span id=&quot;freqDisplay&quot; style=&quot;font-weight: bold; color: #f73bc5; font-size: 1.2em;&quot;&gt;--- Hz&lt;/span&gt;&lt;/p&gt;</span>
 
 <span class="s1">    &lt;script&gt;</span>
 <span class="s1">        var audioCtx_v2;</span>
@@ -821,7 +832,7 @@ document.write(`
 <span class="s1">                oscillator_v2.stop(now + 0.1);</span>
 <span class="s1">                </span>
 <span class="s1">                btn.innerHTML = &quot;▶️ Activar Sonido&quot;;</span>
-<span class="s1">                btn.style.backgroundColor = &quot;#2196F3&quot;;</span>
+<span class="s1">                btn.style.backgroundColor = &quot;#f73bc5&quot;;</span>
 <span class="s1">                status.innerHTML = &quot;Silencio&quot;;</span>
 <span class="s1">                isPlaying_v2 = false;</span>
 <span class="s1">            } else {</span>
@@ -884,12 +895,12 @@ document.write(`
 </details>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div style="background-color: #f0f8ff; border-left: 6px solid #2196F3; padding: 20px; border-radius: 8px; font-family: sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-    <h3 style="color: #0d47a1; margin-top: 0;">🎧 Experimento: Escucha el Campo Eléctrico</h3>
+<div style="background-color: #f0f8ff; border-left: 6px solid #f73bc5; padding: 20px; border-radius: 8px; font-family: sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <h3 style="color: #ab2988; margin-top: 0;">🎧 Experimento: Escucha el Campo Eléctrico</h3>
     <p>Mueve la "Carga de Prueba" hacia la izquierda. El sonido representa la intensidad del campo eléctrico.</p>
 
     <div style="display: flex; align-items: center; gap: 15px; margin: 20px 0;">
-        <button id="btnAudio" onclick="toggleAudio()" style="background-color: #2196F3; color: white; border: none; padding: 10px 24px; border-radius: 50px; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+        <button id="btnAudio" onclick="toggleAudio()" style="background-color: #f73bc5; color: white; border: none; padding: 10px 24px; border-radius: 50px; cursor: pointer; font-weight: bold; transition: all 0.3s;">
             ▶️ Activar Sonido
         </button>
         <span id="statusText" style="color: #666; font-style: italic;">Silencio</span>
@@ -898,7 +909,7 @@ document.write(`
     <label style="font-weight: bold; color: #333;">Distancia (r):</label>
     <input type="range" id="distSlider" min="0.5" max="10" step="0.1" value="5" style="width: 100%; margin-top: 10px; cursor: pointer;">
     
-    <p style="margin-top: 15px;">Frecuencia percibida: <span id="freqDisplay" style="font-weight: bold; color: #2196F3; font-size: 1.2em;">--- Hz</span></p>
+    <p style="margin-top: 15px;">Frecuencia percibida: <span id="freqDisplay" style="font-weight: bold; color: #f73bc5; font-size: 1.2em;">--- Hz</span></p>
 
     <script>
         var audioCtx_v2;
@@ -924,7 +935,7 @@ document.write(`
                 oscillator_v2.stop(now + 0.1);
                 
                 btn.innerHTML = "▶️ Activar Sonido";
-                btn.style.backgroundColor = "#2196F3";
+                btn.style.backgroundColor = "#f73bc5";
                 status.innerHTML = "Silencio";
                 isPlaying_v2 = false;
             } else {

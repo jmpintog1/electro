@@ -170,17 +170,22 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Carga Eléctrica y Campo Eléctrico</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_carga.html">Carga Eléctrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_coulomb.html">Ley de Coulomb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_campo.html">Campo Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_continua.html">Distribución de Carga</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_anillo.html">Anillo Uniformemente Cargado</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="06_disco.html">Disco Cargado Uniformemente</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Alambre Infinito</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ley de Gauss</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="08_flujo.html">Flujo Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_gauss.html">La Ley de Gauss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_gauss_esfera.html">Aplicación 1: Simetría Esférica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_gauss_cilindro.html">Aplicación 2: Simetría Cilíndrica</a></li>
 </ul>
 
     </div>
@@ -407,11 +412,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-poder-de-la-simetria">1. El Poder de la Simetría</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">2. Identificación de los Vectores y Diferenciales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">3. Planteamiento de la Integral</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica-sustitucion-trigonometrica">4. Resolución Matemática (Sustitución Trigonométrica)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">5. Resultado Final</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-poder-de-la-simetria">El Poder de la Simetría</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">Identificación de los Vectores y Diferenciales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">Planteamiento de la Integral</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica-sustitucion-trigonometrica">Resolución Matemática (Sustitución Trigonométrica)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
 </ul>
             </nav>
         </div>
@@ -427,74 +432,6 @@ document.write(`
 <h1>Alambre Infinito<a class="headerlink" href="#alambre-infinito" title="Permalink to this heading">#</a></h1>
 <p>Vamos a calcular el campo eléctrico generado por un hilo recto, infinitamente largo, que descansa sobre el eje <span class="math notranslate nohighlight">\(x\)</span> (desde <span class="math notranslate nohighlight">\(x = -\infty\)</span> hasta <span class="math notranslate nohighlight">\(x = \infty\)</span>). El hilo tiene una densidad de carga lineal uniforme <span class="math notranslate nohighlight">\(\lambda\)</span>. Queremos determinar el campo en un punto <span class="math notranslate nohighlight">\(P\)</span> ubicado en las coordenadas <span class="math notranslate nohighlight">\((0,a)\)</span>, es decir, sobre el eje <span class="math notranslate nohighlight">\(y\)</span> a una distancia <span class="math notranslate nohighlight">\(a\)</span> del alambre.</p>
 <a class="reference internal image-reference" href="_images/01_11.svg"><img alt="Disco uniforme" class="align-center" src="_images/01_11.svg" width="70%" /></a>
-<section id="el-poder-de-la-simetria">
-<h2>1. El Poder de la Simetría<a class="headerlink" href="#el-poder-de-la-simetria" title="Permalink to this heading">#</a></h2>
-<p>Antes de escribir una sola ecuación, miremos la física del problema. Si elegimos un elemento de carga <span class="math notranslate nohighlight">\(dq'\)</span> en una posición <span class="math notranslate nohighlight">\(x\)</span> positiva, existirá un elemento idéntico <span class="math notranslate nohighlight">\(dq'\)</span> en la posición <span class="math notranslate nohighlight">\(-x\)</span> (en el lado negativo).</p>
-<ul class="simple">
-<li><p>El elemento en <span class="math notranslate nohighlight">\(x\)</span> genera un diferencial de campo <span class="math notranslate nohighlight">\(d\vec{E}\)</span> que apunta hacia arriba y hacia la izquierda.</p></li>
-<li><p>El elemento en <span class="math notranslate nohighlight">\(-x\)</span> genera un diferencial de campo <span class="math notranslate nohighlight">\(d\vec{E}\)</span> que apunta hacia arriba y hacia la derecha.</p></li>
-</ul>
-<p>Las componentes horizontales (en el eje <span class="math notranslate nohighlight">\(x\)</span>) de estos dos campos <strong>apuntan en sentidos opuestos y se cancelan perfectamente</strong>. Las componentes verticales (en el eje <span class="math notranslate nohighlight">\(y\)</span>) apuntan en el mismo sentido y se suman. Por lo tanto, por simetría, sabemos de antemano que <strong>el campo total solo tendrá componente en la dirección <span class="math notranslate nohighlight">\(y\)</span></strong>.</p>
-</section>
-<section id="identificacion-de-los-vectores-y-diferenciales">
-<h2>2. Identificación de los Vectores y Diferenciales<a class="headerlink" href="#identificacion-de-los-vectores-y-diferenciales" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Diferencial de carga:</strong> <span class="math notranslate nohighlight">\(dq' = \lambda dx\)</span></p></li>
-<li><p><strong>Vector fuente (sobre el alambre):</strong> <span class="math notranslate nohighlight">\(\vec{r}\,' = x\,\hat{\imath}\)</span></p></li>
-<li><p><strong>Vector observación (el punto P):</strong> <span class="math notranslate nohighlight">\(\vec{r} = a\,\hat{\jmath}\)</span></p></li>
-<li><p><strong>Vector distancia relativa:</strong> <span class="math notranslate nohighlight">\(\vec{r} - \vec{r}\,' = -x\,\hat{\imath} + a\,\hat{\jmath}\)</span></p></li>
-<li><p><strong>Magnitud al cubo:</strong> <span class="math notranslate nohighlight">\(|\vec{r} - \vec{r}\,'|^3 = (x^2 + a^2)^{3/2}\)</span></p></li>
-</ul>
-</section>
-<section id="planteamiento-de-la-integral">
-<h2>3. Planteamiento de la Integral<a class="headerlink" href="#planteamiento-de-la-integral" title="Permalink to this heading">#</a></h2>
-<p>Sustituimos nuestros términos en la fórmula general de Coulomb:</p>
-<div class="math notranslate nohighlight">
-\[d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{\lambda dx}{(x^2 + a^2)^{3/2}} (-x\,\hat{\imath} + a\,\hat{\jmath})\]</div>
-<p>Como ya demostramos por simetría que la componente en <span class="math notranslate nohighlight">\(x\)</span> se integrará a cero, podemos descartarla y enfocarnos únicamente en la componente <span class="math notranslate nohighlight">\(y\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[dE_y = \frac{1}{4\pi\epsilon_0} \frac{\lambda a dx}{(x^2 + a^2)^{3/2}}\]</div>
-<p>Para encontrar el campo total, integramos a lo largo de todo el alambre, desde <span class="math notranslate nohighlight">\(-\infty\)</span> hasta <span class="math notranslate nohighlight">\(\infty\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[E_y = \frac{\lambda a}{4\pi\epsilon_0} \int_{-\infty}^{\infty} \frac{dx}{(x^2 + a^2)^{3/2}}\]</div>
-</section>
-<section id="resolucion-matematica-sustitucion-trigonometrica">
-<h2>4. Resolución Matemática (Sustitución Trigonométrica)<a class="headerlink" href="#resolucion-matematica-sustitucion-trigonometrica" title="Permalink to this heading">#</a></h2>
-<p>Para resolver esta integral, la técnica más elegante es usar trigonometría. Si imaginamos un triángulo rectángulo de catetos <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(a\)</span>, el ángulo <span class="math notranslate nohighlight">\(\theta\)</span> formado con el eje <span class="math notranslate nohighlight">\(y\)</span> cumple que:</p>
-<div class="math notranslate nohighlight">
-\[x = a \tan\theta\]</div>
-<p>Si diferenciamos esta expresión respecto a <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[dx = a \sec^2\theta d\theta\]</div>
-<p>¿Qué pasa con los límites de integración?</p>
-<ul class="simple">
-<li><p>Si <span class="math notranslate nohighlight">\(x \to \infty\)</span>, el ángulo <span class="math notranslate nohighlight">\(\theta \to \pi/2\)</span> (<span class="math notranslate nohighlight">\(90^\circ\)</span>).</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(x \to -\infty\)</span>, el ángulo <span class="math notranslate nohighlight">\(\theta \to -\pi/2\)</span> (<span class="math notranslate nohighlight">\(-90^\circ\)</span>).</p></li>
-</ul>
-<p>Además, el denominador se transforma maravillosamente gracias a la identidad <span class="math notranslate nohighlight">\(1 + \tan^2\theta = \sec^2\theta\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[(x^2 + a^2)^{3/2} = (a^2 \tan^2\theta + a^2)^{3/2} = (a^2 \sec^2\theta)^{3/2} = a^3 \sec^3\theta\]</div>
-<p>Sustituimos todo en nuestra integral:</p>
-<div class="math notranslate nohighlight">
-\[\int_{-\pi/2}^{\pi/2} \frac{a \sec^2\theta d\theta}{a^3 \sec^3\theta} = \int_{-\pi/2}^{\pi/2} \frac{1}{a^2 \sec\theta} d\theta\]</div>
-<p>Como <span class="math notranslate nohighlight">\(\frac{1}{\sec\theta} = \cos\theta\)</span>, la integral se simplifica a:</p>
-<div class="math notranslate nohighlight">
-\[\frac{1}{a^2} \int_{-\pi/2}^{\pi/2} \cos\theta d\theta\]</div>
-<p>La integral del coseno es el seno. Evaluando en los límites:</p>
-<div class="math notranslate nohighlight">
-\[\frac{1}{a^2} \left[ \sin\theta \right]_{-\pi/2}^{\pi/2} = \frac{1}{a^2} \left( \sin(\pi/2) - \sin(-\pi/2) \right) = \frac{1}{a^2} (1 - (-1)) = \frac{2}{a^2}\]</div>
-</section>
-<section id="resultado-final">
-<h2>5. Resultado Final<a class="headerlink" href="#resultado-final" title="Permalink to this heading">#</a></h2>
-<p>Multiplicamos este resultado por las constantes que habíamos dejado fuera de la integral:</p>
-<div class="math notranslate nohighlight">
-\[E_y = \frac{\lambda a}{4\pi\epsilon_0} \left( \frac{2}{a^2} \right) = \frac{2\lambda}{4\pi\epsilon_0 a}\]</div>
-<p>Simplificando el <span class="math notranslate nohighlight">\(2\)</span> y añadiendo el vector unitario, llegamos a nuestra fórmula maestra:</p>
-<div class="math notranslate nohighlight">
-\[\vec{E} = \frac{\lambda}{2\pi\epsilon_0 a} \hat{\jmath}\]</div>
-<blockquote>
-<div><p><strong>💡 ¡Guarda este resultado en tu memoria!</strong> &gt; Nos ha tomado todo un análisis de simetría, una sustitución trigonométrica y evaluar límites en el infinito para llegar a esta expresión. En el próximo capítulo, introduciremos una herramienta llamada <strong>Ley de Gauss</strong>, con la cual seremos capaces de deducir esta misma fórmula exacta… ¡en apenas tres líneas de álgebra básica!</p>
-</div></blockquote>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1003,7 +940,7 @@ document.write(`
 <span class="s2">        margin-right: 10px;</span>
 <span class="s2">    }</span>
 <span class="s2">    .fisi-check-btn {</span>
-<span class="s2">        background-color: #007bff;</span>
+<span class="s2">        background-color: #f73bc5;</span>
 <span class="s2">        color: white;</span>
 <span class="s2">        border: none;</span>
 <span class="s2">        padding: 8px 20px;</span>
@@ -1013,7 +950,7 @@ document.write(`
 <span class="s2">        margin-top: 10px;</span>
 <span class="s2">        font-weight: 500;</span>
 <span class="s2">    }</span>
-<span class="s2">    .fisi-check-btn:hover { background-color: #0056b3; }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
 <span class="s2">    .fisi-feedback {</span>
 <span class="s2">        margin-top: 15px;</span>
 <span class="s2">        padding: 12px;</span>
@@ -1197,7 +1134,7 @@ document.write(`
         margin-right: 10px;
     }
     .fisi-check-btn {
-        background-color: #007bff;
+        background-color: #f73bc5;
         color: white;
         border: none;
         padding: 8px 20px;
@@ -1207,7 +1144,7 @@ document.write(`
         margin-top: 10px;
         font-weight: 500;
     }
-    .fisi-check-btn:hover { background-color: #0056b3; }
+    .fisi-check-btn:hover { background-color: #ab2988; }
     .fisi-feedback {
         margin-top: 15px;
         padding: 12px;
@@ -1359,6 +1296,74 @@ document.write(`
 </script>
 </div></div>
 </div>
+<section id="el-poder-de-la-simetria">
+<h2>El Poder de la Simetría<a class="headerlink" href="#el-poder-de-la-simetria" title="Permalink to this heading">#</a></h2>
+<p>Antes de escribir una sola ecuación, miremos la física del problema. Si elegimos un elemento de carga <span class="math notranslate nohighlight">\(dq'\)</span> en una posición <span class="math notranslate nohighlight">\(x\)</span> positiva, existirá un elemento idéntico <span class="math notranslate nohighlight">\(dq'\)</span> en la posición <span class="math notranslate nohighlight">\(-x\)</span> (en el lado negativo).</p>
+<ul class="simple">
+<li><p>El elemento en <span class="math notranslate nohighlight">\(x\)</span> genera un diferencial de campo <span class="math notranslate nohighlight">\(d\vec{E}\)</span> que apunta hacia arriba y hacia la izquierda.</p></li>
+<li><p>El elemento en <span class="math notranslate nohighlight">\(-x\)</span> genera un diferencial de campo <span class="math notranslate nohighlight">\(d\vec{E}\)</span> que apunta hacia arriba y hacia la derecha.</p></li>
+</ul>
+<p>Las componentes horizontales (en el eje <span class="math notranslate nohighlight">\(x\)</span>) de estos dos campos <strong>apuntan en sentidos opuestos y se cancelan perfectamente</strong>. Las componentes verticales (en el eje <span class="math notranslate nohighlight">\(y\)</span>) apuntan en el mismo sentido y se suman. Por lo tanto, por simetría, sabemos de antemano que <strong>el campo total solo tendrá componente en la dirección <span class="math notranslate nohighlight">\(y\)</span></strong>.</p>
+</section>
+<section id="identificacion-de-los-vectores-y-diferenciales">
+<h2>Identificación de los Vectores y Diferenciales<a class="headerlink" href="#identificacion-de-los-vectores-y-diferenciales" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Diferencial de carga:</strong> <span class="math notranslate nohighlight">\(dq' = \lambda dx\)</span></p></li>
+<li><p><strong>Vector fuente (sobre el alambre):</strong> <span class="math notranslate nohighlight">\(\vec{r}\,' = x\,\hat{\imath}\)</span></p></li>
+<li><p><strong>Vector observación (el punto P):</strong> <span class="math notranslate nohighlight">\(\vec{r} = a\,\hat{\jmath}\)</span></p></li>
+<li><p><strong>Vector distancia relativa:</strong> <span class="math notranslate nohighlight">\(\vec{r} - \vec{r}\,' = -x\,\hat{\imath} + a\,\hat{\jmath}\)</span></p></li>
+<li><p><strong>Magnitud al cubo:</strong> <span class="math notranslate nohighlight">\(|\vec{r} - \vec{r}\,'|^3 = (x^2 + a^2)^{3/2}\)</span></p></li>
+</ul>
+</section>
+<section id="planteamiento-de-la-integral">
+<h2>Planteamiento de la Integral<a class="headerlink" href="#planteamiento-de-la-integral" title="Permalink to this heading">#</a></h2>
+<p>Sustituimos nuestros términos en la fórmula general de Coulomb:</p>
+<div class="math notranslate nohighlight">
+\[d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{\lambda dx}{(x^2 + a^2)^{3/2}} (-x\,\hat{\imath} + a\,\hat{\jmath})\]</div>
+<p>Como ya demostramos por simetría que la componente en <span class="math notranslate nohighlight">\(x\)</span> se integrará a cero, podemos descartarla y enfocarnos únicamente en la componente <span class="math notranslate nohighlight">\(y\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[dE_y = \frac{1}{4\pi\epsilon_0} \frac{\lambda a dx}{(x^2 + a^2)^{3/2}}\]</div>
+<p>Para encontrar el campo total, integramos a lo largo de todo el alambre, desde <span class="math notranslate nohighlight">\(-\infty\)</span> hasta <span class="math notranslate nohighlight">\(\infty\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[E_y = \frac{\lambda a}{4\pi\epsilon_0} \int_{-\infty}^{\infty} \frac{dx}{(x^2 + a^2)^{3/2}}\]</div>
+</section>
+<section id="resolucion-matematica-sustitucion-trigonometrica">
+<h2>Resolución Matemática (Sustitución Trigonométrica)<a class="headerlink" href="#resolucion-matematica-sustitucion-trigonometrica" title="Permalink to this heading">#</a></h2>
+<p>Para resolver esta integral, la técnica más elegante es usar trigonometría. Si imaginamos un triángulo rectángulo de catetos <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(a\)</span>, el ángulo <span class="math notranslate nohighlight">\(\theta\)</span> formado con el eje <span class="math notranslate nohighlight">\(y\)</span> cumple que:</p>
+<div class="math notranslate nohighlight">
+\[x = a \tan\theta\]</div>
+<p>Si diferenciamos esta expresión respecto a <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[dx = a \sec^2\theta d\theta\]</div>
+<p>¿Qué pasa con los límites de integración?</p>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(x \to \infty\)</span>, el ángulo <span class="math notranslate nohighlight">\(\theta \to \pi/2\)</span> (<span class="math notranslate nohighlight">\(90^\circ\)</span>).</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(x \to -\infty\)</span>, el ángulo <span class="math notranslate nohighlight">\(\theta \to -\pi/2\)</span> (<span class="math notranslate nohighlight">\(-90^\circ\)</span>).</p></li>
+</ul>
+<p>Además, el denominador se transforma maravillosamente gracias a la identidad <span class="math notranslate nohighlight">\(1 + \tan^2\theta = \sec^2\theta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[(x^2 + a^2)^{3/2} = (a^2 \tan^2\theta + a^2)^{3/2} = (a^2 \sec^2\theta)^{3/2} = a^3 \sec^3\theta\]</div>
+<p>Sustituimos todo en nuestra integral:</p>
+<div class="math notranslate nohighlight">
+\[\int_{-\pi/2}^{\pi/2} \frac{a \sec^2\theta d\theta}{a^3 \sec^3\theta} = \int_{-\pi/2}^{\pi/2} \frac{1}{a^2 \sec\theta} d\theta\]</div>
+<p>Como <span class="math notranslate nohighlight">\(\frac{1}{\sec\theta} = \cos\theta\)</span>, la integral se simplifica a:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{a^2} \int_{-\pi/2}^{\pi/2} \cos\theta d\theta\]</div>
+<p>La integral del coseno es el seno. Evaluando en los límites:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{a^2} \left[ \sin\theta \right]_{-\pi/2}^{\pi/2} = \frac{1}{a^2} \left( \sin(\pi/2) - \sin(-\pi/2) \right) = \frac{1}{a^2} (1 - (-1)) = \frac{2}{a^2}\]</div>
+</section>
+<section id="resultado-final">
+<h2>Resultado Final<a class="headerlink" href="#resultado-final" title="Permalink to this heading">#</a></h2>
+<p>Multiplicamos este resultado por las constantes que habíamos dejado fuera de la integral:</p>
+<div class="math notranslate nohighlight">
+\[E_y = \frac{\lambda a}{4\pi\epsilon_0} \left( \frac{2}{a^2} \right) = \frac{2\lambda}{4\pi\epsilon_0 a}\]</div>
+<p>Simplificando el <span class="math notranslate nohighlight">\(2\)</span> y añadiendo el vector unitario, llegamos a nuestra fórmula maestra:</p>
+<div class="math notranslate nohighlight">
+\[\vec{E} = \frac{\lambda}{2\pi\epsilon_0 a} \hat{\jmath}\]</div>
+<blockquote>
+<div><p><strong>💡 ¡Guarda este resultado en tu memoria!</strong> Nos ha tomado todo un análisis de simetría, una sustitución trigonométrica y evaluar límites en el infinito para llegar a esta expresión. En el próximo capítulo, introduciremos una herramienta llamada <strong>Ley de Gauss</strong>, con la cual seremos capaces de deducir esta misma fórmula exacta… ¡en apenas tres líneas de álgebra básica!</p>
+</div></blockquote>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1394,7 +1399,7 @@ document.write(`
 <span class="s2">        margin-right: 10px;</span>
 <span class="s2">    }</span>
 <span class="s2">    .fisi-check-btn {</span>
-<span class="s2">        background-color: #007bff;</span>
+<span class="s2">        background-color: #f73bc5;</span>
 <span class="s2">        color: white;</span>
 <span class="s2">        border: none;</span>
 <span class="s2">        padding: 8px 20px;</span>
@@ -1404,7 +1409,7 @@ document.write(`
 <span class="s2">        margin-top: 10px;</span>
 <span class="s2">        font-weight: 500;</span>
 <span class="s2">    }</span>
-<span class="s2">    .fisi-check-btn:hover { background-color: #0056b3; }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
 <span class="s2">    .fisi-feedback {</span>
 <span class="s2">        margin-top: 15px;</span>
 <span class="s2">        padding: 12px;</span>
@@ -1584,7 +1589,7 @@ document.write(`
         margin-right: 10px;
     }
     .fisi-check-btn {
-        background-color: #007bff;
+        background-color: #f73bc5;
         color: white;
         border: none;
         padding: 8px 20px;
@@ -1594,7 +1599,7 @@ document.write(`
         margin-top: 10px;
         font-weight: 500;
     }
-    .fisi-check-btn:hover { background-color: #0056b3; }
+    .fisi-check-btn:hover { background-color: #ab2988; }
     .fisi-feedback {
         margin-top: 15px;
         padding: 12px;
@@ -1808,11 +1813,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-poder-de-la-simetria">1. El Poder de la Simetría</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">2. Identificación de los Vectores y Diferenciales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">3. Planteamiento de la Integral</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica-sustitucion-trigonometrica">4. Resolución Matemática (Sustitución Trigonométrica)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">5. Resultado Final</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-poder-de-la-simetria">El Poder de la Simetría</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">Identificación de los Vectores y Diferenciales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">Planteamiento de la Integral</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica-sustitucion-trigonometrica">Resolución Matemática (Sustitución Trigonométrica)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
 </ul>
   </nav></div>
 

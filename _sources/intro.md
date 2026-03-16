@@ -2,7 +2,7 @@
 
 Este espacio no es un libro de texto convencional; es un entorno interactivo diseñado específicamente para los desafíos de la ingeniería en la Universidad. Aquí, la teoría deja de ser estática para convertirse en una herramienta de experimentación.
 
-## ¿Por qué este libro?
+## ¿Por qué usar este libro digital?
 A diferencia de los textos clásicos como el Sears-Zemansky, este recurso te permite:
 
 * **Visualizar dinámicamente.** Observa cómo se comportan los campos eléctricos y magnéticos en tiempo real.
