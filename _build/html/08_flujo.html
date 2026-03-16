@@ -170,17 +170,22 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Carga Eléctrica y Campo Eléctrico</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_carga.html">Carga Eléctrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_coulomb.html">Ley de Coulomb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_campo.html">Campo Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_continua.html">Distribución de Carga</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_anillo.html">Anillo Uniformemente Cargado</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="06_disco.html">Disco Cargado Uniformemente</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_alambre.html">Alambre Infinito</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ley de Gauss</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Flujo Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_gauss.html">La Ley de Gauss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_gauss_esfera.html">Aplicación 1: Simetría Esférica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_gauss_cilindro.html">Aplicación 2: Simetría Cilíndrica</a></li>
 </ul>
 
     </div>
@@ -407,13 +412,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-analogia-del-viento">1. La Analogía del Viento</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-vector-area-vec-a">2. El Vector Área (<span class="math notranslate nohighlight">\(\vec{A}\)</span>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-matematica-del-flujo">3. Definición Matemática del Flujo</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-analogia-del-viento">La Analogía del Viento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-vector-area-vec-a">El Vector Área (<span class="math notranslate nohighlight">\(\vec{A}\)</span>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-matematica-del-flujo">Definición Matemática del Flujo</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-tres-casos-clave">Los tres casos clave:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizacion-la-integral-de-flujo">4. Generalización: La Integral de Flujo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizacion-la-integral-de-flujo">Generalización: La Integral de Flujo</a></li>
 </ul>
             </nav>
         </div>
@@ -430,7 +435,7 @@ document.write(`
 <p>Hasta ahora, hemos calculado el campo eléctrico sumando pacientemente las contribuciones de cada diferencial de carga mediante la Ley de Coulomb. Sin embargo, para distribuciones con alta simetría, existe un “atajo” matemático extraordinariamente poderoso: la <strong>Ley de Gauss</strong>.</p>
 <p>Pero antes de poder usar esta ley, necesitamos entender su concepto fundamental: el <strong>Flujo Eléctrico</strong>.</p>
 <section id="la-analogia-del-viento">
-<h2>1. La Analogía del Viento<a class="headerlink" href="#la-analogia-del-viento" title="Permalink to this heading">#</a></h2>
+<h2>La Analogía del Viento<a class="headerlink" href="#la-analogia-del-viento" title="Permalink to this heading">#</a></h2>
 <p>Imagina que estás en una colina en un día de mucho viento y sostienes una red atrapamariposas (o simplemente un marco cuadrado vacío). Quieres atrapar la mayor cantidad de aire posible que pase a través del marco.</p>
 <p>¿De qué depende la “cantidad de viento” que cruza tu marco? Tu intuición te dirá rápidamente que depende de tres cosas:</p>
 <ol class="arabic simple">
@@ -441,7 +446,7 @@ document.write(`
 <p>En electromagnetismo, el viento invisible es el <strong>Campo Eléctrico</strong> (<span class="math notranslate nohighlight">\(\vec{E}\)</span>), el tamaño del marco es el <strong>Área</strong> (<span class="math notranslate nohighlight">\(A\)</span>), y la cantidad total de “campo” que atraviesa esa área es lo que llamamos <strong>Flujo Eléctrico</strong> (<span class="math notranslate nohighlight">\(\Phi_E\)</span>).</p>
 </section>
 <section id="el-vector-area-vec-a">
-<h2>2. El Vector Área (<span class="math notranslate nohighlight">\(\vec{A}\)</span>)<a class="headerlink" href="#el-vector-area-vec-a" title="Permalink to this heading">#</a></h2>
+<h2>El Vector Área (<span class="math notranslate nohighlight">\(\vec{A}\)</span>)<a class="headerlink" href="#el-vector-area-vec-a" title="Permalink to this heading">#</a></h2>
 <p>Para poder calcular esto matemáticamente, necesitamos una forma de representar la “orientación” de nuestra superficie. En física, el área no es solo un escalar (un número), ¡es un vector!</p>
 <p>Definimos el vector Área (<span class="math notranslate nohighlight">\(\vec{A}\)</span>) de tal forma que:</p>
 <ul class="simple">
@@ -453,7 +458,7 @@ document.write(`
 </div></blockquote>
 </section>
 <section id="definicion-matematica-del-flujo">
-<h2>3. Definición Matemática del Flujo<a class="headerlink" href="#definicion-matematica-del-flujo" title="Permalink to this heading">#</a></h2>
+<h2>Definición Matemática del Flujo<a class="headerlink" href="#definicion-matematica-del-flujo" title="Permalink to this heading">#</a></h2>
 <p>Considerando nuestra analogía del viento, la herramienta matemática perfecta para multiplicar dos vectores y medir qué tan “alineados” están es el <strong>Producto Punto</strong> (o producto escalar).</p>
 <p>Para un campo eléctrico uniforme <span class="math notranslate nohighlight">\(\vec{E}\)</span> que atraviesa una superficie plana de área <span class="math notranslate nohighlight">\(\vec{A}\)</span>, el flujo eléctrico se define como:</p>
 <div class="math notranslate nohighlight">
@@ -469,10 +474,10 @@ document.write(`
 </section>
 </section>
 <section id="generalizacion-la-integral-de-flujo">
-<h2>4. Generalización: La Integral de Flujo<a class="headerlink" href="#generalizacion-la-integral-de-flujo" title="Permalink to this heading">#</a></h2>
+<h2>Generalización: La Integral de Flujo<a class="headerlink" href="#generalizacion-la-integral-de-flujo" title="Permalink to this heading">#</a></h2>
 <p>¿Qué pasa si el campo eléctrico no es uniforme (cambia de un punto a otro) o si nuestra superficie no es plana (como una esfera o un cilindro)?</p>
 <p>Aplicamos la misma lógica del cálculo diferencial: dividimos la superficie gigante en infinitos “parches” minúsculos. Cada parche es tan pequeño que se puede considerar plano, con un vector de área diferencial <span class="math notranslate nohighlight">\(d\vec{A}\)</span>. El flujo minúsculo que pasa por ese parche es <span class="math notranslate nohighlight">\(d\Phi_E = \vec{E} \cdot d\vec{A}\)</span>.</p>
-<a class="reference internal image-reference" href="_images/01_12.svg"><img alt="Distribución de carga" class="align-center" src="_images/01_12.svg" width="60%" /></a>
+<a class="reference internal image-reference" href="_images/01_12.svg"><img alt="Distribución de carga" class="align-center" src="_images/01_12.svg" width="50%" /></a>
 <p>Para hallar el flujo total, sumamos (integramos) todos esos parches sobre toda la superficie <span class="math notranslate nohighlight">\(S\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\Phi_E = \int_{S} \vec{E} \cdot d\vec{A}\]</div>
@@ -1492,13 +1497,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-analogia-del-viento">1. La Analogía del Viento</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-vector-area-vec-a">2. El Vector Área (<span class="math notranslate nohighlight">\(\vec{A}\)</span>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-matematica-del-flujo">3. Definición Matemática del Flujo</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-analogia-del-viento">La Analogía del Viento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-vector-area-vec-a">El Vector Área (<span class="math notranslate nohighlight">\(\vec{A}\)</span>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-matematica-del-flujo">Definición Matemática del Flujo</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-tres-casos-clave">Los tres casos clave:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizacion-la-integral-de-flujo">4. Generalización: La Integral de Flujo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizacion-la-integral-de-flujo">Generalización: La Integral de Flujo</a></li>
 </ul>
   </nav></div>
 

@@ -170,17 +170,22 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Carga Eléctrica y Campo Eléctrico</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_carga.html">Carga Eléctrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_coulomb.html">Ley de Coulomb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_campo.html">Campo Eléctrico</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Distribución de Carga</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_anillo.html">Anillo Uniformemente Cargado</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="06_disco.html">Disco Cargado Uniformemente</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_alambre.html">Alambre Infinito</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ley de Gauss</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="08_flujo.html">Flujo Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_gauss.html">La Ley de Gauss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_gauss_esfera.html">Aplicación 1: Simetría Esférica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_gauss_cilindro.html">Aplicación 2: Simetría Cilíndrica</a></li>
 </ul>
 
     </div>
@@ -516,7 +521,7 @@ document.write(`
 <span class="s2">        margin-right: 10px;</span>
 <span class="s2">    }</span>
 <span class="s2">    .fisi-check-btn {</span>
-<span class="s2">        background-color: #007bff;</span>
+<span class="s2">        background-color: #f73bc5;</span>
 <span class="s2">        color: white;</span>
 <span class="s2">        border: none;</span>
 <span class="s2">        padding: 8px 20px;</span>
@@ -526,7 +531,7 @@ document.write(`
 <span class="s2">        margin-top: 10px;</span>
 <span class="s2">        font-weight: 500;</span>
 <span class="s2">    }</span>
-<span class="s2">    .fisi-check-btn:hover { background-color: #0056b3; }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
 <span class="s2">    .fisi-feedback {</span>
 <span class="s2">        margin-top: 15px;</span>
 <span class="s2">        padding: 12px;</span>
@@ -747,7 +752,7 @@ document.write(`
         margin-right: 10px;
     }
     .fisi-check-btn {
-        background-color: #007bff;
+        background-color: #f73bc5;
         color: white;
         border: none;
         padding: 8px 20px;
@@ -757,7 +762,7 @@ document.write(`
         margin-top: 10px;
         font-weight: 500;
     }
-    .fisi-check-btn:hover { background-color: #0056b3; }
+    .fisi-check-btn:hover { background-color: #ab2988; }
     .fisi-feedback {
         margin-top: 15px;
         padding: 12px;
@@ -1464,7 +1469,7 @@ document.write(`
 <section id="identificacion-de-los-vectores-y-diferenciales">
 <h3>1. Identificación de los Vectores y Diferenciales<a class="headerlink" href="#identificacion-de-los-vectores-y-diferenciales" title="Permalink to this heading">#</a></h3>
 <p>De acuerdo con nuestro sistema de referencia, la barra se encuentra sobre el eje <span class="math notranslate nohighlight">\(x\)</span>, comenzando en el origen (<span class="math notranslate nohighlight">\(x=0\)</span>) y terminando en <span class="math notranslate nohighlight">\(x=L\)</span>. La carga puntual se ubica en <span class="math notranslate nohighlight">\(x = L+d\)</span>.</p>
-<p>Rescatando las respuestas de nuestro análisis previo:</p>
+<p>A partir de las respuestas de nuestro análisis previo:</p>
 <ul class="simple">
 <li><p><strong>Diferencial de carga de la fuente:</strong> <span class="math notranslate nohighlight">\(dq' = \lambda dx\)</span></p></li>
 <li><p><strong>Vector de posición de la fuente:</strong> <span class="math notranslate nohighlight">\(\vec{r}\,' = x \, \hat{\imath}\)</span></p></li>
@@ -1541,7 +1546,7 @@ Los límites cambian: si <span class="math notranslate nohighlight">\(x=0 \right
 <span class="s2">        margin-right: 10px;</span>
 <span class="s2">    }</span>
 <span class="s2">    .fisi-check-btn {</span>
-<span class="s2">        background-color: #007bff;</span>
+<span class="s2">        background-color: #f73bc5;</span>
 <span class="s2">        color: white;</span>
 <span class="s2">        border: none;</span>
 <span class="s2">        padding: 8px 20px;</span>
@@ -1551,7 +1556,7 @@ Los límites cambian: si <span class="math notranslate nohighlight">\(x=0 \right
 <span class="s2">        margin-top: 10px;</span>
 <span class="s2">        font-weight: 500;</span>
 <span class="s2">    }</span>
-<span class="s2">    .fisi-check-btn:hover { background-color: #0056b3; }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
 <span class="s2">    .fisi-feedback {</span>
 <span class="s2">        margin-top: 15px;</span>
 <span class="s2">        padding: 12px;</span>
@@ -1731,7 +1736,7 @@ Los límites cambian: si <span class="math notranslate nohighlight">\(x=0 \right
         margin-right: 10px;
     }
     .fisi-check-btn {
-        background-color: #007bff;
+        background-color: #f73bc5;
         color: white;
         border: none;
         padding: 8px 20px;
@@ -1741,7 +1746,7 @@ Los límites cambian: si <span class="math notranslate nohighlight">\(x=0 \right
         margin-top: 10px;
         font-weight: 500;
     }
-    .fisi-check-btn:hover { background-color: #0056b3; }
+    .fisi-check-btn:hover { background-color: #ab2988; }
     .fisi-feedback {
         margin-top: 15px;
         padding: 12px;
