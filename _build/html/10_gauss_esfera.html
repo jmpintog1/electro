@@ -389,7 +389,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -405,6 +407,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-no-un-cubo">Visualización 3D: ¿Por qué no un cubo?</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -664,6 +674,196 @@ Despejamos <span class="math notranslate nohighlight">\(E\)</span> y reorganizam
 <div class="math notranslate nohighlight">
 \[E = \frac{1}{4\pi\epsilon_0} \frac{Q}{r^2}\]</div>
 <p>¡Voilà! En apenas tres líneas de álgebra, hemos llegado exactamente a la misma ecuación empírica descubierta por Charles-Augustin de Coulomb. Sin integrales complejas, solo geometría y simetría.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
+<span class="c1"># import plotly.graph_objects as go</span>
+<span class="c1"># from plotly.subplots import make_subplots</span>
+<span class="c1"># </span>
+<span class="c1"># def generar_comparacion_gauss_3d():</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 1. CONFIGURACIÓN INICIAL DE LA FIGURA</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # Creamos un lienzo con 1 fila y 2 columnas preparadas para gráficos 3D (&#39;scene&#39;)</span>
+<span class="c1">#     fig = make_subplots(</span>
+<span class="c1">#         rows=1, cols=2,</span>
+<span class="c1">#         specs=[[{&#39;type&#39;: &#39;scene&#39;}, {&#39;type&#39;: &#39;scene&#39;}]],</span>
+<span class="c1">#         subplot_titles=(&quot;A) Superficie Esférica&quot;, &quot;B) Superficie Cúbica&quot;)</span>
+<span class="c1">#     )</span>
+<span class="c1"># </span>
+<span class="c1">#     # Parámetros físicos y visuales compartidos</span>
+<span class="c1">#     R = 2.0  # Radio de la esfera</span>
+<span class="c1">#     L = 2.0  # Mitad de la longitud de la arista del cubo (va de -2 a 2)</span>
+<span class="c1">#     L_flecha_E = 1.2   # Largo del vector Campo Eléctrico para visualización</span>
+<span class="c1">#     L_flecha_dA = 0.8  # Largo del vector Diferencial de Área para visualización</span>
+<span class="c1">#     color_E = &#39;red&#39;    # Color para el Campo Eléctrico</span>
+<span class="c1">#     color_dA = &#39;blue&#39;  # Color para el Vector Normal</span>
+<span class="c1">#     color_S = &#39;lightblue&#39; # Color de las superficies gaussianas</span>
+<span class="c1"># </span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # CASO A: LA ESFERA (Lado Izquierdo)</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # Generamos la malla de la esfera usando coordenadas esféricas</span>
+<span class="c1">#     u = np.linspace(0, 2 * np.pi, 40) # Ángulo acimutal (theta en física, de 0 a 2pi)</span>
+<span class="c1">#     v = np.linspace(0, np.pi, 20)     # Ángulo polar (phi en física, de 0 a pi)</span>
+<span class="c1">#     </span>
+<span class="c1">#     # Conversión a coordenadas cartesianas para trazar la superficie</span>
+<span class="c1">#     x_sph = R * np.outer(np.cos(u), np.sin(v))</span>
+<span class="c1">#     y_sph = R * np.outer(np.sin(u), np.sin(v))</span>
+<span class="c1">#     z_sph = R * np.outer(np.ones(np.size(u)), np.cos(v))</span>
+<span class="c1"># </span>
+<span class="c1">#     # Añadimos la capa de la superficie esférica semitransparente</span>
+<span class="c1">#     fig.add_trace(go.Surface(</span>
+<span class="c1">#         x=x_sph, y=y_sph, z=z_sph,</span>
+<span class="c1">#         opacity=0.3, colorscale=[[0, color_S], [1, color_S]], showscale=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=1)</span>
+<span class="c1"># </span>
+<span class="c1">#     # Añadimos la carga puntual en el origen (0,0,0)</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(</span>
+<span class="c1">#         x=[0], y=[0], z=[0], mode=&#39;markers+text&#39;,</span>
+<span class="c1">#         marker=dict(size=10, color=&#39;red&#39;), text=[&#39;+q&#39;], textfont=dict(size=16), name=&#39;Carga +q&#39;, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=1)</span>
+<span class="c1"># </span>
+<span class="c1">#     # Definimos puntos de muestra sobre la esfera para dibujar los vectores</span>
+<span class="c1">#     # Usamos coordenadas (acimutal, polar) para ubicarlos en distintos octantes y el ecuador</span>
+<span class="c1">#     puntos_esfera = [(np.pi/4, np.pi/4), (3*np.pi/4, np.pi/4), (5*np.pi/4, np.pi/4), (7*np.pi/4, np.pi/4),</span>
+<span class="c1">#                      (0, np.pi/2), (np.pi/2, np.pi/2), (np.pi, np.pi/2), (3*np.pi/2, np.pi/2)]</span>
+<span class="c1"># </span>
+<span class="c1">#     for phi, theta in puntos_esfera:</span>
+<span class="c1">#         # Convertimos el punto de origen de los vectores a cartesianas</span>
+<span class="c1">#         px = R * np.cos(phi) * np.sin(theta)</span>
+<span class="c1">#         py = R * np.sin(phi) * np.sin(theta)</span>
+<span class="c1">#         pz = R * np.cos(theta)</span>
+<span class="c1"># </span>
+<span class="c1">#         # Cálculo del Vector E: Sale radialmente desde el origen</span>
+<span class="c1">#         dir_E = np.array([px, py, pz]) / R # Vector unitario radial</span>
+<span class="c1">#         Ex, Ey, Ez = dir_E * L_flecha_E    # Escalamos a la longitud visual deseada</span>
+<span class="c1">#         </span>
+<span class="c1">#         # Cálculo del Vector dA: En una esfera, la normal también es estrictamente radial</span>
+<span class="c1">#         dAx, dAy, dAz = dir_E * L_flecha_dA</span>
+<span class="c1">#         </span>
+<span class="c1">#         # Pequeño desplazamiento (offset) para que las flechas E y dA no se tapen exactamente</span>
+<span class="c1">#         offset = 0.2</span>
+<span class="c1">#         px_dA = px + offset * np.sin(phi)</span>
+<span class="c1">#         py_dA = py - offset * np.cos(phi)</span>
+<span class="c1"># </span>
+<span class="c1">#         # Dibujamos el &quot;tallo&quot; (línea) y la &quot;punta&quot; (cono) de la flecha roja (Campo E)</span>
+<span class="c1">#         fig.add_trace(go.Scatter3d(x=[px, px+Ex], y=[py, py+Ey], z=[pz, pz+Ez], mode=&#39;lines&#39;, line=dict(color=color_E, width=5), hoverinfo=&#39;skip&#39;, showlegend=False), row=1, col=1)</span>
+<span class="c1">#         fig.add_trace(go.Cone(x=[px+Ex], y=[py+Ey], z=[pz+Ez], u=[Ex], v=[Ey], w=[Ez], sizemode=&#39;absolute&#39;, sizeref=0.3, anchor=&#39;tail&#39;, colorscale=[[0, color_E], [1, color_E]], showscale=False, hoverinfo=&#39;skip&#39;), row=1, col=1)</span>
+<span class="c1">#         </span>
+<span class="c1">#         # Dibujamos el &quot;tallo&quot; y la &quot;punta&quot; de la flecha azul (Área dA)</span>
+<span class="c1">#         fig.add_trace(go.Scatter3d(x=[px_dA, px_dA+dAx], y=[py_dA, py_dA+dAy], z=[pz, pz+dAz], mode=&#39;lines&#39;, line=dict(color=color_dA, width=4), hoverinfo=&#39;skip&#39;, showlegend=False), row=1, col=1)</span>
+<span class="c1">#         fig.add_trace(go.Cone(x=[px_dA+dAx], y=[py_dA+dAy], z=[pz+dAz], u=[dAx], v=[dAy], w=[dAz], sizemode=&#39;absolute&#39;, sizeref=0.25, anchor=&#39;tail&#39;, colorscale=[[0, color_dA], [1, color_dA]], showscale=False, hoverinfo=&#39;skip&#39;), row=1, col=1)</span>
+<span class="c1"># </span>
+<span class="c1"># </span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # CASO B: EL CUBO (Lado Derecho)</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # Generamos la malla del cubo definiendo sus 8 vértices y cómo se conectan las caras</span>
+<span class="c1">#     x_cub = [-L, L, L, -L, -L, L, L, -L]</span>
+<span class="c1">#     y_cub = [-L, -L, L, L, -L, -L, L, L]</span>
+<span class="c1">#     z_cub = [-L, -L, -L, -L, L, L, L, L]</span>
+<span class="c1">#     i_cub = [7, 0, 0, 0, 4, 4, 6, 6, 4, 0, 3, 2] # Índices de triangulación para las caras</span>
+<span class="c1">#     j_cub = [3, 4, 1, 2, 5, 6, 5, 2, 0, 1, 6, 3]</span>
+<span class="c1">#     k_cub = [0, 7, 2, 3, 6, 7, 1, 1, 5, 5, 7, 6]</span>
+<span class="c1"># </span>
+<span class="c1">#     # Añadimos la superficie del cubo</span>
+<span class="c1">#     fig.add_trace(go.Mesh3d(</span>
+<span class="c1">#         x=x_cub, y=y_cub, z=z_cub, i=i_cub, j=j_cub, k=k_cub,</span>
+<span class="c1">#         opacity=0.2, color=color_S, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=2)</span>
+<span class="c1"># </span>
+<span class="c1">#     # Añadimos la carga puntual en el centro del cubo</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(</span>
+<span class="c1">#         x=[0], y=[0], z=[0], mode=&#39;markers+text&#39;,</span>
+<span class="c1">#         marker=dict(size=10, color=&#39;red&#39;), text=[&#39;+q&#39;], textfont=dict(size=16), showlegend=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=2)</span>
+<span class="c1"># </span>
+<span class="c1">#     # Elegimos puntos de muestra SOLO en la cara superior (plano z = L) para ilustrar el problema</span>
+<span class="c1">#     puntos_cubo = [</span>
+<span class="c1">#         (0, 0, L),           # Centro de la cara superior (donde E y dA sí son paralelos)</span>
+<span class="c1">#         (L/1.5, L/1.5, L),   # Esquina superior derecha</span>
+<span class="c1">#         (-L/1.5, L/1.5, L),  # Esquina superior izquierda</span>
+<span class="c1">#         (L/1.5, -L/1.5, L),  # Esquina inferior derecha</span>
+<span class="c1">#         (-L/1.5, -L/1.5, L)  # Esquina inferior izquierda</span>
+<span class="c1">#     ]</span>
+<span class="c1"># </span>
+<span class="c1">#     for px, py, pz in puntos_cubo:</span>
+<span class="c1">#         # Vector E: Siempre irradia desde el origen (0,0,0)</span>
+<span class="c1">#         dist = np.sqrt(px**2 + py**2 + pz**2)</span>
+<span class="c1">#         dir_E = np.array([px, py, pz]) / dist # Vector unitario</span>
+<span class="c1">#         Ex, Ey, Ez = dir_E * L_flecha_E</span>
+<span class="c1">#         </span>
+<span class="c1">#         # Vector dA: En la cara superior, la normal SIEMPRE apunta recto hacia arriba (eje z positivo)</span>
+<span class="c1">#         dir_dA = np.array([0, 0, 1])</span>
+<span class="c1">#         dAx, dAy, dAz = dir_dA * L_flecha_dA</span>
+<span class="c1"># </span>
+<span class="c1">#         # Pequeño desplazamiento lateral para que no se pisen en el centro</span>
+<span class="c1">#         offset = 0.2</span>
+<span class="c1">#         px_dA = px + offset</span>
+<span class="c1">#         py_dA = py</span>
+<span class="c1"># </span>
+<span class="c1">#         # Dibujamos flecha roja (Campo E)</span>
+<span class="c1">#         fig.add_trace(go.Scatter3d(x=[px, px+Ex], y=[py, py+Ey], z=[pz, pz+Ez], mode=&#39;lines&#39;, line=dict(color=color_E, width=5), hoverinfo=&#39;skip&#39;, showlegend=False), row=1, col=2)</span>
+<span class="c1">#         fig.add_trace(go.Cone(x=[px+Ex], y=[py+Ey], z=[pz+Ez], u=[Ex], v=[Ey], w=[Ez], sizemode=&#39;absolute&#39;, sizeref=0.3, anchor=&#39;tail&#39;, colorscale=[[0, color_E], [1, color_E]], showscale=False, hoverinfo=&#39;skip&#39;), row=1, col=2)</span>
+<span class="c1">#         </span>
+<span class="c1">#         # Dibujamos flecha azul (Área dA)</span>
+<span class="c1">#         fig.add_trace(go.Scatter3d(x=[px_dA, px_dA+dAx], y=[py_dA, py_dA+dAy], z=[pz, pz+dAz], mode=&#39;lines&#39;, line=dict(color=color_dA, width=4), hoverinfo=&#39;skip&#39;, showlegend=False), row=1, col=2)</span>
+<span class="c1">#         fig.add_trace(go.Cone(x=[px_dA+dAx], y=[py_dA+dAy], z=[pz+dAz], u=[dAx], v=[dAy], w=[dAz], sizemode=&#39;absolute&#39;, sizeref=0.25, anchor=&#39;tail&#39;, colorscale=[[0, color_dA], [1, color_dA]], showscale=False, hoverinfo=&#39;skip&#39;), row=1, col=2)</span>
+<span class="c1"># </span>
+<span class="c1"># </span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 3. LEYENDAS Y ESTILOS GLOBALES</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # Trazas &quot;fantasma&quot; (invisibles) solo para que aparezcan en la leyenda principal</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(x=[None], y=[None], z=[None], mode=&#39;lines&#39;, line=dict(color=color_E, width=5), name=&#39;Campo Eléctrico E&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(x=[None], y=[None], z=[None], mode=&#39;lines&#39;, line=dict(color=color_dA, width=4), name=&#39;Normal de Área dA&#39;))</span>
+<span class="c1"># </span>
+<span class="c1">#     # Restringimos los ejes a un cubo de contención exacto de -3.5 a 3.5.</span>
+<span class="c1">#     # Esto evita el bug donde la esfera se deforma y se vuelve un elipsoide al rotarla.</span>
+<span class="c1">#     axis_settings = dict(visible=False, range=[-3.5, 3.5])</span>
+<span class="c1">#     scene_config = dict(</span>
+<span class="c1">#         xaxis=axis_settings,</span>
+<span class="c1">#         yaxis=axis_settings,</span>
+<span class="c1">#         zaxis=axis_settings,</span>
+<span class="c1">#         camera=dict(eye=dict(x=1.5, y=1.5, z=1.2)), # Posición inicial de la cámara</span>
+<span class="c1">#         aspectmode=&#39;cube&#39; # Fuerza a que la caja que contiene la gráfica sea un cubo perfecto</span>
+<span class="c1">#     )</span>
+<span class="c1"># </span>
+<span class="c1">#     # Aplicamos la configuración a ambos paneles y al título</span>
+<span class="c1">#     fig.update_layout(</span>
+<span class="c1">#         title=dict(</span>
+<span class="c1">#             text=&quot;Ley de Gauss en 3D: Ángulos Variables vs Constantes&lt;br&gt;&lt;sup&gt;En la esfera, E y dA son paralelos en cada punto. En el cubo, el ángulo varía alejándose del centro.&lt;/sup&gt;&quot;,</span>
+<span class="c1">#             x=0.5, y=0.95, font=dict(size=18)</span>
+<span class="c1">#         ),</span>
+<span class="c1">#         scene=scene_config,</span>
+<span class="c1">#         scene2=scene_config,</span>
+<span class="c1">#         margin=dict(l=0, r=0, b=0, t=80),</span>
+<span class="c1">#         legend=dict(x=0.4, y=0.05, orientation=&quot;h&quot;, bgcolor=&#39;rgba(255, 255, 255, 0.8)&#39;)</span>
+<span class="c1">#     )</span>
+<span class="c1"># </span>
+<span class="c1">#     # Mostramos el gráfico interactivo en el cuaderno y lo exportamos para el libro</span>
+<span class="c1">#     # fig.show()</span>
+<span class="c1">#     # fig.write_html(&quot;gauss_comparacion_3d.html&quot;, include_plotlyjs=&#39;cdn&#39;)</span>
+<span class="c1">#     # print(&quot;¡Listo! Archivo &#39;gauss_comparacion_3d.html&#39; guardado con éxito y distorsión corregida.&quot;)</span>
+<span class="c1"># </span>
+<span class="c1"># # Ejecutar la función</span>
+<span class="c1"># # generar_comparacion_gauss_3d()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="visualizacion-3d-por-que-no-un-cubo">
+<h2>Visualización 3D: ¿Por qué no un cubo?<a class="headerlink" href="#visualizacion-3d-por-que-no-un-cubo" title="Permalink to this heading">#</a></h2>
+<p>Puedes rotar libremente ambas figuras arrastrando con el ratón. Nota cómo en el cubo, los vectores rojos y azules se separan angularmente en las esquinas, haciendo que el producto punto <span class="math notranslate nohighlight">\(\vec{E} \cdot d\vec{A}\)</span> sea variable.</p>
+<iframe src="images/gauss_comparacion_3d.html" width="100%" height="600" style="border:none;"></iframe>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -720,6 +920,20 @@ Despejamos <span class="math notranslate nohighlight">\(E\)</span> y reorganizam
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-no-un-cubo">Visualización 3D: ¿Por qué no un cubo?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
