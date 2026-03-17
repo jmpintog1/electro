@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Aplicación 1: Simetría Esférica &#8212; Curso de Electricidad y Magnetismo</title>
+    <title>Simetría Esférica &#8212; Curso de Electricidad y Magnetismo</title>
   
   
   
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '10_gauss_esfera';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Aplicación 2: Simetría Cilíndrica" href="11_gauss_cilindro.html" />
+    <link rel="next" title="Simetría Cilíndrica" href="11_gauss_cilindro.html" />
     <link rel="prev" title="La Ley de Gauss" href="09_gauss.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -184,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="08_flujo.html">Flujo Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_gauss.html">La Ley de Gauss</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Aplicación 1: Simetría Esférica</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_gauss_cilindro.html">Aplicación 2: Simetría Cilíndrica</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Simetría Esférica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_gauss_cilindro.html">Simetría Cilíndrica</a></li>
 </ul>
 
     </div>
@@ -400,7 +400,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Aplicación 1: Simetría Esférica</h1>
+    <h1>Simetría Esférica</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -414,8 +414,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="aplicacion-1-simetria-esferica">
-<h1>Aplicación 1: Simetría Esférica<a class="headerlink" href="#aplicacion-1-simetria-esferica" title="Permalink to this heading">#</a></h1>
+  <section id="simetria-esferica">
+<h1>Simetría Esférica<a class="headerlink" href="#simetria-esferica" title="Permalink to this heading">#</a></h1>
 <p>Vamos a demostrar el poder de la Ley de Gauss deduciendo la ecuación fundamental que inició este curso: el campo eléctrico de una carga puntual.</p>
 <p>Imagina una carga puntual <span class="math notranslate nohighlight">\(Q\)</span> aislada en el espacio. Sabemos por simetría que su campo eléctrico “radia” hacia afuera en todas direcciones de manera perfectamente esférica. Por lo tanto, el campo <span class="math notranslate nohighlight">\(\vec{E}\)</span> solo depende de la distancia <span class="math notranslate nohighlight">\(r\)</span> a la carga.</p>
 <p><strong>Elección de la Superficie Gaussiana:</strong>
@@ -525,7 +525,7 @@ Para aprovechar esta simetría, encerramos nuestra carga puntual con una <strong
     <span class="c1"># info_sph.set_text(&#39;&#39;)</span>
     <span class="c1"># info_cub.set_text(&#39;&#39;)</span>
     <span class="c1"># info_pot.set_text(&#39;&#39;)</span>
-    <span class="k">return</span> <span class="n">probe_sph</span><span class="p">,</span> <span class="n">probe_cub</span><span class="p">,</span> <span class="n">probe_pot</span><span class="c1"># , info_sph, info_cub, info_pot</span>
+    <span class="k">return</span> <span class="n">probe_sph</span><span class="p">,</span> <span class="n">probe_cub</span><span class="p">,</span> <span class="n">probe_pot</span><span class="c1">#, info_sph, info_cub, info_pot</span>
 
 <span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">frame</span> <span class="o">/</span> <span class="n">animation_frames</span> 
@@ -615,17 +615,35 @@ Para aprovechar esta simetría, encerramos nuestra carga puntual con una <strong
     <span class="c1">#         r&quot;$\bullet$ $|E|$ VARÍA salvajemente&quot; &quot;\n&quot;</span>
     <span class="c1">#         r&quot;$\bullet$ Integral IMPOSIBLE&quot;)</span>
     
-    <span class="k">return</span> <span class="n">probe_sph</span><span class="p">,</span> <span class="n">probe_cub</span><span class="p">,</span> <span class="n">probe_pot</span><span class="c1"># , info_sph, info_cub, info_pot</span>
+    <span class="k">return</span> <span class="n">probe_sph</span><span class="p">,</span> <span class="n">probe_cub</span><span class="p">,</span> <span class="n">probe_pot</span><span class="c1">#, info_sph, info_cub, info_pot</span>
 
 <span class="c1"># === GENERAR Y MOSTRAR LA ANIMACIÓN ===</span>
-<span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">animation_frames</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> 
-<span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+<span class="c1"># anim = FuncAnimation(fig, animate, init_func=init, frames=animation_frames, interval=60, blit=True)</span>
+<span class="c1"># plt.close() </span>
+<span class="c1"># HTML(anim.to_jshtml())</span>
+
+<span class="c1"># === GENERAR Y GUARDAR LA ANIMACIÓN COMO GIF ===</span>
+<span class="c1"># anim = FuncAnimation(fig, animate, init_func=init, frames=animation_frames, interval=60, blit=True)</span>
+
+<span class="c1"># Guardar como GIF usando Pillow (ideal para GitHub y Jupyter Book)</span>
+<span class="c1"># print(&quot;Generando GIF, por favor espera unos segundos...&quot;)</span>
+<span class="c1"># anim.save(&#39;superficies_gaussianas.gif&#39;, writer=&#39;pillow&#39;, fps=15)</span>
+<span class="c1"># print(&quot;¡GIF guardado con éxito como &#39;superficies_gaussianas.gif&#39;!&quot;)</span>
+
+<span class="c1"># plt.close() # Cierra la figura de matplotlib para no ensuciar el notebook</span>
+
+<span class="c1"># Si quieres previsualizar el GIF dentro de tu notebook mientras editas:</span>
+<span class="c1"># from IPython.display import Image</span>
+<span class="c1"># Image(url=&#39;superficies_gaussianas.gif&#39;)</span>
 </pre></div>
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<img alt="_images/bbb3398968598d6890be1fb77370e5c4c7dadbbe29807d8c14b3b0bac12021c1.png" src="_images/bbb3398968598d6890be1fb77370e5c4c7dadbbe29807d8c14b3b0bac12021c1.png" />
 </div>
+</div>
+<p><img alt="Comparación de superficies gaussianas" src="_images/superficies_gaussianas.gif" /></p>
 <p><strong>Análisis del Flujo:</strong>
 En la superficie de nuestra esfera imaginaria ocurren dos cosas vitales:</p>
 <ul class="simple">
@@ -695,7 +713,7 @@ Despejamos <span class="math notranslate nohighlight">\(E\)</span> y reorganizam
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Aplicación 2: Simetría Cilíndrica</p>
+        <p class="prev-next-title">Simetría Cilíndrica</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
