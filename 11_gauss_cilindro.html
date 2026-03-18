@@ -67,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '11_gauss_cilindro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Simetría Plana" href="12_gauss_plano.html" />
     <link rel="prev" title="Simetría Esférica" href="10_gauss_esfera.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -185,6 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="09_gauss.html">La Ley de Gauss</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_gauss_esfera.html">Simetría Esférica</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Simetría Cilíndrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_gauss_plano.html">Simetría Plana</a></li>
 </ul>
 
     </div>
@@ -388,7 +390,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -404,6 +408,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-un-cilindro">Visualización 3D: ¿Por qué un cilindro?</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -965,6 +977,173 @@ Nuestra “lata” gaussiana tiene tres superficies: la tapa superior, la tapa i
 <div class="math notranslate nohighlight">
 \[E = \frac{\lambda}{2\pi\epsilon_0 r}\]</div>
 <p>Hemos llegado exactamente a la misma ecuación que obtuvimos con cálculo avanzado, pero esta vez usando un cilindro y un par de multiplicaciones. ¡Ese es el verdadero poder predictivo del electromagnetismo!</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
+<span class="c1"># import plotly.graph_objects as go</span>
+<span class="c1"># from plotly.subplots import make_subplots</span>
+
+<span class="c1"># def generar_gauss_alambre_3d():</span>
+<span class="c1">#     fig = make_subplots(</span>
+<span class="c1">#         rows=1, cols=3,</span>
+<span class="c1">#         specs=[[{&#39;type&#39;: &#39;scene&#39;}, {&#39;type&#39;: &#39;scene&#39;}, {&#39;type&#39;: &#39;scene&#39;}]],</span>
+<span class="c1">#         subplot_titles=(&quot;A) Superficie Cilíndrica (Ideal)&quot;, &quot;B) Superficie Esférica&quot;, &quot;C) Paralelepípedo&quot;)</span>
+<span class="c1">#     )</span>
+
+<span class="c1">#     H_alambre = 6.0    </span>
+<span class="c1">#     R_gauss = 1.5      </span>
+<span class="c1">#     L_flecha_E = 1.0   </span>
+<span class="c1">#     L_flecha_dA = 0.7  </span>
+<span class="c1">#     color_E = &#39;red&#39;</span>
+<span class="c1">#     color_dA = &#39;blue&#39;</span>
+<span class="c1">#     color_S = &#39;lightblue&#39;</span>
+
+<span class="c1">#     def add_vector_3d(fig, row, col, start, direction, color, width, label=&quot;&quot;):</span>
+<span class="c1">#         fig.add_trace(go.Scatter3d(</span>
+<span class="c1">#             x=[start[0], start[0] + direction[0]],</span>
+<span class="c1">#             y=[start[1], start[1] + direction[1]],</span>
+<span class="c1">#             z=[start[2], start[2] + direction[2]],</span>
+<span class="c1">#             mode=&#39;lines&#39;, line=dict(color=color, width=width), showlegend=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#         ), row=row, col=col)</span>
+<span class="c1">#         fig.add_trace(go.Cone(</span>
+<span class="c1">#             x=[start[0] + direction[0]], y=[start[1] + direction[1]], z=[start[2] + direction[2]],</span>
+<span class="c1">#             u=[direction[0]], v=[direction[1]], w=[direction[2]],</span>
+<span class="c1">#             sizemode=&#39;absolute&#39;, sizeref=0.25 if width &gt; 4 else 0.2, anchor=&#39;tail&#39;,</span>
+<span class="c1">#             colorscale=[[0, color], [1, color]], showscale=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#         ), row=row, col=col)</span>
+
+<span class="c1">#     def add_alambre(fig, row, col, mostrar_leyenda=False):</span>
+<span class="c1">#         fig.add_trace(go.Scatter3d(</span>
+<span class="c1">#             x=[0, 0], y=[0, 0], z=[-H_alambre/2, H_alambre/2],</span>
+<span class="c1">#             mode=&#39;lines+markers&#39;, line=dict(color=&#39;black&#39;, width=6),</span>
+<span class="c1">#             marker=dict(size=4, color=&#39;black&#39;), name=&#39;Alambre (λ)&#39;, hoverinfo=&#39;skip&#39;,</span>
+<span class="c1">#             showlegend=mostrar_leyenda </span>
+<span class="c1">#         ), row=row, col=col)</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # CASO A: CILINDRO</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     add_alambre(fig, 1, 1, mostrar_leyenda=True)</span>
+    
+<span class="c1">#     z_mesh = np.linspace(-H_alambre/3, H_alambre/3, 20)</span>
+<span class="c1">#     theta_mesh = np.linspace(0, 2*np.pi, 30)</span>
+<span class="c1">#     Theta, Z = np.meshgrid(theta_mesh, z_mesh)</span>
+<span class="c1">#     X = R_gauss * np.cos(Theta)</span>
+<span class="c1">#     Y = R_gauss * np.sin(Theta)</span>
+    
+<span class="c1">#     fig.add_trace(go.Surface(</span>
+<span class="c1">#         x=X, y=Y, z=Z, opacity=0.3, colorscale=[[0, color_S], [1, color_S]], showscale=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=1)</span>
+
+<span class="c1">#     puntos_cilindro = [(np.pi/4, 0), (3*np.pi/4, 0), (np.pi, H_alambre/6), (3*np.pi/2, -H_alambre/6)]</span>
+<span class="c1">#     for angle, z_pos in puntos_cilindro:</span>
+<span class="c1">#         px = R_gauss * np.cos(angle)</span>
+<span class="c1">#         py = R_gauss * np.sin(angle)</span>
+<span class="c1">#         pz = z_pos</span>
+        
+<span class="c1">#         dir_E = np.array([np.cos(angle), np.sin(angle), 0])</span>
+<span class="c1">#         add_vector_3d(fig, 1, 1, [px, py, pz], dir_E * L_flecha_E, color_E, 5)</span>
+<span class="c1">#         add_vector_3d(fig, 1, 1, [px+0.1, py+0.1, pz], dir_E * L_flecha_dA, color_dA, 4)</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # CASO B: ESFERA</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     add_alambre(fig, 1, 2, mostrar_leyenda=False)</span>
+    
+<span class="c1">#     u = np.linspace(0, 2 * np.pi, 30)</span>
+<span class="c1">#     v = np.linspace(0, np.pi, 20)</span>
+<span class="c1">#     X_sph = R_gauss * np.outer(np.cos(u), np.sin(v))</span>
+<span class="c1">#     Y_sph = R_gauss * np.outer(np.sin(u), np.sin(v))</span>
+<span class="c1">#     Z_sph = R_gauss * np.outer(np.ones(np.size(u)), np.cos(v))</span>
+    
+<span class="c1">#     fig.add_trace(go.Surface(</span>
+<span class="c1">#         x=X_sph, y=Y_sph, z=Z_sph, opacity=0.2, colorscale=[[0, color_S], [1, color_S]], showscale=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=2)</span>
+
+<span class="c1">#     puntos_esfera = [(np.pi/4, np.pi/4), (np.pi, np.pi/4), (3*np.pi/2, 3*np.pi/4), (0, 3*np.pi/4)]</span>
+<span class="c1">#     for phi, theta in puntos_esfera:</span>
+<span class="c1">#         px = R_gauss * np.cos(phi) * np.sin(theta)</span>
+<span class="c1">#         py = R_gauss * np.sin(phi) * np.sin(theta)</span>
+<span class="c1">#         pz = R_gauss * np.cos(theta)</span>
+        
+<span class="c1">#         r_dist = np.sqrt(px**2 + py**2)</span>
+<span class="c1">#         dir_E = np.array([px/r_dist, py/r_dist, 0])</span>
+<span class="c1">#         add_vector_3d(fig, 1, 2, [px, py, pz], dir_E * L_flecha_E, color_E, 5)</span>
+        
+<span class="c1">#         dir_dA = np.array([px, py, pz]) / R_gauss</span>
+<span class="c1">#         add_vector_3d(fig, 1, 2, [px+0.1, py+0.1, pz], dir_dA * L_flecha_dA, color_dA, 4)</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # CASO C: PARALELEPÍPEDO</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     add_alambre(fig, 1, 3, mostrar_leyenda=False)</span>
+    
+<span class="c1">#     W, D, H = 1.5, 1.5, 2.0 </span>
+<span class="c1">#     x_p = [-W, W, W, -W, -W, W, W, -W]</span>
+<span class="c1">#     y_p = [-D, -D, D, D, -D, -D, D, D]</span>
+<span class="c1">#     z_p = [-H, -H, -H, -H, H, H, H, H]</span>
+<span class="c1">#     i_p = [7, 0, 0, 0, 4, 4, 6, 6, 4, 0, 3, 2]</span>
+<span class="c1">#     j_p = [3, 4, 1, 2, 5, 6, 5, 2, 0, 1, 6, 3]</span>
+<span class="c1">#     k_p = [0, 7, 2, 3, 6, 7, 1, 1, 5, 5, 7, 6]</span>
+    
+<span class="c1">#     fig.add_trace(go.Mesh3d(</span>
+<span class="c1">#         x=x_p, y=y_p, z=z_p, i=i_p, j=j_p, k=k_p, opacity=0.2, color=color_S, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=3)</span>
+
+<span class="c1">#     puntos_para = [</span>
+<span class="c1">#         (W, 0, 0),         </span>
+<span class="c1">#         (W, D/1.3, 0),     </span>
+<span class="c1">#         (W, -D/1.3, 0)     </span>
+<span class="c1">#     ]</span>
+    
+<span class="c1">#     for px, py, pz in puntos_para:</span>
+<span class="c1">#         r_dist = np.sqrt(px**2 + py**2)</span>
+<span class="c1">#         dir_E = np.array([px/r_dist, py/r_dist, 0])</span>
+<span class="c1">#         add_vector_3d(fig, 1, 3, [px, py, pz], dir_E * L_flecha_E, color_E, 5)</span>
+        
+<span class="c1">#         dir_dA = np.array([1, 0, 0])</span>
+<span class="c1">#         add_vector_3d(fig, 1, 3, [px, py, pz+0.2], dir_dA * L_flecha_dA, color_dA, 4)</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # ESTILOS GLOBALES Y LEYENDA</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(x=[None], y=[None], z=[None], mode=&#39;lines&#39;, line=dict(color=color_E, width=5), name=&#39;Campo E (Radial desde el alambre)&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(x=[None], y=[None], z=[None], mode=&#39;lines&#39;, line=dict(color=color_dA, width=4), name=&#39;Normal dA (Hacia afuera)&#39;))</span>
+
+<span class="c1">#     camera_settings = dict(eye=dict(x=1.3, y=1.3, z=1.0))</span>
+<span class="c1">#     axis_settings = dict(visible=False, range=[-3.5, 3.5])</span>
+<span class="c1">#     scene_config = dict(xaxis=axis_settings, yaxis=axis_settings, zaxis=axis_settings, camera=camera_settings, aspectmode=&#39;cube&#39;)</span>
+
+<span class="c1">#     fig.update_layout(</span>
+<span class="c1">#         title=dict(</span>
+<span class="c1">#             text=&quot;Ley de Gauss: Alambre Infinito y Elección de Superficie&lt;br&gt;&lt;sup&gt;Nota cómo en el Cilindro (A), E y dA son paralelos en la cara curva, facilitando la integral.&lt;/sup&gt;&quot;,</span>
+<span class="c1">#             x=0.5, y=0.97, font=dict(size=18)</span>
+<span class="c1">#         ),</span>
+<span class="c1">#         scene=scene_config, scene2=scene_config, scene3=scene_config,</span>
+<span class="c1">#         margin=dict(l=0, r=0, b=0, t=80),</span>
+<span class="c1">#         legend=dict(x=0.5, y=0.05, xanchor=&#39;center&#39;, orientation=&quot;h&quot;, bgcolor=&#39;rgba(255, 255, 255, 0.8)&#39;)</span>
+<span class="c1">#     )</span>
+
+<span class="c1">#     fig.show()</span>
+<span class="c1">#     fig.write_html(&quot;gauss_alambre_3d.html&quot;, include_plotlyjs=&#39;cdn&#39;)</span>
+<span class="c1">#     print(&quot;¡Listo! Archivo &#39;gauss_alambre_3d.html&#39; guardado con éxito.&quot;)</span>
+
+<span class="c1"># generar_gauss_alambre_3d()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="visualizacion-3d-por-que-un-cilindro">
+<h2>Visualización 3D: ¿Por qué un cilindro?<a class="headerlink" href="#visualizacion-3d-por-que-un-cilindro" title="Permalink to this heading">#</a></h2>
+<p>Puedes rotar libremente las figuras arrastrando con el ratón. Nota cómo en la esfera y en el paralelepípedo, los vectores rojos y azules se separan angularmente, haciendo que el producto punto <span class="math notranslate nohighlight">\(\vec{E} \cdot d\vec{A}\)</span> sea variable.</p>
+<iframe src="_static/gauss_alambre_3d.html" width="100%" height="600" style="border:none;"></iframe>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1006,12 +1185,35 @@ Nuestra “lata” gaussiana tiene tres superficies: la tapa superior, la tapa i
         <p class="prev-next-title">Simetría Esférica</p>
       </div>
     </a>
+    <a class="right-next"
+       href="12_gauss_plano.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Simetría Plana</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-un-cilindro">Visualización 3D: ¿Por qué un cilindro?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
