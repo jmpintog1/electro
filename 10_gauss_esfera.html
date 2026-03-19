@@ -413,6 +413,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eleccion-de-la-superficie-gaussiana">Elección de la Superficie Gaussiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-del-flujo">Análisis del Flujo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-matematico">Planteamiento Matemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-no-un-cubo">Visualización 3D: ¿Por qué no un cubo?</a></li>
 </ul>
             </nav>
@@ -425,12 +429,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="simetria-esferica">
+  <section class="tex2jax_ignore mathjax_ignore" id="simetria-esferica">
 <h1>Simetría Esférica<a class="headerlink" href="#simetria-esferica" title="Permalink to this heading">#</a></h1>
 <p>Vamos a demostrar el poder de la Ley de Gauss deduciendo la ecuación fundamental que inició este curso: el campo eléctrico de una carga puntual.</p>
 <p>Imagina una carga puntual <span class="math notranslate nohighlight">\(Q\)</span> aislada en el espacio. Sabemos por simetría que su campo eléctrico “radia” hacia afuera en todas direcciones de manera perfectamente esférica. Por lo tanto, el campo <span class="math notranslate nohighlight">\(\vec{E}\)</span> solo depende de la distancia <span class="math notranslate nohighlight">\(r\)</span> a la carga.</p>
-<p><strong>Elección de la Superficie Gaussiana:</strong>
-Para aprovechar esta simetría, encerramos nuestra carga puntual con una <strong>esfera imaginaria</strong> de radio <span class="math notranslate nohighlight">\(r\)</span> centrada exactamente en <span class="math notranslate nohighlight">\(Q\)</span>.</p>
+<section id="eleccion-de-la-superficie-gaussiana">
+<h2>Elección de la Superficie Gaussiana<a class="headerlink" href="#eleccion-de-la-superficie-gaussiana" title="Permalink to this heading">#</a></h2>
+<p>Para aprovechar esta simetría, encerramos nuestra carga puntual con una <strong>esfera imaginaria</strong> de radio <span class="math notranslate nohighlight">\(r\)</span> centrada exactamente en <span class="math notranslate nohighlight">\(Q\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -652,14 +657,18 @@ Para aprovechar esta simetría, encerramos nuestra carga puntual con una <strong
 </details>
 </div>
 <p><img alt="Comparación de superficies gaussianas" src="_images/superficies_gaussianas.gif" /></p>
-<p><strong>Análisis del Flujo:</strong>
-En la superficie de nuestra esfera imaginaria ocurren dos cosas vitales:</p>
+</section>
+<section id="analisis-del-flujo">
+<h2>Análisis del Flujo<a class="headerlink" href="#analisis-del-flujo" title="Permalink to this heading">#</a></h2>
+<p>En la superficie de nuestra esfera imaginaria ocurren dos cosas vitales:</p>
 <ul class="simple">
 <li><p>El vector normal <span class="math notranslate nohighlight">\(d\vec{A}\)</span> apunta radialmente hacia afuera en cada punto. Como el campo <span class="math notranslate nohighlight">\(\vec{E}\)</span> también apunta radialmente hacia afuera, ambos vectores son paralelos (<span class="math notranslate nohighlight">\(\theta = 0^\circ\)</span>). Por tanto, el producto punto se simplifica: <span class="math notranslate nohighlight">\(\vec{E} \cdot d\vec{A} = E \, dA\)</span>.</p></li>
 <li><p>Todos los puntos de la esfera están a la misma distancia <span class="math notranslate nohighlight">\(r\)</span> de la carga. Por simetría, la magnitud del campo <span class="math notranslate nohighlight">\(E\)</span> debe ser constante en toda la superficie.</p></li>
 </ul>
-<p><strong>Planteamiento Matemático:</strong>
-Tomamos la Ley de Gauss y aplicamos nuestras simplificaciones:</p>
+</section>
+<section id="planteamiento-matematico">
+<h2>Planteamiento Matemático<a class="headerlink" href="#planteamiento-matematico" title="Permalink to this heading">#</a></h2>
+<p>Tomamos la Ley de Gauss y aplicamos nuestras simplificaciones:</p>
 <div class="math notranslate nohighlight">
 \[\oint_{S} \vec{E} \cdot d\vec{A} = \frac{q_{\text{enc}}}{\epsilon_0}\]</div>
 <div class="math notranslate nohighlight">
@@ -670,8 +679,10 @@ Tomamos la Ley de Gauss y aplicamos nuestras simplificaciones:</p>
 <p>¿Qué es <span class="math notranslate nohighlight">\(\oint dA\)</span>? Es simplemente el área total de nuestra superficie esférica. Sabiendo que el área de una esfera es <span class="math notranslate nohighlight">\(4\pi r^2\)</span>, sustituimos:</p>
 <div class="math notranslate nohighlight">
 \[E (4\pi r^2) = \frac{Q}{\epsilon_0}\]</div>
-<p><strong>Resultado Final:</strong>
-Despejamos <span class="math notranslate nohighlight">\(E\)</span> y reorganizamos los términos:</p>
+</section>
+<section id="resultado-final">
+<h2>Resultado Final<a class="headerlink" href="#resultado-final" title="Permalink to this heading">#</a></h2>
+<p>Despejamos <span class="math notranslate nohighlight">\(E\)</span> y reorganizamos los términos:</p>
 <div class="math notranslate nohighlight">
 \[E = \frac{1}{4\pi\epsilon_0} \frac{Q}{r^2}\]</div>
 <p>¡Voilà! En apenas tres líneas de álgebra, hemos llegado exactamente a la misma ecuación empírica descubierta por Charles-Augustin de Coulomb. Sin integrales complejas, solo geometría y simetría.</p>
@@ -860,6 +871,7 @@ Despejamos <span class="math notranslate nohighlight">\(E\)</span> y reorganizam
 </div>
 </details>
 </div>
+</section>
 <section id="visualizacion-3d-por-que-no-un-cubo">
 <h2>Visualización 3D: ¿Por qué no un cubo?<a class="headerlink" href="#visualizacion-3d-por-que-no-un-cubo" title="Permalink to this heading">#</a></h2>
 <p>Puedes rotar libremente ambas figuras arrastrando con el ratón. Nota cómo en el cubo, los vectores rojos y azules se separan angularmente en las esquinas, haciendo que el producto punto <span class="math notranslate nohighlight">\(\vec{E} \cdot d\vec{A}\)</span> sea variable.</p>
@@ -930,6 +942,10 @@ Despejamos <span class="math notranslate nohighlight">\(E\)</span> y reorganizam
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eleccion-de-la-superficie-gaussiana">Elección de la Superficie Gaussiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-del-flujo">Análisis del Flujo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-matematico">Planteamiento Matemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-no-un-cubo">Visualización 3D: ¿Por qué no un cubo?</a></li>
 </ul>
   </nav></div>

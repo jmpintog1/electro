@@ -186,6 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="09_gauss.html">La Ley de Gauss</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_gauss_esfera.html">Simetría Esférica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11_gauss_cilindro.html">Simetría Cilíndrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_gauss_plano.html">Simetría Plana</a></li>
 </ul>
 
     </div>
@@ -412,11 +413,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-poder-de-la-simetria">El Poder de la Simetría</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">Identificación de los Vectores y Diferenciales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">Planteamiento de la Integral</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica-sustitucion-trigonometrica">Resolución Matemática (Sustitución Trigonométrica)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-2d-superposicion-del-campo-de-un-alambre">Simulación 2D: Superposición del Campo de un Alambre</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-comprension-alambre-infinito">Preguntas de Comprensión: Alambre Infinito</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-poder-de-la-simetria">El Poder de la Simetría</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">Identificación de los Vectores y Diferenciales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">Planteamiento de la Integral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica-sustitucion-trigonometrica">Resolución Matemática (Sustitución Trigonométrica)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
             </nav>
         </div>
@@ -432,6 +438,8 @@ document.write(`
 <h1>Alambre Infinito<a class="headerlink" href="#alambre-infinito" title="Permalink to this heading">#</a></h1>
 <p>Vamos a calcular el campo eléctrico generado por un hilo recto, infinitamente largo, que descansa sobre el eje <span class="math notranslate nohighlight">\(x\)</span> (desde <span class="math notranslate nohighlight">\(x = -\infty\)</span> hasta <span class="math notranslate nohighlight">\(x = \infty\)</span>). El hilo tiene una densidad de carga lineal uniforme <span class="math notranslate nohighlight">\(\lambda\)</span>. Queremos determinar el campo en un punto <span class="math notranslate nohighlight">\(P\)</span> ubicado en las coordenadas <span class="math notranslate nohighlight">\((0,a)\)</span>, es decir, sobre el eje <span class="math notranslate nohighlight">\(y\)</span> a una distancia <span class="math notranslate nohighlight">\(a\)</span> del alambre.</p>
 <a class="reference internal image-reference" href="_images/01_11.svg"><img alt="Disco uniforme" class="align-center" src="_images/01_11.svg" width="70%" /></a>
+<section id="simulacion-2d-superposicion-del-campo-de-un-alambre">
+<h2>Simulación 2D: Superposición del Campo de un Alambre<a class="headerlink" href="#simulacion-2d-superposicion-del-campo-de-un-alambre" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -905,6 +913,10 @@ document.write(`
 </script>
 </div></div>
 </div>
+</section>
+<section id="preguntas-de-comprension-alambre-infinito">
+<h2>Preguntas de Comprensión: Alambre Infinito<a class="headerlink" href="#preguntas-de-comprension-alambre-infinito" title="Permalink to this heading">#</a></h2>
+<p>Antes de plantear la integral para el alambre infinito, analicemos la geometría y la simetría del problema para simplificar nuestros cálculos.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -959,9 +971,6 @@ document.write(`
 <span class="s2">        font-size: 0.95em;</span>
 <span class="s2">    }</span>
 <span class="s2">&lt;/style&gt;</span>
-
-<span class="s2">&lt;h3&gt;Preguntas de Comprensión: Alambre Infinito&lt;/h3&gt;</span>
-<span class="s2">&lt;p&gt;Antes de plantear la integral para el alambre infinito, analicemos la geometría y la simetría del problema para simplificar nuestros cálculos.&lt;/p&gt;</span>
 
 <span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-wire-comp-1&quot;&gt;</span>
 <span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
@@ -1154,9 +1163,6 @@ document.write(`
     }
 </style>
 
-<h3>Preguntas de Comprensión: Alambre Infinito</h3>
-<p>Antes de plantear la integral para el alambre infinito, analicemos la geometría y la simetría del problema para simplificar nuestros cálculos.</p>
-
 <div class="fisi-quiz-container" id="quiz-wire-comp-1">
     <div class="fisi-question">
         1. Considera dos pequeños elementos de carga <i>dq</i> ubicados simétricamente en el alambre, uno en la posición <i>x</i> y otro en <i>-x</i>. ¿Qué ocurre con las componentes horizontales (eje X) de los campos eléctricos que generan en el punto P sobre el eje Y?
@@ -1296,6 +1302,7 @@ document.write(`
 </script>
 </div></div>
 </div>
+</section>
 <section id="el-poder-de-la-simetria">
 <h2>El Poder de la Simetría<a class="headerlink" href="#el-poder-de-la-simetria" title="Permalink to this heading">#</a></h2>
 <p>Antes de escribir una sola ecuación, miremos la física del problema. Si elegimos un elemento de carga <span class="math notranslate nohighlight">\(dq'\)</span> en una posición <span class="math notranslate nohighlight">\(x\)</span> positiva, existirá un elemento idéntico <span class="math notranslate nohighlight">\(dq'\)</span> en la posición <span class="math notranslate nohighlight">\(-x\)</span> (en el lado negativo).</p>
@@ -1304,9 +1311,8 @@ document.write(`
 <li><p>El elemento en <span class="math notranslate nohighlight">\(-x\)</span> genera un diferencial de campo <span class="math notranslate nohighlight">\(d\vec{E}\)</span> que apunta hacia arriba y hacia la derecha.</p></li>
 </ul>
 <p>Las componentes horizontales (en el eje <span class="math notranslate nohighlight">\(x\)</span>) de estos dos campos <strong>apuntan en sentidos opuestos y se cancelan perfectamente</strong>. Las componentes verticales (en el eje <span class="math notranslate nohighlight">\(y\)</span>) apuntan en el mismo sentido y se suman. Por lo tanto, por simetría, sabemos de antemano que <strong>el campo total solo tendrá componente en la dirección <span class="math notranslate nohighlight">\(y\)</span></strong>.</p>
-</section>
 <section id="identificacion-de-los-vectores-y-diferenciales">
-<h2>Identificación de los Vectores y Diferenciales<a class="headerlink" href="#identificacion-de-los-vectores-y-diferenciales" title="Permalink to this heading">#</a></h2>
+<h3>Identificación de los Vectores y Diferenciales<a class="headerlink" href="#identificacion-de-los-vectores-y-diferenciales" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Diferencial de carga:</strong> <span class="math notranslate nohighlight">\(dq' = \lambda dx\)</span></p></li>
 <li><p><strong>Vector fuente (sobre el alambre):</strong> <span class="math notranslate nohighlight">\(\vec{r}\,' = x\,\hat{\imath}\)</span></p></li>
@@ -1316,7 +1322,7 @@ document.write(`
 </ul>
 </section>
 <section id="planteamiento-de-la-integral">
-<h2>Planteamiento de la Integral<a class="headerlink" href="#planteamiento-de-la-integral" title="Permalink to this heading">#</a></h2>
+<h3>Planteamiento de la Integral<a class="headerlink" href="#planteamiento-de-la-integral" title="Permalink to this heading">#</a></h3>
 <p>Sustituimos nuestros términos en la fórmula general de Coulomb:</p>
 <div class="math notranslate nohighlight">
 \[d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{\lambda dx}{(x^2 + a^2)^{3/2}} (-x\,\hat{\imath} + a\,\hat{\jmath})\]</div>
@@ -1328,7 +1334,7 @@ document.write(`
 \[E_y = \frac{\lambda a}{4\pi\epsilon_0} \int_{-\infty}^{\infty} \frac{dx}{(x^2 + a^2)^{3/2}}\]</div>
 </section>
 <section id="resolucion-matematica-sustitucion-trigonometrica">
-<h2>Resolución Matemática (Sustitución Trigonométrica)<a class="headerlink" href="#resolucion-matematica-sustitucion-trigonometrica" title="Permalink to this heading">#</a></h2>
+<h3>Resolución Matemática (Sustitución Trigonométrica)<a class="headerlink" href="#resolucion-matematica-sustitucion-trigonometrica" title="Permalink to this heading">#</a></h3>
 <p>Para resolver esta integral, la técnica más elegante es usar trigonometría. Si imaginamos un triángulo rectángulo de catetos <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(a\)</span>, el ángulo <span class="math notranslate nohighlight">\(\theta\)</span> formado con el eje <span class="math notranslate nohighlight">\(y\)</span> cumple que:</p>
 <div class="math notranslate nohighlight">
 \[x = a \tan\theta\]</div>
@@ -1354,7 +1360,7 @@ document.write(`
 \[\frac{1}{a^2} \left[ \sin\theta \right]_{-\pi/2}^{\pi/2} = \frac{1}{a^2} \left( \sin(\pi/2) - \sin(-\pi/2) \right) = \frac{1}{a^2} (1 - (-1)) = \frac{2}{a^2}\]</div>
 </section>
 <section id="resultado-final">
-<h2>Resultado Final<a class="headerlink" href="#resultado-final" title="Permalink to this heading">#</a></h2>
+<h3>Resultado Final<a class="headerlink" href="#resultado-final" title="Permalink to this heading">#</a></h3>
 <p>Multiplicamos este resultado por las constantes que habíamos dejado fuera de la integral:</p>
 <div class="math notranslate nohighlight">
 \[E_y = \frac{\lambda a}{4\pi\epsilon_0} \left( \frac{2}{a^2} \right) = \frac{2\lambda}{4\pi\epsilon_0 a}\]</div>
@@ -1364,6 +1370,11 @@ document.write(`
 <blockquote>
 <div><p><strong>💡 ¡Guarda este resultado en tu memoria!</strong> Nos ha tomado todo un análisis de simetría, una sustitución trigonométrica y evaluar límites en el infinito para llegar a esta expresión. En el próximo capítulo, introduciremos una herramienta llamada <strong>Ley de Gauss</strong>, con la cual seremos capaces de deducir esta misma fórmula exacta… ¡en apenas tres líneas de álgebra básica!</p>
 </div></blockquote>
+</section>
+</section>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<p>Verifica tu comprensión sobre el comportamiento y las aplicaciones prácticas de la fórmula del campo eléctrico que acabamos de derivar.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1418,9 +1429,6 @@ document.write(`
 <span class="s2">        font-size: 0.95em;</span>
 <span class="s2">    }</span>
 <span class="s2">&lt;/style&gt;</span>
-
-<span class="s2">&lt;h3&gt;Análisis de la Resolución: Alambre Infinito&lt;/h3&gt;</span>
-<span class="s2">&lt;p&gt;Verifica tu comprensión sobre el comportamiento y las aplicaciones prácticas de la fórmula del campo eléctrico que acabamos de derivar.&lt;/p&gt;</span>
 
 <span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-wire-ana-1&quot;&gt;</span>
 <span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
@@ -1608,9 +1616,6 @@ document.write(`
         font-size: 0.95em;
     }
 </style>
-
-<h3>Análisis de la Resolución: Alambre Infinito</h3>
-<p>Verifica tu comprensión sobre el comportamiento y las aplicaciones prácticas de la fórmula del campo eléctrico que acabamos de derivar.</p>
 
 <div class="fisi-quiz-container" id="quiz-wire-ana-1">
     <div class="fisi-question">
@@ -1813,11 +1818,16 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-poder-de-la-simetria">El Poder de la Simetría</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">Identificación de los Vectores y Diferenciales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">Planteamiento de la Integral</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica-sustitucion-trigonometrica">Resolución Matemática (Sustitución Trigonométrica)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-2d-superposicion-del-campo-de-un-alambre">Simulación 2D: Superposición del Campo de un Alambre</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-comprension-alambre-infinito">Preguntas de Comprensión: Alambre Infinito</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-poder-de-la-simetria">El Poder de la Simetría</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">Identificación de los Vectores y Diferenciales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">Planteamiento de la Integral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica-sustitucion-trigonometrica">Resolución Matemática (Sustitución Trigonométrica)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
   </nav></div>
 
