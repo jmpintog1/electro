@@ -412,14 +412,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explorando-opciones-en-3d">Explorando Opciones en 3D</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-las-superficies">Análisis de las Superficies</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-cilindro-la-caja-de-pastillas-clasica">1. El Cilindro (La “Caja de Pastillas” clásica)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-esfera-inadecuada">2. La Esfera (Inadecuada)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-paralelepipedo-tambien-funciona">3. El Paralelepípedo (¡También funciona!)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explorando-opciones-en-3d">Explorando Opciones en 3D</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instrucciones-de-observacion">Instrucciones de observación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-las-superficies">Análisis de las Superficies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-cilindro-la-caja-de-pastillas-clasica">1. El Cilindro (La “Caja de Pastillas” clásica)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-esfera-inadecuada">2. La Esfera (Inadecuada)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-paralelepipedo-tambien-funciona">3. El Paralelepípedo (¡También funciona!)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-matematica">Conclusión Matemática</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-matematica">Conclusión Matemática</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -431,7 +434,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="simetria-plana">
+  <section class="tex2jax_ignore mathjax_ignore" id="simetria-plana">
 <h1>Simetría Plana<a class="headerlink" href="#simetria-plana" title="Permalink to this heading">#</a></h1>
 <p>Imagina una lámina plana, infinita y muy delgada, con una densidad de carga superficial uniforme <span class="math notranslate nohighlight">\(\sigma\)</span>. Por simetría, sabemos que el campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> debe apuntar perpendicularmente alejándose de la lámina (si la carga es positiva) en ambos lados. Además, como la lámina es infinita, el campo no puede “inclinarse” hacia ningún lado, y su magnitud debe ser constante a una distancia dada.</p>
 <p>¿Qué superficie gaussiana imaginaria debemos elegir para calcular este campo?</p>
@@ -439,7 +442,8 @@ document.write(`
 <section id="explorando-opciones-en-3d">
 <h2>Explorando Opciones en 3D<a class="headerlink" href="#explorando-opciones-en-3d" title="Permalink to this heading">#</a></h2>
 <p>En la siguiente simulación, hemos colocado una porción de nuestra lámina infinita (naranja). Sobre ella, probaremos tres superficies gaussianas diferentes: un cilindro (caja de pastillas), una esfera y un paralelepípedo.</p>
-<p><strong>Instrucciones de observación:</strong></p>
+<section id="instrucciones-de-observacion">
+<h3>Instrucciones de observación<a class="headerlink" href="#instrucciones-de-observacion" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Rota las figuras con tu ratón.</p></li>
 <li><p>Observa la relación entre el campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> (flechas rojas, siempre perpendiculares a la lámina) y los vectores normales de área <span class="math notranslate nohighlight">\(d\vec{A}\)</span> (flechas azules, siempre perpendiculares a la superficie gaussiana).</p></li>
@@ -447,10 +451,10 @@ document.write(`
 <iframe src="_static/gauss_plano_3d.html" width="100%" height="600" style="border:none;"></iframe>
 </section>
 <section id="analisis-de-las-superficies">
-<h2>Análisis de las Superficies<a class="headerlink" href="#analisis-de-las-superficies" title="Permalink to this heading">#</a></h2>
+<h3>Análisis de las Superficies<a class="headerlink" href="#analisis-de-las-superficies" title="Permalink to this heading">#</a></h3>
 <p>Al girar la simulación, deberías notar lo siguiente:</p>
 <section id="el-cilindro-la-caja-de-pastillas-clasica">
-<h3>1. El Cilindro (La “Caja de Pastillas” clásica)<a class="headerlink" href="#el-cilindro-la-caja-de-pastillas-clasica" title="Permalink to this heading">#</a></h3>
+<h4>1. El Cilindro (La “Caja de Pastillas” clásica)<a class="headerlink" href="#el-cilindro-la-caja-de-pastillas-clasica" title="Permalink to this heading">#</a></h4>
 <p>Esta es una elección excelente. El cilindro se coloca atravesando la lámina, con sus tapas paralelas a ella.</p>
 <ul class="simple">
 <li><p><strong>En las caras laterales (curvas):</strong> El vector de área <span class="math notranslate nohighlight">\(d\vec{A}\)</span> apunta radialmente hacia afuera, mientras que el campo <span class="math notranslate nohighlight">\(\vec{E}\)</span> apunta hacia arriba o hacia abajo. ¡Son perpendiculares! (<span class="math notranslate nohighlight">\(\theta = 90^\circ\)</span>). Por lo tanto, el flujo a través de los lados es <strong>cero</strong> (<span class="math notranslate nohighlight">\(\vec{E} \cdot d\vec{A} = 0\)</span>).</p></li>
@@ -458,7 +462,7 @@ document.write(`
 </ul>
 </section>
 <section id="la-esfera-inadecuada">
-<h3>2. La Esfera (Inadecuada)<a class="headerlink" href="#la-esfera-inadecuada" title="Permalink to this heading">#</a></h3>
+<h4>2. La Esfera (Inadecuada)<a class="headerlink" href="#la-esfera-inadecuada" title="Permalink to this heading">#</a></h4>
 <p>Aunque funcionó perfecto para la carga puntual, aquí es un desastre matemático.</p>
 <ul class="simple">
 <li><p>Los vectores normales <span class="math notranslate nohighlight">\(d\vec{A}\)</span> apuntan radialmente hacia afuera desde el centro de la esfera.</p></li>
@@ -467,7 +471,7 @@ document.write(`
 </ul>
 </section>
 <section id="el-paralelepipedo-tambien-funciona">
-<h3>3. El Paralelepípedo (¡También funciona!)<a class="headerlink" href="#el-paralelepipedo-tambien-funciona" title="Permalink to this heading">#</a></h3>
+<h4>3. El Paralelepípedo (¡También funciona!)<a class="headerlink" href="#el-paralelepipedo-tambien-funciona" title="Permalink to this heading">#</a></h4>
 <p>¡Sorpresa! El cilindro no es la única opción válida. Una caja rectangular (paralelepípedo) funciona exactamente igual de bien.</p>
 <ul class="simple">
 <li><p><strong>En las cuatro caras laterales:</strong> <span class="math notranslate nohighlight">\(d\vec{A}\)</span> es perpendicular a <span class="math notranslate nohighlight">\(\vec{E}\)</span>. El flujo es <strong>cero</strong>.</p></li>
@@ -476,7 +480,7 @@ document.write(`
 </section>
 </section>
 <section id="conclusion-matematica">
-<h2>Conclusión Matemática<a class="headerlink" href="#conclusion-matematica" title="Permalink to this heading">#</a></h2>
+<h3>Conclusión Matemática<a class="headerlink" href="#conclusion-matematica" title="Permalink to this heading">#</a></h3>
 <p>Tanto para el cilindro como para la caja, el flujo total <span class="math notranslate nohighlight">\(\Phi_E\)</span> se reduce únicamente a lo que cruza las dos tapas (una arriba y otra abajo):</p>
 <div class="math notranslate nohighlight">
 \[\Phi_E = \oint \vec{E} \cdot d\vec{A} = \int_{tapa\_sup} E \, dA + \int_{tapa\_inf} E \, dA = 2\,E\,A\]</div>
@@ -668,6 +672,7 @@ document.write(`
 </div>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -723,14 +728,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explorando-opciones-en-3d">Explorando Opciones en 3D</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-las-superficies">Análisis de las Superficies</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-cilindro-la-caja-de-pastillas-clasica">1. El Cilindro (La “Caja de Pastillas” clásica)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-esfera-inadecuada">2. La Esfera (Inadecuada)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-paralelepipedo-tambien-funciona">3. El Paralelepípedo (¡También funciona!)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explorando-opciones-en-3d">Explorando Opciones en 3D</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instrucciones-de-observacion">Instrucciones de observación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-las-superficies">Análisis de las Superficies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-cilindro-la-caja-de-pastillas-clasica">1. El Cilindro (La “Caja de Pastillas” clásica)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-esfera-inadecuada">2. La Esfera (Inadecuada)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-paralelepipedo-tambien-funciona">3. El Paralelepípedo (¡También funciona!)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-matematica">Conclusión Matemática</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-matematica">Conclusión Matemática</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

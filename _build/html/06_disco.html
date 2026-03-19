@@ -186,6 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="09_gauss.html">La Ley de Gauss</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_gauss_esfera.html">Simetría Esférica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11_gauss_cilindro.html">Simetría Cilíndrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_gauss_plano.html">Simetría Plana</a></li>
 </ul>
 
     </div>
@@ -412,13 +413,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diferencial-de-area">Diferencial de Área</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-3d-integracion-del-campo-de-un-disco">Simulación 3D: Integración del Campo de un Disco</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion-a-partir-del-disco-como-una-suma-de-anillos">1. Solución a partir del Disco como una Suma de Anillos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uso-del-resultado-previo">Uso del Resultado Previo</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integracion-sobre-el-disco">Integración sobre el Disco</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion-deneral-del-disco">2. Solución Deneral del Disco</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion-general-del-disco">2. Solución General del Disco</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-del-diferencial-de-carga-y-vectores-de-posicion">Identificación del diferencial de carga y vectores de posición</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expresion-del-diferencial-de-campo-electrico">Expresión del diferencial de campo eléctrico</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integracion-doble-y-analisis-de-simetria">Integración doble y análisis de simetría</a></li>
@@ -427,6 +430,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-fisico-el-plano-infinito">Análisis Físico: El Plano Infinito</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-rapida-casos-limite-en-distribuciones-de-carga">Evaluación Rápida: Casos Límite en Distribuciones de Carga</a></li>
 </ul>
             </nav>
         </div>
@@ -443,6 +447,8 @@ document.write(`
 <p>Ahora que hemos resuelto el campo eléctrico de un anillo, podemos utilizar ese resultado como un “bloque de construcción” para resolver geometrías bidimensionales más complejas.</p>
 <p>Imagina un disco circular de radio <span class="math notranslate nohighlight">\(R\)</span> con una densidad de carga superficial uniforme <span class="math notranslate nohighlight">\(\sigma\)</span>. Queremos encontrar el campo eléctrico en un punto <span class="math notranslate nohighlight">\(P\)</span> sobre su eje central (eje <span class="math notranslate nohighlight">\(z\)</span>), a una distancia <span class="math notranslate nohighlight">\(z\)</span> del centro.</p>
 <a class="reference internal image-reference" href="_images/01_10.svg"><img alt="Disco uniforme" class="align-center" src="_images/01_10.svg" width="60%" /></a>
+<section id="diferencial-de-area">
+<h2>Diferencial de Área<a class="headerlink" href="#diferencial-de-area" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -641,9 +647,9 @@ document.write(`
         </p>
 
         <label style="font-weight: bold; font-size: 14px; display: block; margin-bottom: 10px;">
-            Incremento Radial (dr): <span id="val_dr_7693963c" style="color: #8e24aa;">0.0</span>
+            Incremento Radial (dr): <span id="val_dr_9643fd44" style="color: #8e24aa;">0.0</span>
         </label>
-        <input type="range" id="slider_dr_7693963c" min="0" max="80" step="1" value="0" style="width: 100%; cursor: pointer; margin-bottom: 25px;">
+        <input type="range" id="slider_dr_9643fd44" min="0" max="80" step="1" value="0" style="width: 100%; cursor: pointer; margin-bottom: 25px;">
         
         <div style="font-size: 16px; font-weight: bold; color: #0d47a1; background: #e3f2fd; padding: 12px; border-radius: 6px; text-align: center; border: 1px solid #bbdefb;">
             dA = (r dθ) · dr
@@ -651,17 +657,17 @@ document.write(`
     </div>
     
     <div style="flex: 2; min-width: 400px; text-align: center;">
-        <canvas id="da_canvas_7693963c" width="500" height="500" style="background: white; border: 1px solid #ccc; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%; height: auto;"></canvas>
+        <canvas id="da_canvas_9643fd44" width="500" height="500" style="background: white; border: 1px solid #ccc; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%; height: auto;"></canvas>
     </div>
 
 </div>
 
 <script>
     (function() {
-        const canvas = document.getElementById('da_canvas_7693963c');
+        const canvas = document.getElementById('da_canvas_9643fd44');
         const ctx = canvas.getContext('2d');
-        const slider = document.getElementById('slider_dr_7693963c');
-        const val_label = document.getElementById('val_dr_7693963c');
+        const slider = document.getElementById('slider_dr_9643fd44');
+        const val_label = document.getElementById('val_dr_9643fd44');
         
         const centerX = canvas.width / 2;
         const centerY = canvas.height / 2;
@@ -800,6 +806,9 @@ document.write(`
 </script>
 </div></div>
 </div>
+</section>
+<section id="simulacion-3d-integracion-del-campo-de-un-disco">
+<h2>Simulación 3D: Integración del Campo de un Disco<a class="headerlink" href="#simulacion-3d-integracion-del-campo-de-un-disco" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1315,6 +1324,7 @@ document.write(`
 </script>
 </div></div>
 </div>
+</section>
 <section id="solucion-a-partir-del-disco-como-una-suma-de-anillos">
 <h2>1. Solución a partir del Disco como una Suma de Anillos<a class="headerlink" href="#solucion-a-partir-del-disco-como-una-suma-de-anillos" title="Permalink to this heading">#</a></h2>
 <p>En lugar de dividir el disco en cargas puntuales infinitesimales (<span class="math notranslate nohighlight">\(dq' = \sigma dA\)</span>), lo dividiremos en una serie de <strong>anillos concéntricos</strong> de radio <span class="math notranslate nohighlight">\(r\)</span> y grosor infinitesimal <span class="math notranslate nohighlight">\(dr\)</span>.</p>
@@ -1363,8 +1373,8 @@ document.write(`
 \[\vec{E} = \frac{\sigma}{2\epsilon_0} \left( 1 - \frac{z}{\sqrt{R^2 + z^2}} \right) \hat{k}\]</div>
 </section>
 </section>
-<section id="solucion-deneral-del-disco">
-<h2>2. Solución Deneral del Disco<a class="headerlink" href="#solucion-deneral-del-disco" title="Permalink to this heading">#</a></h2>
+<section id="solucion-general-del-disco">
+<h2>2. Solución General del Disco<a class="headerlink" href="#solucion-general-del-disco" title="Permalink to this heading">#</a></h2>
 <p>Consideremos un disco de radio <span class="math notranslate nohighlight">\(R\)</span> ubicado en el plano <span class="math notranslate nohighlight">\(xy\)</span>, centrado en el origen, con una densidad de carga superficial uniforme <span class="math notranslate nohighlight">\(\sigma\)</span>. Queremos calcular el campo eléctrico en un punto <span class="math notranslate nohighlight">\(P\)</span> situado en el eje <span class="math notranslate nohighlight">\(z\)</span>, a una distancia <span class="math notranslate nohighlight">\(z\)</span> del origen.</p>
 <section id="identificacion-del-diferencial-de-carga-y-vectores-de-posicion">
 <h3>Identificación del diferencial de carga y vectores de posición<a class="headerlink" href="#identificacion-del-diferencial-de-carga-y-vectores-de-posicion" title="Permalink to this heading">#</a></h3>
@@ -1439,6 +1449,10 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\vec{E} = \frac{\sigma}{2\epsilon_0} \hat{k}\]</div>
 <p>¡Sorpresa! El campo eléctrico se vuelve <strong>constante e independiente de la distancia <span class="math notranslate nohighlight">\(z\)</span></strong>. Este es el célebre resultado para un <strong>Plano Infinito de Carga</strong>, un concepto fundamental que pronto demostraremos de forma mucho más rápida utilizando la Ley de Gauss.</p>
+</section>
+<section id="evaluacion-rapida-casos-limite-en-distribuciones-de-carga">
+<h2>Evaluación Rápida: Casos Límite en Distribuciones de Carga<a class="headerlink" href="#evaluacion-rapida-casos-limite-en-distribuciones-de-carga" title="Permalink to this heading">#</a></h2>
+<p>La verdadera prueba de que una fórmula física es correcta es llevarla a sus extremos. Analicemos qué sucede con el Anillo y el Disco.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1493,9 +1507,6 @@ document.write(`
 <span class="s2">        font-size: 0.95em;</span>
 <span class="s2">    }</span>
 <span class="s2">&lt;/style&gt;</span>
-
-<span class="s2">&lt;h3&gt;Evaluación Rápida: Casos Límite en Distribuciones de Carga&lt;/h3&gt;</span>
-<span class="s2">&lt;p&gt;La verdadera prueba de que una fórmula física es correcta es llevarla a sus extremos. Analicemos qué sucede con el Anillo y el Disco.&lt;/p&gt;</span>
 
 <span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-lim-1&quot;&gt;</span>
 <span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
@@ -1662,9 +1673,6 @@ document.write(`
         font-size: 0.95em;
     }
 </style>
-
-<h3>Evaluación Rápida: Casos Límite en Distribuciones de Carga</h3>
-<p>La verdadera prueba de que una fórmula física es correcta es llevarla a sus extremos. Analicemos qué sucede con el Anillo y el Disco.</p>
 
 <div class="fisi-quiz-container" id="quiz-lim-1">
     <div class="fisi-question">
@@ -1846,13 +1854,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diferencial-de-area">Diferencial de Área</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-3d-integracion-del-campo-de-un-disco">Simulación 3D: Integración del Campo de un Disco</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion-a-partir-del-disco-como-una-suma-de-anillos">1. Solución a partir del Disco como una Suma de Anillos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uso-del-resultado-previo">Uso del Resultado Previo</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integracion-sobre-el-disco">Integración sobre el Disco</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion-deneral-del-disco">2. Solución Deneral del Disco</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion-general-del-disco">2. Solución General del Disco</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-del-diferencial-de-carga-y-vectores-de-posicion">Identificación del diferencial de carga y vectores de posición</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expresion-del-diferencial-de-campo-electrico">Expresión del diferencial de campo eléctrico</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integracion-doble-y-analisis-de-simetria">Integración doble y análisis de simetría</a></li>
@@ -1861,6 +1871,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-fisico-el-plano-infinito">Análisis Físico: El Plano Infinito</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-rapida-casos-limite-en-distribuciones-de-carga">Evaluación Rápida: Casos Límite en Distribuciones de Carga</a></li>
 </ul>
   </nav></div>
 

@@ -413,6 +413,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eleccion-de-la-superficie-gaussiana">Elección de la Superficie Gaussiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-3d-ley-de-gauss-para-un-alambre-infinito">Simulación 3D: Ley de Gauss para un Alambre Infinito</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-del-flujo">Análisis del Flujo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-matematico">Planteamiento Matemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-un-cilindro">Visualización 3D: ¿Por qué un cilindro?</a></li>
 </ul>
             </nav>
@@ -425,12 +430,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="simetria-cilindrica">
+  <section class="tex2jax_ignore mathjax_ignore" id="simetria-cilindrica">
 <h1>Simetría Cilíndrica<a class="headerlink" href="#simetria-cilindrica" title="Permalink to this heading">#</a></h1>
 <p>¿Recuerdas el cálculo del campo eléctrico de un alambre infinito con densidad de carga <span class="math notranslate nohighlight">\(\lambda\)</span>? Tuvimos que analizar simetrías, usar sustituciones trigonométricas pesadas e integrar desde el infinito. Veamos cómo lo resuelve el maestro Gauss.</p>
 <p>Dado que el alambre es infinito, su campo eléctrico debe apuntar radialmente hacia afuera de él en forma de “cepillo cilíndrico”. No puede tener componentes paralelas al alambre, porque el alambre es idéntico hacia arriba y hacia abajo.</p>
-<p><strong>Elección de la Superficie Gaussiana:</strong>
-Esta vez, una esfera no nos sirve porque el campo no es igual en todos los puntos de la esfera. Necesitamos una forma que imite al alambre: un <strong>Cilindro Imaginario</strong> cerrado (como una lata de bebida) de radio <span class="math notranslate nohighlight">\(r\)</span> y largo <span class="math notranslate nohighlight">\(L\)</span>, con el alambre pasando justo por su eje central.</p>
+<section id="eleccion-de-la-superficie-gaussiana">
+<h2>Elección de la Superficie Gaussiana<a class="headerlink" href="#eleccion-de-la-superficie-gaussiana" title="Permalink to this heading">#</a></h2>
+<p>Esta vez, una esfera no nos sirve porque el campo no es igual en todos los puntos de la esfera. Necesitamos una forma que imite al alambre: un <strong>Cilindro Imaginario</strong> cerrado (como una lata de bebida) de radio <span class="math notranslate nohighlight">\(r\)</span> y largo <span class="math notranslate nohighlight">\(L\)</span>, con el alambre pasando justo por su eje central.</p>
+</section>
+<section id="simulacion-3d-ley-de-gauss-para-un-alambre-infinito">
+<h2>Simulación 3D: Ley de Gauss para un Alambre Infinito<a class="headerlink" href="#simulacion-3d-ley-de-gauss-para-un-alambre-infinito" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -954,13 +963,17 @@ Esta vez, una esfera no nos sirve porque el campo no es igual en todos los punto
 </script>
 </div></div>
 </div>
-<p><strong>Análisis del Flujo:</strong>
-Nuestra “lata” gaussiana tiene tres superficies: la tapa superior, la tapa inferior y el manto (el cuerpo cilíndrico).</p>
+</section>
+<section id="analisis-del-flujo">
+<h2>Análisis del Flujo<a class="headerlink" href="#analisis-del-flujo" title="Permalink to this heading">#</a></h2>
+<p>Nuestra “lata” gaussiana tiene tres superficies: la tapa superior, la tapa inferior y el manto (el cuerpo cilíndrico).</p>
 <ul class="simple">
 <li><p><strong>Las Tapas:</strong> El vector área <span class="math notranslate nohighlight">\(d\vec{A}\)</span> de las tapas apunta hacia arriba y hacia abajo (paralelo al alambre). Pero el campo <span class="math notranslate nohighlight">\(\vec{E}\)</span> apunta hacia afuera (perpendicular al alambre). Como forman <span class="math notranslate nohighlight">\(90^\circ\)</span>, el flujo por ambas tapas es exactamente <strong>cero</strong> (<span class="math notranslate nohighlight">\(\cos 90^\circ = 0\)</span>).</p></li>
 <li><p><strong>El Manto:</strong> En la pared curva, el vector área <span class="math notranslate nohighlight">\(d\vec{A}\)</span> apunta radialmente hacia afuera, exactamente en la misma dirección que el campo <span class="math notranslate nohighlight">\(\vec{E}\)</span>. Además, toda la pared curva está a la misma distancia <span class="math notranslate nohighlight">\(r\)</span> del alambre, por lo que <span class="math notranslate nohighlight">\(E\)</span> es constante.</p></li>
 </ul>
-<p><strong>Planteamiento Matemático:</strong></p>
+</section>
+<section id="planteamiento-matematico">
+<h2>Planteamiento Matemático<a class="headerlink" href="#planteamiento-matematico" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\oint_{S} \vec{E} \cdot d\vec{A} = \frac{q_{\text{enc}}}{\epsilon_0}\]</div>
 <p>El flujo total es la suma de las tres partes, pero las tapas son cero:</p>
@@ -972,8 +985,10 @@ Nuestra “lata” gaussiana tiene tres superficies: la tapa superior, la tapa i
 <p>El área del manto de un cilindro es el perímetro de la base por la altura: <span class="math notranslate nohighlight">\(2\pi r L\)</span>. Además, la carga encerrada dentro de nuestro cilindro de largo <span class="math notranslate nohighlight">\(L\)</span> es simplemente la densidad lineal por el largo (<span class="math notranslate nohighlight">\(q_{\text{enc}} = \lambda L\)</span>). Sustituimos ambas cosas:</p>
 <div class="math notranslate nohighlight">
 \[E (2\pi r L) = \frac{\lambda L}{\epsilon_0}\]</div>
-<p><strong>Resultado Final:</strong>
-¡Observa que el largo <span class="math notranslate nohighlight">\(L\)</span> de nuestro cilindro imaginario se cancela a ambos lados de la ecuación! Esto es hermoso, porque demuestra que el resultado final es independiente de la superficie imaginaria que elegimos. Despejando <span class="math notranslate nohighlight">\(E\)</span>:</p>
+</section>
+<section id="resultado-final">
+<h2>Resultado Final<a class="headerlink" href="#resultado-final" title="Permalink to this heading">#</a></h2>
+<p>¡Observa que el largo <span class="math notranslate nohighlight">\(L\)</span> de nuestro cilindro imaginario se cancela a ambos lados de la ecuación! Esto es hermoso, porque demuestra que el resultado final es independiente de la superficie imaginaria que elegimos. Despejando <span class="math notranslate nohighlight">\(E\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[E = \frac{\lambda}{2\pi\epsilon_0 r}\]</div>
 <p>Hemos llegado exactamente a la misma ecuación que obtuvimos con cálculo avanzado, pero esta vez usando un cilindro y un par de multiplicaciones. ¡Ese es el verdadero poder predictivo del electromagnetismo!</p>
@@ -1139,6 +1154,7 @@ Nuestra “lata” gaussiana tiene tres superficies: la tapa superior, la tapa i
 </div>
 </details>
 </div>
+</section>
 <section id="visualizacion-3d-por-que-un-cilindro">
 <h2>Visualización 3D: ¿Por qué un cilindro?<a class="headerlink" href="#visualizacion-3d-por-que-un-cilindro" title="Permalink to this heading">#</a></h2>
 <p>Puedes rotar libremente las figuras arrastrando con el ratón. Nota cómo en la esfera y en el paralelepípedo, los vectores rojos y azules se separan angularmente, haciendo que el producto punto <span class="math notranslate nohighlight">\(\vec{E} \cdot d\vec{A}\)</span> sea variable.</p>
@@ -1209,6 +1225,11 @@ Nuestra “lata” gaussiana tiene tres superficies: la tapa superior, la tapa i
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eleccion-de-la-superficie-gaussiana">Elección de la Superficie Gaussiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-3d-ley-de-gauss-para-un-alambre-infinito">Simulación 3D: Ley de Gauss para un Alambre Infinito</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-del-flujo">Análisis del Flujo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-matematico">Planteamiento Matemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-un-cilindro">Visualización 3D: ¿Por qué un cilindro?</a></li>
 </ul>
   </nav></div>
