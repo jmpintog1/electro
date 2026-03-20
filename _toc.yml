@@ -22,3 +22,4 @@ parts:
       - file: 10_gauss_esfera
       - file: 11_gauss_cilindro
       - file: 12_gauss_plano
+      - file: 13_conductores

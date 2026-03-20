@@ -67,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '13_conductores';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Simetría Plana" href="12_gauss_plano.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,12 +180,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="07_alambre.html">Alambre Infinito</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ley de Gauss</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="08_flujo.html">Flujo Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_gauss.html">La Ley de Gauss</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_gauss_esfera.html">Simetría Esférica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11_gauss_cilindro.html">Simetría Cilíndrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_gauss_plano.html">Simetría Plana</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Conductores y Aislantes</a></li>
 </ul>
 
     </div>
@@ -417,11 +419,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campo-electrico-fuera-de-la-esfera-r-r">Campo eléctrico fuera de la esfera (<span class="math notranslate nohighlight">\(r &gt; R\)</span>):</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esfera-aislante-o-no-conductora">Esfera Aislante o No Conductora</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Campo eléctrico dentro de la esfera (<span class="math notranslate nohighlight">\(r &lt; R\)</span>):</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Campo eléctrico fuera de la esfera (<span class="math notranslate nohighlight">\(r &gt; R\)</span>):</a></li>
-</ul>
-</li>
 </ul>
             </nav>
         </div>
@@ -446,8 +443,10 @@ document.write(`
 <section id="esfera-conductora">
 <h2>Esfera Conductora<a class="headerlink" href="#esfera-conductora" title="Permalink to this heading">#</a></h2>
 <p>Imaginemos una esfera conductora de radio <span class="math notranslate nohighlight">\(R\)</span> que posee una carga total <span class="math notranslate nohighlight">\(Q\)</span>.</p>
+<a class="reference internal image-reference" href="_images/02_06.svg"><img alt="Esfera conductora" class="align-center" src="_images/02_06.svg" width="60%" /></a>
 <section id="campo-electrico-dentro-de-la-esfera-r-r">
 <h3>Campo eléctrico dentro de la esfera (<span class="math notranslate nohighlight">\(r &lt; R\)</span>):<a class="headerlink" href="#campo-electrico-dentro-de-la-esfera-r-r" title="Permalink to this heading">#</a></h3>
+<a class="reference internal image-reference" href="_images/02_07.svg"><img alt="Esfera conductora dentro" class="align-center" src="_images/02_07.svg" width="60%" /></a>
 <p>Dado que toda la carga se aloja en la superficie del conductor, cualquier superficie gaussiana trazada en su interior no encerrará carga alguna.
 $<span class="math notranslate nohighlight">\(\oint\vec{E}_{\text{I}}\cdot d\vec{S}=\frac{q_{\text{enc}}}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
 Como \)</span>q_{\text{enc}}=0<span class="math notranslate nohighlight">\(, concluimos de inmediato que el campo eléctrico en el interior es nulo:
@@ -455,39 +454,6 @@ Como \)</span>q_{\text{enc}}=0<span class="math notranslate nohighlight">\(, con
 </section>
 <section id="campo-electrico-fuera-de-la-esfera-r-r">
 <h3>Campo eléctrico fuera de la esfera (<span class="math notranslate nohighlight">\(r &gt; R\)</span>):<a class="headerlink" href="#campo-electrico-fuera-de-la-esfera-r-r" title="Permalink to this heading">#</a></h3>
-<p>Para una superficie gaussiana esférica de radio <span class="math notranslate nohighlight">\(r\)</span> mayor al radio de la esfera (<span class="math notranslate nohighlight">\(r &gt; R\)</span>), la carga encerrada es simplemente la carga total <span class="math notranslate nohighlight">\(Q\)</span>.
-$<span class="math notranslate nohighlight">\(\oint\vec{E}_{\text{II}}\cdot d\vec{S}=\frac{q_{\text{enc}}}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-El flujo a través de esta superficie es:
-\)</span><span class="math notranslate nohighlight">\(\oint\vec{E}_{\text{II}}\cdot d\vec{S}=E_{\text{II}} \, 4\pi r^{2}\)</span><span class="math notranslate nohighlight">\(
-Igualando y despejando obtenemos el campo exterior, el cual decae proporcionalmente a \)</span>\frac{1}{r^{2}}<span class="math notranslate nohighlight">\(:
-\)</span><span class="math notranslate nohighlight">\(E_{\text{II}} \, 4\pi r^{2}=\frac{Q}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\vec{E}_{\text{II}}=\frac{Q}{4\pi\epsilon_{0}r^{2}}\hat{r}\)</span>$</p>
-</section>
-</section>
-<section id="esfera-aislante-o-no-conductora">
-<h2>Esfera Aislante o No Conductora<a class="headerlink" href="#esfera-aislante-o-no-conductora" title="Permalink to this heading">#</a></h2>
-<p>A diferencia de un conductor, en una esfera aislante de radio <span class="math notranslate nohighlight">\(R\)</span> la carga total <span class="math notranslate nohighlight">\(Q\)</span> puede estar distribuida de manera uniforme por todo su volumen. Su densidad volumétrica de carga es constante: <span class="math notranslate nohighlight">\(\rho=\frac{Q}{\frac{4}{3}\pi R^{3}}\)</span>.</p>
-<section id="id1">
-<h3>Campo eléctrico dentro de la esfera (<span class="math notranslate nohighlight">\(r &lt; R\)</span>):<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<p>Al trazar una superficie gaussiana en su interior, la carga encerrada dependerá del volumen de esa superficie gaussiana, siendo una fracción de la carga total: <span class="math notranslate nohighlight">\(q_{\text{enc}}=\rho\frac{4}{3}\pi r^{3}\)</span>.
-Aplicando la Ley de Gauss:
-$<span class="math notranslate nohighlight">\(\oint\vec{E}_{\text{I}}\cdot d\vec{S}=\frac{q_{\text{enc}}}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(E_{\text{I}}\cdot 4\pi r^{2}=\frac{Q\frac{r^{3}}{R^{3}}}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-Al despejar, notamos que en el interior de un aislante uniforme el campo eléctrico crece de forma directamente proporcional al radio \)</span>r<span class="math notranslate nohighlight">\(:
-\)</span><span class="math notranslate nohighlight">\(E_{\text{I}}=\frac{Qr}{4\pi\epsilon_{0}R^{3}}\)</span><span class="math notranslate nohighlight">\(
-Expresado en función de la densidad volumétrica \)</span>\rho<span class="math notranslate nohighlight">\(:
-\)</span><span class="math notranslate nohighlight">\(E_{\text{I}}=\frac{Q}{\frac{4}{3}\pi R^{3}}\frac{r}{3\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(E_{\text{I}}=\rho\frac{r}{3\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\vec{E}_{\text{I}}=\frac{\rho r}{3\epsilon_{0}}\hat{r}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\vec{E}_{\text{I}}=\frac{\rho}{3\epsilon_{0}}\vec{r}\)</span>$</p>
-</section>
-<section id="id2">
-<h3>Campo eléctrico fuera de la esfera (<span class="math notranslate nohighlight">\(r &gt; R\)</span>):<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<p>Desde el exterior, la esfera aislante se comporta matemáticamente igual que la esfera conductora o que una carga puntual. Toda la carga <span class="math notranslate nohighlight">\(Q\)</span> queda encerrada por la superficie gaussiana.
-$<span class="math notranslate nohighlight">\(\oint\vec{E}_{\text{II}}\cdot d\vec{S}=\frac{q_{\text{enc}}}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\oint\vec{E}_{\text{II}}\cdot d\vec{S}=E_{\text{II}} \, 4\pi r^{2}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(E_{\text{II}} \, 4\pi r^{2}=\frac{Q}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\vec{E}_{\text{II}}=\frac{Q}{4\pi\epsilon_{0}r^{2}}\hat{r}\)</span>$</p>
 </section>
 </section>
 </section>
@@ -522,6 +488,15 @@ $<span class="math notranslate nohighlight">\(\oint\vec{E}_{\text{II}}\cdot d\ve
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="12_gauss_plano.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Simetría Plana</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -541,11 +516,6 @@ $<span class="math notranslate nohighlight">\(\oint\vec{E}_{\text{II}}\cdot d\ve
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esfera-conductora">Esfera Conductora</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campo-electrico-dentro-de-la-esfera-r-r">Campo eléctrico dentro de la esfera (<span class="math notranslate nohighlight">\(r &lt; R\)</span>):</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campo-electrico-fuera-de-la-esfera-r-r">Campo eléctrico fuera de la esfera (<span class="math notranslate nohighlight">\(r &gt; R\)</span>):</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esfera-aislante-o-no-conductora">Esfera Aislante o No Conductora</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Campo eléctrico dentro de la esfera (<span class="math notranslate nohighlight">\(r &lt; R\)</span>):</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Campo eléctrico fuera de la esfera (<span class="math notranslate nohighlight">\(r &gt; R\)</span>):</a></li>
 </ul>
 </li>
 </ul>
