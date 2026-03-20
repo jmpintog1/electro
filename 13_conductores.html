@@ -454,7 +454,7 @@ document.write(`
 <p>Dado que toda la carga se aloja en la superficie del conductor, cualquier superficie gaussiana trazada en su interior no encerrará carga alguna.</p>
 <a class="reference internal image-reference" href="_images/02_07.svg"><img alt="Esfera conductora dentro" class="align-center" src="_images/02_07.svg" width="40%" /></a>
 <div class="math notranslate nohighlight">
-\[\oint\vec{E}_{\text{I}}\cdot d\vec{S}=\frac{q_{\text{enc}}}{\epsilon_{0}}\]</div>
+\[\oint\vec{E}_{\text{I}}\cdot d\vec{A}=\frac{q_{\text{enc}}}{\epsilon_{0}}\]</div>
 <p>Como <span class="math notranslate nohighlight">\(q_{\text{enc}}=0\)</span>, concluimos de inmediato que el campo eléctrico en el interior es nulo:</p>
 <div class="math notranslate nohighlight">
 \[\vec{E}_{\text{I}}=\vec{0}\]</div>
@@ -464,10 +464,10 @@ document.write(`
 <p>Para una superficie gaussiana esférica de radio <span class="math notranslate nohighlight">\(r\)</span> mayor al radio de la esfera (<span class="math notranslate nohighlight">\(r &gt; R\)</span>), la carga encerrada es simplemente la carga total <span class="math notranslate nohighlight">\(Q\)</span>.</p>
 <a class="reference internal image-reference" href="_images/02_08.svg"><img alt="Esfera conductora fuera" class="align-center" src="_images/02_08.svg" width="40%" /></a>
 <div class="math notranslate nohighlight">
-\[\oint\vec{E}_{\text{II}}\cdot d\vec{S}=\frac{q_{\text{enc}}}{\epsilon_{0}}\]</div>
+\[\oint\vec{E}_{\text{II}}\cdot d\vec{A}=\frac{q_{\text{enc}}}{\epsilon_{0}}\]</div>
 <p>El flujo a través de esta superficie es:</p>
 <div class="math notranslate nohighlight">
-\[\oint\vec{E}_{\text{II}}\cdot d\vec{S}=E_{\text{II}} \, 4\pi r^{2}\]</div>
+\[\oint\vec{E}_{\text{II}}\cdot d\vec{A}=E_{\text{II}} \, 4\pi r^{2}\]</div>
 <p>Igualando y despejando obtenemos el campo exterior, el cual decae proporcionalmente a <span class="math notranslate nohighlight">\(\frac{1}{r^{2}}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[E_{\text{II}} \, 4\pi r^{2}=\frac{Q}{\epsilon_{0}}\]</div>
@@ -486,7 +486,7 @@ document.write(`
 <a class="reference internal image-reference" href="_images/02_11.svg"><img alt="Esfera aislante dentro" class="align-center" src="_images/02_11.svg" width="40%" /></a>
 <p>Aplicando la Ley de Gauss:</p>
 <div class="math notranslate nohighlight">
-\[\oint\vec{E}_{\text{I}}\cdot d\vec{S}=\frac{q_{\text{enc}}}{\epsilon_{0}}\]</div>
+\[\oint\vec{E}_{\text{I}}\cdot d\vec{A}=\frac{q_{\text{enc}}}{\epsilon_{0}}\]</div>
 <div class="math notranslate nohighlight">
 \[E_{\text{I}}\cdot 4\pi r^{2}=\frac{Q\frac{r^{3}}{R^{3}}}{\epsilon_{0}}\]</div>
 <p>Al despejar, notamos que en el interior de un aislante uniforme el campo eléctrico crece de forma directamente proporcional al radio <span class="math notranslate nohighlight">\(r\)</span>:</p>
@@ -507,13 +507,20 @@ document.write(`
 <p>Desde el exterior, la esfera aislante se comporta matemáticamente igual que la esfera conductora o que una carga puntual. Toda la carga <span class="math notranslate nohighlight">\(Q\)</span> queda encerrada por la superficie gaussiana.</p>
 <a class="reference internal image-reference" href="_images/02_12.svg"><img alt="Esfera aislante fuera" class="align-center" src="_images/02_12.svg" width="40%" /></a>
 <div class="math notranslate nohighlight">
-\[\oint\vec{E}_{\text{II}}\cdot d\vec{S}=\frac{q_{\text{enc}}}{\epsilon_{0}}\]</div>
+\[\oint\vec{E}_{\text{II}}\cdot d\vec{A}=\frac{q_{\text{enc}}}{\epsilon_{0}}\]</div>
 <div class="math notranslate nohighlight">
-\[\oint\vec{E}_{\text{II}}\cdot d\vec{S}=E_{\text{II}} \, 4\pi r^{2}\]</div>
+\[\oint\vec{E}_{\text{II}}\cdot d\vec{A}=E_{\text{II}} \, 4\pi r^{2}\]</div>
 <div class="math notranslate nohighlight">
 \[E_{\text{II}} \, 4\pi r^{2}=\frac{Q}{\epsilon_{0}}\]</div>
 <div class="math notranslate nohighlight">
 \[\vec{E}_{\text{II}}=\frac{Q}{4\pi\epsilon_{0}r^{2}}\hat{r}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\oint\vec{E}_{\text{II}}\cdot d\vec{A}&amp;=\frac{q_{\text{enc}}}{\epsilon_{0}} \\
+\oint\vec{E}_{\text{II}}\cdot d\vec{A}&amp;=E_{\text{II}} \, 4\pi r^{2} \\
+E_{\text{II}} \, 4\pi r^{2}&amp;=\frac{Q}{\epsilon_{0}} \\
+\vec{E}_{\text{II}}&amp;=\frac{Q}{4\pi\epsilon_{0}r^{2}}\hat{r}
+\end{align}\end{split}\]</div>
 <a class="reference internal image-reference" href="_images/02_13.svg"><img alt="Gráfico esfera aislante" class="align-center" src="_images/02_13.svg" width="60%" /></a>
 </section>
 </section>
