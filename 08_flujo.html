@@ -187,6 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="10_gauss_esfera.html">Simetría Esférica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11_gauss_cilindro.html">Simetría Cilíndrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_gauss_plano.html">Simetría Plana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_conductores.html">Conductores y Aislantes</a></li>
 </ul>
 
     </div>
@@ -480,7 +481,7 @@ document.write(`
 <h2>Generalización: La Integral de Flujo<a class="headerlink" href="#generalizacion-la-integral-de-flujo" title="Permalink to this heading">#</a></h2>
 <p>¿Qué pasa si el campo eléctrico no es uniforme (cambia de un punto a otro) o si nuestra superficie no es plana (como una esfera o un cilindro)?</p>
 <p>Aplicamos la misma lógica del cálculo diferencial: dividimos la superficie gigante en infinitos “parches” minúsculos. Cada parche es tan pequeño que se puede considerar plano, con un vector de área diferencial <span class="math notranslate nohighlight">\(d\vec{A}\)</span>. El flujo minúsculo que pasa por ese parche es <span class="math notranslate nohighlight">\(d\Phi_E = \vec{E} \cdot d\vec{A}\)</span>.</p>
-<a class="reference internal image-reference" href="_images/01_12.svg"><img alt="Distribución de carga" class="align-center" src="_images/01_12.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="_images/02_01.svg"><img alt="Flujo eléctrico" class="align-center" src="_images/02_01.svg" width="50%" /></a>
 <p>Para hallar el flujo total, sumamos (integramos) todos esos parches sobre toda la superficie <span class="math notranslate nohighlight">\(S\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\Phi_E = \int_{S} \vec{E} \cdot d\vec{A}\]</div>
@@ -977,7 +978,7 @@ document.write(`
 </script>
 </div></div>
 </div>
-<a class="reference internal image-reference" href="_images/01_13.svg"><img alt="Distribución de carga" class="align-center" src="_images/01_13.svg" width="60%" /></a>
+<a class="reference internal image-reference" href="_images/02_02.svg"><img alt="Flujo en un cubo" class="align-center" src="_images/02_02.svg" width="60%" /></a>
 </section>
 <section id="simulacion-3d-cubo-de-colores-en-campo-uniforme">
 <h2>Simulación 3D: Cubo de Colores en Campo Uniforme<a class="headerlink" href="#simulacion-3d-cubo-de-colores-en-campo-uniforme" title="Permalink to this heading">#</a></h2>
