@@ -470,9 +470,10 @@ document.write(`
 \[\oint\vec{E}_{\text{II}}\cdot d\vec{A}=E_{\text{II}} \, 4\pi r^{2}\]</div>
 <p>Igualando y despejando obtenemos el campo exterior, el cual decae proporcionalmente a <span class="math notranslate nohighlight">\(\frac{1}{r^{2}}\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[E_{\text{II}} \, 4\pi r^{2}=\frac{Q}{\epsilon_{0}}\]</div>
-<div class="math notranslate nohighlight">
-\[\vec{E}_{\text{II}}=\frac{Q}{4\pi\epsilon_{0}r^{2}}\hat{r}\]</div>
+\[\begin{split}\begin{align}
+E_{\text{II}} \, 4\pi r^{2}&amp;=\frac{Q}{\epsilon_{0}} \\
+\vec{E}_{\text{II}}&amp;=\frac{Q}{4\pi\epsilon_{0}r^{2}}\hat{r}
+\end{align}\end{split}\]</div>
 <a class="reference internal image-reference" href="_images/02_09.svg"><img alt="Gráfico esfera conductora" class="align-center" src="_images/02_09.svg" width="60%" /></a>
 </section>
 </section>
@@ -486,38 +487,29 @@ document.write(`
 <a class="reference internal image-reference" href="_images/02_11.svg"><img alt="Esfera aislante dentro" class="align-center" src="_images/02_11.svg" width="40%" /></a>
 <p>Aplicando la Ley de Gauss:</p>
 <div class="math notranslate nohighlight">
-\[\oint\vec{E}_{\text{I}}\cdot d\vec{A}=\frac{q_{\text{enc}}}{\epsilon_{0}}\]</div>
-<div class="math notranslate nohighlight">
-\[E_{\text{I}}\cdot 4\pi r^{2}=\frac{Q\frac{r^{3}}{R^{3}}}{\epsilon_{0}}\]</div>
+\[\begin{split}\begin{align}
+\oint\vec{E}_{\text{I}}\cdot d\vec{A}&amp;=\frac{q_{\text{enc}}}{\epsilon_{0}} \\
+E_{\text{I}}\cdot 4\pi r^{2}&amp;=\frac{Q\frac{r^{3}}{R^{3}}}{\epsilon_{0}}
+\end{align}\end{split}\]</div>
 <p>Al despejar, notamos que en el interior de un aislante uniforme el campo eléctrico crece de forma directamente proporcional al radio <span class="math notranslate nohighlight">\(r\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[E_{\text{I}}=\frac{Qr}{4\pi\epsilon_{0}R^{3}}\]</div>
 <p>Expresado en función de la densidad volumétrica <span class="math notranslate nohighlight">\(\rho\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[E_{\text{I}}=\frac{Q}{\frac{4}{3}\pi R^{3}}\frac{r}{3\epsilon_{0}}\]</div>
-<div class="math notranslate nohighlight">
-\[E_{\text{I}}=\rho\frac{r}{3\epsilon_{0}}\]</div>
-<div class="math notranslate nohighlight">
-\[\vec{E}_{\text{I}}=\frac{\rho r}{3\epsilon_{0}}\hat{r}\]</div>
-<div class="math notranslate nohighlight">
-\[\vec{E}_{\text{I}}=\frac{\rho}{3\epsilon_{0}}\vec{r}\]</div>
+\[\begin{split}\begin{align}
+E_{\text{I}}&amp;=\frac{Q}{\frac{4}{3}\pi R^{3}}\frac{r}{3\epsilon_{0}} \\
+E_{\text{I}}&amp;=\rho\frac{r}{3\epsilon_{0}} \\
+\vec{E}_{\text{I}}&amp;=\frac{\rho r}{3\epsilon_{0}}\hat{r} \\
+\vec{E}_{\text{I}}&amp;=\frac{\rho}{3\epsilon_{0}}\vec{r}
+\end{align}\end{split}\]</div>
 </section>
 <section id="id2">
 <h3>Campo eléctrico fuera de la esfera (<span class="math notranslate nohighlight">\(r &gt; R\)</span>):<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>Desde el exterior, la esfera aislante se comporta matemáticamente igual que la esfera conductora o que una carga puntual. Toda la carga <span class="math notranslate nohighlight">\(Q\)</span> queda encerrada por la superficie gaussiana.</p>
 <a class="reference internal image-reference" href="_images/02_12.svg"><img alt="Esfera aislante fuera" class="align-center" src="_images/02_12.svg" width="40%" /></a>
 <div class="math notranslate nohighlight">
-\[\oint\vec{E}_{\text{II}}\cdot d\vec{A}=\frac{q_{\text{enc}}}{\epsilon_{0}}\]</div>
-<div class="math notranslate nohighlight">
-\[\oint\vec{E}_{\text{II}}\cdot d\vec{A}=E_{\text{II}} \, 4\pi r^{2}\]</div>
-<div class="math notranslate nohighlight">
-\[E_{\text{II}} \, 4\pi r^{2}=\frac{Q}{\epsilon_{0}}\]</div>
-<div class="math notranslate nohighlight">
-\[\vec{E}_{\text{II}}=\frac{Q}{4\pi\epsilon_{0}r^{2}}\hat{r}\]</div>
-<div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \oint\vec{E}_{\text{II}}\cdot d\vec{A}&amp;=\frac{q_{\text{enc}}}{\epsilon_{0}} \\
-\oint\vec{E}_{\text{II}}\cdot d\vec{A}&amp;=E_{\text{II}} \, 4\pi r^{2} \\
 E_{\text{II}} \, 4\pi r^{2}&amp;=\frac{Q}{\epsilon_{0}} \\
 \vec{E}_{\text{II}}&amp;=\frac{Q}{4\pi\epsilon_{0}r^{2}}\hat{r}
 \end{align}\end{split}\]</div>
