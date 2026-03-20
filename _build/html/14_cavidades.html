@@ -67,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '14_cavidades';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Conductores y Aislantes" href="13_conductores.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,12 +180,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="07_alambre.html">Alambre Infinito</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ley de Gauss</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="08_flujo.html">Flujo Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_gauss.html">La Ley de Gauss</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_gauss_esfera.html">Simetría Esférica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11_gauss_cilindro.html">Simetría Cilíndrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_gauss_plano.html">Simetría Plana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_conductores.html">Conductores y Aislantes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ejemplo 1: Esfera no conductora cargada con <span class="math notranslate nohighlight">\(\rho\)</span> constante.</a></li>
+
 </ul>
 
     </div>
@@ -427,47 +431,67 @@ document.write(`
                   
   <section id="ejemplo-1-esfera-no-conductora-cargada-con-rho-constante">
 <h1>Ejemplo 1: Esfera no conductora cargada con <span class="math notranslate nohighlight">\(\rho\)</span> constante.<a class="headerlink" href="#ejemplo-1-esfera-no-conductora-cargada-con-rho-constante" title="Permalink to this heading">#</a></h1>
+<a class="reference internal image-reference" href="_images/02_14.svg"><img alt="Esfera conductora" class="align-center" src="_images/02_14.svg" width="40%" /></a>
 <ul>
 <li><p><strong>Campo eléctrico en la zona I:</strong> <span class="math notranslate nohighlight">\(\vec{E}_{I}=\vec{0}\)</span>, porque la carga encerrada es nula.</p></li>
 <li><p><strong>Campo eléctrico en la zona II:</strong>
-Aplicando la Ley de Gauss:
-$<span class="math notranslate nohighlight">\(\oint\vec{E}_{II}\cdot d\vec{S}=\frac{q_{enc}}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-  \)</span><span class="math notranslate nohighlight">\(E_{II}(4\pi r^{2})=\frac{1}{\epsilon_{0}}\rho\frac{4}{3}\pi(r^{3}-a^{3})\)</span><span class="math notranslate nohighlight">\(
-  \)</span><span class="math notranslate nohighlight">\(\vec{E}_{II}=\frac{\rho}{3\epsilon_{0}}\frac{(r^{3}-a^{3})}{r^{2}}\hat{r}\)</span>$</p>
-<p>Para la zona II también se puede utilizar el principio de superposición:
-$<span class="math notranslate nohighlight">\(E_{II}^{(1)}4\pi r^{2}=\frac{\rho\frac{4}{3}\pi r^{3}}{\epsilon_{0}} \implies \vec{E}_{II}^{(1)}=\frac{\rho}{3\epsilon_{0}}r\hat{r}\)</span><span class="math notranslate nohighlight">\(
-  \)</span><span class="math notranslate nohighlight">\(E_{II}^{(2)}4\pi r^{2}=-\frac{\rho\frac{4}{3}\pi a^{3}}{\epsilon_{0}} \implies \vec{E}_{II}^{(2)}=-\frac{\rho}{3\epsilon_{0}}\frac{a^{3}}{r^{2}}\hat{r}\)</span>$</p>
-<p>Sumando ambas contribuciones obtenemos el mismo resultado:
-$<span class="math notranslate nohighlight">\(\vec{E}_{II}=\vec{E}_{II}^{(1)}+\vec{E}_{II}^{(2)}\)</span><span class="math notranslate nohighlight">\(
-  \)</span><span class="math notranslate nohighlight">\(\vec{E}_{II}=\frac{\rho}{3\epsilon_{0}}r\hat{r}-\frac{\rho}{3\epsilon_{0}}\frac{a^{3}}{r^{2}}\hat{r}\)</span><span class="math notranslate nohighlight">\(
-  \)</span><span class="math notranslate nohighlight">\(\vec{E}_{II}=\frac{\rho}{3\epsilon_{0}}\left(\frac{r^{3}-a^{3}}{r^{2}}\right)\hat{r}\)</span>$</p>
+Aplicando la Ley de Gauss:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+    \oint\vec{E}_{\text{II}}\cdot d\vec{A}&amp;=\frac{q_{\text{enc}}}{\epsilon_{0}} \\
+    E_{\text{II}}(4\pi r^{2})&amp;=\frac{1}{\epsilon_{0}}\rho\frac{4}{3}\pi(r^{3}-a^{3}) \\
+    \vec{E}_{\text{II}}&amp;=\frac{\rho}{3\epsilon_{0}}\frac{(r^{3}-a^{3})}{r^{2}}\hat{r}
+    \end{align}\end{split}\]</div>
+<p>Para la zona II también se puede utilizar el principio de superposición:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+    E_{\text{II}}^{(1)}4\pi r^{2}=\frac{\rho\frac{4}{3}\pi r^{3}}{\epsilon_{0}} &amp;\implies \vec{E}_{\text{II}}^{(1)}=\frac{\rho}{3\epsilon_{0}}r\hat{r} \\
+    E_{\text{II}}^{(2)}4\pi r^{2}=-\frac{\rho\frac{4}{3}\pi a^{3}}{\epsilon_{0}} &amp;\implies \vec{E}_{\text{II}}^{(2)}=-\frac{\rho}{3\epsilon_{0}}\frac{a^{3}}{r^{2}}\hat{r}
+    \end{align}\end{split}\]</div>
+<p>Sumando ambas contribuciones obtenemos el mismo resultado:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+    \vec{E}_{\text{II}}&amp;=\vec{E}_{\text{II}}^{(1)}+\vec{E}_{\text{II}}^{(2)} \\
+    \vec{E}_{\text{II}}&amp;=\frac{\rho}{3\epsilon_{0}}r\hat{r}-\frac{\rho}{3\epsilon_{0}}\frac{a^{3}}{r^{2}}\hat{r} \\
+    \vec{E}_{\text{II}}&amp;=\frac{\rho}{3\epsilon_{0}}\left(\frac{r^{3}-a^{3}}{r^{2}}\right)\hat{r}
+    \end{align}\end{split}\]</div>
 </li>
-<li><p><strong>Campo eléctrico en la zona III:</strong>
-$<span class="math notranslate nohighlight">\(\oint E_{III}\hat{r}\cdot\hat{r}dS=\frac{q_{enc}}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-  \)</span><span class="math notranslate nohighlight">\(E_{III}=\frac{\rho\frac{4}{3}\pi(b^{3}-a^{3})}{4\pi\epsilon_{0}r^{2}}\)</span><span class="math notranslate nohighlight">\(
-  \)</span><span class="math notranslate nohighlight">\(\vec{E}_{III}=\frac{\rho}{3\epsilon_{0}}\frac{(b^{3}-a^{3})}{r^{2}}\hat{r}\)</span>$</p></li>
+<li><p><strong>Campo eléctrico en la zona III:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+    \oint E_{\text{III}}\hat{r}\cdot\hat{r}dA&amp;=\frac{q_{\text{enc}}}{\epsilon_{0}} \\
+    E_{\text{III}}&amp;=\frac{\rho\frac{4}{3}\pi(b^{3}-a^{3})}{4\pi\epsilon_{0}r^{2}} \\
+    \vec{E}_{\text{III}}&amp;=\frac{\rho}{3\epsilon_{0}}\frac{(b^{3}-a^{3})}{r^{2}}\hat{r}
+    \end{align}\end{split}\]</div>
+</li>
 </ul>
-<hr class="docutils" />
+<a class="reference internal image-reference" href="_images/02_15.svg"><img alt="Esfera conductora" class="align-center" src="_images/02_15.svg" width="40%" /></a>
+<a class="reference internal image-reference" href="_images/02_16.svg"><img alt="Esfera conductora" class="align-center" src="_images/02_16.svg" width="40%" /></a>
 </section>
 <section id="ejemplo-2-esfera-no-conductora-con-una-cavidad-esferica">
 <h1>Ejemplo 2: Esfera no conductora con una cavidad esférica.<a class="headerlink" href="#ejemplo-2-esfera-no-conductora-con-una-cavidad-esferica" title="Permalink to this heading">#</a></h1>
 <p>Determinar el campo eléctrico en el punto <span class="math notranslate nohighlight">\(P\)</span>, es decir, <span class="math notranslate nohighlight">\(\vec{E}_{P}\)</span>. Aplicando superposición:</p>
 <ol class="arabic simple">
 <li><p>El campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}_{1}\)</span> para la esfera completa en el punto <span class="math notranslate nohighlight">\(P\)</span>:
-$<span class="math notranslate nohighlight">\(\oint\vec{E}_{1}\cdot d\vec{S}=\frac{q_{enc}}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
+$<span class="math notranslate nohighlight">\(\oint\vec{E}_{1}\cdot d\vec{A}=\frac{q_{\text{enc}}}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\(E_{1}4\pi r^{2}=\frac{\rho\cdot\frac{4}{3}\pi r^{3}}{\epsilon_{0}} \implies \vec{E}_{1}=\frac{\rho}{3\epsilon_{0}}r\hat{r}\)</span>$</p></li>
 <li><p>El campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}_{2}\)</span> para el agujero en el punto <span class="math notranslate nohighlight">\(P\)</span>:
-$<span class="math notranslate nohighlight">\(E_{2}4\pi r^{\prime 2}=\frac{\rho\frac{4}{3}\pi r^{\prime 3}}{\epsilon_{0}} \implies \vec{E}_{2}=\frac{\rho}{3\epsilon_{0}}r^{\prime}\hat{r}^{\prime}\)</span>$</p></li>
+$<span class="math notranslate nohighlight">\(E_{2}4\pi r^{\prime 2}=\frac{\rho\frac{4}{3}\pi r^{\prime 3}}{\epsilon_{0}} \implies \vec{E}_{2}=\frac{\rho}{3\epsilon_{0}}r^{\prime}\hat{r}^{\, \prime}\)</span>$</p></li>
 </ol>
-<p>Dado que la relación vectorial de las distancias es <span class="math notranslate nohighlight">\(\vec{d}+\vec{r}^{\prime}=\vec{r}\)</span>, el campo resultante es:
-$<span class="math notranslate nohighlight">\(\vec{E}_{P}=\vec{E}_{1}-\vec{E}_{2}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\vec{E}_{P}=\frac{\rho}{3\epsilon_{0}}\vec{r}-\frac{\rho}{3\epsilon_{0}}\vec{r}^{\prime}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\vec{E}_{P}=\frac{\rho}{3\epsilon_{0}}(\vec{r}-\vec{r}^{\prime})\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\vec{E}_{P}=\frac{\rho}{3\epsilon_{0}}\vec{d}\)</span>$</p>
+<p>Dado que la relación vectorial de las distancias es <span class="math notranslate nohighlight">\(\vec{d}+\vec{r}^{\, \prime}=\vec{r}\)</span>, el campo resultante es:
+$<span class="math notranslate nohighlight">\(\begin{align}
+    \vec{E}_{P}&amp;=\vec{E}_{1}-\vec{E}_{2} \\
+    \vec{E}_{P}&amp;=\frac{\rho}{3\epsilon_{0}}\vec{r}-\frac{\rho}{3\epsilon_{0}}\vec{r}^{\, \prime} \\
+    \vec{E}_{P}&amp;=\frac{\rho}{3\epsilon_{0}}\left(\vec{r}-\vec{r}^{\, \prime}\right) \\
+    \vec{E}_{P}&amp;=\frac{\rho}{3\epsilon_{0}}\vec{d}
+    \end{align}\)</span>$</p>
 <p><strong>Análisis Conceptual:</strong>
 La pregunta plantea un error conceptual común al aplicar la Ley de Gauss. A pesar de que la carga encerrada en el agujero es cero, el campo eléctrico en su interior no lo es. Esto se debe a que el campo eléctrico en un punto no depende solo de la carga encerrada en una superficie gaussiana que lo contenga, sino de todas las cargas de la distribución, tanto dentro como fuera de la superficie.</p>
-<p>La Ley de Gauss establece que el flujo eléctrico neto a través de una superficie cerrada es proporcional a la carga neta encerrada: <span class="math notranslate nohighlight">\(\Phi_{E}=\oint\vec{E}\cdot d\vec{S}=q_{enc}/\epsilon_{0}\)</span>. Sin embargo, esta ley no implica que el campo sea cero si <span class="math notranslate nohighlight">\(q_{enc}=0\)</span>. Para que el campo eléctrico sea cero en una región sin carga, se necesita una simetría esférica en la distribución de carga que rodea esa región. Un ejemplo perfecto es el interior de una esfera conductora o una cáscara esférica aislante con carga uniforme. En estos casos, para cualquier superficie gaussiana dentro, las líneas de campo que entran compensan exactamente a las que salen, dando un flujo total nulo y, por lo tanto, un campo eléctrico cero.</p>
+<p>La Ley de Gauss establece que el flujo eléctrico neto a través de una superficie cerrada es proporcional a la carga neta encerrada: <span class="math notranslate nohighlight">\(\Phi_{E}=\oint\vec{E}\cdot d\vec{A}=q_{\text{enc}}/\epsilon_{0}\)</span>. Sin embargo, esta ley no implica que el campo sea cero si <span class="math notranslate nohighlight">\(q_{\text{enc}}=0\)</span>. Para que el campo eléctrico sea cero en una región sin carga, se necesita una simetría esférica en la distribución de carga que rodea esa región. Un ejemplo perfecto es el interior de una esfera conductora o una cáscara esférica aislante con carga uniforme. En estos casos, para cualquier superficie gaussiana dentro, las líneas de campo que entran compensan exactamente a las que salen, dando un flujo total nulo y, por lo tanto, un campo eléctrico cero.</p>
 <p>En nuestro problema, la carga no está distribuida simétricamente alrededor del agujero. El agujero está desplazado con respecto al centro de la esfera grande. Esta asimetría es la clave. La carga fuera del agujero (el material aislante con densidad de carga <span class="math notranslate nohighlight">\(\rho\)</span>) contribuye al campo eléctrico en el interior del agujero, lo que hace que el campo sea no nulo y uniforme, como se demostró en el problema anterior usando el principio de superposición.</p>
+<a class="reference internal image-reference" href="_images/02_17.svg"><img alt="Esfera conductora" class="align-center" src="_images/02_17.svg" width="40%" /></a>
+<a class="reference internal image-reference" href="_images/02_18.svg"><img alt="Esfera conductora" class="align-center" src="_images/02_18.svg" width="40%" /></a>
+<a class="reference internal image-reference" href="_images/02_19.svg"><img alt="Esfera conductora" class="align-center" src="_images/02_19.svg" width="40%" /></a>
 </section>
 
     <script type="text/x-thebe-config">
@@ -500,6 +524,15 @@ La pregunta plantea un error conceptual común al aplicar la Ley de Gauss. A pes
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="13_conductores.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Conductores y Aislantes</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
