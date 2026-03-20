@@ -455,8 +455,9 @@ document.write(`
 <a class="reference internal image-reference" href="_images/02_07.svg"><img alt="Esfera conductora dentro" class="align-center" src="_images/02_07.svg" width="40%" /></a>
 <div class="math notranslate nohighlight">
 \[\oint\vec{E}_{\text{I}}\cdot d\vec{S}=\frac{q_{\text{enc}}}{\epsilon_{0}}\]</div>
-<p>Como <span class="math notranslate nohighlight">\(q_{\text{enc}}=0\)</span>, concluimos de inmediato que el campo eléctrico en el interior es nulo:
-$<span class="math notranslate nohighlight">\(\vec{E}_{\text{I}}=\vec{0}\)</span>$</p>
+<p>Como <span class="math notranslate nohighlight">\(q_{\text{enc}}=0\)</span>, concluimos de inmediato que el campo eléctrico en el interior es nulo:</p>
+<div class="math notranslate nohighlight">
+\[\vec{E}_{\text{I}}=\vec{0}\]</div>
 </section>
 <section id="campo-electrico-fuera-de-la-esfera-r-r">
 <h3>Campo eléctrico fuera de la esfera (<span class="math notranslate nohighlight">\(r &gt; R\)</span>):<a class="headerlink" href="#campo-electrico-fuera-de-la-esfera-r-r" title="Permalink to this heading">#</a></h3>
@@ -464,12 +465,15 @@ $<span class="math notranslate nohighlight">\(\vec{E}_{\text{I}}=\vec{0}\)</span
 <a class="reference internal image-reference" href="_images/02_08.svg"><img alt="Esfera conductora fuera" class="align-center" src="_images/02_08.svg" width="40%" /></a>
 <div class="math notranslate nohighlight">
 \[\oint\vec{E}_{\text{II}}\cdot d\vec{S}=\frac{q_{\text{enc}}}{\epsilon_{0}}\]</div>
-<p>El flujo a través de esta superficie es:
-$<span class="math notranslate nohighlight">\(\oint\vec{E}_{\text{II}}\cdot d\vec{S}=E_{\text{II}} \, 4\pi r^{2}\)</span><span class="math notranslate nohighlight">\(
-Igualando y despejando obtenemos el campo exterior, el cual decae proporcionalmente a \)</span>\frac{1}{r^{2}}<span class="math notranslate nohighlight">\(:
-\)</span><span class="math notranslate nohighlight">\(E_{\text{II}} \, 4\pi r^{2}=\frac{Q}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\vec{E}_{\text{II}}=\frac{Q}{4\pi\epsilon_{0}r^{2}}\hat{r}\)</span>$</p>
-<a class="reference internal image-reference" href="_images/02_09.svg"><img alt="Gráfico esfera conductora" class="align-center" src="_images/02_09.svg" width="40%" /></a>
+<p>El flujo a través de esta superficie es:</p>
+<div class="math notranslate nohighlight">
+\[\oint\vec{E}_{\text{II}}\cdot d\vec{S}=E_{\text{II}} \, 4\pi r^{2}\]</div>
+<p>Igualando y despejando obtenemos el campo exterior, el cual decae proporcionalmente a <span class="math notranslate nohighlight">\(\frac{1}{r^{2}}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[E_{\text{II}} \, 4\pi r^{2}=\frac{Q}{\epsilon_{0}}\]</div>
+<div class="math notranslate nohighlight">
+\[\vec{E}_{\text{II}}=\frac{Q}{4\pi\epsilon_{0}r^{2}}\hat{r}\]</div>
+<a class="reference internal image-reference" href="_images/02_09.svg"><img alt="Gráfico esfera conductora" class="align-center" src="_images/02_09.svg" width="60%" /></a>
 </section>
 </section>
 <section id="esfera-aislante-o-no-conductora">
@@ -480,16 +484,23 @@ Igualando y despejando obtenemos el campo exterior, el cual decae proporcionalme
 <h3>Campo eléctrico dentro de la esfera (<span class="math notranslate nohighlight">\(r &lt; R\)</span>):<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>Al trazar una superficie gaussiana en su interior, la carga encerrada dependerá del volumen de esa superficie gaussiana, siendo una fracción de la carga total: <span class="math notranslate nohighlight">\(q_{\text{enc}}=\rho\frac{4}{3}\pi r^{3}\)</span>.</p>
 <a class="reference internal image-reference" href="_images/02_11.svg"><img alt="Esfera aislante dentro" class="align-center" src="_images/02_11.svg" width="40%" /></a>
-<p>Aplicando la Ley de Gauss:
-$<span class="math notranslate nohighlight">\(\oint\vec{E}_{\text{I}}\cdot d\vec{S}=\frac{q_{\text{enc}}}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(E_{\text{I}}\cdot 4\pi r^{2}=\frac{Q\frac{r^{3}}{R^{3}}}{\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-Al despejar, notamos que en el interior de un aislante uniforme el campo eléctrico crece de forma directamente proporcional al radio \)</span>r<span class="math notranslate nohighlight">\(:
-\)</span><span class="math notranslate nohighlight">\(E_{\text{I}}=\frac{Qr}{4\pi\epsilon_{0}R^{3}}\)</span><span class="math notranslate nohighlight">\(
-Expresado en función de la densidad volumétrica \)</span>\rho<span class="math notranslate nohighlight">\(:
-\)</span><span class="math notranslate nohighlight">\(E_{\text{I}}=\frac{Q}{\frac{4}{3}\pi R^{3}}\frac{r}{3\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(E_{\text{I}}=\rho\frac{r}{3\epsilon_{0}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\vec{E}_{\text{I}}=\frac{\rho r}{3\epsilon_{0}}\hat{r}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\vec{E}_{\text{I}}=\frac{\rho}{3\epsilon_{0}}\vec{r}\)</span>$</p>
+<p>Aplicando la Ley de Gauss:</p>
+<div class="math notranslate nohighlight">
+\[\oint\vec{E}_{\text{I}}\cdot d\vec{S}=\frac{q_{\text{enc}}}{\epsilon_{0}}\]</div>
+<div class="math notranslate nohighlight">
+\[E_{\text{I}}\cdot 4\pi r^{2}=\frac{Q\frac{r^{3}}{R^{3}}}{\epsilon_{0}}\]</div>
+<p>Al despejar, notamos que en el interior de un aislante uniforme el campo eléctrico crece de forma directamente proporcional al radio <span class="math notranslate nohighlight">\(r\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[E_{\text{I}}=\frac{Qr}{4\pi\epsilon_{0}R^{3}}\]</div>
+<p>Expresado en función de la densidad volumétrica <span class="math notranslate nohighlight">\(\rho\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[E_{\text{I}}=\frac{Q}{\frac{4}{3}\pi R^{3}}\frac{r}{3\epsilon_{0}}\]</div>
+<div class="math notranslate nohighlight">
+\[E_{\text{I}}=\rho\frac{r}{3\epsilon_{0}}\]</div>
+<div class="math notranslate nohighlight">
+\[\vec{E}_{\text{I}}=\frac{\rho r}{3\epsilon_{0}}\hat{r}\]</div>
+<div class="math notranslate nohighlight">
+\[\vec{E}_{\text{I}}=\frac{\rho}{3\epsilon_{0}}\vec{r}\]</div>
 </section>
 <section id="id2">
 <h3>Campo eléctrico fuera de la esfera (<span class="math notranslate nohighlight">\(r &gt; R\)</span>):<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
@@ -503,7 +514,7 @@ Expresado en función de la densidad volumétrica \)</span>\rho<span class="math
 \[E_{\text{II}} \, 4\pi r^{2}=\frac{Q}{\epsilon_{0}}\]</div>
 <div class="math notranslate nohighlight">
 \[\vec{E}_{\text{II}}=\frac{Q}{4\pi\epsilon_{0}r^{2}}\hat{r}\]</div>
-<a class="reference internal image-reference" href="_images/02_13.svg"><img alt="Gráfico esfera aislante" class="align-center" src="_images/02_13.svg" width="40%" /></a>
+<a class="reference internal image-reference" href="_images/02_13.svg"><img alt="Gráfico esfera aislante" class="align-center" src="_images/02_13.svg" width="60%" /></a>
 </section>
 </section>
 </section>
