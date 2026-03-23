@@ -1,0 +1,1013 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2.3 Simetría Esférica &#8212; Curso de Electricidad y Magnetismo</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02_03_gauss_esfera';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2.4 Simetría Cilíndrica" href="02_04_gauss_cilindro.html" />
+    <link rel="prev" title="2.2 La Ley de Gauss" href="02_02_gauss.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Curso de Electricidad y Magnetismo - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Curso de Electricidad y Magnetismo - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenidos al Curso de Electricidad y Magnetismo
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1 Carga Eléctrica y Campo Eléctrico</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_01_carga.html">1.1 Carga Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_02_coulomb.html">1.2 Ley de Coulomb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_03_campo.html">1.3 Campo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_04_continua.html">1.4 Distribución de Carga</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_05_anillo.html">1.5 Anillo Uniformemente Cargado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_06_disco.html">1.6 Disco Cargado Uniformemente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_07_alambre.html">1.7 Alambre Infinito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Explorando la Densidad de Carga en un Disco</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2 Ley de Gauss</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_01_flujo.html">2.1 Flujo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_02_gauss.html">2.2 La Ley de Gauss</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2.3 Simetría Esférica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_04_gauss_cilindro.html">2.4 Simetría Cilíndrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_05_gauss_plano.html">2.5 Simetría Plana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_06_conductores.html">2.6 Conductores y Aislantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera Aislante</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3 Potencial Eléctrico</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03_01_potencial.html">3.1 Campo y Potencial Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_02_energia.html">3.2 Energía Potencial Electrostática y Trabajo</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmpintog1/electro/blob/main/./02_03_gauss_esfera.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmpintog1/electro" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2F02_03_gauss_esfera.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/02_03_gauss_esfera.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2.3 Simetría Esférica</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eleccion-de-la-superficie-gaussiana">Elección de la Superficie Gaussiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-del-flujo">Análisis del Flujo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-matematico">Planteamiento Matemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-no-un-cubo">Visualización 3D: ¿Por qué no un cubo?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="simetria-esferica">
+<h1>2.3 Simetría Esférica<a class="headerlink" href="#simetria-esferica" title="Permalink to this heading">#</a></h1>
+<p>Vamos a demostrar el poder de la Ley de Gauss deduciendo la ecuación fundamental que inició este curso: el campo eléctrico de una carga puntual.</p>
+<p>Imagina una carga puntual <span class="math notranslate nohighlight">\(Q\)</span> aislada en el espacio. Sabemos por simetría que su campo eléctrico “radia” hacia afuera en todas direcciones de manera perfectamente esférica. Por lo tanto, el campo <span class="math notranslate nohighlight">\(\vec{E}\)</span> solo depende de la distancia <span class="math notranslate nohighlight">\(r\)</span> a la carga.</p>
+<section id="eleccion-de-la-superficie-gaussiana">
+<h2>Elección de la Superficie Gaussiana<a class="headerlink" href="#eleccion-de-la-superficie-gaussiana" title="Permalink to this heading">#</a></h2>
+<p>Para aprovechar esta simetría, encerramos nuestra carga puntual con una <strong>esfera imaginaria</strong> de radio <span class="math notranslate nohighlight">\(r\)</span> centrada exactamente en <span class="math notranslate nohighlight">\(Q\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
+<span class="c1"># import matplotlib.pyplot as plt</span>
+<span class="c1"># from matplotlib.animation import FuncAnimation</span>
+<span class="c1"># from matplotlib.patches import Polygon</span>
+<span class="c1"># from IPython.display import HTML</span>
+<span class="c1"># import matplotlib.lines as mlines</span>
+<span class="c1"># </span>
+<span class="c1"># # === NUEVO: AUMENTAR EL LÍMITE DE TAMAÑO DE LA ANIMACIÓN A 50 MB ===</span>
+<span class="c1"># plt.rcParams[&#39;animation.embed_limit&#39;] = 50 </span>
+<span class="c1"># </span>
+<span class="c1"># # === PARÁMETROS DE CONFIGURACIÓN ===</span>
+<span class="c1"># R_esfera_base = 2.2 </span>
+<span class="c1"># L_half_cube = 2.2 </span>
+<span class="c1"># N_field_lines = 16 </span>
+<span class="c1"># animation_frames = 150 # Un poco más lento para observar bien la papa</span>
+<span class="c1"># </span>
+<span class="c1"># # === FUNCIÓN PARA CONFIGURAR LOS SUBPLOTS ===</span>
+<span class="c1"># def setup_subplot(ax, title):</span>
+<span class="c1">#     ax.set_xlim(-4.5, 4.5)</span>
+<span class="c1">#     ax.set_ylim(-4.5, 4.5)</span>
+<span class="c1">#     ax.set_aspect(&#39;equal&#39;)</span>
+<span class="c1">#     ax.axis(&#39;off&#39;)</span>
+<span class="c1">#     ax.set_title(title, fontsize=15, pad=20, fontweight=&#39;bold&#39;)</span>
+<span class="c1">#     </span>
+<span class="c1"># # === DIBUJAR LOS ELEMENTOS COMUNES Y LEYENDAS ===</span>
+<span class="c1"># def draw_physics_base(ax, charge_label):</span>
+<span class="c1">#     ax.plot(0, 0, &#39;ro&#39;, markersize=18)</span>
+<span class="c1">#     ax.text(0.2, 0.2, charge_label, color=&#39;red&#39;, fontsize=16, fontweight=&#39;bold&#39;)</span>
+<span class="c1">#     </span>
+<span class="c1">#     thetas_field = np.linspace(0, 2*np.pi, N_field_lines, endpoint=False)</span>
+<span class="c1">#     for theta in thetas_field:</span>
+<span class="c1">#         ax.plot([0, 5*np.cos(theta)], [0, 5*np.sin(theta)], &#39;gray&#39;, linewidth=1.5, alpha=0.6)</span>
+<span class="c1">#         arrow_dist = 2.8</span>
+<span class="c1">#         ax.arrow(arrow_dist*np.cos(theta), arrow_dist*np.sin(theta), 0.05*np.cos(theta), 0.05*np.sin(theta), </span>
+<span class="c1">#                  head_width=0.25, head_length=0.4, fc=&#39;black&#39;, ec=&#39;black&#39;)</span>
+<span class="c1">#         </span>
+<span class="c1">#     leyenda_E = mlines.Line2D([], [], color=&#39;red&#39;, marker=&#39;&gt;&#39;, markersize=8, linestyle=&#39;None&#39;, label=r&#39;Campo $\vec{E}$&#39;)</span>
+<span class="c1">#     leyenda_dA = mlines.Line2D([], [], color=&#39;blue&#39;, marker=&#39;&gt;&#39;, markersize=8, linestyle=&#39;None&#39;, label=r&#39;Normal $d\vec{A}$&#39;)</span>
+<span class="c1">#     ax.legend(handles=[leyenda_E, leyenda_dA], loc=&#39;lower right&#39;, fontsize=11, framealpha=0.9)</span>
+<span class="c1"># </span>
+<span class="c1"># # === CREAR LA FIGURA Y LOS 3 EJES ===</span>
+<span class="c1"># fig, (ax_sph, ax_cub, ax_pot) = plt.subplots(1, 3, figsize=(22, 7))</span>
+<span class="c1"># plt.subplots_adjust(wspace=0.1) </span>
+<span class="c1"># </span>
+<span class="c1"># setup_subplot(ax_sph, &quot;A) Esfera Gaussiana (Ideal)&quot;)</span>
+<span class="c1"># setup_subplot(ax_cub, &quot;B) Cubo Gaussiano (Complejo)&quot;)</span>
+<span class="c1"># setup_subplot(ax_pot, &quot;C) Superficie Amorfa (Imposible)&quot;)</span>
+<span class="c1"># </span>
+<span class="c1"># for ax in [ax_sph, ax_cub, ax_pot]:</span>
+<span class="c1">#     draw_physics_base(ax, &#39;+q&#39;)</span>
+<span class="c1"># </span>
+<span class="c1"># # === DIBUJAR LAS SUPERFICIES FIJAS ===</span>
+<span class="c1"># theta_surf = np.linspace(0, 2*np.pi, 300)</span>
+<span class="c1"># </span>
+<span class="c1"># # 1. Esfera</span>
+<span class="c1"># x_esfera = R_esfera_base * np.cos(theta_surf)</span>
+<span class="c1"># y_esfera = R_esfera_base * np.sin(theta_surf)</span>
+<span class="c1"># ax_sph.plot(x_esfera, y_esfera, &#39;#f73bc5&#39;, linewidth=4)</span>
+<span class="c1"># </span>
+<span class="c1"># # 2. Cubo</span>
+<span class="c1"># cube_vertices = np.array([[-L_half_cube, -L_half_cube], [L_half_cube, -L_half_cube], </span>
+<span class="c1">#                           [L_half_cube, L_half_cube], [-L_half_cube, L_half_cube], </span>
+<span class="c1">#                           [-L_half_cube, -L_half_cube]])</span>
+<span class="c1"># ax_cub.add_patch(Polygon(cube_vertices, closed=True, fill=None, edgecolor=&#39;#f73bc5&#39;, linewidth=4))</span>
+<span class="c1"># </span>
+<span class="c1"># # 3. Papa Amorfa (Ecuación polar)</span>
+<span class="c1"># r_papa_fija = 2.2 + 0.6*np.sin(3*theta_surf) + 0.4*np.cos(4*theta_surf) - 0.2*np.sin(2*theta_surf)</span>
+<span class="c1"># x_papa = r_papa_fija * np.cos(theta_surf)</span>
+<span class="c1"># y_papa = r_papa_fija * np.sin(theta_surf)</span>
+<span class="c1"># ax_pot.plot(x_papa, y_papa, &#39;#f73bc5&#39;, linewidth=4)</span>
+<span class="c1"># </span>
+<span class="c1"># </span>
+<span class="c1"># # === ELEMENTOS DE LA ANIMACIÓN ===</span>
+<span class="c1"># probe_sph, = ax_sph.plot([], [], &#39;ko&#39;, markersize=12)</span>
+<span class="c1"># probe_cub, = ax_cub.plot([], [], &#39;ko&#39;, markersize=12)</span>
+<span class="c1"># probe_pot, = ax_pot.plot([], [], &#39;ko&#39;, markersize=12)</span>
+<span class="c1"># </span>
+<span class="c1"># # Vectores (E y dA)</span>
+<span class="c1"># def crear_vectores(ax):</span>
+<span class="c1">#     return (ax.quiver([], [], [], [], color=&#39;red&#39;, scale=5, width=0.018),</span>
+<span class="c1">#             ax.quiver([], [], [], [], color=&#39;blue&#39;, scale=5, width=0.01))</span>
+<span class="c1"># </span>
+<span class="c1"># E_sph, dA_sph = crear_vectores(ax_sph)</span>
+<span class="c1"># E_cub, dA_cub = crear_vectores(ax_cub)</span>
+<span class="c1"># E_pot, dA_pot = crear_vectores(ax_pot)</span>
+<span class="c1"># </span>
+<span class="c1"># # Cuadros de información</span>
+<span class="c1"># # info_sph = ax_sph.text(-4.3, 3.2, &#39;&#39;, fontsize=11, bbox=dict(facecolor=&#39;white&#39;, edgecolor=&#39;#f73bc5&#39;, alpha=0.9))</span>
+<span class="c1"># # info_cub = ax_cub.text(-4.3, 3.2, &#39;&#39;, fontsize=11, bbox=dict(facecolor=&#39;white&#39;, edgecolor=&#39;#f73bc5&#39;, alpha=0.9))</span>
+<span class="c1"># # info_pot = ax_pot.text(-4.3, 3.2, &#39;&#39;, fontsize=11, bbox=dict(facecolor=&#39;white&#39;, edgecolor=&#39;#f73bc5&#39;, alpha=0.9))</span>
+<span class="c1"># </span>
+<span class="c1"># def init():</span>
+<span class="c1">#     probe_sph.set_data([], [])</span>
+<span class="c1">#     probe_cub.set_data([], [])</span>
+<span class="c1">#     probe_pot.set_data([], [])</span>
+<span class="c1">#     # info_sph.set_text(&#39;&#39;)</span>
+<span class="c1">#     # info_cub.set_text(&#39;&#39;)</span>
+<span class="c1">#     # info_pot.set_text(&#39;&#39;)</span>
+<span class="c1">#     return probe_sph, probe_cub, probe_pot#, info_sph, info_cub, info_pot</span>
+<span class="c1"># </span>
+<span class="c1"># def animate(frame):</span>
+<span class="c1">#     p = frame / animation_frames </span>
+<span class="c1">#     vec_len = 1.0 # Largo base de flechas</span>
+<span class="c1">#     </span>
+<span class="c1">#     # ================================</span>
+<span class="c1">#     # 1. ACTUALIZAR ESFERA</span>
+<span class="c1">#     # ================================</span>
+<span class="c1">#     phi = p * 2 * np.pi </span>
+<span class="c1">#     px1, py1 = R_esfera_base * np.cos(phi), R_esfera_base * np.sin(phi)</span>
+<span class="c1">#     probe_sph.set_data([px1], [py1])</span>
+<span class="c1">#     </span>
+<span class="c1">#     E_dir1 = np.array([px1, py1]) / R_esfera_base</span>
+<span class="c1">#     dA_dir1 = np.array([px1, py1]) / R_esfera_base </span>
+<span class="c1">#     </span>
+<span class="c1">#     E_sph.set_offsets([[px1, py1]]); E_sph.set_UVC([E_dir1[0]*vec_len], [E_dir1[1]*vec_len])</span>
+<span class="c1">#     dA_sph.set_offsets([[px1, py1]]); dA_sph.set_UVC([dA_dir1[0]*vec_len*0.8], [dA_dir1[1]*vec_len*0.8])</span>
+<span class="c1">#     </span>
+<span class="c1">#     #info_sph.set_text(&quot;ESFERA\n&quot;</span>
+<span class="c1">#     #         r&quot;$\bullet$ ¡$\vec{E} \parallel d\vec{A}$!&quot; &quot;\n&quot;</span>
+<span class="c1">#     #         r&quot;$\bullet$ $|E|$ es CONSTANTE&quot; &quot;\n&quot;</span>
+<span class="c1">#     #         r&quot;$\bullet$ Integral: $E \oint dA$&quot;)</span>
+<span class="c1">#     </span>
+<span class="c1">#     # ================================</span>
+<span class="c1">#     # 2. ACTUALIZAR CUBO</span>
+<span class="c1">#     # ================================</span>
+<span class="c1">#     perimeter = 8 * L_half_cube</span>
+<span class="c1">#     dist = p * perimeter</span>
+<span class="c1">#     </span>
+<span class="c1">#     dA_dir2 = np.array([0.0, 0.0]) </span>
+<span class="c1">#     px2, py2 = 0.0, 0.0</span>
+<span class="c1">#     if dist &lt; 2 * L_half_cube: </span>
+<span class="c1">#         px2, py2 = L_half_cube, (dist - L_half_cube)</span>
+<span class="c1">#         dA_dir2 = np.array([1.0, 0.0])</span>
+<span class="c1">#     elif dist &lt; 4 * L_half_cube: </span>
+<span class="c1">#         px2, py2 = (3 * L_half_cube - dist), L_half_cube</span>
+<span class="c1">#         dA_dir2 = np.array([0.0, 1.0])</span>
+<span class="c1">#     elif dist &lt; 6 * L_half_cube: </span>
+<span class="c1">#         px2, py2 = -L_half_cube, (5 * L_half_cube - dist)</span>
+<span class="c1">#         dA_dir2 = np.array([-1.0, 0.0])</span>
+<span class="c1">#     else: </span>
+<span class="c1">#         px2, py2 = (dist - 7 * L_half_cube), -L_half_cube</span>
+<span class="c1">#         dA_dir2 = np.array([0.0, -1.0])</span>
+<span class="c1">#         </span>
+<span class="c1">#     probe_cub.set_data([px2], [py2])</span>
+<span class="c1">#     </span>
+<span class="c1">#     r_probe_cub = np.sqrt(px2**2 + py2**2)</span>
+<span class="c1">#     E_dir2 = np.array([px2, py2]) / r_probe_cub</span>
+<span class="c1">#     </span>
+<span class="c1">#     E_cub.set_offsets([[px2, py2]]); E_cub.set_UVC([E_dir2[0]*vec_len], [E_dir2[1]*vec_len])</span>
+<span class="c1">#     dA_cub.set_offsets([[px2, py2]]); dA_cub.set_UVC([dA_dir2[0]*vec_len*0.8], [dA_dir2[1]*vec_len*0.8])</span>
+<span class="c1">#     </span>
+<span class="c1">#     #info_cub.set_text(&quot;CUBO\n&quot;</span>
+<span class="c1">#     #         r&quot;$\bullet$ Ángulo $\theta$ varía&quot; &quot;\n&quot;</span>
+<span class="c1">#     #         r&quot;$\bullet$ $|E|$ VARÍA (esquinas)&quot; &quot;\n&quot;</span>
+<span class="c1">#     #         r&quot;$\bullet$ Integral COMPLEJA&quot;)</span>
+<span class="c1"># </span>
+<span class="c1">#     # ================================</span>
+<span class="c1">#     # 3. ACTUALIZAR PAPA AMORFA</span>
+<span class="c1">#     # ================================</span>
+<span class="c1">#     r_pot = 2.2 + 0.6*np.sin(3*phi) + 0.4*np.cos(4*phi) - 0.2*np.sin(2*phi)</span>
+<span class="c1">#     dr_dphi = 1.8*np.cos(3*phi) - 1.6*np.sin(4*phi) - 0.4*np.cos(2*phi)</span>
+<span class="c1">#     </span>
+<span class="c1">#     px3 = r_pot * np.cos(phi)</span>
+<span class="c1">#     py3 = r_pot * np.sin(phi)</span>
+<span class="c1">#     probe_pot.set_data([px3], [py3])</span>
+<span class="c1">#     </span>
+<span class="c1">#     r_probe_pot = np.sqrt(px3**2 + py3**2)</span>
+<span class="c1">#     E_dir3 = np.array([px3, py3]) / r_probe_pot</span>
+<span class="c1">#     </span>
+<span class="c1">#     dx_dphi = dr_dphi * np.cos(phi) - r_pot * np.sin(phi)</span>
+<span class="c1">#     dy_dphi = dr_dphi * np.sin(phi) + r_pot * np.cos(phi)</span>
+<span class="c1">#     dA_dir3_raw = np.array([dy_dphi, -dx_dphi])</span>
+<span class="c1">#     </span>
+<span class="c1">#     # Normalizamos con manejo de errores por si la magnitud es muy cercana a 0</span>
+<span class="c1">#     norm = np.linalg.norm(dA_dir3_raw)</span>
+<span class="c1">#     if norm &gt; 1e-6:</span>
+<span class="c1">#         dA_dir3 = dA_dir3_raw / norm</span>
+<span class="c1">#     else:</span>
+<span class="c1">#         dA_dir3 = np.array([1.0, 0.0]) # Valor de respaldo seguro</span>
+<span class="c1">#     </span>
+<span class="c1">#     E_pot.set_offsets([[px3, py3]]); E_pot.set_UVC([E_dir3[0]*vec_len], [E_dir3[1]*vec_len])</span>
+<span class="c1">#     dA_pot.set_offsets([[px3, py3]]); dA_pot.set_UVC([dA_dir3[0]*vec_len*0.8], [dA_dir3[1]*vec_len*0.8])</span>
+<span class="c1">#     </span>
+<span class="c1">#     #info_pot.set_text(&quot;SUPERFICIE AMORFA\n&quot;</span>
+<span class="c1">#     #         r&quot;$\bullet$ Ángulo $\theta$ es CAÓTICO&quot; &quot;\n&quot;</span>
+<span class="c1">#     #         r&quot;$\bullet$ $|E|$ VARÍA salvajemente&quot; &quot;\n&quot;</span>
+<span class="c1">#     #         r&quot;$\bullet$ Integral IMPOSIBLE&quot;)</span>
+<span class="c1">#     </span>
+<span class="c1">#     return probe_sph, probe_cub, probe_pot#, info_sph, info_cub, info_pot</span>
+<span class="c1"># </span>
+<span class="c1"># # === GENERAR Y MOSTRAR LA ANIMACIÓN ===</span>
+<span class="c1"># # anim = FuncAnimation(fig, animate, init_func=init, frames=animation_frames, interval=60, blit=True)</span>
+<span class="c1"># # plt.close() </span>
+<span class="c1"># # HTML(anim.to_jshtml())</span>
+<span class="c1"># </span>
+<span class="c1"># # === GENERAR Y GUARDAR LA ANIMACIÓN COMO GIF ===</span>
+<span class="c1"># # anim = FuncAnimation(fig, animate, init_func=init, frames=animation_frames, interval=60, blit=True)</span>
+<span class="c1"># </span>
+<span class="c1"># # Guardar como GIF usando Pillow (ideal para GitHub y Jupyter Book)</span>
+<span class="c1"># # print(&quot;Generando GIF, por favor espera unos segundos...&quot;)</span>
+<span class="c1"># # anim.save(&#39;superficies_gaussianas.gif&#39;, writer=&#39;pillow&#39;, fps=15)</span>
+<span class="c1"># # print(&quot;¡GIF guardado con éxito como &#39;superficies_gaussianas.gif&#39;!&quot;)</span>
+<span class="c1"># </span>
+<span class="c1"># # plt.close() # Cierra la figura de matplotlib para no ensuciar el notebook</span>
+<span class="c1"># </span>
+<span class="c1"># # Si quieres previsualizar el GIF dentro de tu notebook mientras editas:</span>
+<span class="c1"># # from IPython.display import Image</span>
+<span class="c1"># # Image(url=&#39;superficies_gaussianas.gif&#39;)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p><img alt="Comparación de superficies gaussianas" src="_images/superficies_gaussianas.gif" /></p>
+</section>
+<section id="analisis-del-flujo">
+<h2>Análisis del Flujo<a class="headerlink" href="#analisis-del-flujo" title="Permalink to this heading">#</a></h2>
+<p>En la superficie de nuestra esfera imaginaria ocurren dos cosas vitales:</p>
+<ul class="simple">
+<li><p>El vector normal <span class="math notranslate nohighlight">\(d\vec{A}\)</span> apunta radialmente hacia afuera en cada punto. Como el campo <span class="math notranslate nohighlight">\(\vec{E}\)</span> también apunta radialmente hacia afuera, ambos vectores son paralelos (<span class="math notranslate nohighlight">\(\theta = 0^\circ\)</span>). Por tanto, el producto punto se simplifica: <span class="math notranslate nohighlight">\(\vec{E} \cdot d\vec{A} = E \, dA\)</span>.</p></li>
+<li><p>Todos los puntos de la esfera están a la misma distancia <span class="math notranslate nohighlight">\(r\)</span> de la carga. Por simetría, la magnitud del campo <span class="math notranslate nohighlight">\(E\)</span> debe ser constante en toda la superficie.</p></li>
+</ul>
+</section>
+<section id="planteamiento-matematico">
+<h2>Planteamiento Matemático<a class="headerlink" href="#planteamiento-matematico" title="Permalink to this heading">#</a></h2>
+<p>Tomamos la Ley de Gauss y aplicamos nuestras simplificaciones:</p>
+<div class="math notranslate nohighlight">
+\[\oint_{S} \vec{E} \cdot d\vec{A} = \frac{q_{\text{enc}}}{\epsilon_0}\]</div>
+<div class="math notranslate nohighlight">
+\[\oint_{S} E \, dA = \frac{Q}{\epsilon_0}\]</div>
+<p>Como <span class="math notranslate nohighlight">\(E\)</span> es constante en nuestra esfera, ¡la sacamos de la integral!</p>
+<div class="math notranslate nohighlight">
+\[E \oint_{S} dA = \frac{Q}{\epsilon_0}\]</div>
+<p>¿Qué es <span class="math notranslate nohighlight">\(\oint dA\)</span>? Es simplemente el área total de nuestra superficie esférica. Sabiendo que el área de una esfera es <span class="math notranslate nohighlight">\(4\pi r^2\)</span>, sustituimos:</p>
+<div class="math notranslate nohighlight">
+\[E (4\pi r^2) = \frac{Q}{\epsilon_0}\]</div>
+</section>
+<section id="resultado-final">
+<h2>Resultado Final<a class="headerlink" href="#resultado-final" title="Permalink to this heading">#</a></h2>
+<p>Despejamos <span class="math notranslate nohighlight">\(E\)</span> y reorganizamos los términos:</p>
+<div class="math notranslate nohighlight">
+\[E = \frac{1}{4\pi\epsilon_0} \frac{Q}{r^2}\]</div>
+<p>¡Voilà! En apenas tres líneas de álgebra, hemos llegado exactamente a la misma ecuación empírica descubierta por Charles-Augustin de Coulomb. Sin integrales complejas, solo geometría y simetría.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
+<span class="c1"># import plotly.graph_objects as go</span>
+<span class="c1"># from plotly.subplots import make_subplots</span>
+<span class="c1"># </span>
+<span class="c1"># def generar_comparacion_gauss_3d():</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 1. CONFIGURACIÓN INICIAL DE LA FIGURA</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # Creamos un lienzo con 1 fila y 2 columnas preparadas para gráficos 3D (&#39;scene&#39;)</span>
+<span class="c1">#     fig = make_subplots(</span>
+<span class="c1">#         rows=1, cols=2,</span>
+<span class="c1">#         specs=[[{&#39;type&#39;: &#39;scene&#39;}, {&#39;type&#39;: &#39;scene&#39;}]],</span>
+<span class="c1">#         subplot_titles=(&quot;A) Superficie Esférica&quot;, &quot;B) Superficie Cúbica&quot;)</span>
+<span class="c1">#     )</span>
+<span class="c1"># </span>
+<span class="c1">#     # Parámetros físicos y visuales compartidos</span>
+<span class="c1">#     R = 2.0  # Radio de la esfera</span>
+<span class="c1">#     L = 2.0  # Mitad de la longitud de la arista del cubo (va de -2 a 2)</span>
+<span class="c1">#     L_flecha_E = 1.2   # Largo del vector Campo Eléctrico para visualización</span>
+<span class="c1">#     L_flecha_dA = 0.8  # Largo del vector Diferencial de Área para visualización</span>
+<span class="c1">#     color_E = &#39;red&#39;    # Color para el Campo Eléctrico</span>
+<span class="c1">#     color_dA = &#39;blue&#39;  # Color para el Vector Normal</span>
+<span class="c1">#     color_S = &#39;lightblue&#39; # Color de las superficies gaussianas</span>
+<span class="c1"># </span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # CASO A: LA ESFERA (Lado Izquierdo)</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # Generamos la malla de la esfera usando coordenadas esféricas</span>
+<span class="c1">#     u = np.linspace(0, 2 * np.pi, 40) # Ángulo acimutal (theta en física, de 0 a 2pi)</span>
+<span class="c1">#     v = np.linspace(0, np.pi, 20)     # Ángulo polar (phi en física, de 0 a pi)</span>
+<span class="c1">#     </span>
+<span class="c1">#     # Conversión a coordenadas cartesianas para trazar la superficie</span>
+<span class="c1">#     x_sph = R * np.outer(np.cos(u), np.sin(v))</span>
+<span class="c1">#     y_sph = R * np.outer(np.sin(u), np.sin(v))</span>
+<span class="c1">#     z_sph = R * np.outer(np.ones(np.size(u)), np.cos(v))</span>
+<span class="c1"># </span>
+<span class="c1">#     # Añadimos la capa de la superficie esférica semitransparente</span>
+<span class="c1">#     fig.add_trace(go.Surface(</span>
+<span class="c1">#         x=x_sph, y=y_sph, z=z_sph,</span>
+<span class="c1">#         opacity=0.3, colorscale=[[0, color_S], [1, color_S]], showscale=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=1)</span>
+<span class="c1"># </span>
+<span class="c1">#     # Añadimos la carga puntual en el origen (0,0,0)</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(</span>
+<span class="c1">#         x=[0], y=[0], z=[0], mode=&#39;markers+text&#39;,</span>
+<span class="c1">#         marker=dict(size=10, color=&#39;red&#39;), text=[&#39;+q&#39;], textfont=dict(size=16), name=&#39;Carga +q&#39;, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=1)</span>
+<span class="c1"># </span>
+<span class="c1">#     # Definimos puntos de muestra sobre la esfera para dibujar los vectores</span>
+<span class="c1">#     # Usamos coordenadas (acimutal, polar) para ubicarlos en distintos octantes y el ecuador</span>
+<span class="c1">#     puntos_esfera = [(np.pi/4, np.pi/4), (3*np.pi/4, np.pi/4), (5*np.pi/4, np.pi/4), (7*np.pi/4, np.pi/4),</span>
+<span class="c1">#                      (0, np.pi/2), (np.pi/2, np.pi/2), (np.pi, np.pi/2), (3*np.pi/2, np.pi/2)]</span>
+<span class="c1"># </span>
+<span class="c1">#     for phi, theta in puntos_esfera:</span>
+<span class="c1">#         # Convertimos el punto de origen de los vectores a cartesianas</span>
+<span class="c1">#         px = R * np.cos(phi) * np.sin(theta)</span>
+<span class="c1">#         py = R * np.sin(phi) * np.sin(theta)</span>
+<span class="c1">#         pz = R * np.cos(theta)</span>
+<span class="c1"># </span>
+<span class="c1">#         # Cálculo del Vector E: Sale radialmente desde el origen</span>
+<span class="c1">#         dir_E = np.array([px, py, pz]) / R # Vector unitario radial</span>
+<span class="c1">#         Ex, Ey, Ez = dir_E * L_flecha_E    # Escalamos a la longitud visual deseada</span>
+<span class="c1">#         </span>
+<span class="c1">#         # Cálculo del Vector dA: En una esfera, la normal también es estrictamente radial</span>
+<span class="c1">#         dAx, dAy, dAz = dir_E * L_flecha_dA</span>
+<span class="c1">#         </span>
+<span class="c1">#         # Pequeño desplazamiento (offset) para que las flechas E y dA no se tapen exactamente</span>
+<span class="c1">#         offset = 0.2</span>
+<span class="c1">#         px_dA = px + offset * np.sin(phi)</span>
+<span class="c1">#         py_dA = py - offset * np.cos(phi)</span>
+<span class="c1"># </span>
+<span class="c1">#         # Dibujamos el &quot;tallo&quot; (línea) y la &quot;punta&quot; (cono) de la flecha roja (Campo E)</span>
+<span class="c1">#         fig.add_trace(go.Scatter3d(x=[px, px+Ex], y=[py, py+Ey], z=[pz, pz+Ez], mode=&#39;lines&#39;, line=dict(color=color_E, width=5), hoverinfo=&#39;skip&#39;, showlegend=False), row=1, col=1)</span>
+<span class="c1">#         fig.add_trace(go.Cone(x=[px+Ex], y=[py+Ey], z=[pz+Ez], u=[Ex], v=[Ey], w=[Ez], sizemode=&#39;absolute&#39;, sizeref=0.3, anchor=&#39;tail&#39;, colorscale=[[0, color_E], [1, color_E]], showscale=False, hoverinfo=&#39;skip&#39;), row=1, col=1)</span>
+<span class="c1">#         </span>
+<span class="c1">#         # Dibujamos el &quot;tallo&quot; y la &quot;punta&quot; de la flecha azul (Área dA)</span>
+<span class="c1">#         fig.add_trace(go.Scatter3d(x=[px_dA, px_dA+dAx], y=[py_dA, py_dA+dAy], z=[pz, pz+dAz], mode=&#39;lines&#39;, line=dict(color=color_dA, width=4), hoverinfo=&#39;skip&#39;, showlegend=False), row=1, col=1)</span>
+<span class="c1">#         fig.add_trace(go.Cone(x=[px_dA+dAx], y=[py_dA+dAy], z=[pz+dAz], u=[dAx], v=[dAy], w=[dAz], sizemode=&#39;absolute&#39;, sizeref=0.25, anchor=&#39;tail&#39;, colorscale=[[0, color_dA], [1, color_dA]], showscale=False, hoverinfo=&#39;skip&#39;), row=1, col=1)</span>
+<span class="c1"># </span>
+<span class="c1"># </span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # CASO B: EL CUBO (Lado Derecho)</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # Generamos la malla del cubo definiendo sus 8 vértices y cómo se conectan las caras</span>
+<span class="c1">#     x_cub = [-L, L, L, -L, -L, L, L, -L]</span>
+<span class="c1">#     y_cub = [-L, -L, L, L, -L, -L, L, L]</span>
+<span class="c1">#     z_cub = [-L, -L, -L, -L, L, L, L, L]</span>
+<span class="c1">#     i_cub = [7, 0, 0, 0, 4, 4, 6, 6, 4, 0, 3, 2] # Índices de triangulación para las caras</span>
+<span class="c1">#     j_cub = [3, 4, 1, 2, 5, 6, 5, 2, 0, 1, 6, 3]</span>
+<span class="c1">#     k_cub = [0, 7, 2, 3, 6, 7, 1, 1, 5, 5, 7, 6]</span>
+<span class="c1"># </span>
+<span class="c1">#     # Añadimos la superficie del cubo</span>
+<span class="c1">#     fig.add_trace(go.Mesh3d(</span>
+<span class="c1">#         x=x_cub, y=y_cub, z=z_cub, i=i_cub, j=j_cub, k=k_cub,</span>
+<span class="c1">#         opacity=0.2, color=color_S, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=2)</span>
+<span class="c1"># </span>
+<span class="c1">#     # Añadimos la carga puntual en el centro del cubo</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(</span>
+<span class="c1">#         x=[0], y=[0], z=[0], mode=&#39;markers+text&#39;,</span>
+<span class="c1">#         marker=dict(size=10, color=&#39;red&#39;), text=[&#39;+q&#39;], textfont=dict(size=16), showlegend=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=2)</span>
+<span class="c1"># </span>
+<span class="c1">#     # Elegimos puntos de muestra SOLO en la cara superior (plano z = L) para ilustrar el problema</span>
+<span class="c1">#     puntos_cubo = [</span>
+<span class="c1">#         (0, 0, L),           # Centro de la cara superior (donde E y dA sí son paralelos)</span>
+<span class="c1">#         (L/1.5, L/1.5, L),   # Esquina superior derecha</span>
+<span class="c1">#         (-L/1.5, L/1.5, L),  # Esquina superior izquierda</span>
+<span class="c1">#         (L/1.5, -L/1.5, L),  # Esquina inferior derecha</span>
+<span class="c1">#         (-L/1.5, -L/1.5, L)  # Esquina inferior izquierda</span>
+<span class="c1">#     ]</span>
+<span class="c1"># </span>
+<span class="c1">#     for px, py, pz in puntos_cubo:</span>
+<span class="c1">#         # Vector E: Siempre irradia desde el origen (0,0,0)</span>
+<span class="c1">#         dist = np.sqrt(px**2 + py**2 + pz**2)</span>
+<span class="c1">#         dir_E = np.array([px, py, pz]) / dist # Vector unitario</span>
+<span class="c1">#         Ex, Ey, Ez = dir_E * L_flecha_E</span>
+<span class="c1">#         </span>
+<span class="c1">#         # Vector dA: En la cara superior, la normal SIEMPRE apunta recto hacia arriba (eje z positivo)</span>
+<span class="c1">#         dir_dA = np.array([0, 0, 1])</span>
+<span class="c1">#         dAx, dAy, dAz = dir_dA * L_flecha_dA</span>
+<span class="c1"># </span>
+<span class="c1">#         # Pequeño desplazamiento lateral para que no se pisen en el centro</span>
+<span class="c1">#         offset = 0.2</span>
+<span class="c1">#         px_dA = px + offset</span>
+<span class="c1">#         py_dA = py</span>
+<span class="c1"># </span>
+<span class="c1">#         # Dibujamos flecha roja (Campo E)</span>
+<span class="c1">#         fig.add_trace(go.Scatter3d(x=[px, px+Ex], y=[py, py+Ey], z=[pz, pz+Ez], mode=&#39;lines&#39;, line=dict(color=color_E, width=5), hoverinfo=&#39;skip&#39;, showlegend=False), row=1, col=2)</span>
+<span class="c1">#         fig.add_trace(go.Cone(x=[px+Ex], y=[py+Ey], z=[pz+Ez], u=[Ex], v=[Ey], w=[Ez], sizemode=&#39;absolute&#39;, sizeref=0.3, anchor=&#39;tail&#39;, colorscale=[[0, color_E], [1, color_E]], showscale=False, hoverinfo=&#39;skip&#39;), row=1, col=2)</span>
+<span class="c1">#         </span>
+<span class="c1">#         # Dibujamos flecha azul (Área dA)</span>
+<span class="c1">#         fig.add_trace(go.Scatter3d(x=[px_dA, px_dA+dAx], y=[py_dA, py_dA+dAy], z=[pz, pz+dAz], mode=&#39;lines&#39;, line=dict(color=color_dA, width=4), hoverinfo=&#39;skip&#39;, showlegend=False), row=1, col=2)</span>
+<span class="c1">#         fig.add_trace(go.Cone(x=[px_dA+dAx], y=[py_dA+dAy], z=[pz+dAz], u=[dAx], v=[dAy], w=[dAz], sizemode=&#39;absolute&#39;, sizeref=0.25, anchor=&#39;tail&#39;, colorscale=[[0, color_dA], [1, color_dA]], showscale=False, hoverinfo=&#39;skip&#39;), row=1, col=2)</span>
+<span class="c1"># </span>
+<span class="c1"># </span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 3. LEYENDAS Y ESTILOS GLOBALES</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # Trazas &quot;fantasma&quot; (invisibles) solo para que aparezcan en la leyenda principal</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(x=[None], y=[None], z=[None], mode=&#39;lines&#39;, line=dict(color=color_E, width=5), name=&#39;Campo Eléctrico E&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(x=[None], y=[None], z=[None], mode=&#39;lines&#39;, line=dict(color=color_dA, width=4), name=&#39;Normal de Área dA&#39;))</span>
+<span class="c1"># </span>
+<span class="c1">#     # Restringimos los ejes a un cubo de contención exacto de -3.5 a 3.5.</span>
+<span class="c1">#     # Esto evita el bug donde la esfera se deforma y se vuelve un elipsoide al rotarla.</span>
+<span class="c1">#     axis_settings = dict(visible=False, range=[-3.5, 3.5])</span>
+<span class="c1">#     scene_config = dict(</span>
+<span class="c1">#         xaxis=axis_settings,</span>
+<span class="c1">#         yaxis=axis_settings,</span>
+<span class="c1">#         zaxis=axis_settings,</span>
+<span class="c1">#         camera=dict(eye=dict(x=1.5, y=1.5, z=1.2)), # Posición inicial de la cámara</span>
+<span class="c1">#         aspectmode=&#39;cube&#39; # Fuerza a que la caja que contiene la gráfica sea un cubo perfecto</span>
+<span class="c1">#     )</span>
+<span class="c1"># </span>
+<span class="c1">#     # Aplicamos la configuración a ambos paneles y al título</span>
+<span class="c1">#     fig.update_layout(</span>
+<span class="c1">#         title=dict(</span>
+<span class="c1">#             text=&quot;Ley de Gauss en 3D: Ángulos Variables vs Constantes&lt;br&gt;&lt;sup&gt;En la esfera, E y dA son paralelos en cada punto. En el cubo, el ángulo varía alejándose del centro.&lt;/sup&gt;&quot;,</span>
+<span class="c1">#             x=0.5, y=0.95, font=dict(size=18)</span>
+<span class="c1">#         ),</span>
+<span class="c1">#         scene=scene_config,</span>
+<span class="c1">#         scene2=scene_config,</span>
+<span class="c1">#         margin=dict(l=0, r=0, b=0, t=80),</span>
+<span class="c1">#         legend=dict(x=0.4, y=0.05, orientation=&quot;h&quot;, bgcolor=&#39;rgba(255, 255, 255, 0.8)&#39;)</span>
+<span class="c1">#     )</span>
+<span class="c1"># </span>
+<span class="c1">#     # Mostramos el gráfico interactivo en el cuaderno y lo exportamos para el libro</span>
+<span class="c1">#     # fig.show()</span>
+<span class="c1">#     # fig.write_html(&quot;gauss_comparacion_3d.html&quot;, include_plotlyjs=&#39;cdn&#39;)</span>
+<span class="c1">#     # print(&quot;¡Listo! Archivo &#39;gauss_comparacion_3d.html&#39; guardado con éxito y distorsión corregida.&quot;)</span>
+<span class="c1"># </span>
+<span class="c1"># # Ejecutar la función</span>
+<span class="c1"># # generar_comparacion_gauss_3d()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="visualizacion-3d-por-que-no-un-cubo">
+<h2>Visualización 3D: ¿Por qué no un cubo?<a class="headerlink" href="#visualizacion-3d-por-que-no-un-cubo" title="Permalink to this heading">#</a></h2>
+<p>Puedes rotar libremente ambas figuras arrastrando con el ratón. Nota cómo en el cubo, los vectores rojos y azules se separan angularmente en las esquinas, haciendo que el producto punto <span class="math notranslate nohighlight">\(\vec{E} \cdot d\vec{A}\)</span> sea variable.</p>
+<iframe src="_static/gauss_comparacion_3d.html" width="100%" height="600" style="border:none;"></iframe>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_02_gauss.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.2 La Ley de Gauss</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_04_gauss_cilindro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.4 Simetría Cilíndrica</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eleccion-de-la-superficie-gaussiana">Elección de la Superficie Gaussiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-del-flujo">Análisis del Flujo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-matematico">Planteamiento Matemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-no-un-cubo">Visualización 3D: ¿Por qué no un cubo?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By José Miguel Pinto
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

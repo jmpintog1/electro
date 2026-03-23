@@ -1,0 +1,1035 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3.1 Campo y Potencial Eléctrico &#8212; Curso de Electricidad y Magnetismo</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03_01_potencial';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3.2 Energía Potencial Electrostática y Trabajo" href="03_02_energia.html" />
+    <link rel="prev" title="2.7 Cavidades en una Esfera Aislante" href="02_07_cavidades.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Curso de Electricidad y Magnetismo - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Curso de Electricidad y Magnetismo - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenidos al Curso de Electricidad y Magnetismo
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1 Carga Eléctrica y Campo Eléctrico</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_01_carga.html">1.1 Carga Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_02_coulomb.html">1.2 Ley de Coulomb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_03_campo.html">1.3 Campo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_04_continua.html">1.4 Distribución de Carga</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_05_anillo.html">1.5 Anillo Uniformemente Cargado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_06_disco.html">1.6 Disco Cargado Uniformemente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_07_alambre.html">1.7 Alambre Infinito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Explorando la Densidad de Carga en un Disco</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2 Ley de Gauss</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_01_flujo.html">2.1 Flujo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_02_gauss.html">2.2 La Ley de Gauss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_03_gauss_esfera.html">2.3 Simetría Esférica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_04_gauss_cilindro.html">2.4 Simetría Cilíndrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_05_gauss_plano.html">2.5 Simetría Plana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_06_conductores.html">2.6 Conductores y Aislantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera Aislante</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3 Potencial Eléctrico</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3.1 Campo y Potencial Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_02_energia.html">3.2 Energía Potencial Electrostática y Trabajo</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmpintog1/electro/blob/main/./03_01_potencial.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmpintog1/electro" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2F03_01_potencial.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/03_01_potencial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.1 Campo y Potencial Eléctrico</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-campo-electrostatico-como-campo-conservativo">El Campo Electrostático como Campo Conservativo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-carga-puntual-y-simetria-radial">Simulación: Carga Puntual y Simetría Radial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-la-barra-cargada-y-geometrias-complejas">Simulación: La Barra Cargada y Geometrías Complejas</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="campo-y-potencial-electrico">
+<h1>3.1 Campo y Potencial Eléctrico<a class="headerlink" href="#campo-y-potencial-electrico" title="Permalink to this heading">#</a></h1>
+<p>Para comenzar nuestro estudio, recordemos que el campo electrostático <span class="math notranslate nohighlight">\(\vec{E}\)</span> es conservativo, lo que matemáticamente implica que su rotacional es nulo:</p>
+<div class="math notranslate nohighlight">
+\[\vec{\nabla}\times\vec{E}=\vec{0}\]</div>
+<p>Esta propiedad nos permite definir un campo escalar <span class="math notranslate nohighlight">\(V\)</span>, conocido como potencial electrostático, cuya relación directa con el campo eléctrico está dada por:</p>
+<div class="math notranslate nohighlight">
+\[\vec{E}=-\vec{\nabla}V\]</div>
+<p>Para calcular la diferencia de potencial <span class="math notranslate nohighlight">\(\Delta V\)</span> entre un punto inicial <span class="math notranslate nohighlight">\(i\)</span> y un punto final <span class="math notranslate nohighlight">\(f\)</span>, integramos el campo eléctrico a lo largo de una trayectoria:</p>
+<div class="math notranslate nohighlight">
+\[\Delta V=-\int_{i}^{f}\vec{E}\cdot d\vec{l}\]</div>
+<p>Dado que nos enfrentamos a un campo conservativo, el cambio de potencial es independiente de la trayectoria elegida para ir desde <span class="math notranslate nohighlight">\(i\)</span> hasta <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<section id="el-campo-electrostatico-como-campo-conservativo">
+<h2>El Campo Electrostático como Campo Conservativo<a class="headerlink" href="#el-campo-electrostatico-como-campo-conservativo" title="Permalink to this heading">#</a></h2>
+<p>Una de las ideas más contraintuitivas cuando comenzamos a estudiar el electromagnetismo es pensar que, al mover una carga entre dos puntos, el camino más largo o más sinuoso requerirá “gastar” más energía. Nuestra experiencia cotidiana con la fricción nos dice que la ruta importa. Sin embargo, en la electrostática, esto es estrictamente falso.</p>
+<p>El campo eléctrico estático es un <strong>campo conservativo</strong>. Esto significa que el trabajo realizado por la fuerza eléctrica para mover una carga de prueba desde un punto inicial <span class="math notranslate nohighlight">\(i\)</span> hasta un punto final <span class="math notranslate nohighlight">\(f\)</span> es <strong>independiente de la trayectoria</strong>.</p>
+<p>Matemáticamente, el trabajo <span class="math notranslate nohighlight">\(W\)</span> por unidad de carga (medido en J/C o Voltios) se define a través de la integral de línea del producto punto entre el campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> y el diferencial de desplazamiento <span class="math notranslate nohighlight">\(d\vec{l}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\frac{W}{q}=\int_{i}^{f}\vec{E}\cdot d\vec{l}=V_i-V_f\]</div>
+<p>Como el campo eléctrico deriva de un potencial escalar (<span class="math notranslate nohighlight">\(\vec{E}=-\vec{\nabla} V\)</span>), esta integral depende únicamente de la diferencia de potencial entre los puntos extremos, sin importar qué camino se tome para llegar de uno a otro.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
+<span class="c1"># import plotly.graph_objects as go</span>
+
+<span class="c1"># def generar_animacion_encuadre_perfecto():</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 1. PARÁMETROS Y CÁLCULOS FÍSICOS</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     N_frames = 100</span>
+    
+<span class="c1">#     def tray_recta(t): </span>
+<span class="c1">#         return -1 + t, -1 + 3 * t</span>
+        
+<span class="c1">#     def tray_arco(t):</span>
+<span class="c1">#         r_i = np.sqrt(2) </span>
+<span class="c1">#         r_f = 2.0        </span>
+        
+<span class="c1">#         r = np.where(t &lt;= 0.5, r_i + (r_f - r_i) * (2 * t), r_f)</span>
+<span class="c1">#         theta = np.where(t &lt;= 0.5, -3 * np.pi / 4, -3 * np.pi / 4 + (5 * np.pi / 4) * 2 * (t - 0.5))</span>
+        
+<span class="c1">#         x = r * np.cos(theta)</span>
+<span class="c1">#         y = r * np.sin(theta)</span>
+<span class="c1">#         return x, y</span>
+        
+<span class="c1">#     def tray_diagonal(t):</span>
+<span class="c1">#         x = np.where(t &lt;= 0.5, -1 - 2 * t, -2 + 4 * (t - 0.5))</span>
+<span class="c1">#         y = np.where(t &lt;= 0.5, -1 + 6 * t, 2)</span>
+<span class="c1">#         return x, y</span>
+        
+<span class="c1">#     def tray_curvas(t):</span>
+<span class="c1">#         env = np.sin(np.pi * t)**1.5 </span>
+<span class="c1">#         x = (-1 + t) - 0.8 * env * np.cos(2 * np.pi * t) - 0.5 * env</span>
+<span class="c1">#         y = (-1 + 3 * t) + 0.8 * env * np.sin(2 * np.pi * t)</span>
+<span class="c1">#         return x, y</span>
+
+<span class="c1">#     def calcular_trayectoria_y_trabajo(func_trayectoria, N_frames):</span>
+<span class="c1">#         N_calc = 100000 </span>
+<span class="c1">#         t_calc = np.linspace(0, 1, N_calc)</span>
+<span class="c1">#         x_c, y_c = func_trayectoria(t_calc)</span>
+        
+<span class="c1">#         dx = np.diff(x_c); dy = np.diff(y_c)</span>
+<span class="c1">#         x_m = x_c[:-1] + dx/2; y_m = y_c[:-1] + dy/2</span>
+        
+<span class="c1">#         r_m = np.sqrt(x_m**2 + y_m**2)</span>
+<span class="c1">#         r_m[r_m == 0] = 1e-5</span>
+        
+<span class="c1">#         Ex = x_m / r_m**3; Ey = y_m / r_m**3</span>
+<span class="c1">#         dW = Ex * dx + Ey * dy</span>
+        
+<span class="c1">#         W_c = np.zeros(N_calc)</span>
+<span class="c1">#         W_c[1:] = np.cumsum(dW)</span>
+<span class="c1">#         W_c = np.round(W_c, 5) </span>
+        
+<span class="c1">#         indices = np.linspace(0, N_calc - 1, N_frames).astype(int)</span>
+        
+<span class="c1">#         x_out, y_out, W_out = x_c[indices], y_c[indices], W_c[indices]</span>
+<span class="c1">#         dW_out = np.diff(W_out, prepend=0)</span>
+        
+<span class="c1">#         return x_out, y_out, W_out, dW_out</span>
+
+<span class="c1">#     x1, y1, W1, dW1 = calcular_trayectoria_y_trabajo(tray_recta, N_frames)</span>
+<span class="c1">#     x2, y2, W2, dW2 = calcular_trayectoria_y_trabajo(tray_arco, N_frames)</span>
+<span class="c1">#     x3, y3, W3, dW3 = calcular_trayectoria_y_trabajo(tray_diagonal, N_frames)</span>
+<span class="c1">#     x4, y4, W4, dW4 = calcular_trayectoria_y_trabajo(tray_curvas, N_frames)</span>
+
+<span class="c1">#     fig = go.Figure()</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 2. CAMPO ELÉCTRICO OPTIMIZADO [-2.3 a 3.2]</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     X_q, Y_q = np.meshgrid(np.linspace(-2.3, 3.2, 22), np.linspace(-2.3, 3.2, 22))</span>
+<span class="c1">#     X_q = X_q.flatten(); Y_q = Y_q.flatten()</span>
+<span class="c1">#     R_q = np.sqrt(X_q**2 + Y_q**2)</span>
+    
+<span class="c1">#     R_q[R_q &lt; 1e-3] = 1e-3 </span>
+<span class="c1">#     Ex_q = X_q / R_q**3; Ey_q = Y_q / R_q**3</span>
+<span class="c1">#     E_mag = np.sqrt(Ex_q**2 + Ey_q**2)</span>
+    
+<span class="c1">#     L_flecha = 0.12 </span>
+<span class="c1">#     dx_q = (Ex_q / E_mag) * L_flecha</span>
+<span class="c1">#     dy_q = (Ey_q / E_mag) * L_flecha</span>
+    
+<span class="c1">#     quiver_x, quiver_y = [], []</span>
+<span class="c1">#     for i in range(len(X_q)):</span>
+<span class="c1">#         quiver_x.extend([X_q[i], X_q[i] + dx_q[i], None])</span>
+<span class="c1">#         quiver_y.extend([Y_q[i], Y_q[i] + dy_q[i], None])</span>
+<span class="c1">#         theta = np.arctan2(dy_q[i], dx_q[i])</span>
+<span class="c1">#         head = L_flecha * 0.35</span>
+<span class="c1">#         quiver_x.extend([X_q[i] + dx_q[i], X_q[i] + dx_q[i] - head * np.cos(theta - 0.5), None])</span>
+<span class="c1">#         quiver_y.extend([Y_q[i] + dy_q[i], Y_q[i] + dy_q[i] - head * np.sin(theta - 0.5), None])</span>
+<span class="c1">#         quiver_x.extend([X_q[i] + dx_q[i], X_q[i] + dx_q[i] - head * np.cos(theta + 0.5), None])</span>
+<span class="c1">#         quiver_y.extend([Y_q[i] + dy_q[i], Y_q[i] + dy_q[i] - head * np.sin(theta + 0.5), None])</span>
+
+<span class="c1">#     fig.add_trace(go.Scatter(</span>
+<span class="c1">#         x=quiver_x, y=quiver_y, mode=&#39;lines&#39;, line=dict(color=&#39;rgba(100, 100, 100, 0.4)&#39;, width=1.0),</span>
+<span class="c1">#         hoverinfo=&#39;skip&#39;, name=&#39;Campo E&#39;</span>
+<span class="c1">#     ))</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 3. PUNTOS Y TRAZAS DINÁMICAS</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[0], y=[0], mode=&#39;markers+text&#39;, marker=dict(color=&#39;orange&#39;, size=16, symbol=&#39;star&#39;), text=[&#39;+Q&#39;], textposition=&quot;bottom right&quot;, name=&#39;Carga Fuente&#39;, hoverinfo=&#39;skip&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[-1], y=[-1], mode=&#39;markers+text&#39;, marker=dict(color=&#39;green&#39;, size=14), text=[&#39;Inicio (i)&#39;], textposition=&quot;bottom right&quot;, name=&#39;Inicio&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[0], y=[2], mode=&#39;markers+text&#39;, marker=dict(color=&#39;red&#39;, size=14), text=[&#39;Fin (f)&#39;], textposition=&quot;top right&quot;, name=&#39;Fin&#39;))</span>
+
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x1[0]], y=[y1[0]], mode=&#39;lines&#39;, line=dict(color=&#39;blue&#39;, width=4), name=&#39;Ruta Recta&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x1[0]], y=[y1[0]], mode=&#39;markers&#39;, marker=dict(color=&#39;blue&#39;, size=12), showlegend=False))</span>
+    
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x2[0]], y=[y2[0]], mode=&#39;lines&#39;, line=dict(color=&#39;purple&#39;, width=4), name=&#39;Ruta Arco&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x2[0]], y=[y2[0]], mode=&#39;markers&#39;, marker=dict(color=&#39;purple&#39;, size=12), showlegend=False))</span>
+    
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x3[0]], y=[y3[0]], mode=&#39;lines&#39;, line=dict(color=&#39;deeppink&#39;, width=4), name=&#39;Ruta Diagonal&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x3[0]], y=[y3[0]], mode=&#39;markers&#39;, marker=dict(color=&#39;deeppink&#39;, size=12), showlegend=False))</span>
+
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x4[0]], y=[y4[0]], mode=&#39;lines&#39;, line=dict(color=&#39;darkcyan&#39;, width=4), name=&#39;Ruta Bucle&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x4[0]], y=[y4[0]], mode=&#39;markers&#39;, marker=dict(color=&#39;darkcyan&#39;, size=12), showlegend=False))</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 4. LÓGICA DE COLORES Y CREACIÓN DE FRAMES</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     def formato_dw(valor):</span>
+<span class="c1">#         if abs(valor) &lt; 1e-5:</span>
+<span class="c1">#             return f&quot;&lt;span style=&#39;color:black&#39;&gt; 0.00000&lt;/span&gt;&quot;</span>
+<span class="c1">#         elif valor &gt; 0:</span>
+<span class="c1">#             return f&quot;&lt;span style=&#39;color:green&#39;&gt;{valor:+.5f}&lt;/span&gt;&quot;</span>
+<span class="c1">#         else:</span>
+<span class="c1">#             return f&quot;&lt;span style=&#39;color:red&#39;&gt;{valor:+.5f}&lt;/span&gt;&quot;</span>
+
+<span class="c1">#     frames = []</span>
+<span class="c1">#     for k in range(N_frames):</span>
+<span class="c1">#         dw1_str = formato_dw(dW1[k])</span>
+<span class="c1">#         dw2_str = formato_dw(dW2[k])</span>
+<span class="c1">#         dw3_str = formato_dw(dW3[k])</span>
+<span class="c1">#         dw4_str = formato_dw(dW4[k])</span>
+        
+<span class="c1">#         texto_anotacion = (</span>
+<span class="c1">#             f&quot;&lt;b&gt;Trabajo Acumulado J/C&lt;/b&gt;&lt;br&gt;&quot;</span>
+<span class="c1">#             f&quot;Recta: &lt;span style=&#39;color:blue&#39;&gt;{W1[k]:+.5f}&lt;/span&gt; | &quot;</span>
+<span class="c1">#             f&quot;Arco: &lt;span style=&#39;color:purple&#39;&gt;{W2[k]:+.5f}&lt;/span&gt; | &quot;</span>
+<span class="c1">#             f&quot;Diagonal: &lt;span style=&#39;color:deeppink&#39;&gt;{W3[k]:+.5f}&lt;/span&gt; | &quot;</span>
+<span class="c1">#             f&quot;Bucle: &lt;span style=&#39;color:darkcyan&#39;&gt;{W4[k]:+.5f}&lt;/span&gt;&lt;br&gt;&quot;</span>
+<span class="c1">#             f&quot;&lt;b&gt;Diferencial dW (Paso Actual)&lt;/b&gt;&lt;br&gt;&quot;</span>
+<span class="c1">#             f&quot;Recta: {dw1_str} | Arco: {dw2_str} | Diagonal: {dw3_str} | Bucle: {dw4_str}&quot;</span>
+<span class="c1">#         )</span>
+        
+<span class="c1">#         frames.append(go.Frame(</span>
+<span class="c1">#             data=[</span>
+<span class="c1">#                 go.Scatter(x=x1[:k+1], y=y1[:k+1]), go.Scatter(x=[x1[k]], y=[y1[k]]),</span>
+<span class="c1">#                 go.Scatter(x=x2[:k+1], y=y2[:k+1]), go.Scatter(x=[x2[k]], y=[y2[k]]),</span>
+<span class="c1">#                 go.Scatter(x=x3[:k+1], y=y3[:k+1]), go.Scatter(x=[x3[k]], y=[y3[k]]),</span>
+<span class="c1">#                 go.Scatter(x=x4[:k+1], y=y4[:k+1]), go.Scatter(x=[x4[k]], y=[y4[k]])</span>
+<span class="c1">#             ],</span>
+<span class="c1">#             traces=[4, 5, 6, 7, 8, 9, 10, 11], </span>
+<span class="c1">#             layout=go.Layout(</span>
+<span class="c1">#                 annotations=[dict(</span>
+<span class="c1">#                     text=texto_anotacion,</span>
+<span class="c1">#                     x=0.5, y=1.12, xref=&quot;paper&quot;, yref=&quot;paper&quot;, showarrow=False, </span>
+<span class="c1">#                     font=dict(size=14, color=&quot;black&quot;), bgcolor=&quot;rgba(255, 255, 255, 0.95)&quot;, </span>
+<span class="c1">#                     bordercolor=&quot;black&quot;, borderwidth=1, borderpad=5</span>
+<span class="c1">#                 )]</span>
+<span class="c1">#             )</span>
+<span class="c1">#         ))</span>
+<span class="c1">#     fig.frames = frames</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 5. CONFIGURACIÓN FINAL DE LOS EJES</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     texto_inicial = (</span>
+<span class="c1">#         f&quot;&lt;b&gt;Trabajo Acumulado J/C&lt;/b&gt;&lt;br&gt;&quot;</span>
+<span class="c1">#         f&quot;Recta: &lt;span style=&#39;color:blue&#39;&gt;+0.00000&lt;/span&gt; | Arco: &lt;span style=&#39;color:purple&#39;&gt;+0.00000&lt;/span&gt; | Diagonal: &lt;span style=&#39;color:deeppink&#39;&gt;+0.00000&lt;/span&gt; | Bucle: &lt;span style=&#39;color:darkcyan&#39;&gt;+0.00000&lt;/span&gt;&lt;br&gt;&quot;</span>
+<span class="c1">#         f&quot;&lt;b&gt;Diferencial dW (Paso Actual)&lt;/b&gt;&lt;br&gt;&quot;</span>
+<span class="c1">#         f&quot;Recta: &lt;span style=&#39;color:black&#39;&gt; 0.00000&lt;/span&gt; | Arco: &lt;span style=&#39;color:black&#39;&gt; 0.00000&lt;/span&gt; | Diagonal: &lt;span style=&#39;color:black&#39;&gt; 0.00000&lt;/span&gt; | Bucle: &lt;span style=&#39;color:black&#39;&gt; 0.00000&lt;/span&gt;&quot;</span>
+<span class="c1">#     )</span>
+
+<span class="c1">#     fig.update_layout(</span>
+<span class="c1">#         # Ajustamos el límite inferior de X a -2.2 igual que el de Y</span>
+<span class="c1">#         xaxis=dict(range=[-2.2, 3], constrain=&quot;domain&quot;, title=&#39;Eje X (m)&#39;, showgrid=True, gridwidth=1, gridcolor=&#39;LightGray&#39;),</span>
+<span class="c1">#         yaxis=dict(range=[-2.2, 3], constrain=&quot;domain&quot;, title=&#39;Eje Y (m)&#39;, scaleanchor=&quot;x&quot;, scaleratio=1, showgrid=True, gridwidth=1, gridcolor=&#39;LightGray&#39;),</span>
+<span class="c1">#         plot_bgcolor=&#39;white&#39;,</span>
+<span class="c1">#         annotations=[dict(</span>
+<span class="c1">#             text=texto_inicial,</span>
+<span class="c1">#             x=0.5, y=1.12, xref=&quot;paper&quot;, yref=&quot;paper&quot;, showarrow=False, </span>
+<span class="c1">#             font=dict(size=14, color=&quot;black&quot;), bgcolor=&quot;rgba(255, 255, 255, 0.95)&quot;, </span>
+<span class="c1">#             bordercolor=&quot;black&quot;, borderwidth=1, borderpad=5</span>
+<span class="c1">#         )],</span>
+<span class="c1">#         updatemenus=[dict(</span>
+<span class="c1">#             type=&quot;buttons&quot;,</span>
+<span class="c1">#             buttons=[dict(</span>
+<span class="c1">#                 label=&quot;► Reproducir Animación&quot;,</span>
+<span class="c1">#                 method=&quot;animate&quot;,</span>
+<span class="c1">#                 args=[None, dict(frame=dict(duration=200, redraw=True), fromcurrent=False, mode=&quot;immediate&quot;, transition=dict(duration=0))]</span>
+<span class="c1">#             )],</span>
+<span class="c1">#             x=0.0, y=0.6, xanchor=&#39;left&#39;, yanchor=&#39;top&#39;</span>
+<span class="c1">#         )],</span>
+<span class="c1">#         legend=dict(x=0.85, y=0.95, bgcolor=&#39;rgba(255, 255, 255, 0.8)&#39;),</span>
+<span class="c1">#         margin=dict(l=40, r=40, b=40, t=130)</span>
+<span class="c1">#     )</span>
+
+<span class="c1">#     fig.show()</span>
+<span class="c1">#     fig.write_html(&quot;potencial_trayectoria1.html&quot;, include_plotlyjs=&#39;cdn&#39;)</span>
+<span class="c1">#     print(&quot;¡Listo! Archivo &#39;potencial_trayectorias.html&#39; guardado con éxito.&quot;)</span>
+
+<span class="c1"># generar_animacion_encuadre_perfecto()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="simulacion-carga-puntual-y-simetria-radial">
+<h2>Simulación: Carga Puntual y Simetría Radial<a class="headerlink" href="#simulacion-carga-puntual-y-simetria-radial" title="Permalink to this heading">#</a></h2>
+<p>En nuestra primera simulación interactiva, exploramos el campo generado por una única carga puntual <span class="math notranslate nohighlight">\(+Q\)</span>. Las líneas de campo aquí divergen radialmente desde el origen.</p>
+<iframe src="_static/potencial_trayectoria1.html" width="100%" height="600" style="border:none;"></iframe>
+<p>Observa atentamente las cuatro trayectorias. A medida que avanza la animación, notarás detalles clave sobre el diferencial de trabajo (<span class="math notranslate nohighlight">\(dW\)</span>):</p>
+<ul class="simple">
+<li><p><strong>A favor y en contra:</strong> Cuando una trayectoria avanza en la misma dirección que las flechas del campo, el trabajo es positivo (se suma energía). Si la curva hace un bucle y viaja “contra la corriente”, el producto punto <span class="math notranslate nohighlight">\(\vec{E}\cdot d\vec{l}\)</span> se vuelve negativo, restando energía al acumulado.</p></li>
+<li><p><strong>Trabajo nulo en el arco:</strong> Presta especial atención a la trayectoria del “Arco” (color morado). En la sección donde viaja trazando un círculo perfecto alrededor de la carga, se está moviendo de forma perpendicular a las líneas de campo radiales (<span class="math notranslate nohighlight">\(\vec{E}\perp d\vec{l}\)</span>). En esa zona geométrica, el diferencial es exactamente cero (<span class="math notranslate nohighlight">\(dW=0\)</span>). Se está moviendo sobre una <strong>superficie equipotencial</strong>.</p></li>
+</ul>
+<p>Al finalizar, ya sea que la partícula haya viajado en línea recta, haya dado vueltas en un bucle o haya tomado un desvío diagonal, el trabajo total integrado será exactamente el mismo para las cuatro rutas.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
+<span class="c1"># import plotly.graph_objects as go</span>
+
+<span class="c1"># def generar_animacion_barra_arco_amplio():</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 1. PARÁMETROS Y CÁLCULOS FÍSICOS (BARRA FINITA)</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     N_frames = 100</span>
+<span class="c1">#     L_mitad = 1.0 # La barra va de x = -1 a x = 1 (Largo total = 2)</span>
+    
+<span class="c1">#     def campo_E_barra(x, y):</span>
+<span class="c1">#         y_safe = np.where(y == 0, 1e-5, y)</span>
+<span class="c1">#         r_minus = np.sqrt((x - L_mitad)**2 + y_safe**2)</span>
+<span class="c1">#         r_plus  = np.sqrt((x + L_mitad)**2 + y_safe**2)</span>
+<span class="c1">#         Ex = (1 / r_minus) - (1 / r_plus)</span>
+<span class="c1">#         Ey = (1 / y_safe) * ( (L_mitad - x)/r_minus + (L_mitad + x)/r_plus )</span>
+<span class="c1">#         return Ex, Ey</span>
+
+<span class="c1">#     def tray_recta(t): </span>
+<span class="c1">#         return 2 - 4 * t, 0.5 + 2 * t</span>
+        
+<span class="c1">#     def tray_arco(t):</span>
+<span class="c1">#         r_i = np.sqrt(2**2 + 0.5**2) </span>
+<span class="c1">#         r_f = np.sqrt((-2)**2 + 2.5**2)        </span>
+<span class="c1">#         theta_i = np.arctan2(0.5, 2)</span>
+<span class="c1">#         theta_f = np.arctan2(2.5, -2)</span>
+        
+<span class="c1">#         r = r_i + (r_f - r_i) * t</span>
+<span class="c1">#         theta = theta_i + (theta_f - theta_i) * t</span>
+<span class="c1">#         return r * np.cos(theta), r * np.sin(theta)</span>
+        
+<span class="c1">#     def tray_L(t):</span>
+<span class="c1">#         x = np.where(t &lt;= 0.5, 2 - 8 * t, -2)</span>
+<span class="c1">#         y = np.where(t &lt;= 0.5, 0.5, 0.5 + 4 * (t - 0.5))</span>
+<span class="c1">#         return x, y</span>
+        
+<span class="c1">#     def tray_curvas(t):</span>
+<span class="c1">#         x_line = 2 - 4 * t</span>
+<span class="c1">#         y_line = 0.5 + 2 * t</span>
+<span class="c1">#         env = np.sin(np.pi * t)**1.5 </span>
+<span class="c1">#         x = x_line - 0.6 * env * np.cos(3 * np.pi * t)</span>
+<span class="c1">#         y = y_line + 0.8 * env * np.sin(3 * np.pi * t)</span>
+<span class="c1">#         return x, y</span>
+
+<span class="c1">#     def calcular_trayectoria_y_trabajo(func_trayectoria, N_frames):</span>
+<span class="c1">#         N_calc = 100000 </span>
+<span class="c1">#         t_calc = np.linspace(0, 1, N_calc)</span>
+<span class="c1">#         x_c, y_c = func_trayectoria(t_calc)</span>
+        
+<span class="c1">#         dx = np.diff(x_c); dy = np.diff(y_c)</span>
+<span class="c1">#         x_m = x_c[:-1] + dx/2; y_m = y_c[:-1] + dy/2</span>
+        
+<span class="c1">#         Ex, Ey = campo_E_barra(x_m, y_m)</span>
+<span class="c1">#         dW = Ex * dx + Ey * dy</span>
+        
+<span class="c1">#         W_c = np.zeros(N_calc)</span>
+<span class="c1">#         W_c[1:] = np.cumsum(dW)</span>
+<span class="c1">#         W_c = np.round(W_c, 5) </span>
+        
+<span class="c1">#         indices = np.linspace(0, N_calc - 1, N_frames).astype(int)</span>
+        
+<span class="c1">#         x_out, y_out, W_out = x_c[indices], y_c[indices], W_c[indices]</span>
+<span class="c1">#         dW_out = np.diff(W_out, prepend=0)</span>
+        
+<span class="c1">#         return x_out, y_out, W_out, dW_out</span>
+
+<span class="c1">#     x1, y1, W1, dW1 = calcular_trayectoria_y_trabajo(tray_recta, N_frames)</span>
+<span class="c1">#     x2, y2, W2, dW2 = calcular_trayectoria_y_trabajo(tray_arco, N_frames)</span>
+<span class="c1">#     x3, y3, W3, dW3 = calcular_trayectoria_y_trabajo(tray_L, N_frames)</span>
+<span class="c1">#     x4, y4, W4, dW4 = calcular_trayectoria_y_trabajo(tray_curvas, N_frames)</span>
+
+<span class="c1">#     fig = go.Figure()</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 2. CAMPO ELÉCTRICO DE LA BARRA (MALLA EXPANDIDA)</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # Extendemos la malla Y hasta 3.8 para cubrir todo el nuevo techo</span>
+<span class="c1">#     X_q, Y_q = np.meshgrid(np.linspace(-2.4, 2.4, 20), np.linspace(-0.4, 3.8, 20))</span>
+<span class="c1">#     X_q = X_q.flatten(); Y_q = Y_q.flatten()</span>
+    
+<span class="c1">#     Ex_q, Ey_q = campo_E_barra(X_q, Y_q)</span>
+<span class="c1">#     E_mag = np.sqrt(Ex_q**2 + Ey_q**2)</span>
+<span class="c1">#     E_mag = np.where(E_mag &lt; 1e-3, 1e-3, E_mag) </span>
+    
+<span class="c1">#     L_flecha = 0.12 </span>
+<span class="c1">#     dx_q = (Ex_q / E_mag) * L_flecha</span>
+<span class="c1">#     dy_q = (Ey_q / E_mag) * L_flecha</span>
+    
+<span class="c1">#     quiver_x, quiver_y = [], []</span>
+<span class="c1">#     for i in range(len(X_q)):</span>
+<span class="c1">#         quiver_x.extend([X_q[i], X_q[i] + dx_q[i], None])</span>
+<span class="c1">#         quiver_y.extend([Y_q[i], Y_q[i] + dy_q[i], None])</span>
+<span class="c1">#         theta = np.arctan2(dy_q[i], dx_q[i])</span>
+<span class="c1">#         head = L_flecha * 0.35</span>
+<span class="c1">#         quiver_x.extend([X_q[i] + dx_q[i], X_q[i] + dx_q[i] - head * np.cos(theta - 0.5), None])</span>
+<span class="c1">#         quiver_y.extend([Y_q[i] + dy_q[i], Y_q[i] + dy_q[i] - head * np.sin(theta - 0.5), None])</span>
+<span class="c1">#         quiver_x.extend([X_q[i] + dx_q[i], X_q[i] + dx_q[i] - head * np.cos(theta + 0.5), None])</span>
+<span class="c1">#         quiver_y.extend([Y_q[i] + dy_q[i], Y_q[i] + dy_q[i] - head * np.sin(theta + 0.5), None])</span>
+
+<span class="c1">#     fig.add_trace(go.Scatter(</span>
+<span class="c1">#         x=quiver_x, y=quiver_y, mode=&#39;lines&#39;, line=dict(color=&#39;rgba(100, 100, 100, 0.4)&#39;, width=1.0),</span>
+<span class="c1">#         hoverinfo=&#39;skip&#39;, name=&#39;Campo E&#39;</span>
+<span class="c1">#     ))</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 3. BARRA FUENTE, PUNTOS Y TRAZAS DINÁMICAS</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[-1, 1], y=[0, 0], mode=&#39;lines&#39;, line=dict(color=&#39;orange&#39;, width=8), name=&#39;Barra (+λ)&#39;, hoverinfo=&#39;skip&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[0], y=[-0.15], mode=&#39;text&#39;, text=[&#39;Barra Cargada (+λ)&#39;], textfont=dict(color=&#39;orange&#39;, size=14), hoverinfo=&#39;skip&#39;, showlegend=False))</span>
+
+<span class="c1">#     fig.add_trace(go.Scatter(x=[2], y=[0.5], mode=&#39;markers+text&#39;, marker=dict(color=&#39;green&#39;, size=14), text=[&#39;Inicio (i)&#39;], textposition=&quot;bottom left&quot;, name=&#39;Inicio&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[-2], y=[2.5], mode=&#39;markers+text&#39;, marker=dict(color=&#39;red&#39;, size=14), text=[&#39;Fin (f)&#39;], textposition=&quot;top right&quot;, name=&#39;Fin&#39;))</span>
+
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x1[0]], y=[y1[0]], mode=&#39;lines&#39;, line=dict(color=&#39;blue&#39;, width=4), name=&#39;Ruta Recta&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x1[0]], y=[y1[0]], mode=&#39;markers&#39;, marker=dict(color=&#39;blue&#39;, size=12), showlegend=False))</span>
+    
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x2[0]], y=[y2[0]], mode=&#39;lines&#39;, line=dict(color=&#39;purple&#39;, width=4), name=&#39;Ruta Arco&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x2[0]], y=[y2[0]], mode=&#39;markers&#39;, marker=dict(color=&#39;purple&#39;, size=12), showlegend=False))</span>
+    
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x3[0]], y=[y3[0]], mode=&#39;lines&#39;, line=dict(color=&#39;deeppink&#39;, width=4), name=&#39;Ruta &quot;L&quot;&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x3[0]], y=[y3[0]], mode=&#39;markers&#39;, marker=dict(color=&#39;deeppink&#39;, size=12), showlegend=False))</span>
+
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x4[0]], y=[y4[0]], mode=&#39;lines&#39;, line=dict(color=&#39;darkcyan&#39;, width=4), name=&#39;Ruta Onda&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter(x=[x4[0]], y=[y4[0]], mode=&#39;markers&#39;, marker=dict(color=&#39;darkcyan&#39;, size=12), showlegend=False))</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 4. LÓGICA DE COLORES Y CREACIÓN DE FRAMES</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     def formato_dw(valor):</span>
+<span class="c1">#         if abs(valor) &lt; 1e-5:</span>
+<span class="c1">#             return f&quot;&lt;span style=&#39;color:black&#39;&gt; 0.00000&lt;/span&gt;&quot;</span>
+<span class="c1">#         elif valor &gt; 0:</span>
+<span class="c1">#             return f&quot;&lt;span style=&#39;color:green&#39;&gt;{valor:+.5f}&lt;/span&gt;&quot;</span>
+<span class="c1">#         else:</span>
+<span class="c1">#             return f&quot;&lt;span style=&#39;color:red&#39;&gt;{valor:+.5f}&lt;/span&gt;&quot;</span>
+
+<span class="c1">#     frames = []</span>
+<span class="c1">#     for k in range(N_frames):</span>
+<span class="c1">#         dw1_str = formato_dw(dW1[k]); dw2_str = formato_dw(dW2[k])</span>
+<span class="c1">#         dw3_str = formato_dw(dW3[k]); dw4_str = formato_dw(dW4[k])</span>
+        
+<span class="c1">#         texto_anotacion = (</span>
+<span class="c1">#             f&quot;&lt;b&gt;Trabajo Acumulado J/C&lt;/b&gt;&lt;br&gt;&quot;</span>
+<span class="c1">#             f&quot;Recta: &lt;span style=&#39;color:blue&#39;&gt;{W1[k]:+.5f}&lt;/span&gt; | &quot;</span>
+<span class="c1">#             f&quot;Arco: &lt;span style=&#39;color:purple&#39;&gt;{W2[k]:+.5f}&lt;/span&gt; | &quot;</span>
+<span class="c1">#             f&quot;Forma L: &lt;span style=&#39;color:deeppink&#39;&gt;{W3[k]:+.5f}&lt;/span&gt; | &quot;</span>
+<span class="c1">#             f&quot;Onda: &lt;span style=&#39;color:darkcyan&#39;&gt;{W4[k]:+.5f}&lt;/span&gt;&lt;br&gt;&quot;</span>
+<span class="c1">#             f&quot;&lt;b&gt;Diferencial dW (Paso Actual)&lt;/b&gt;&lt;br&gt;&quot;</span>
+<span class="c1">#             f&quot;Recta: {dw1_str} | Arco: {dw2_str} | Forma L: {dw3_str} | Onda: {dw4_str}&quot;</span>
+<span class="c1">#         )</span>
+        
+<span class="c1">#         frames.append(go.Frame(</span>
+<span class="c1">#             data=[</span>
+<span class="c1">#                 go.Scatter(x=x1[:k+1], y=y1[:k+1]), go.Scatter(x=[x1[k]], y=[y1[k]]),</span>
+<span class="c1">#                 go.Scatter(x=x2[:k+1], y=y2[:k+1]), go.Scatter(x=[x2[k]], y=[y2[k]]),</span>
+<span class="c1">#                 go.Scatter(x=x3[:k+1], y=y3[:k+1]), go.Scatter(x=[x3[k]], y=[y3[k]]),</span>
+<span class="c1">#                 go.Scatter(x=x4[:k+1], y=y4[:k+1]), go.Scatter(x=[x4[k]], y=[y4[k]])</span>
+<span class="c1">#             ],</span>
+<span class="c1">#             traces=[5, 6, 7, 8, 9, 10, 11, 12], </span>
+<span class="c1">#             layout=go.Layout(</span>
+<span class="c1">#                 annotations=[dict(</span>
+<span class="c1">#                     text=texto_anotacion,</span>
+<span class="c1">#                     x=0.5, y=1.12, xref=&quot;paper&quot;, yref=&quot;paper&quot;, showarrow=False, </span>
+<span class="c1">#                     font=dict(size=14, color=&quot;black&quot;), bgcolor=&quot;rgba(255, 255, 255, 0.95)&quot;, </span>
+<span class="c1">#                     bordercolor=&quot;black&quot;, borderwidth=1, borderpad=5</span>
+<span class="c1">#                 )]</span>
+<span class="c1">#             )</span>
+<span class="c1">#         ))</span>
+<span class="c1">#     fig.frames = frames</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # 5. CONFIGURACIÓN FINAL DE LOS EJES</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     texto_inicial = (</span>
+<span class="c1">#         f&quot;&lt;b&gt;Trabajo Acumulado J/C&lt;/b&gt;&lt;br&gt;&quot;</span>
+<span class="c1">#         f&quot;Recta: &lt;span style=&#39;color:blue&#39;&gt;+0.00000&lt;/span&gt; | Arco: &lt;span style=&#39;color:purple&#39;&gt;+0.00000&lt;/span&gt; | Forma L: &lt;span style=&#39;color:deeppink&#39;&gt;+0.00000&lt;/span&gt; | Onda: &lt;span style=&#39;color:darkcyan&#39;&gt;+0.00000&lt;/span&gt;&lt;br&gt;&quot;</span>
+<span class="c1">#         f&quot;&lt;b&gt;Diferencial dW (Paso Actual)&lt;/b&gt;&lt;br&gt;&quot;</span>
+<span class="c1">#         f&quot;Recta: &lt;span style=&#39;color:black&#39;&gt; 0.00000&lt;/span&gt; | Arco: &lt;span style=&#39;color:black&#39;&gt; 0.00000&lt;/span&gt; | Forma L: &lt;span style=&#39;color:black&#39;&gt; 0.00000&lt;/span&gt; | Onda: &lt;span style=&#39;color:black&#39;&gt; 0.00000&lt;/span&gt;&quot;</span>
+<span class="c1">#     )</span>
+
+<span class="c1">#     fig.update_layout(</span>
+<span class="c1">#         xaxis=dict(range=[-2.5, 2.5], constrain=&quot;domain&quot;, title=&#39;Eje X (m)&#39;, showgrid=True, gridwidth=1, gridcolor=&#39;LightGray&#39;),</span>
+<span class="c1">#         # Eje Y ampliado hasta 3.8 para que el &quot;arco&quot; morado respire por arriba</span>
+<span class="c1">#         yaxis=dict(range=[-0.5, 3.8], constrain=&quot;domain&quot;, title=&#39;Eje Y (m)&#39;, scaleanchor=&quot;x&quot;, scaleratio=1, showgrid=True, gridwidth=1, gridcolor=&#39;LightGray&#39;),</span>
+<span class="c1">#         plot_bgcolor=&#39;white&#39;,</span>
+<span class="c1">#         annotations=[dict(</span>
+<span class="c1">#             text=texto_inicial,</span>
+<span class="c1">#             x=0.5, y=1.12, xref=&quot;paper&quot;, yref=&quot;paper&quot;, showarrow=False, </span>
+<span class="c1">#             font=dict(size=14, color=&quot;black&quot;), bgcolor=&quot;rgba(255, 255, 255, 0.95)&quot;, </span>
+<span class="c1">#             bordercolor=&quot;black&quot;, borderwidth=1, borderpad=5</span>
+<span class="c1">#         )],</span>
+<span class="c1">#         updatemenus=[dict(</span>
+<span class="c1">#             type=&quot;buttons&quot;,</span>
+<span class="c1">#             buttons=[dict(</span>
+<span class="c1">#                 label=&quot;► Reproducir Animación&quot;,</span>
+<span class="c1">#                 method=&quot;animate&quot;,</span>
+<span class="c1">#                 args=[None, dict(frame=dict(duration=200, redraw=True), fromcurrent=False, mode=&quot;immediate&quot;, transition=dict(duration=0))]</span>
+<span class="c1">#             )],</span>
+<span class="c1">#             x=0.0, y=0.6, xanchor=&#39;left&#39;, yanchor=&#39;top&#39;</span>
+<span class="c1">#         )],</span>
+<span class="c1">#         legend=dict(x=0.85, y=0.95, bgcolor=&#39;rgba(255, 255, 255, 0.8)&#39;),</span>
+<span class="c1">#         margin=dict(l=40, r=40, b=40, t=160)</span>
+<span class="c1">#     )</span>
+
+<span class="c1">#     fig.show()</span>
+<span class="c1">#     fig.write_html(&quot;potencial_trayectoria2.html&quot;, include_plotlyjs=&#39;cdn&#39;)</span>
+<span class="c1">#     print(&quot;¡Listo! Archivo &#39;potencial_trayectorias.html&#39; guardado con éxito.&quot;)</span>
+    
+<span class="c1"># generar_animacion_barra_arco_amplio()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="simulacion-la-barra-cargada-y-geometrias-complejas">
+<h2>Simulación: La Barra Cargada y Geometrías Complejas<a class="headerlink" href="#simulacion-la-barra-cargada-y-geometrias-complejas" title="Permalink to this heading">#</a></h2>
+<p>Es fácil pensar que la independencia de la trayectoria es solo una “suerte” matemática que ocurre por la simetría perfecta de una carga puntual. La segunda simulación está diseñada para romper ese mito.</p>
+<iframe src="_static/potencial_trayectoria2.html" width="100%" height="600" style="border:none;"></iframe>
+<p>Aquí, la fuente es una distribución continua: una barra horizontal de longitud <span class="math notranslate nohighlight">\(L\)</span> con densidad de carga lineal uniforme (<span class="math notranslate nohighlight">\(+\lambda\)</span>). El campo eléctrico resultante es mucho más complejo. Ya no es puramente radial; cerca del centro las flechas apuntan hacia arriba, pero hacia los extremos se curvan violentamente debido a los efectos de borde.</p>
+<p>A pesar de esta geometría vectorial asimétrica e intrincada, el principio físico se mantiene inquebrantable. Las cuatro partículas navegan por encima de la barra, cruzando el campo en ángulos totalmente distintos, pero al aterrizar en el punto final <span class="math notranslate nohighlight">\(f\)</span>, el trabajo acumulado vuelve a coincidir a la perfección. La naturaleza conservativa no depende de la forma de la fuente, sino que es una propiedad fundamental del propio campo electrostático.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_07_cavidades.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.7 Cavidades en una Esfera Aislante</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_02_energia.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.2 Energía Potencial Electrostática y Trabajo</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-campo-electrostatico-como-campo-conservativo">El Campo Electrostático como Campo Conservativo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-carga-puntual-y-simetria-radial">Simulación: Carga Puntual y Simetría Radial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-la-barra-cargada-y-geometrias-complejas">Simulación: La Barra Cargada y Geometrías Complejas</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By José Miguel Pinto
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
