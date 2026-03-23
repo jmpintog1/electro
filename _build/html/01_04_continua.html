@@ -1,0 +1,2044 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1.4 Distribución de Carga &#8212; Curso de Electricidad y Magnetismo</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01_04_continua';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1.5 Anillo Uniformemente Cargado" href="01_05_anillo.html" />
+    <link rel="prev" title="1.3 Campo Eléctrico" href="01_03_campo.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Curso de Electricidad y Magnetismo - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Curso de Electricidad y Magnetismo - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenidos al Curso de Electricidad y Magnetismo
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1 Carga Eléctrica y Campo Eléctrico</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_01_carga.html">1.1 Carga Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_02_coulomb.html">1.2 Ley de Coulomb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_03_campo.html">1.3 Campo Eléctrico</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1.4 Distribución de Carga</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_05_anillo.html">1.5 Anillo Uniformemente Cargado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_06_disco.html">1.6 Disco Cargado Uniformemente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_07_alambre.html">1.7 Alambre Infinito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Explorando la Densidad de Carga en un Disco</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2 Ley de Gauss</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_01_flujo.html">2.1 Flujo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_02_gauss.html">2.2 La Ley de Gauss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_03_gauss_esfera.html">2.3 Simetría Esférica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_04_gauss_cilindro.html">2.4 Simetría Cilíndrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_05_gauss_plano.html">2.5 Simetría Plana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_06_conductores.html">2.6 Conductores y Aislantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera Aislante</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3 Potencial Eléctrico</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03_01_potencial.html">3.1 Campo y Potencial Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_02_energia.html">3.2 Energía Potencial Electrostática y Trabajo</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmpintog1/electro/blob/main/./01_04_continua.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmpintog1/electro" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2F01_04_continua.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/01_04_continua.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1.4 Distribución de Carga</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guia-rapida-cual-densidad-utilizar">Guía rápida: ¿Cuál densidad utilizar?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-campo-electrico-generado-por-una-barra-uniforme">Problema: Campo eléctrico generado por una barra uniforme</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-comprension">Preguntas de Comprensión:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-integracion-del-campo-electrico-barra-cargada">Simulación: Integración del Campo Eléctrico (Barra Cargada)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-analitica-campo-electrico-de-una-barra-cargada">📝 Resolución Analítica: Campo Eléctrico de una Barra Cargada</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">1. Identificación de los Vectores y Diferenciales</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">2. Planteamiento de la Integral</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica">3. Resolución Matemática</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final-del-campo-electrico">4. Resultado Final del Campo Eléctrico</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="distribucion-de-carga">
+<h1>1.4 Distribución de Carga<a class="headerlink" href="#distribucion-de-carga" title="Permalink to this heading">#</a></h1>
+<p>En casos donde la carga no es puntual sino que se distribuye en un volumen, superficie o línea, el campo eléctrico en el punto <span class="math notranslate nohighlight">\(P\)</span> se calcula mediante una integración sobre toda la distribución:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+	d\vec{E}_P &amp;= \frac{1}{4\pi\epsilon_0} \frac{dq'}{|\vec{r}-\vec{r}\,'|^2} \frac{(\vec{r}-\vec{r}\,')}{|\vec{r}-\vec{r}\,'|} \\
+	\vec{E}_P &amp;= \frac{1}{4\pi\epsilon_0} \int \frac{dq'(\vec{r}-\vec{r}\,')}{|\vec{r}-\vec{r}\,'|^3} \\
+	\vec{E}_P &amp;= \frac{1}{4\pi\epsilon_0} \int dq' \frac{(\vec{r}-\vec{r}\,')}{|\vec{r}-\vec{r}\,'|^3}
+\end{aligned}
+\end{split}\]</div>
+<a class="reference internal image-reference" href="_images/01_07.svg"><img alt="Distribución de carga" class="align-center" src="_images/01_07.svg" width="60%" /></a>
+<section id="guia-rapida-cual-densidad-utilizar">
+<h2>Guía rápida: ¿Cuál densidad utilizar?<a class="headerlink" href="#guia-rapida-cual-densidad-utilizar" title="Permalink to this heading">#</a></h2>
+<p>En la resolución de problemas de ingeniería, identificar la geometría es el primer paso para plantear la integral de campo eléctrico.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Dimensión</p></th>
+<th class="head text-left"><p>Tipo de Densidad</p></th>
+<th class="head text-center"><p>Símbolo</p></th>
+<th class="head text-left"><p>Geometrías Comunes</p></th>
+<th class="head text-left"><p>Diferencial de carga (<span class="math notranslate nohighlight">\(dq'\)</span>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>1D</strong></p></td>
+<td class="text-left"><p>Lineal</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\lambda\)</span></p></td>
+<td class="text-left"><p>Hilos, anillos, varillas delgadas.</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(dq' = \lambda dl\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>2D</strong></p></td>
+<td class="text-left"><p>Superficial</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\sigma\)</span></p></td>
+<td class="text-left"><p>Discos, láminas, cáscaras esféricas.</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(dq' = \sigma dA\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>3D</strong></p></td>
+<td class="text-left"><p>Volumétrica</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\rho\)</span></p></td>
+<td class="text-left"><p>Esferas sólidas, cilindros macizos.</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(dq' = \rho dV\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<blockquote>
+<div><p><strong>💡 Consejo para el cálculo:</strong> Recuerda que si la carga está distribuida de manera <strong>uniforme</strong>, puedes calcular la densidad como la carga total dividida por la longitud, área o volumen total (<span class="math notranslate nohighlight">\(Q/L\)</span>, <span class="math notranslate nohighlight">\(Q/A\)</span> o <span class="math notranslate nohighlight">\(Q/V\)</span>).</p>
+</div></blockquote>
+</section>
+<section id="problema-campo-electrico-generado-por-una-barra-uniforme">
+<h2>Problema: Campo eléctrico generado por una barra uniforme<a class="headerlink" href="#problema-campo-electrico-generado-por-una-barra-uniforme" title="Permalink to this heading">#</a></h2>
+<p>Una barra uniforme de largo <span class="math notranslate nohighlight">\(L\)</span> y densidad de carga lineal <span class="math notranslate nohighlight">\(\lambda\)</span> se encuentra ubicada en el eje horizontal. Se desea calcular el campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> que esta barra ejerce sobre un punto <span class="math notranslate nohighlight">\(P\)</span> ubicado a una distancia <span class="math notranslate nohighlight">\(d\)</span> de uno de sus extremos, como se indica en la figura.</p>
+<a class="reference internal image-reference" href="_images/01_08.svg"><img alt="Barra uniforme" class="align-center" src="_images/01_08.svg" width="80%" /></a>
+<section id="preguntas-de-comprension">
+<h3>Preguntas de Comprensión:<a class="headerlink" href="#preguntas-de-comprension" title="Permalink to this heading">#</a></h3>
+<p>Estas preguntas están diseñadas para evaluar la comprensión de los conceptos fundamentales necesarios para abordar el problema del campo eléctrico sobre un punto en el espacio debido a una barra cargada.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_html_barra</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-1&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. ¿Cómo se define el elemento diferencial de carga &lt;i&gt;dq&#39;&lt;/i&gt; para una barra con densidad de carga lineal uniforme &amp;lambda; y un elemento de longitud &lt;i&gt;dx&lt;/i&gt;?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. La densidad lineal es carga por unidad de longitud. Al dividir por longitud, no obtienes carga.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;i&gt;dq&#39;&lt;/i&gt; = &amp;lambda; / &lt;i&gt;dx&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! La carga es el producto de la densidad de carga (carga/longitud) por la longitud del elemento infinitesimal.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;i&gt;dq&#39;&lt;/i&gt; = &amp;lambda; &amp;middot; &lt;i&gt;dx&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Dimensionalmente no es posible sumar una densidad de carga con una longitud.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;i&gt;dq&#39;&lt;/i&gt; = &amp;lambda; + &lt;i&gt;dx&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb1&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Dimensionalmente no es posible restar una longitud a una densidad de carga.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;i&gt;dq&#39;&lt;/i&gt; = &amp;lambda; - &lt;i&gt;dx&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-b1&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-b1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-2&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. Si la barra se extiende desde &lt;i&gt;x&lt;/i&gt; = 0 hasta &lt;i&gt;x&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt;, y el punto &lt;i&gt;P&lt;/i&gt; se encuentra en &lt;i&gt;x&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;, ¿cuál es el vector de posición &lt;b&gt;r&lt;/b&gt;&#39; de un elemento infinitesimal de carga &lt;i&gt;dq&#39;&lt;/i&gt; ubicado en un punto genérico &lt;i&gt;x&lt;/i&gt; de la barra?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Ese es el vector de posición del punto &lt;i&gt;P&lt;/i&gt;, no de la fuente.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt;&#39; = (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! El vector primado siempre apunta a la fuente que genera el campo. Como tomamos un diferencial en la posición &lt;i&gt;x&lt;/i&gt;, el vector es simplemente &lt;i&gt;x&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt;&#39; = &lt;i&gt;x&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Esa expresión representa la distancia relativa entre un punto de la barra y el punto &lt;i&gt;P&lt;/i&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt;&#39; = (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt; - &lt;i&gt;x&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb2&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Esa es solo la distancia entre el final de la barra y el punto &lt;i&gt;P&lt;/i&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt;&#39; = &lt;i&gt;d&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-b2&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-b2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-3&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. ¿Cuál es el vector de posición &lt;b&gt;r&lt;/b&gt; del punto &lt;i&gt;P&lt;/i&gt; en el sistema de coordenadas definido?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb3&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Ese es el vector que apunta a un elemento de la barra (la fuente).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt; = &lt;i&gt;x&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb3&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! El vector sin primar apunta al punto de observación, que según el enunciado se ubica en &lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt; = (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb3&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Esta sería la diferencia entre el punto de observación y la fuente.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt; = (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt; - &lt;i&gt;x&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb3&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. La carga se encuentra a una distancia &lt;i&gt;d&lt;/i&gt; del final de la barra, no del origen.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;&lt;b&gt;r&lt;/b&gt; = &lt;i&gt;d&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-b3&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-b3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-4&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        4. ¿Cuál es la expresión del vector (&lt;b&gt;r&lt;/b&gt; - &lt;b&gt;r&lt;/b&gt;&#39;) que conecta el elemento de carga &lt;i&gt;dq&#39;&lt;/i&gt; con el punto &lt;i&gt;P&lt;/i&gt;?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb4&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Revisa los signos al realizar la resta vectorial.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;(&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt; + &lt;i&gt;x&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb4&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Recuerda que &lt;b&gt;r&lt;/b&gt; apunta a &lt;i&gt;L&lt;/i&gt;+&lt;i&gt;d&lt;/i&gt; y &lt;b&gt;r&lt;/b&gt;&#39; apunta a &lt;i&gt;x&lt;/i&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;(&lt;i&gt;L&lt;/i&gt; - &lt;i&gt;d&lt;/i&gt; - &lt;i&gt;x&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb4&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Simplemente restamos el vector fuente del vector de observación: (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt; - &lt;i&gt;x&lt;/i&gt;&lt;b&gt;î&lt;/b&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;(&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt; - &lt;i&gt;x&lt;/i&gt;)&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb4&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Eso representaría un vector que apunta desde la carga hacia la barra (&lt;b&gt;r&lt;/b&gt;&#39; - &lt;b&gt;r&lt;/b&gt;).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;(&lt;i&gt;x&lt;/i&gt; - (&lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;))&lt;b&gt;î&lt;/b&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-b4&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-b4&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-bar-5&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        5. El campo eléctrico sobre el punto &lt;i&gt;P&lt;/i&gt; será el resultado de la integración de las contribuciones de todos los elementos &lt;i&gt;dq&#39;&lt;/i&gt;. ¿Entre qué límites se debe realizar la integral para abarcar toda la longitud de la barra?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb5&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. La distancia &lt;i&gt;d&lt;/i&gt; es donde empieza el vacío hasta el punto &lt;i&gt;P&lt;/i&gt;, no la barra misma.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;De 0 a &lt;i&gt;d&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb5&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. La barra no se ubica en ese segmento del eje.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;De &lt;i&gt;d&lt;/i&gt; a &lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb5&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Muy bien! Estás integrando sobre los elementos de la fuente (la barra), que según el enunciado se extiende desde el origen (0) hasta una longitud &lt;i&gt;L&lt;/i&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;De 0 a &lt;i&gt;L&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qb5&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Ese sería el segmento vacío entre la barra y el punto &lt;i&gt;P&lt;/i&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;De &lt;i&gt;L&lt;/i&gt; a &lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt;&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-b5&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-b5&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    (function() {</span>
+<span class="s2">        function setupQuiz(btnId, radioName, feedbackId) {</span>
+<span class="s2">            var btn = document.getElementById(btnId);</span>
+<span class="s2">            if (!btn) return;</span>
+
+<span class="s2">            btn.addEventListener(&#39;click&#39;, function() {</span>
+<span class="s2">                var radios = document.getElementsByName(radioName);</span>
+<span class="s2">                var selected = null;</span>
+<span class="s2">                var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">                </span>
+<span class="s2">                for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                    if (radios[i].checked) {</span>
+<span class="s2">                        selected = radios[i];</span>
+<span class="s2">                        break;</span>
+<span class="s2">                    }</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">                </span>
+<span class="s2">                if (!selected) {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                    return;</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">                var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">                </span>
+<span class="s2">                if (isCorrect) {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">                } else {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">                }</span>
+<span class="s2">            });</span>
+<span class="s2">        }</span>
+
+<span class="s2">        setTimeout(function() {</span>
+<span class="s2">            setupQuiz(&#39;btn-check-b1&#39;, &#39;qb1&#39;, &#39;feedback-b1&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-b2&#39;, &#39;qb2&#39;, &#39;feedback-b2&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-b3&#39;, &#39;qb3&#39;, &#39;feedback-b3&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-b4&#39;, &#39;qb4&#39;, &#39;feedback-b4&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-b5&#39;, &#39;qb5&#39;, &#39;feedback-b5&#39;);</span>
+<span class="s2">        }, 500);</span>
+<span class="s2">    })();</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_html_barra</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<div class="fisi-quiz-container" id="quiz-bar-1">
+    <div class="fisi-question">
+        1. ¿Cómo se define el elemento diferencial de carga <i>dq'</i> para una barra con densidad de carga lineal uniforme &lambda; y un elemento de longitud <i>dx</i>?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qb1" value="a" data-fb="Incorrecto. La densidad lineal es carga por unidad de longitud. Al dividir por longitud, no obtienes carga."> 
+        <span><i>dq'</i> = &lambda; / <i>dx</i></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb1" value="b" data-correct="true" data-fb="¡Correcto! La carga es el producto de la densidad de carga (carga/longitud) por la longitud del elemento infinitesimal."> 
+        <span><i>dq'</i> = &lambda; &middot; <i>dx</i></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb1" value="c" data-fb="Incorrecto. Dimensionalmente no es posible sumar una densidad de carga con una longitud."> 
+        <span><i>dq'</i> = &lambda; + <i>dx</i></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb1" value="d" data-fb="Incorrecto. Dimensionalmente no es posible restar una longitud a una densidad de carga."> 
+        <span><i>dq'</i> = &lambda; - <i>dx</i></span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-b1">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-b1"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-bar-2">
+    <div class="fisi-question">
+        2. Si la barra se extiende desde <i>x</i> = 0 hasta <i>x</i> = <i>L</i>, y el punto <i>P</i> se encuentra en <i>x</i> = <i>L</i> + <i>d</i>, ¿cuál es el vector de posición <b>r</b>' de un elemento infinitesimal de carga <i>dq'</i> ubicado en un punto genérico <i>x</i> de la barra?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qb2" value="a" data-fb="Incorrecto. Ese es el vector de posición del punto <i>P</i>, no de la fuente."> 
+        <span><b>r</b>' = (<i>L</i> + <i>d</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb2" value="b" data-correct="true" data-fb="¡Correcto! El vector primado siempre apunta a la fuente que genera el campo. Como tomamos un diferencial en la posición <i>x</i>, el vector es simplemente <i>x</i><b>î</b>."> 
+        <span><b>r</b>' = <i>x</i><b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb2" value="c" data-fb="Incorrecto. Esa expresión representa la distancia relativa entre un punto de la barra y el punto <i>P</i>."> 
+        <span><b>r</b>' = (<i>L</i> + <i>d</i> - <i>x</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb2" value="d" data-fb="Incorrecto. Esa es solo la distancia entre el final de la barra y el punto <i>P</i>."> 
+        <span><b>r</b>' = <i>d</i><b>î</b></span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-b2">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-b2"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-bar-3">
+    <div class="fisi-question">
+        3. ¿Cuál es el vector de posición <b>r</b> del punto <i>P</i> en el sistema de coordenadas definido?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qb3" value="a" data-fb="Incorrecto. Ese es el vector que apunta a un elemento de la barra (la fuente)."> 
+        <span><b>r</b> = <i>x</i><b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb3" value="b" data-correct="true" data-fb="¡Exacto! El vector sin primar apunta al punto de observación, que según el enunciado se ubica en <i>L</i> + <i>d</i>."> 
+        <span><b>r</b> = (<i>L</i> + <i>d</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb3" value="c" data-fb="Incorrecto. Esta sería la diferencia entre el punto de observación y la fuente."> 
+        <span><b>r</b> = (<i>L</i> + <i>d</i> - <i>x</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb3" value="d" data-fb="Incorrecto. La carga se encuentra a una distancia <i>d</i> del final de la barra, no del origen."> 
+        <span><b>r</b> = <i>d</i><b>î</b></span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-b3">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-b3"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-bar-4">
+    <div class="fisi-question">
+        4. ¿Cuál es la expresión del vector (<b>r</b> - <b>r</b>') que conecta el elemento de carga <i>dq'</i> con el punto <i>P</i>?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qb4" value="a" data-fb="Incorrecto. Revisa los signos al realizar la resta vectorial."> 
+        <span>(<i>L</i> + <i>d</i> + <i>x</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb4" value="b" data-fb="Incorrecto. Recuerda que <b>r</b> apunta a <i>L</i>+<i>d</i> y <b>r</b>' apunta a <i>x</i>."> 
+        <span>(<i>L</i> - <i>d</i> - <i>x</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb4" value="c" data-correct="true" data-fb="¡Correcto! Simplemente restamos el vector fuente del vector de observación: (<i>L</i> + <i>d</i>)<b>î</b> - <i>x</i><b>î</b>."> 
+        <span>(<i>L</i> + <i>d</i> - <i>x</i>)<b>î</b></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb4" value="d" data-fb="Incorrecto. Eso representaría un vector que apunta desde la carga hacia la barra (<b>r</b>' - <b>r</b>)."> 
+        <span>(<i>x</i> - (<i>L</i> + <i>d</i>))<b>î</b></span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-b4">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-b4"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-bar-5">
+    <div class="fisi-question">
+        5. El campo eléctrico sobre el punto <i>P</i> será el resultado de la integración de las contribuciones de todos los elementos <i>dq'</i>. ¿Entre qué límites se debe realizar la integral para abarcar toda la longitud de la barra?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qb5" value="a" data-fb="Incorrecto. La distancia <i>d</i> es donde empieza el vacío hasta el punto <i>P</i>, no la barra misma."> 
+        <span>De 0 a <i>d</i></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb5" value="b" data-fb="Incorrecto. La barra no se ubica en ese segmento del eje."> 
+        <span>De <i>d</i> a <i>L</i> + <i>d</i></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb5" value="c" data-correct="true" data-fb="¡Muy bien! Estás integrando sobre los elementos de la fuente (la barra), que según el enunciado se extiende desde el origen (0) hasta una longitud <i>L</i>."> 
+        <span>De 0 a <i>L</i></span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qb5" value="d" data-fb="Incorrecto. Ese sería el segmento vacío entre la barra y el punto <i>P</i>."> 
+        <span>De <i>L</i> a <i>L</i> + <i>d</i></span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-b5">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-b5"></div>
+</div>
+
+<script>
+    (function() {
+        function setupQuiz(btnId, radioName, feedbackId) {
+            var btn = document.getElementById(btnId);
+            if (!btn) return;
+
+            btn.addEventListener('click', function() {
+                var radios = document.getElementsByName(radioName);
+                var selected = null;
+                var feedbackDiv = document.getElementById(feedbackId);
+                
+                for (var i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        selected = radios[i];
+                        break;
+                    }
+                }
+                
+                feedbackDiv.style.display = 'block';
+                
+                if (!selected) {
+                    feedbackDiv.style.backgroundColor = '#fff3cd';
+                    feedbackDiv.style.color = '#856404';
+                    feedbackDiv.style.border = '1px solid #ffeeba';
+                    feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                    return;
+                }
+                
+                var isCorrect = selected.getAttribute('data-correct') === 'true';
+                var msg = selected.getAttribute('data-fb');
+                
+                if (isCorrect) {
+                    feedbackDiv.style.backgroundColor = '#d4edda';
+                    feedbackDiv.style.color = '#155724';
+                    feedbackDiv.style.border = '1px solid #c3e6cb';
+                    feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+                } else {
+                    feedbackDiv.style.backgroundColor = '#f8d7da';
+                    feedbackDiv.style.color = '#721c24';
+                    feedbackDiv.style.border = '1px solid #f5c6cb';
+                    feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+                }
+            });
+        }
+
+        setTimeout(function() {
+            setupQuiz('btn-check-b1', 'qb1', 'feedback-b1');
+            setupQuiz('btn-check-b2', 'qb2', 'feedback-b2');
+            setupQuiz('btn-check-b3', 'qb3', 'feedback-b3');
+            setupQuiz('btn-check-b4', 'qb4', 'feedback-b4');
+            setupQuiz('btn-check-b5', 'qb5', 'feedback-b5');
+        }, 500);
+    })();
+</script>
+</div></div>
+</div>
+</section>
+<section id="simulacion-integracion-del-campo-electrico-barra-cargada">
+<h3>Simulación: Integración del Campo Eléctrico (Barra Cargada)<a class="headerlink" href="#simulacion-integracion-del-campo-electrico-barra-cargada" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">simulacion_superposicion_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;div style=&quot;border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif;&quot;&gt;</span>
+
+<span class="s2">    &lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;&quot;&gt;</span>
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 200px;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 110px;&quot;&gt;Posición Px: &lt;span id=&quot;bar_val_x&quot; style=&quot;font-weight: normal;&quot;&gt;1.0&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;bar_slider_x&quot; min=&quot;-3&quot; max=&quot;5&quot; step=&quot;0.1&quot; value=&quot;2.5&quot; style=&quot;width: 50%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 110px;&quot;&gt;Posición Py: &lt;span id=&quot;bar_val_y&quot; style=&quot;font-weight: normal;&quot;&gt;2.0&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;bar_slider_y&quot; min=&quot;-3&quot; max=&quot;3&quot; step=&quot;0.1&quot; value=&quot;0.0&quot; style=&quot;width: 50%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 220px;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 130px;&quot;&gt;Nº Segmentos: &lt;span id=&quot;bar_val_n&quot; style=&quot;font-weight: normal;&quot;&gt;20&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;bar_slider_n&quot; min=&quot;10&quot; max=&quot;100&quot; step=&quot;10&quot; value=&quot;20&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 130px;&quot;&gt;Elemento dx&#39;: &lt;span id=&quot;bar_val_idx&quot; style=&quot;font-weight: normal;&quot;&gt;0&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;bar_slider_idx&quot; min=&quot;0&quot; max=&quot;19&quot; step=&quot;1&quot; value=&quot;0&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 130px; color: #dc3545;&quot;&gt;Lupa dE (Rojo): &lt;span id=&quot;bar_val_mag&quot; style=&quot;font-weight: normal;&quot;&gt;1x&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;bar_slider_mag&quot; min=&quot;1&quot; max=&quot;30&quot; step=&quot;1&quot; value=&quot;1&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">        </span>
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 250px; font-size: 0.9em;&quot;&gt;</span>
+<span class="s2">            &lt;label style=&quot;display: block; cursor: pointer; color: #dc3545; font-weight: bold;&quot;&gt;</span>
+<span class="s2">                &lt;input type=&quot;checkbox&quot; id=&quot;chk_dE&quot; checked&gt; Mostrar dE actual (Rojo)</span>
+<span class="s2">            &lt;/label&gt;</span>
+<span class="s2">            &lt;label style=&quot;display: block; cursor: pointer; color: #198754; font-weight: bold; margin-top: 5px;&quot;&gt;</span>
+<span class="s2">                &lt;input type=&quot;checkbox&quot; id=&quot;chk_Eac&quot; checked&gt; Mostrar E acumulado (Verde)</span>
+<span class="s2">            &lt;/label&gt;</span>
+<span class="s2">            &lt;label style=&quot;display: block; cursor: pointer; color: #000000; font-weight: bold; margin-top: 5px;&quot;&gt;</span>
+<span class="s2">                &lt;input type=&quot;checkbox&quot; id=&quot;chk_Etot&quot; checked&gt; Mostrar E total final (Negro)</span>
+<span class="s2">            &lt;/label&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;text-align: center; position: relative;&quot;&gt;</span>
+<span class="s2">        &lt;canvas id=&quot;bar_canvas&quot; width=&quot;800&quot; height=&quot;500&quot; style=&quot;background: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;&quot;&gt;&lt;/canvas&gt;</span>
+<span class="s2">        &lt;div id=&quot;bar_intensity&quot; style=&quot;position: absolute; top: 10px; right: 20px; background: rgba(255,255,255,0.8); padding: 5px 10px; border-radius: 4px; border: 1px solid #ccc; font-weight: bold;&quot;&gt;</span>
+<span class="s2">            Intensidad Total: --- N/C</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    (function() {</span>
+<span class="s2">        const canvas = document.getElementById(&#39;bar_canvas&#39;);</span>
+<span class="s2">        const ctx = canvas.getContext(&#39;2d&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        // Elementos UI</span>
+<span class="s2">        const slider_x = document.getElementById(&#39;bar_slider_x&#39;);</span>
+<span class="s2">        const slider_y = document.getElementById(&#39;bar_slider_y&#39;);</span>
+<span class="s2">        const slider_n = document.getElementById(&#39;bar_slider_n&#39;);</span>
+<span class="s2">        const slider_idx = document.getElementById(&#39;bar_slider_idx&#39;);</span>
+<span class="s2">        const slider_mag = document.getElementById(&#39;bar_slider_mag&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const val_x = document.getElementById(&#39;bar_val_x&#39;);</span>
+<span class="s2">        const val_y = document.getElementById(&#39;bar_val_y&#39;);</span>
+<span class="s2">        const val_n = document.getElementById(&#39;bar_val_n&#39;);</span>
+<span class="s2">        const val_idx = document.getElementById(&#39;bar_val_idx&#39;);</span>
+<span class="s2">        const val_mag = document.getElementById(&#39;bar_val_mag&#39;);</span>
+<span class="s2">        const intensity_div = document.getElementById(&#39;bar_intensity&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const chk_dE = document.getElementById(&#39;chk_dE&#39;);</span>
+<span class="s2">        const chk_Eac = document.getElementById(&#39;chk_Eac&#39;);</span>
+<span class="s2">        const chk_Etot = document.getElementById(&#39;chk_Etot&#39;);</span>
+
+<span class="s2">        // Constantes Físicas</span>
+<span class="s2">        const k = 8.99e9;</span>
+<span class="s2">        const lam = 1e-6; // 1 uC/m</span>
+<span class="s2">        const bar_L = 2.0;</span>
+<span class="s2">        </span>
+<span class="s2">        // Sistema de coordenadas (100 pixeles por metro asegura proporción 1:1)</span>
+<span class="s2">        const x_min = -3.0, x_max = 5.0; </span>
+<span class="s2">        const y_min = -2.5, y_max = 2.5; </span>
+<span class="s2">        </span>
+<span class="s2">        function mapX(x) { return ((x - x_min) / (x_max - x_min)) * canvas.width; }</span>
+<span class="s2">        function mapY(y) { return canvas.height - ((y - y_min) / (y_max - y_min)) * canvas.height; }</span>
+<span class="s2">        function mapDist(d) { return (d / (x_max - x_min)) * canvas.width; }</span>
+
+<span class="s2">        function drawArrow(fromx, fromy, tox, toy, color, width, dashed=false) {</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            if(dashed) ctx.setLineDash([5, 5]);</span>
+<span class="s2">            else ctx.setLineDash([]);</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.moveTo(fromx, fromy);</span>
+<span class="s2">            ctx.lineTo(tox, toy);</span>
+<span class="s2">            ctx.strokeStyle = color;</span>
+<span class="s2">            ctx.lineWidth = width;</span>
+<span class="s2">            ctx.stroke();</span>
+
+<span class="s2">            // Dibujar cabeza de flecha</span>
+<span class="s2">            let angle = Math.atan2(toy - fromy, tox - fromx);</span>
+<span class="s2">            // Evitar dibujar cabeza si la flecha es un punto</span>
+<span class="s2">            let dist = Math.hypot(tox - fromx, toy - fromy);</span>
+<span class="s2">            if (dist &lt; 2) return;</span>
+<span class="s2">            </span>
+<span class="s2">            let headlen = 12;</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.setLineDash([]);</span>
+<span class="s2">            ctx.moveTo(tox, toy);</span>
+<span class="s2">            ctx.lineTo(tox - headlen * Math.cos(angle - Math.PI/6), toy - headlen * Math.sin(angle - Math.PI/6));</span>
+<span class="s2">            ctx.lineTo(tox - headlen * Math.cos(angle + Math.PI/6), toy - headlen * Math.sin(angle + Math.PI/6));</span>
+<span class="s2">            ctx.lineTo(tox, toy);</span>
+<span class="s2">            ctx.fillStyle = color;</span>
+<span class="s2">            ctx.fill();</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function updateSim() {</span>
+<span class="s2">            let n_seg = parseInt(slider_n.value);</span>
+<span class="s2">            slider_idx.max = n_seg - 1;</span>
+<span class="s2">            if(parseInt(slider_idx.value) &gt;= n_seg) {</span>
+<span class="s2">                slider_idx.value = n_seg - 1;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            let px = parseFloat(slider_x.value);</span>
+<span class="s2">            let py = parseFloat(slider_y.value);</span>
+<span class="s2">            let idx = parseInt(slider_idx.value);</span>
+<span class="s2">            let mag_red = parseFloat(slider_mag.value);</span>
+<span class="s2">            </span>
+<span class="s2">            val_x.innerText = px.toFixed(1) + &quot; m&quot;;</span>
+<span class="s2">            val_y.innerText = py.toFixed(1) + &quot; m&quot;;</span>
+<span class="s2">            val_n.innerText = n_seg;</span>
+<span class="s2">            val_idx.innerText = idx;</span>
+<span class="s2">            val_mag.innerText = mag_red + &quot;x&quot;;</span>
+
+<span class="s2">            ctx.clearRect(0, 0, canvas.width, canvas.height);</span>
+<span class="s2">            </span>
+<span class="s2">            // Dibujar grilla suave</span>
+<span class="s2">            ctx.strokeStyle = &#39;#e0e0e0&#39;;</span>
+<span class="s2">            ctx.lineWidth = 1;</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            for(let i=Math.ceil(x_min); i&lt;=Math.floor(x_max); i++) {</span>
+<span class="s2">                ctx.moveTo(mapX(i), 0); ctx.lineTo(mapX(i), canvas.height);</span>
+<span class="s2">            }</span>
+<span class="s2">            for(let i=Math.ceil(y_min); i&lt;=Math.floor(y_max); i++) {</span>
+<span class="s2">                ctx.moveTo(0, mapY(i)); ctx.lineTo(canvas.width, mapY(i));</span>
+<span class="s2">            }</span>
+<span class="s2">            ctx.stroke();</span>
+
+<span class="s2">            // Matemática</span>
+<span class="s2">            let dx = bar_L / n_seg;</span>
+<span class="s2">            let E_tot_x = 0, E_tot_y = 0;</span>
+<span class="s2">            let E_ac_x = 0, E_ac_y = 0;</span>
+<span class="s2">            let dE_act_x = 0, dE_act_y = 0;</span>
+
+<span class="s2">            for(let i = 0; i &lt; n_seg; i++) {</span>
+<span class="s2">                let x_prime = (i + 0.5) * dx; </span>
+<span class="s2">                let rx = px - x_prime;</span>
+<span class="s2">                let ry = py - 0;</span>
+<span class="s2">                let r2 = rx*rx + ry*ry;</span>
+<span class="s2">                </span>
+<span class="s2">                if (r2 &lt; 0.01) r2 = 0.01; </span>
+<span class="s2">                </span>
+<span class="s2">                let r3 = Math.pow(r2, 1.5);</span>
+<span class="s2">                let dEx = k * lam * dx * rx / r3;</span>
+<span class="s2">                let dEy = k * lam * dx * ry / r3;</span>
+<span class="s2">                </span>
+<span class="s2">                E_tot_x += dEx;</span>
+<span class="s2">                E_tot_y += dEy;</span>
+<span class="s2">                </span>
+<span class="s2">                if(i &lt;= idx) {</span>
+<span class="s2">                    E_ac_x += dEx;</span>
+<span class="s2">                    E_ac_y += dEy;</span>
+<span class="s2">                }</span>
+<span class="s2">                if(i === idx) {</span>
+<span class="s2">                    dE_act_x = dEx; // Tamaño real del diferencial</span>
+<span class="s2">                    dE_act_y = dEy;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+
+<span class="s2">            let mag_tot = Math.sqrt(E_tot_x*E_tot_x + E_tot_y*E_tot_y);</span>
+<span class="s2">            intensity_div.innerText = &quot;Intensidad Total: &quot; + mag_tot.toExponential(2) + &quot; N/C&quot;;</span>
+
+<span class="s2">            // Dibujar Barra Gris</span>
+<span class="s2">            ctx.fillStyle = &#39;#d3d3d3&#39;;</span>
+<span class="s2">            ctx.fillRect(mapX(0), mapY(0.1), mapDist(bar_L), mapDist(0.2));</span>
+<span class="s2">            </span>
+<span class="s2">            // Dibujar Área Verde</span>
+<span class="s2">            let w_acumulado = (idx + 1) * dx;</span>
+<span class="s2">            ctx.fillStyle = &#39;rgba(40, 167, 69, 0.4)&#39;;</span>
+<span class="s2">            ctx.fillRect(mapX(0), mapY(0.1), mapDist(w_acumulado), mapDist(0.2));</span>
+<span class="s2">            </span>
+<span class="s2">            // Dibujar Segmento Rojo</span>
+<span class="s2">            let x_actual = idx * dx;</span>
+<span class="s2">            ctx.fillStyle = &#39;#dc3545&#39;;</span>
+<span class="s2">            ctx.fillRect(mapX(x_actual), mapY(0.1), mapDist(dx), mapDist(0.2));</span>
+
+<span class="s2">            // Dibujar Punto P</span>
+<span class="s2">            let canvas_px = mapX(px);</span>
+<span class="s2">            let canvas_py = mapY(py);</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.arc(canvas_px, canvas_py, 6, 0, 2 * Math.PI);</span>
+<span class="s2">            ctx.fillStyle = &#39;black&#39;;</span>
+<span class="s2">            ctx.fill();</span>
+<span class="s2">            ctx.font = &quot;bold 16px Arial&quot;;</span>
+<span class="s2">            ctx.fillText(&quot;P&quot;, canvas_px + 10, canvas_py - 10);</span>
+
+<span class="s2">            // Base length para normalizar la visualización (El vector total siempre mide 120px)</span>
+<span class="s2">            let base_length_px = 120; </span>
+<span class="s2">            let visual_scale = base_length_px / Math.max(mag_tot, 1e-9);</span>
+
+<span class="s2">            // Dibujar Vectores</span>
+<span class="s2">            if(chk_Etot.checked) {</span>
+<span class="s2">                drawArrow(canvas_px, canvas_py, </span>
+<span class="s2">                          canvas_px + E_tot_x * visual_scale, </span>
+<span class="s2">                          canvas_py - E_tot_y * visual_scale, </span>
+<span class="s2">                          &#39;black&#39;, 3, true);</span>
+<span class="s2">            }</span>
+<span class="s2">            if(chk_Eac.checked) {</span>
+<span class="s2">                drawArrow(canvas_px, canvas_py, </span>
+<span class="s2">                          canvas_px + E_ac_x * visual_scale, </span>
+<span class="s2">                          canvas_py - E_ac_y * visual_scale, </span>
+<span class="s2">                          &#39;#198754&#39;, 4, false);</span>
+<span class="s2">            }</span>
+<span class="s2">            if(chk_dE.checked) {</span>
+<span class="s2">                // Vector rojo con su tamaño real multiplicado SÓLO por la lupa del usuario</span>
+<span class="s2">                drawArrow(canvas_px, canvas_py, </span>
+<span class="s2">                          canvas_px + (dE_act_x * visual_scale * mag_red), </span>
+<span class="s2">                          canvas_py - (dE_act_y * visual_scale * mag_red), </span>
+<span class="s2">                          &#39;#dc3545&#39;, 3, false);</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        // Event Listeners</span>
+<span class="s2">        slider_x.addEventListener(&#39;input&#39;, updateSim);</span>
+<span class="s2">        slider_y.addEventListener(&#39;input&#39;, updateSim);</span>
+<span class="s2">        slider_n.addEventListener(&#39;input&#39;, updateSim);</span>
+<span class="s2">        slider_idx.addEventListener(&#39;input&#39;, updateSim);</span>
+<span class="s2">        slider_mag.addEventListener(&#39;input&#39;, updateSim);</span>
+<span class="s2">        chk_dE.addEventListener(&#39;change&#39;, updateSim);</span>
+<span class="s2">        chk_Eac.addEventListener(&#39;change&#39;, updateSim);</span>
+<span class="s2">        chk_Etot.addEventListener(&#39;change&#39;, updateSim);</span>
+
+<span class="s2">        // Iniciar</span>
+<span class="s2">        updateSim();</span>
+<span class="s2">    })();</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">simulacion_superposicion_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;">
+        <div style="flex: 1; min-width: 200px;">
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 110px;">Posición Px: <span id="bar_val_x" style="font-weight: normal;">1.0</span></label>
+                <input type="range" id="bar_slider_x" min="-3" max="5" step="0.1" value="2.5" style="width: 50%; vertical-align: middle;">
+            </div>
+            <div>
+                <label style="font-weight: 600; display: inline-block; width: 110px;">Posición Py: <span id="bar_val_y" style="font-weight: normal;">2.0</span></label>
+                <input type="range" id="bar_slider_y" min="-3" max="3" step="0.1" value="0.0" style="width: 50%; vertical-align: middle;">
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 220px;">
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 130px;">Nº Segmentos: <span id="bar_val_n" style="font-weight: normal;">20</span></label>
+                <input type="range" id="bar_slider_n" min="10" max="100" step="10" value="20" style="width: 40%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 130px;">Elemento dx': <span id="bar_val_idx" style="font-weight: normal;">0</span></label>
+                <input type="range" id="bar_slider_idx" min="0" max="19" step="1" value="0" style="width: 40%; vertical-align: middle;">
+            </div>
+            <div>
+                <label style="font-weight: 600; display: inline-block; width: 130px; color: #dc3545;">Lupa dE (Rojo): <span id="bar_val_mag" style="font-weight: normal;">1x</span></label>
+                <input type="range" id="bar_slider_mag" min="1" max="30" step="1" value="1" style="width: 40%; vertical-align: middle;">
+            </div>
+        </div>
+        
+        <div style="flex: 1; min-width: 250px; font-size: 0.9em;">
+            <label style="display: block; cursor: pointer; color: #dc3545; font-weight: bold;">
+                <input type="checkbox" id="chk_dE" checked> Mostrar dE actual (Rojo)
+            </label>
+            <label style="display: block; cursor: pointer; color: #198754; font-weight: bold; margin-top: 5px;">
+                <input type="checkbox" id="chk_Eac" checked> Mostrar E acumulado (Verde)
+            </label>
+            <label style="display: block; cursor: pointer; color: #000000; font-weight: bold; margin-top: 5px;">
+                <input type="checkbox" id="chk_Etot" checked> Mostrar E total final (Negro)
+            </label>
+        </div>
+    </div>
+    
+    <div style="text-align: center; position: relative;">
+        <canvas id="bar_canvas" width="800" height="500" style="background: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+        <div id="bar_intensity" style="position: absolute; top: 10px; right: 20px; background: rgba(255,255,255,0.8); padding: 5px 10px; border-radius: 4px; border: 1px solid #ccc; font-weight: bold;">
+            Intensidad Total: --- N/C
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const canvas = document.getElementById('bar_canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Elementos UI
+        const slider_x = document.getElementById('bar_slider_x');
+        const slider_y = document.getElementById('bar_slider_y');
+        const slider_n = document.getElementById('bar_slider_n');
+        const slider_idx = document.getElementById('bar_slider_idx');
+        const slider_mag = document.getElementById('bar_slider_mag');
+        
+        const val_x = document.getElementById('bar_val_x');
+        const val_y = document.getElementById('bar_val_y');
+        const val_n = document.getElementById('bar_val_n');
+        const val_idx = document.getElementById('bar_val_idx');
+        const val_mag = document.getElementById('bar_val_mag');
+        const intensity_div = document.getElementById('bar_intensity');
+        
+        const chk_dE = document.getElementById('chk_dE');
+        const chk_Eac = document.getElementById('chk_Eac');
+        const chk_Etot = document.getElementById('chk_Etot');
+
+        // Constantes Físicas
+        const k = 8.99e9;
+        const lam = 1e-6; // 1 uC/m
+        const bar_L = 2.0;
+        
+        // Sistema de coordenadas (100 pixeles por metro asegura proporción 1:1)
+        const x_min = -3.0, x_max = 5.0; 
+        const y_min = -2.5, y_max = 2.5; 
+        
+        function mapX(x) { return ((x - x_min) / (x_max - x_min)) * canvas.width; }
+        function mapY(y) { return canvas.height - ((y - y_min) / (y_max - y_min)) * canvas.height; }
+        function mapDist(d) { return (d / (x_max - x_min)) * canvas.width; }
+
+        function drawArrow(fromx, fromy, tox, toy, color, width, dashed=false) {
+            ctx.beginPath();
+            if(dashed) ctx.setLineDash([5, 5]);
+            else ctx.setLineDash([]);
+            
+            ctx.moveTo(fromx, fromy);
+            ctx.lineTo(tox, toy);
+            ctx.strokeStyle = color;
+            ctx.lineWidth = width;
+            ctx.stroke();
+
+            // Dibujar cabeza de flecha
+            let angle = Math.atan2(toy - fromy, tox - fromx);
+            // Evitar dibujar cabeza si la flecha es un punto
+            let dist = Math.hypot(tox - fromx, toy - fromy);
+            if (dist < 2) return;
+            
+            let headlen = 12;
+            ctx.beginPath();
+            ctx.setLineDash([]);
+            ctx.moveTo(tox, toy);
+            ctx.lineTo(tox - headlen * Math.cos(angle - Math.PI/6), toy - headlen * Math.sin(angle - Math.PI/6));
+            ctx.lineTo(tox - headlen * Math.cos(angle + Math.PI/6), toy - headlen * Math.sin(angle + Math.PI/6));
+            ctx.lineTo(tox, toy);
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+
+        function updateSim() {
+            let n_seg = parseInt(slider_n.value);
+            slider_idx.max = n_seg - 1;
+            if(parseInt(slider_idx.value) >= n_seg) {
+                slider_idx.value = n_seg - 1;
+            }
+            
+            let px = parseFloat(slider_x.value);
+            let py = parseFloat(slider_y.value);
+            let idx = parseInt(slider_idx.value);
+            let mag_red = parseFloat(slider_mag.value);
+            
+            val_x.innerText = px.toFixed(1) + " m";
+            val_y.innerText = py.toFixed(1) + " m";
+            val_n.innerText = n_seg;
+            val_idx.innerText = idx;
+            val_mag.innerText = mag_red + "x";
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Dibujar grilla suave
+            ctx.strokeStyle = '#e0e0e0';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            for(let i=Math.ceil(x_min); i<=Math.floor(x_max); i++) {
+                ctx.moveTo(mapX(i), 0); ctx.lineTo(mapX(i), canvas.height);
+            }
+            for(let i=Math.ceil(y_min); i<=Math.floor(y_max); i++) {
+                ctx.moveTo(0, mapY(i)); ctx.lineTo(canvas.width, mapY(i));
+            }
+            ctx.stroke();
+
+            // Matemática
+            let dx = bar_L / n_seg;
+            let E_tot_x = 0, E_tot_y = 0;
+            let E_ac_x = 0, E_ac_y = 0;
+            let dE_act_x = 0, dE_act_y = 0;
+
+            for(let i = 0; i < n_seg; i++) {
+                let x_prime = (i + 0.5) * dx; 
+                let rx = px - x_prime;
+                let ry = py - 0;
+                let r2 = rx*rx + ry*ry;
+                
+                if (r2 < 0.01) r2 = 0.01; 
+                
+                let r3 = Math.pow(r2, 1.5);
+                let dEx = k * lam * dx * rx / r3;
+                let dEy = k * lam * dx * ry / r3;
+                
+                E_tot_x += dEx;
+                E_tot_y += dEy;
+                
+                if(i <= idx) {
+                    E_ac_x += dEx;
+                    E_ac_y += dEy;
+                }
+                if(i === idx) {
+                    dE_act_x = dEx; // Tamaño real del diferencial
+                    dE_act_y = dEy;
+                }
+            }
+
+            let mag_tot = Math.sqrt(E_tot_x*E_tot_x + E_tot_y*E_tot_y);
+            intensity_div.innerText = "Intensidad Total: " + mag_tot.toExponential(2) + " N/C";
+
+            // Dibujar Barra Gris
+            ctx.fillStyle = '#d3d3d3';
+            ctx.fillRect(mapX(0), mapY(0.1), mapDist(bar_L), mapDist(0.2));
+            
+            // Dibujar Área Verde
+            let w_acumulado = (idx + 1) * dx;
+            ctx.fillStyle = 'rgba(40, 167, 69, 0.4)';
+            ctx.fillRect(mapX(0), mapY(0.1), mapDist(w_acumulado), mapDist(0.2));
+            
+            // Dibujar Segmento Rojo
+            let x_actual = idx * dx;
+            ctx.fillStyle = '#dc3545';
+            ctx.fillRect(mapX(x_actual), mapY(0.1), mapDist(dx), mapDist(0.2));
+
+            // Dibujar Punto P
+            let canvas_px = mapX(px);
+            let canvas_py = mapY(py);
+            ctx.beginPath();
+            ctx.arc(canvas_px, canvas_py, 6, 0, 2 * Math.PI);
+            ctx.fillStyle = 'black';
+            ctx.fill();
+            ctx.font = "bold 16px Arial";
+            ctx.fillText("P", canvas_px + 10, canvas_py - 10);
+
+            // Base length para normalizar la visualización (El vector total siempre mide 120px)
+            let base_length_px = 120; 
+            let visual_scale = base_length_px / Math.max(mag_tot, 1e-9);
+
+            // Dibujar Vectores
+            if(chk_Etot.checked) {
+                drawArrow(canvas_px, canvas_py, 
+                          canvas_px + E_tot_x * visual_scale, 
+                          canvas_py - E_tot_y * visual_scale, 
+                          'black', 3, true);
+            }
+            if(chk_Eac.checked) {
+                drawArrow(canvas_px, canvas_py, 
+                          canvas_px + E_ac_x * visual_scale, 
+                          canvas_py - E_ac_y * visual_scale, 
+                          '#198754', 4, false);
+            }
+            if(chk_dE.checked) {
+                // Vector rojo con su tamaño real multiplicado SÓLO por la lupa del usuario
+                drawArrow(canvas_px, canvas_py, 
+                          canvas_px + (dE_act_x * visual_scale * mag_red), 
+                          canvas_py - (dE_act_y * visual_scale * mag_red), 
+                          '#dc3545', 3, false);
+            }
+        }
+
+        // Event Listeners
+        slider_x.addEventListener('input', updateSim);
+        slider_y.addEventListener('input', updateSim);
+        slider_n.addEventListener('input', updateSim);
+        slider_idx.addEventListener('input', updateSim);
+        slider_mag.addEventListener('input', updateSim);
+        chk_dE.addEventListener('change', updateSim);
+        chk_Eac.addEventListener('change', updateSim);
+        chk_Etot.addEventListener('change', updateSim);
+
+        // Iniciar
+        updateSim();
+    })();
+</script>
+</div></div>
+</div>
+</section>
+<section id="resolucion-analitica-campo-electrico-de-una-barra-cargada">
+<h3>📝 Resolución Analítica: Campo Eléctrico de una Barra Cargada<a class="headerlink" href="#resolucion-analitica-campo-electrico-de-una-barra-cargada" title="Permalink to this heading">#</a></h3>
+<p>A continuación, formalizaremos matemáticamente el problema que acabamos de analizar. Nuestro objetivo es calcular el campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> sobre un punto <span class="math notranslate nohighlight">\(P\)</span> ubicado a una distancia <span class="math notranslate nohighlight">\(d\)</span> del extremo derecho de una barra cargada uniformemente.</p>
+<section id="identificacion-de-los-vectores-y-diferenciales">
+<h4>1. Identificación de los Vectores y Diferenciales<a class="headerlink" href="#identificacion-de-los-vectores-y-diferenciales" title="Permalink to this heading">#</a></h4>
+<p>De acuerdo con nuestro sistema de referencia, la barra se encuentra sobre el eje <span class="math notranslate nohighlight">\(x\)</span>, comenzando en el origen (<span class="math notranslate nohighlight">\(x=0\)</span>) y terminando en <span class="math notranslate nohighlight">\(x=L\)</span>. La carga puntual se ubica en <span class="math notranslate nohighlight">\(x = L+d\)</span>.</p>
+<p>A partir de las respuestas de nuestro análisis previo:</p>
+<ul class="simple">
+<li><p><strong>Diferencial de carga de la fuente:</strong> <span class="math notranslate nohighlight">\(dq' = \lambda dx\)</span></p></li>
+<li><p><strong>Vector de posición de la fuente:</strong> <span class="math notranslate nohighlight">\(\vec{r}\,' = x \, \hat{\imath}\)</span></p></li>
+<li><p><strong>Vector de posición de observación:</strong> <span class="math notranslate nohighlight">\(\vec{r} = (L+d) \, \hat{\imath}\)</span></p></li>
+<li><p><strong>Vector diferencia (distancia relativa):</strong> <span class="math notranslate nohighlight">\(\vec{r} - \vec{r}\,' = (L+d-x) \, \hat{\imath}\)</span></p></li>
+</ul>
+</section>
+<section id="planteamiento-de-la-integral">
+<h4>2. Planteamiento de la Integral<a class="headerlink" href="#planteamiento-de-la-integral" title="Permalink to this heading">#</a></h4>
+<p>Partimos de la definición general para el campo eléctrico generado por una distribución continua:</p>
+<div class="math notranslate nohighlight">
+\[d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{dq'}{|\vec{r} - \vec{r}\,'|^3} (\vec{r} - \vec{r}\,')\]</div>
+<p>Reemplazamos nuestros términos específicos:</p>
+<div class="math notranslate nohighlight">
+\[d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{\lambda dx}{(L+d-x)^3} (L+d-x) \, \hat{\imath}\]</div>
+<p>Simplificando el exponente, obtenemos la expresión a integrar. Como la barra va de <span class="math notranslate nohighlight">\(x=0\)</span> a <span class="math notranslate nohighlight">\(x=L\)</span>, esos serán nuestros límites de integración:</p>
+<div class="math notranslate nohighlight">
+\[\vec{E} = \frac{\lambda}{4\pi\epsilon_0} \int_{0}^{L} \frac{dx}{(L+d-x)^2} \hat{\imath}\]</div>
+</section>
+<section id="resolucion-matematica">
+<h4>3. Resolución Matemática<a class="headerlink" href="#resolucion-matematica" title="Permalink to this heading">#</a></h4>
+<p>Para resolver la integral, podemos hacer una sustitución simple.
+Sea <span class="math notranslate nohighlight">\(u = L+d-x\)</span>, entonces <span class="math notranslate nohighlight">\(du = -dx\)</span>.
+Los límites cambian: si <span class="math notranslate nohighlight">\(x=0 \rightarrow u=L+d\)</span>; si <span class="math notranslate nohighlight">\(x=L \rightarrow u=d\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\int \frac{dx}{(L+d-x)^2} = \int_{L+d}^{d} \frac{-du}{u^2} = \int_{d}^{L+d} u^{-2} du\]</div>
+<p>Integramos aplicando la regla de la potencia:</p>
+<div class="math notranslate nohighlight">
+\[\left[ -u^{-1} \right]_{d}^{L+d} = \left[ -\frac{1}{u} \right]_{d}^{L+d} = -\frac{1}{L+d} - \left(-\frac{1}{d}\right) = \frac{1}{d} - \frac{1}{L+d}\]</div>
+<p>Si operamos las fracciones algebraicamente para tener un denominador común:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{d} - \frac{1}{L+d} = \frac{(L+d) - d}{d(L+d)} = \frac{L}{d(L+d)}\]</div>
+</section>
+<section id="resultado-final-del-campo-electrico">
+<h4>4. Resultado Final del Campo Eléctrico<a class="headerlink" href="#resultado-final-del-campo-electrico" title="Permalink to this heading">#</a></h4>
+<p>Sustituyendo el resultado de la integral en nuestra ecuación del campo:</p>
+<div class="math notranslate nohighlight">
+\[\vec{E} = \frac{\lambda L}{4\pi\epsilon_0 d(L+d)} \, \hat{\imath}\]</div>
+<blockquote>
+<div><p><strong>💡 Análisis físico:</strong> Nota que <span class="math notranslate nohighlight">\(\lambda L\)</span> es simplemente la carga total de la barra (<span class="math notranslate nohighlight">\(Q\)</span>). Por lo tanto, el campo también se puede escribir como <span class="math notranslate nohighlight">\(\vec{E} = \frac{Q}{4\pi\epsilon_0 d(L+d)} \, \hat{\imath}\)</span>. Si nos alejamos mucho de la barra (<span class="math notranslate nohighlight">\(d \gg L\)</span>), el término <span class="math notranslate nohighlight">\((L+d)\)</span> se aproxima a <span class="math notranslate nohighlight">\(d\)</span>, y la fórmula se reduce a <span class="math notranslate nohighlight">\(\frac{Q}{4\pi\epsilon_0 d^2}\)</span>, ¡exactamente el campo de una carga puntual!</p>
+</div></blockquote>
+</section>
+</section>
+<section id="preguntas-de-analisis">
+<h3>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h3>
+<p>Verifica tu comprensión de los pasos matemáticos y el significado físico de la fórmula obtenida.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_analisis_barra_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-barra-ana-1&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Durante el cálculo de la integral, se realiza el cambio de variable &lt;i&gt;u&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt; + &lt;i&gt;d&lt;/i&gt; - &lt;i&gt;x&lt;/i&gt;. ¿Por qué los límites de integración cambian de [0, &lt;i&gt;L&lt;/i&gt;] a [&lt;i&gt;L&lt;/i&gt;+&lt;i&gt;d&lt;/i&gt;, &lt;i&gt;d&lt;/i&gt;]?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. El signo del diferencial afecta a la función a integrar, pero los límites cambian por una simple evaluación algebraica.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque el diferencial &lt;i&gt;du&lt;/i&gt; = -&lt;i&gt;dx&lt;/i&gt; introduce un signo negativo que invierte automáticamente el sentido geométrico.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Es una evaluación directa de la nueva variable: cuando &lt;i&gt;x&lt;/i&gt;=0, &lt;i&gt;u&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt;+&lt;i&gt;d&lt;/i&gt;-0 = &lt;i&gt;L&lt;/i&gt;+&lt;i&gt;d&lt;/i&gt;. Cuando &lt;i&gt;x&lt;/i&gt;=&lt;i&gt;L&lt;/i&gt;, &lt;i&gt;u&lt;/i&gt; = &lt;i&gt;L&lt;/i&gt;+&lt;i&gt;d&lt;/i&gt;-&lt;i&gt;L&lt;/i&gt; = &lt;i&gt;d&lt;/i&gt;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Al evaluar el límite inferior (&lt;i&gt;x&lt;/i&gt;=0) en la ecuación de &lt;i&gt;u&lt;/i&gt; se obtiene &lt;i&gt;L&lt;/i&gt;+&lt;i&gt;d&lt;/i&gt;, y al evaluar el límite superior (&lt;i&gt;x&lt;/i&gt;=&lt;i&gt;L&lt;/i&gt;) se obtiene &lt;i&gt;d&lt;/i&gt;.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Los límites de integración están dictados estrictamente por la ubicación de la barra, no de la carga de prueba.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque ahora estamos integrando desde la posición de la carga puntual hacia la barra.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-ba1&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-ba1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-barra-ana-2&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. En el resultado final del campo eléctrico, aparece el término &amp;lambda;&lt;i&gt;L&lt;/i&gt; en el numerador. ¿Qué representa físicamente esta cantidad?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. La densidad superficial se denota con &amp;sigma; y se asocia a áreas, no a longitudes.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La densidad superficial total de la barra.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba2&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Es un valor constante, pero su significado físico es mucho más específico que una constante de proporcionalidad.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Una constante de integración adimensional.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba2&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Como &amp;lambda; es la carga por unidad de longitud (&lt;i&gt;Q/L&lt;/i&gt;), al multiplicar por la longitud total (&lt;i&gt;L&lt;/i&gt;), recuperamos la carga neta (&lt;i&gt;Q&lt;/i&gt;) de la barra.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La carga total &lt;i&gt;Q&lt;/i&gt; distribuida a lo largo de toda la barra.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-ba2&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-ba2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-barra-ana-3&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. El análisis físico menciona el caso límite donde la distancia &lt;i&gt;d&lt;/i&gt; es muchísimo mayor que la longitud &lt;i&gt;L&lt;/i&gt; (&lt;i&gt;d&lt;/i&gt; &amp;gg; &lt;i&gt;L&lt;/i&gt;). ¿Qué nos enseña físicamente que la ecuación se reduzca a &lt;i&gt;E&lt;/i&gt; = &lt;i&gt;Q&lt;/i&gt; / (4&amp;pi;&amp;epsilon;₀ &lt;i&gt;d&lt;/i&gt;²)?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba3&quot; value=&quot;a&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Muy bien! Desde muy lejos, las dimensiones del objeto pierden importancia. La barra entera se comporta y se &#39;ve&#39; eléctricamente como si fuera una sola carga puntual.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que a grandes distancias, cualquier distribución finita de carga se percibe y se comporta como una simple carga puntual.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba3&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Todo lo contrario; la fórmula nos demuestra que a gran distancia el campo decae siguiendo exactamente la ley del inverso del cuadrado (1/d²).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el campo eléctrico se vuelve constante e independiente de la distancia cuando nos alejamos lo suficiente.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba3&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Aunque el campo disminuye drásticamente, matemáticamente nunca se hace cero absoluto, solo tiende asintóticamente a cero.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el campo eléctrico se anula por completo debido a la pérdida de influencia de la densidad &amp;lambda;.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-ba3&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-ba3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot; id=&quot;quiz-barra-ana-4&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        4. Durante toda la resolución, el vector unitario &lt;b&gt;î&lt;/b&gt; se mantiene constante y sale de la integral. ¿Qué implica esto sobre las componentes del campo eléctrico en el punto &lt;i&gt;P&lt;/i&gt;?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba4&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Un campo nulo requeriría que la integral completa de cero o que haya otra carga cancelando el efecto.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el campo eléctrico neto en &lt;i&gt;P&lt;/i&gt; es nulo.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba4&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Como el punto P está colineal a la barra en el eje X, todas las contribuciones diferenciales &lt;i&gt;d&lt;/i&gt;&lt;b&gt;E&lt;/b&gt; empujan en la misma dirección horizontal, sin componentes en &lt;i&gt;Y&lt;/i&gt; o &lt;i&gt;Z&lt;/i&gt; que deban cancelarse o sumarse.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que todas las contribuciones diferenciales apuntan exclusivamente en la misma dirección (eje X), por lo que la suma es directa y colineal.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qba4&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. La presencia de un solo vector unitario (&lt;b&gt;î&lt;/b&gt;) nos indica exactamente lo opuesto: no hay componente en Y (&lt;b&gt;ĵ&lt;/b&gt;).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el campo tiene componentes tanto en el eje X como en el eje Y que deben calcularse por separado.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; id=&quot;btn-check-ba4&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-ba4&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    (function() {</span>
+<span class="s2">        function setupQuiz(btnId, radioName, feedbackId) {</span>
+<span class="s2">            var btn = document.getElementById(btnId);</span>
+<span class="s2">            if (!btn) return;</span>
+
+<span class="s2">            btn.addEventListener(&#39;click&#39;, function() {</span>
+<span class="s2">                var radios = document.getElementsByName(radioName);</span>
+<span class="s2">                var selected = null;</span>
+<span class="s2">                var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">                </span>
+<span class="s2">                for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                    if (radios[i].checked) {</span>
+<span class="s2">                        selected = radios[i];</span>
+<span class="s2">                        break;</span>
+<span class="s2">                    }</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">                </span>
+<span class="s2">                if (!selected) {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                    return;</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">                var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">                </span>
+<span class="s2">                if (isCorrect) {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">                } else {</span>
+<span class="s2">                    feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                    feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                    feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                    feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">                }</span>
+<span class="s2">            });</span>
+<span class="s2">        }</span>
+
+<span class="s2">        setTimeout(function() {</span>
+<span class="s2">            setupQuiz(&#39;btn-check-ba1&#39;, &#39;qba1&#39;, &#39;feedback-ba1&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-ba2&#39;, &#39;qba2&#39;, &#39;feedback-ba2&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-ba3&#39;, &#39;qba3&#39;, &#39;feedback-ba3&#39;);</span>
+<span class="s2">            setupQuiz(&#39;btn-check-ba4&#39;, &#39;qba4&#39;, &#39;feedback-ba4&#39;);</span>
+<span class="s2">        }, 500);</span>
+<span class="s2">    })();</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_analisis_barra_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<div class="fisi-quiz-container" id="quiz-barra-ana-1">
+    <div class="fisi-question">
+        1. Durante el cálculo de la integral, se realiza el cambio de variable <i>u</i> = <i>L</i> + <i>d</i> - <i>x</i>. ¿Por qué los límites de integración cambian de [0, <i>L</i>] a [<i>L</i>+<i>d</i>, <i>d</i>]?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qba1" value="a" data-fb="Incorrecto. El signo del diferencial afecta a la función a integrar, pero los límites cambian por una simple evaluación algebraica."> 
+        <span>Porque el diferencial <i>du</i> = -<i>dx</i> introduce un signo negativo que invierte automáticamente el sentido geométrico.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba1" value="b" data-correct="true" data-fb="¡Correcto! Es una evaluación directa de la nueva variable: cuando <i>x</i>=0, <i>u</i> = <i>L</i>+<i>d</i>-0 = <i>L</i>+<i>d</i>. Cuando <i>x</i>=<i>L</i>, <i>u</i> = <i>L</i>+<i>d</i>-<i>L</i> = <i>d</i>."> 
+        <span>Al evaluar el límite inferior (<i>x</i>=0) en la ecuación de <i>u</i> se obtiene <i>L</i>+<i>d</i>, y al evaluar el límite superior (<i>x</i>=<i>L</i>) se obtiene <i>d</i>.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba1" value="c" data-fb="Incorrecto. Los límites de integración están dictados estrictamente por la ubicación de la barra, no de la carga de prueba."> 
+        <span>Porque ahora estamos integrando desde la posición de la carga puntual hacia la barra.</span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-ba1">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-ba1"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-barra-ana-2">
+    <div class="fisi-question">
+        2. En el resultado final del campo eléctrico, aparece el término &lambda;<i>L</i> en el numerador. ¿Qué representa físicamente esta cantidad?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qba2" value="a" data-fb="Incorrecto. La densidad superficial se denota con &sigma; y se asocia a áreas, no a longitudes."> 
+        <span>La densidad superficial total de la barra.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba2" value="b" data-fb="Incorrecto. Es un valor constante, pero su significado físico es mucho más específico que una constante de proporcionalidad."> 
+        <span>Una constante de integración adimensional.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba2" value="c" data-correct="true" data-fb="¡Exacto! Como &lambda; es la carga por unidad de longitud (<i>Q/L</i>), al multiplicar por la longitud total (<i>L</i>), recuperamos la carga neta (<i>Q</i>) de la barra."> 
+        <span>La carga total <i>Q</i> distribuida a lo largo de toda la barra.</span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-ba2">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-ba2"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-barra-ana-3">
+    <div class="fisi-question">
+        3. El análisis físico menciona el caso límite donde la distancia <i>d</i> es muchísimo mayor que la longitud <i>L</i> (<i>d</i> &gg; <i>L</i>). ¿Qué nos enseña físicamente que la ecuación se reduzca a <i>E</i> = <i>Q</i> / (4&pi;&epsilon;₀ <i>d</i>²)?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qba3" value="a" data-correct="true" data-fb="¡Muy bien! Desde muy lejos, las dimensiones del objeto pierden importancia. La barra entera se comporta y se 've' eléctricamente como si fuera una sola carga puntual."> 
+        <span>Que a grandes distancias, cualquier distribución finita de carga se percibe y se comporta como una simple carga puntual.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba3" value="b" data-fb="Incorrecto. Todo lo contrario; la fórmula nos demuestra que a gran distancia el campo decae siguiendo exactamente la ley del inverso del cuadrado (1/d²)."> 
+        <span>Que el campo eléctrico se vuelve constante e independiente de la distancia cuando nos alejamos lo suficiente.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba3" value="c" data-fb="Incorrecto. Aunque el campo disminuye drásticamente, matemáticamente nunca se hace cero absoluto, solo tiende asintóticamente a cero."> 
+        <span>Que el campo eléctrico se anula por completo debido a la pérdida de influencia de la densidad &lambda;.</span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-ba3">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-ba3"></div>
+</div>
+
+<div class="fisi-quiz-container" id="quiz-barra-ana-4">
+    <div class="fisi-question">
+        4. Durante toda la resolución, el vector unitario <b>î</b> se mantiene constante y sale de la integral. ¿Qué implica esto sobre las componentes del campo eléctrico en el punto <i>P</i>?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qba4" value="a" data-fb="Incorrecto. Un campo nulo requeriría que la integral completa de cero o que haya otra carga cancelando el efecto."> 
+        <span>Que el campo eléctrico neto en <i>P</i> es nulo.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba4" value="b" data-correct="true" data-fb="¡Exacto! Como el punto P está colineal a la barra en el eje X, todas las contribuciones diferenciales <i>d</i><b>E</b> empujan en la misma dirección horizontal, sin componentes en <i>Y</i> o <i>Z</i> que deban cancelarse o sumarse."> 
+        <span>Que todas las contribuciones diferenciales apuntan exclusivamente en la misma dirección (eje X), por lo que la suma es directa y colineal.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qba4" value="c" data-fb="Incorrecto. La presencia de un solo vector unitario (<b>î</b>) nos indica exactamente lo opuesto: no hay componente en Y (<b>ĵ</b>)."> 
+        <span>Que el campo tiene componentes tanto en el eje X como en el eje Y que deben calcularse por separado.</span>
+    </label>
+    <button class="fisi-check-btn" id="btn-check-ba4">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-ba4"></div>
+</div>
+
+<script>
+    (function() {
+        function setupQuiz(btnId, radioName, feedbackId) {
+            var btn = document.getElementById(btnId);
+            if (!btn) return;
+
+            btn.addEventListener('click', function() {
+                var radios = document.getElementsByName(radioName);
+                var selected = null;
+                var feedbackDiv = document.getElementById(feedbackId);
+                
+                for (var i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        selected = radios[i];
+                        break;
+                    }
+                }
+                
+                feedbackDiv.style.display = 'block';
+                
+                if (!selected) {
+                    feedbackDiv.style.backgroundColor = '#fff3cd';
+                    feedbackDiv.style.color = '#856404';
+                    feedbackDiv.style.border = '1px solid #ffeeba';
+                    feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                    return;
+                }
+                
+                var isCorrect = selected.getAttribute('data-correct') === 'true';
+                var msg = selected.getAttribute('data-fb');
+                
+                if (isCorrect) {
+                    feedbackDiv.style.backgroundColor = '#d4edda';
+                    feedbackDiv.style.color = '#155724';
+                    feedbackDiv.style.border = '1px solid #c3e6cb';
+                    feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+                } else {
+                    feedbackDiv.style.backgroundColor = '#f8d7da';
+                    feedbackDiv.style.color = '#721c24';
+                    feedbackDiv.style.border = '1px solid #f5c6cb';
+                    feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+                }
+            });
+        }
+
+        setTimeout(function() {
+            setupQuiz('btn-check-ba1', 'qba1', 'feedback-ba1');
+            setupQuiz('btn-check-ba2', 'qba2', 'feedback-ba2');
+            setupQuiz('btn-check-ba3', 'qba3', 'feedback-ba3');
+            setupQuiz('btn-check-ba4', 'qba4', 'feedback-ba4');
+        }, 500);
+    })();
+</script>
+</div></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_03_campo.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1.3 Campo Eléctrico</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="01_05_anillo.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1.5 Anillo Uniformemente Cargado</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guia-rapida-cual-densidad-utilizar">Guía rápida: ¿Cuál densidad utilizar?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-campo-electrico-generado-por-una-barra-uniforme">Problema: Campo eléctrico generado por una barra uniforme</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-comprension">Preguntas de Comprensión:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-integracion-del-campo-electrico-barra-cargada">Simulación: Integración del Campo Eléctrico (Barra Cargada)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-analitica-campo-electrico-de-una-barra-cargada">📝 Resolución Analítica: Campo Eléctrico de una Barra Cargada</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-vectores-y-diferenciales">1. Identificación de los Vectores y Diferenciales</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-de-la-integral">2. Planteamiento de la Integral</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-matematica">3. Resolución Matemática</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final-del-campo-electrico">4. Resultado Final del Campo Eléctrico</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By José Miguel Pinto
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

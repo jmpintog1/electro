@@ -1,0 +1,1298 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2.4 Simetría Cilíndrica &#8212; Curso de Electricidad y Magnetismo</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02_04_gauss_cilindro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2.5 Simetría Plana" href="02_05_gauss_plano.html" />
+    <link rel="prev" title="2.3 Simetría Esférica" href="02_03_gauss_esfera.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Curso de Electricidad y Magnetismo - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Curso de Electricidad y Magnetismo - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenidos al Curso de Electricidad y Magnetismo
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1 Carga Eléctrica y Campo Eléctrico</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_01_carga.html">1.1 Carga Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_02_coulomb.html">1.2 Ley de Coulomb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_03_campo.html">1.3 Campo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_04_continua.html">1.4 Distribución de Carga</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_05_anillo.html">1.5 Anillo Uniformemente Cargado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_06_disco.html">1.6 Disco Cargado Uniformemente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_07_alambre.html">1.7 Alambre Infinito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Explorando la Densidad de Carga en un Disco</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2 Ley de Gauss</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_01_flujo.html">2.1 Flujo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_02_gauss.html">2.2 La Ley de Gauss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_03_gauss_esfera.html">2.3 Simetría Esférica</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2.4 Simetría Cilíndrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_05_gauss_plano.html">2.5 Simetría Plana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_06_conductores.html">2.6 Conductores y Aislantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera Aislante</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3 Potencial Eléctrico</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03_01_potencial.html">3.1 Campo y Potencial Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_02_energia.html">3.2 Energía Potencial Electrostática y Trabajo</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmpintog1/electro/blob/main/./02_04_gauss_cilindro.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmpintog1/electro" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2F02_04_gauss_cilindro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/02_04_gauss_cilindro.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2.4 Simetría Cilíndrica</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eleccion-de-la-superficie-gaussiana">Elección de la Superficie Gaussiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-3d-ley-de-gauss-para-un-alambre-infinito">Simulación 3D: Ley de Gauss para un Alambre Infinito</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-del-flujo">Análisis del Flujo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-matematico">Planteamiento Matemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-un-cilindro">Visualización 3D: ¿Por qué un cilindro?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="simetria-cilindrica">
+<h1>2.4 Simetría Cilíndrica<a class="headerlink" href="#simetria-cilindrica" title="Permalink to this heading">#</a></h1>
+<p>¿Recuerdas el cálculo del campo eléctrico de un alambre infinito con densidad de carga <span class="math notranslate nohighlight">\(\lambda\)</span>? Tuvimos que analizar simetrías, usar sustituciones trigonométricas pesadas e integrar desde el infinito. Veamos cómo lo resuelve el maestro Gauss.</p>
+<p>Dado que el alambre es infinito, su campo eléctrico debe apuntar radialmente hacia afuera de él en forma de “cepillo cilíndrico”. No puede tener componentes paralelas al alambre, porque el alambre es idéntico hacia arriba y hacia abajo.</p>
+<section id="eleccion-de-la-superficie-gaussiana">
+<h2>Elección de la Superficie Gaussiana<a class="headerlink" href="#eleccion-de-la-superficie-gaussiana" title="Permalink to this heading">#</a></h2>
+<p>Esta vez, una esfera no nos sirve porque el campo no es igual en todos los puntos de la esfera. Necesitamos una forma que imite al alambre: un <strong>Cilindro Imaginario</strong> cerrado (como una lata de bebida) de radio <span class="math notranslate nohighlight">\(r\)</span> y largo <span class="math notranslate nohighlight">\(L\)</span>, con el alambre pasando justo por su eje central.</p>
+<a class="reference internal image-reference" href="_images/02_04.svg"><img alt="Alambre infinito" class="align-center" src="_images/02_04.svg" width="60%" /></a>
+</section>
+<section id="simulacion-3d-ley-de-gauss-para-un-alambre-infinito">
+<h2>Simulación 3D: Ley de Gauss para un Alambre Infinito<a class="headerlink" href="#simulacion-3d-ley-de-gauss-para-un-alambre-infinito" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">simulacion_gauss_alambre_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;div style=&quot;border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif;&quot;&gt;</span>
+<span class="s2">    &lt;h3 style=&quot;margin-top:0; color: #2c3e50;&quot;&gt;Simulación 3D: Ley de Gauss para un Alambre Infinito&lt;/h3&gt;</span>
+<span class="s2">    &lt;p style=&quot;font-size: 0.95em; color: #555; margin-bottom: 15px;&quot;&gt;Ajusta el radio &lt;span style=&quot;color:#0056b3;&quot;&gt;r&lt;/span&gt; y el largo &lt;span style=&quot;color:#198754;&quot;&gt;L&lt;/span&gt; del cilindro gaussiano (superficie imaginaria). Observa cómo interactúan los vectores normales &lt;span style=&quot;color:#d9534f; font-weight:bold;&quot;&gt;n̂&lt;/span&gt; con el campo radial &lt;span style=&quot;color:#333; font-weight:bold;&quot;&gt;E&lt;/span&gt;.&lt;/p&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;&quot;&gt;</span>
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 250px;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 170px; color: #0056b3;&quot;&gt;Radio del Cilindro (r): &lt;span id=&quot;wg_val_r&quot; style=&quot;font-weight: normal;&quot;&gt;1.5&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;wg_slider_r&quot; min=&quot;0.5&quot; max=&quot;3&quot; step=&quot;0.1&quot; value=&quot;1.5&quot; style=&quot;width: 35%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 170px; color: #198754;&quot;&gt;Largo del Cilindro (L): &lt;span id=&quot;wg_val_L&quot; style=&quot;font-weight: normal;&quot;&gt;4.0&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;wg_slider_L&quot; min=&quot;1&quot; max=&quot;6&quot; step=&quot;0.5&quot; value=&quot;4.0&quot; style=&quot;width: 35%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 170px;&quot;&gt;Rotar Cámara: &lt;span id=&quot;wg_val_cam&quot; style=&quot;font-weight: normal;&quot;&gt;25°&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;wg_slider_cam&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;1&quot; value=&quot;25&quot; style=&quot;width: 35%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 320px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); font-size: 0.9em;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;font-weight: bold; margin-bottom: 8px; border-bottom: 1px solid #ccc; padding-bottom: 5px;&quot;&gt;Análisis Gaussiano (&amp;lambda; = 2.0 &amp;mu;C/m)&lt;/div&gt;</span>
+<span class="s2">            </span>
+<span class="s2">            &lt;div style=&quot;display: flex; justify-content: space-between; margin-bottom: 5px;&quot;&gt;</span>
+<span class="s2">                &lt;span&gt;Carga Encerrada (q&lt;sub&gt;enc&lt;/sub&gt; = &amp;lambda;&lt;span style=&quot;color:#198754;&quot;&gt;L&lt;/span&gt;):&lt;/span&gt;</span>
+<span class="s2">                &lt;span id=&quot;wg_math_q&quot; style=&quot;font-weight: bold; color: #d9534f;&quot;&gt;8.0 &amp;mu;C&lt;/span&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;display: flex; justify-content: space-between; margin-bottom: 5px;&quot;&gt;</span>
+<span class="s2">                &lt;span&gt;Área del Manto (A = 2&amp;pi;&lt;span style=&quot;color:#0056b3;&quot;&gt;r&lt;/span&gt;&lt;span style=&quot;color:#198754;&quot;&gt;L&lt;/span&gt;):&lt;/span&gt;</span>
+<span class="s2">                &lt;span id=&quot;wg_math_A&quot; style=&quot;font-weight: bold; color: #0056b3;&quot;&gt;37.7 m&amp;sup2;&lt;/span&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            </span>
+<span class="s2">            &lt;div style=&quot;display: flex; justify-content: space-between; font-size: 0.85em; color: #666; margin-top: 10px;&quot;&gt;</span>
+<span class="s2">                &lt;span&gt;&amp;Phi;&lt;sub&gt;Tapas&lt;/sub&gt; = 0  (porque &lt;span style=&quot;color:#d9534f&quot;&gt;n̂&lt;/span&gt; &amp;perp; E)&lt;/span&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;display: flex; justify-content: space-between; font-size: 0.85em; color: #666;&quot;&gt;</span>
+<span class="s2">                &lt;span&gt;&amp;Phi;&lt;sub&gt;Manto&lt;/sub&gt; = E &amp;middot; A  (porque &lt;span style=&quot;color:#d9534f&quot;&gt;n̂&lt;/span&gt; &amp;parallel; E)&lt;/span&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            </span>
+<span class="s2">            &lt;div style=&quot;margin-top: 10px; border-top: 2px solid #eee; padding-top: 8px; background: #f9f9f9; padding: 10px; border-radius: 4px;&quot;&gt;</span>
+<span class="s2">                &lt;div style=&quot;text-align: center; font-family: monospace; font-size: 1.1em; margin-bottom: 5px;&quot;&gt;</span>
+<span class="s2">                    E &amp;middot; (&lt;span id=&quot;wg_eq_A&quot; style=&quot;color:#0056b3&quot;&gt;37.7&lt;/span&gt;) = (&lt;span id=&quot;wg_eq_q&quot; style=&quot;color:#d9534f&quot;&gt;8.0&lt;/span&gt;) / &amp;epsilon;&amp;#8320;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">                &lt;div style=&quot;text-align: center; font-weight: bold; font-size: 1.2em;&quot;&gt;</span>
+<span class="s2">                    E = &lt;span id=&quot;wg_math_E&quot;&gt;24.0&lt;/span&gt; kN/C</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">                &lt;div style=&quot;text-align: center; font-size: 0.8em; color: #888; margin-top: 4px;&quot; id=&quot;wg_msg_cancel&quot;&gt;</span>
+<span class="s2">                    ¡Nota que cambiar L no afecta a E!</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;text-align: center;&quot;&gt;</span>
+<span class="s2">        &lt;canvas id=&quot;wire_gauss_canvas&quot; width=&quot;800&quot; height=&quot;420&quot; style=&quot;background: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;&quot;&gt;&lt;/canvas&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    (function() {</span>
+<span class="s2">        const canvas = document.getElementById(&#39;wire_gauss_canvas&#39;);</span>
+<span class="s2">        const ctx = canvas.getContext(&#39;2d&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        // UI Elements</span>
+<span class="s2">        const slider_r = document.getElementById(&#39;wg_slider_r&#39;);</span>
+<span class="s2">        const slider_L = document.getElementById(&#39;wg_slider_L&#39;);</span>
+<span class="s2">        const slider_cam = document.getElementById(&#39;wg_slider_cam&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const val_r = document.getElementById(&#39;wg_val_r&#39;);</span>
+<span class="s2">        const val_L = document.getElementById(&#39;wg_val_L&#39;);</span>
+<span class="s2">        const val_cam = document.getElementById(&#39;wg_val_cam&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const math_q = document.getElementById(&#39;wg_math_q&#39;);</span>
+<span class="s2">        const math_A = document.getElementById(&#39;wg_math_A&#39;);</span>
+<span class="s2">        const eq_q = document.getElementById(&#39;wg_eq_q&#39;);</span>
+<span class="s2">        const eq_A = document.getElementById(&#39;wg_eq_A&#39;);</span>
+<span class="s2">        const math_E = document.getElementById(&#39;wg_math_E&#39;);</span>
+<span class="s2">        const msg_cancel = document.getElementById(&#39;wg_msg_cancel&#39;);</span>
+
+<span class="s2">        // Configuración 3D</span>
+<span class="s2">        const cx = canvas.width / 2;</span>
+<span class="s2">        const cy = canvas.height / 2;</span>
+<span class="s2">        const scale3D = 35; </span>
+<span class="s2">        const lambda = 2.0; // uC/m</span>
+<span class="s2">        const k_const = 9.0; // Aproximación para visualización kN/C</span>
+
+<span class="s2">        function drawHatNVectorial(ctx, x, y) {</span>
+<span class="s2">          let labelX = x + 5; let labelY = y - 5;</span>
+<span class="s2">          ctx.lineWidth = 1.5; ctx.lineCap = &#39;round&#39;; ctx.lineJoin = &#39;round&#39;;</span>
+<span class="s2">          ctx.strokeStyle = ctx.fillStyle; </span>
+<span class="s2">          labelY -= 3; </span>
+<span class="s2">          </span>
+<span class="s2">          ctx.beginPath();</span>
+<span class="s2">          let hatWidth = 6; let hatHeight = 3;</span>
+<span class="s2">          let hatTopX = labelX + hatWidth / 2; let hatTopY = labelY - 3; </span>
+<span class="s2">          ctx.moveTo(labelX, labelY); ctx.lineTo(hatTopX, hatTopY); ctx.lineTo(labelX + hatWidth, labelY);</span>
+<span class="s2">          ctx.stroke();</span>
+
+<span class="s2">          ctx.beginPath();</span>
+<span class="s2">          let nWidth = 7; let nHeight = 8;</span>
+<span class="s2">          let topY = labelY + 2; let bottomY = topY + nHeight; </span>
+<span class="s2">          ctx.moveTo(labelX, bottomY); ctx.lineTo(labelX, topY + 2); </span>
+<span class="s2">          ctx.quadraticCurveTo(labelX + nWidth / 2, topY - 3, labelX + nWidth, topY + 2);</span>
+<span class="s2">          ctx.lineTo(labelX + nWidth, bottomY); </span>
+<span class="s2">          ctx.stroke();</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function drawArrow(from, to, color, width, label=&quot;&quot;) {</span>
+<span class="s2">            ctx.beginPath(); ctx.moveTo(from.x, from.y); ctx.lineTo(to.x, to.y);</span>
+<span class="s2">            ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();</span>
+<span class="s2">            let angle = Math.atan2(to.y - from.y, to.x - from.x);</span>
+<span class="s2">            let headlen = 10;</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.moveTo(to.x, to.y);</span>
+<span class="s2">            ctx.lineTo(to.x - headlen * Math.cos(angle - Math.PI/7), to.y - headlen * Math.sin(angle - Math.PI/7));</span>
+<span class="s2">            ctx.lineTo(to.x - headlen * Math.cos(angle + Math.PI/7), to.y - headlen * Math.sin(angle + Math.PI/7));</span>
+<span class="s2">            ctx.lineTo(to.x, to.y);</span>
+<span class="s2">            ctx.fillStyle = color; ctx.fill();</span>
+<span class="s2">            </span>
+<span class="s2">            if (label === &quot;n̂&quot;) drawHatNVectorial(ctx, to.x, to.y);</span>
+<span class="s2">            else if (label !== &quot;&quot;) { ctx.fillStyle = color; ctx.font = &#39;italic bold 16px Arial&#39;; ctx.fillText(label, to.x + 5, to.y - 5); }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function updateSim() {</span>
+<span class="s2">            let r = parseFloat(slider_r.value);</span>
+<span class="s2">            let L = parseFloat(slider_L.value);</span>
+<span class="s2">            let cam_angle = parseFloat(slider_cam.value) * Math.PI / 180;</span>
+<span class="s2">            </span>
+<span class="s2">            val_r.innerText = r.toFixed(1); val_L.innerText = L.toFixed(1); val_cam.innerText = slider_cam.value + &quot;°&quot;;</span>
+<span class="s2">            </span>
+<span class="s2">            // Cálculos físicos</span>
+<span class="s2">            let q_enc = lambda * L;</span>
+<span class="s2">            let Area = 2 * Math.PI * r * L;</span>
+<span class="s2">            let E_field = (2 * k_const * lambda) / r; // E = 2k*lambda / r</span>
+<span class="s2">            </span>
+<span class="s2">            math_q.innerText = q_enc.toFixed(1) + &quot; </span><span class="se">\u03BC</span><span class="s2">C&quot;;</span>
+<span class="s2">            math_A.innerText = Area.toFixed(1) + &quot; m</span><span class="se">\u00B2</span><span class="s2">&quot;;</span>
+<span class="s2">            eq_q.innerText = q_enc.toFixed(1);</span>
+<span class="s2">            eq_A.innerText = Area.toFixed(1);</span>
+<span class="s2">            math_E.innerText = E_field.toFixed(1);</span>
+
+<span class="s2">            // Efecto visual para enfatizar la cancelación</span>
+<span class="s2">            msg_cancel.style.color = &#39;#888&#39;;</span>
+<span class="s2">            msg_cancel.style.fontWeight = &#39;normal&#39;;</span>
+<span class="s2">            clearTimeout(window.cancelHighlightTimer);</span>
+<span class="s2">            if(window.last_L !== undefined &amp;&amp; window.last_L !== L) {</span>
+<span class="s2">                msg_cancel.style.color = &#39;#d9534f&#39;;</span>
+<span class="s2">                msg_cancel.style.fontWeight = &#39;bold&#39;;</span>
+<span class="s2">                window.cancelHighlightTimer = setTimeout(() =&gt; {</span>
+<span class="s2">                    msg_cancel.style.color = &#39;#888&#39;;</span>
+<span class="s2">                    msg_cancel.style.fontWeight = &#39;normal&#39;;</span>
+<span class="s2">                }, 800);</span>
+<span class="s2">            }</span>
+<span class="s2">            window.last_L = L;</span>
+
+<span class="s2">            ctx.clearRect(0, 0, canvas.width, canvas.height);</span>
+<span class="s2">            </span>
+<span class="s2">            // Proyección 3D (Eje Y es el vertical)</span>
+<span class="s2">            let tilt = 0.25; </span>
+<span class="s2">            function proj3D(lx, ly, lz) {</span>
+<span class="s2">                let rot_x = lx * Math.cos(cam_angle) - lz * Math.sin(cam_angle);</span>
+<span class="s2">                let rot_z = lx * Math.sin(cam_angle) + lz * Math.cos(cam_angle);</span>
+<span class="s2">                let px = cx + rot_x * scale3D;</span>
+<span class="s2">                let py = cy - ly * scale3D - rot_z * scale3D * Math.sin(tilt);</span>
+<span class="s2">                return {x: px, y: py, z: rot_z}; </span>
+<span class="s2">            }</span>
+
+<span class="s2">            // 1. Dibujar Alambre Infinito (Línea roja gruesa a lo largo del eje Y)</span>
+<span class="s2">            let wire_top = proj3D(0, 5, 0);</span>
+<span class="s2">            let wire_bot = proj3D(0, -5, 0);</span>
+<span class="s2">            ctx.beginPath(); ctx.moveTo(wire_bot.x, wire_bot.y); ctx.lineTo(wire_top.x, wire_top.y);</span>
+<span class="s2">            ctx.strokeStyle = &#39;#dc3545&#39;; ctx.lineWidth = 4; ctx.stroke();</span>
+
+<span class="s2">            // Puntos para generar el cilindro</span>
+<span class="s2">            let topPts = [], botPts = [];</span>
+<span class="s2">            let segments = 36;</span>
+<span class="s2">            for(let i=0; i&lt;=segments; i++) {</span>
+<span class="s2">                let ang = (i/segments) * 2 * Math.PI;</span>
+<span class="s2">                let px = r * Math.cos(ang);</span>
+<span class="s2">                let pz = r * Math.sin(ang);</span>
+<span class="s2">                topPts.push(proj3D(px, L/2, pz));</span>
+<span class="s2">                botPts.push(proj3D(px, -L/2, pz));</span>
+<span class="s2">            }</span>
+
+<span class="s2">            // 2. Dibujar Cilindro Gaussiano (Manto trasero)</span>
+<span class="s2">            ctx.fillStyle = &#39;rgba(0, 123, 255, 0.15)&#39;; // Azul translúcido</span>
+<span class="s2">            ctx.strokeStyle = &#39;rgba(0, 123, 255, 0.5)&#39;;</span>
+<span class="s2">            ctx.lineWidth = 1;</span>
+<span class="s2">            </span>
+<span class="s2">            // Rellenar cilindro completo</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.moveTo(topPts[0].x, topPts[0].y);</span>
+<span class="s2">            for(let i=1; i&lt;=segments; i++) ctx.lineTo(topPts[i].x, topPts[i].y);</span>
+<span class="s2">            for(let i=segments; i&gt;=0; i--) ctx.lineTo(botPts[i].x, botPts[i].y);</span>
+<span class="s2">            ctx.closePath();</span>
+<span class="s2">            ctx.fill();</span>
+
+<span class="s2">            // Bordes (Elipses superior e inferior)</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.moveTo(topPts[0].x, topPts[0].y);</span>
+<span class="s2">            for(let i=1; i&lt;=segments; i++) ctx.lineTo(topPts[i].x, topPts[i].y);</span>
+<span class="s2">            ctx.stroke();</span>
+
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.moveTo(botPts[0].x, botPts[0].y);</span>
+<span class="s2">            for(let i=1; i&lt;=segments; i++) ctx.lineTo(botPts[i].x, botPts[i].y);</span>
+<span class="s2">            ctx.stroke();</span>
+
+<span class="s2">            // Líneas laterales del cilindro para dar volumen</span>
+<span class="s2">            ctx.beginPath(); ctx.moveTo(topPts[0].x, topPts[0].y); ctx.lineTo(botPts[0].x, botPts[0].y); ctx.stroke();</span>
+<span class="s2">            let half_idx = Math.floor(segments/2);</span>
+<span class="s2">            ctx.beginPath(); ctx.moveTo(topPts[half_idx].x, topPts[half_idx].y); ctx.lineTo(botPts[half_idx].x, botPts[half_idx].y); ctx.stroke();</span>
+
+<span class="s2">            // 3. Dibujar Vectores</span>
+<span class="s2">            let norm_len = 1.2;</span>
+<span class="s2">            let E_len = 2.0;</span>
+
+<span class="s2">            // --- Tapa Superior (n̂ hacia arriba, E hacia afuera) ---</span>
+<span class="s2">            let top_center = proj3D(0, L/2, 0);</span>
+<span class="s2">            let top_n = proj3D(0, L/2 + norm_len, 0);</span>
+<span class="s2">            drawArrow(top_center, top_n, &#39;#d9534f&#39;, 3, &quot;n̂&quot;); // Vector Normal</span>
+<span class="s2">            </span>
+<span class="s2">            let top_edge = proj3D(r, L/2, 0); // Un punto en el borde superior</span>
+<span class="s2">            let top_E = proj3D(r + E_len, L/2, 0);</span>
+<span class="s2">            drawArrow(top_edge, top_E, &#39;rgba(0,0,0,0.6)&#39;, 2, &quot;E&quot;); // Campo E (perpendicular a n̂)</span>
+
+<span class="s2">            // --- Tapa Inferior (n̂ hacia abajo) ---</span>
+<span class="s2">            let bot_center = proj3D(0, -L/2, 0);</span>
+<span class="s2">            let bot_n = proj3D(0, -L/2 - norm_len, 0);</span>
+<span class="s2">            drawArrow(bot_center, bot_n, &#39;#d9534f&#39;, 3, &quot;n̂&quot;);</span>
+
+<span class="s2">            // --- Manto (n̂ y E paralelos, radiales) ---</span>
+<span class="s2">            // Elegimos un ángulo visible según la cámara para que los vectores se vean claros</span>
+<span class="s2">            // Queremos que apunten hacia la derecha/frente (+X local)</span>
+<span class="s2">            let side_pt = proj3D(r, 0, 0);</span>
+<span class="s2">            let side_n = proj3D(r + norm_len, 0, 0);</span>
+<span class="s2">            let side_E = proj3D(r + E_len, 0, 0); // E es un poco más largo</span>
+<span class="s2">            </span>
+<span class="s2">            // Dibujar primero el E y luego el n̂ sobre él</span>
+<span class="s2">            drawArrow(side_pt, side_E, &#39;rgba(0,0,0,0.6)&#39;, 2, &quot;E&quot;); </span>
+<span class="s2">            drawArrow(side_pt, side_n, &#39;#d9534f&#39;, 3, &quot;n̂&quot;);</span>
+
+<span class="s2">        }</span>
+
+<span class="s2">        slider_r.addEventListener(&#39;input&#39;, updateSim);</span>
+<span class="s2">        slider_L.addEventListener(&#39;input&#39;, updateSim);</span>
+<span class="s2">        slider_cam.addEventListener(&#39;input&#39;, updateSim);</span>
+
+<span class="s2">        updateSim();</span>
+<span class="s2">    })();</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">simulacion_gauss_alambre_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+    <h3 style="margin-top:0; color: #2c3e50;">Simulación 3D: Ley de Gauss para un Alambre Infinito</h3>
+    <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">Ajusta el radio <span style="color:#0056b3;">r</span> y el largo <span style="color:#198754;">L</span> del cilindro gaussiano (superficie imaginaria). Observa cómo interactúan los vectores normales <span style="color:#d9534f; font-weight:bold;">n̂</span> con el campo radial <span style="color:#333; font-weight:bold;">E</span>.</p>
+    
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;">
+        <div style="flex: 1; min-width: 250px;">
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 170px; color: #0056b3;">Radio del Cilindro (r): <span id="wg_val_r" style="font-weight: normal;">1.5</span></label>
+                <input type="range" id="wg_slider_r" min="0.5" max="3" step="0.1" value="1.5" style="width: 35%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 170px; color: #198754;">Largo del Cilindro (L): <span id="wg_val_L" style="font-weight: normal;">4.0</span></label>
+                <input type="range" id="wg_slider_L" min="1" max="6" step="0.5" value="4.0" style="width: 35%; vertical-align: middle;">
+            </div>
+            <div>
+                <label style="font-weight: 600; display: inline-block; width: 170px;">Rotar Cámara: <span id="wg_val_cam" style="font-weight: normal;">25°</span></label>
+                <input type="range" id="wg_slider_cam" min="0" max="360" step="1" value="25" style="width: 35%; vertical-align: middle;">
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 320px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); font-size: 0.9em;">
+            <div style="font-weight: bold; margin-bottom: 8px; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Análisis Gaussiano (&lambda; = 2.0 &mu;C/m)</div>
+            
+            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                <span>Carga Encerrada (q<sub>enc</sub> = &lambda;<span style="color:#198754;">L</span>):</span>
+                <span id="wg_math_q" style="font-weight: bold; color: #d9534f;">8.0 &mu;C</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                <span>Área del Manto (A = 2&pi;<span style="color:#0056b3;">r</span><span style="color:#198754;">L</span>):</span>
+                <span id="wg_math_A" style="font-weight: bold; color: #0056b3;">37.7 m&sup2;</span>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; font-size: 0.85em; color: #666; margin-top: 10px;">
+                <span>&Phi;<sub>Tapas</sub> = 0  (porque <span style="color:#d9534f">n̂</span> &perp; E)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85em; color: #666;">
+                <span>&Phi;<sub>Manto</sub> = E &middot; A  (porque <span style="color:#d9534f">n̂</span> &parallel; E)</span>
+            </div>
+            
+            <div style="margin-top: 10px; border-top: 2px solid #eee; padding-top: 8px; background: #f9f9f9; padding: 10px; border-radius: 4px;">
+                <div style="text-align: center; font-family: monospace; font-size: 1.1em; margin-bottom: 5px;">
+                    E &middot; (<span id="wg_eq_A" style="color:#0056b3">37.7</span>) = (<span id="wg_eq_q" style="color:#d9534f">8.0</span>) / &epsilon;&#8320;
+                </div>
+                <div style="text-align: center; font-weight: bold; font-size: 1.2em;">
+                    E = <span id="wg_math_E">24.0</span> kN/C
+                </div>
+                <div style="text-align: center; font-size: 0.8em; color: #888; margin-top: 4px;" id="wg_msg_cancel">
+                    ¡Nota que cambiar L no afecta a E!
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align: center;">
+        <canvas id="wire_gauss_canvas" width="800" height="420" style="background: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const canvas = document.getElementById('wire_gauss_canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // UI Elements
+        const slider_r = document.getElementById('wg_slider_r');
+        const slider_L = document.getElementById('wg_slider_L');
+        const slider_cam = document.getElementById('wg_slider_cam');
+        
+        const val_r = document.getElementById('wg_val_r');
+        const val_L = document.getElementById('wg_val_L');
+        const val_cam = document.getElementById('wg_val_cam');
+        
+        const math_q = document.getElementById('wg_math_q');
+        const math_A = document.getElementById('wg_math_A');
+        const eq_q = document.getElementById('wg_eq_q');
+        const eq_A = document.getElementById('wg_eq_A');
+        const math_E = document.getElementById('wg_math_E');
+        const msg_cancel = document.getElementById('wg_msg_cancel');
+
+        // Configuración 3D
+        const cx = canvas.width / 2;
+        const cy = canvas.height / 2;
+        const scale3D = 35; 
+        const lambda = 2.0; // uC/m
+        const k_const = 9.0; // Aproximación para visualización kN/C
+
+        function drawHatNVectorial(ctx, x, y) {
+          let labelX = x + 5; let labelY = y - 5;
+          ctx.lineWidth = 1.5; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+          ctx.strokeStyle = ctx.fillStyle; 
+          labelY -= 3; 
+          
+          ctx.beginPath();
+          let hatWidth = 6; let hatHeight = 3;
+          let hatTopX = labelX + hatWidth / 2; let hatTopY = labelY - 3; 
+          ctx.moveTo(labelX, labelY); ctx.lineTo(hatTopX, hatTopY); ctx.lineTo(labelX + hatWidth, labelY);
+          ctx.stroke();
+
+          ctx.beginPath();
+          let nWidth = 7; let nHeight = 8;
+          let topY = labelY + 2; let bottomY = topY + nHeight; 
+          ctx.moveTo(labelX, bottomY); ctx.lineTo(labelX, topY + 2); 
+          ctx.quadraticCurveTo(labelX + nWidth / 2, topY - 3, labelX + nWidth, topY + 2);
+          ctx.lineTo(labelX + nWidth, bottomY); 
+          ctx.stroke();
+        }
+
+        function drawArrow(from, to, color, width, label="") {
+            ctx.beginPath(); ctx.moveTo(from.x, from.y); ctx.lineTo(to.x, to.y);
+            ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();
+            let angle = Math.atan2(to.y - from.y, to.x - from.x);
+            let headlen = 10;
+            ctx.beginPath();
+            ctx.moveTo(to.x, to.y);
+            ctx.lineTo(to.x - headlen * Math.cos(angle - Math.PI/7), to.y - headlen * Math.sin(angle - Math.PI/7));
+            ctx.lineTo(to.x - headlen * Math.cos(angle + Math.PI/7), to.y - headlen * Math.sin(angle + Math.PI/7));
+            ctx.lineTo(to.x, to.y);
+            ctx.fillStyle = color; ctx.fill();
+            
+            if (label === "n̂") drawHatNVectorial(ctx, to.x, to.y);
+            else if (label !== "") { ctx.fillStyle = color; ctx.font = 'italic bold 16px Arial'; ctx.fillText(label, to.x + 5, to.y - 5); }
+        }
+
+        function updateSim() {
+            let r = parseFloat(slider_r.value);
+            let L = parseFloat(slider_L.value);
+            let cam_angle = parseFloat(slider_cam.value) * Math.PI / 180;
+            
+            val_r.innerText = r.toFixed(1); val_L.innerText = L.toFixed(1); val_cam.innerText = slider_cam.value + "°";
+            
+            // Cálculos físicos
+            let q_enc = lambda * L;
+            let Area = 2 * Math.PI * r * L;
+            let E_field = (2 * k_const * lambda) / r; // E = 2k*lambda / r
+            
+            math_q.innerText = q_enc.toFixed(1) + " μC";
+            math_A.innerText = Area.toFixed(1) + " m²";
+            eq_q.innerText = q_enc.toFixed(1);
+            eq_A.innerText = Area.toFixed(1);
+            math_E.innerText = E_field.toFixed(1);
+
+            // Efecto visual para enfatizar la cancelación
+            msg_cancel.style.color = '#888';
+            msg_cancel.style.fontWeight = 'normal';
+            clearTimeout(window.cancelHighlightTimer);
+            if(window.last_L !== undefined && window.last_L !== L) {
+                msg_cancel.style.color = '#d9534f';
+                msg_cancel.style.fontWeight = 'bold';
+                window.cancelHighlightTimer = setTimeout(() => {
+                    msg_cancel.style.color = '#888';
+                    msg_cancel.style.fontWeight = 'normal';
+                }, 800);
+            }
+            window.last_L = L;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Proyección 3D (Eje Y es el vertical)
+            let tilt = 0.25; 
+            function proj3D(lx, ly, lz) {
+                let rot_x = lx * Math.cos(cam_angle) - lz * Math.sin(cam_angle);
+                let rot_z = lx * Math.sin(cam_angle) + lz * Math.cos(cam_angle);
+                let px = cx + rot_x * scale3D;
+                let py = cy - ly * scale3D - rot_z * scale3D * Math.sin(tilt);
+                return {x: px, y: py, z: rot_z}; 
+            }
+
+            // 1. Dibujar Alambre Infinito (Línea roja gruesa a lo largo del eje Y)
+            let wire_top = proj3D(0, 5, 0);
+            let wire_bot = proj3D(0, -5, 0);
+            ctx.beginPath(); ctx.moveTo(wire_bot.x, wire_bot.y); ctx.lineTo(wire_top.x, wire_top.y);
+            ctx.strokeStyle = '#dc3545'; ctx.lineWidth = 4; ctx.stroke();
+
+            // Puntos para generar el cilindro
+            let topPts = [], botPts = [];
+            let segments = 36;
+            for(let i=0; i<=segments; i++) {
+                let ang = (i/segments) * 2 * Math.PI;
+                let px = r * Math.cos(ang);
+                let pz = r * Math.sin(ang);
+                topPts.push(proj3D(px, L/2, pz));
+                botPts.push(proj3D(px, -L/2, pz));
+            }
+
+            // 2. Dibujar Cilindro Gaussiano (Manto trasero)
+            ctx.fillStyle = 'rgba(0, 123, 255, 0.15)'; // Azul translúcido
+            ctx.strokeStyle = 'rgba(0, 123, 255, 0.5)';
+            ctx.lineWidth = 1;
+            
+            // Rellenar cilindro completo
+            ctx.beginPath();
+            ctx.moveTo(topPts[0].x, topPts[0].y);
+            for(let i=1; i<=segments; i++) ctx.lineTo(topPts[i].x, topPts[i].y);
+            for(let i=segments; i>=0; i--) ctx.lineTo(botPts[i].x, botPts[i].y);
+            ctx.closePath();
+            ctx.fill();
+
+            // Bordes (Elipses superior e inferior)
+            ctx.beginPath();
+            ctx.moveTo(topPts[0].x, topPts[0].y);
+            for(let i=1; i<=segments; i++) ctx.lineTo(topPts[i].x, topPts[i].y);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(botPts[0].x, botPts[0].y);
+            for(let i=1; i<=segments; i++) ctx.lineTo(botPts[i].x, botPts[i].y);
+            ctx.stroke();
+
+            // Líneas laterales del cilindro para dar volumen
+            ctx.beginPath(); ctx.moveTo(topPts[0].x, topPts[0].y); ctx.lineTo(botPts[0].x, botPts[0].y); ctx.stroke();
+            let half_idx = Math.floor(segments/2);
+            ctx.beginPath(); ctx.moveTo(topPts[half_idx].x, topPts[half_idx].y); ctx.lineTo(botPts[half_idx].x, botPts[half_idx].y); ctx.stroke();
+
+            // 3. Dibujar Vectores
+            let norm_len = 1.2;
+            let E_len = 2.0;
+
+            // --- Tapa Superior (n̂ hacia arriba, E hacia afuera) ---
+            let top_center = proj3D(0, L/2, 0);
+            let top_n = proj3D(0, L/2 + norm_len, 0);
+            drawArrow(top_center, top_n, '#d9534f', 3, "n̂"); // Vector Normal
+            
+            let top_edge = proj3D(r, L/2, 0); // Un punto en el borde superior
+            let top_E = proj3D(r + E_len, L/2, 0);
+            drawArrow(top_edge, top_E, 'rgba(0,0,0,0.6)', 2, "E"); // Campo E (perpendicular a n̂)
+
+            // --- Tapa Inferior (n̂ hacia abajo) ---
+            let bot_center = proj3D(0, -L/2, 0);
+            let bot_n = proj3D(0, -L/2 - norm_len, 0);
+            drawArrow(bot_center, bot_n, '#d9534f', 3, "n̂");
+
+            // --- Manto (n̂ y E paralelos, radiales) ---
+            // Elegimos un ángulo visible según la cámara para que los vectores se vean claros
+            // Queremos que apunten hacia la derecha/frente (+X local)
+            let side_pt = proj3D(r, 0, 0);
+            let side_n = proj3D(r + norm_len, 0, 0);
+            let side_E = proj3D(r + E_len, 0, 0); // E es un poco más largo
+            
+            // Dibujar primero el E y luego el n̂ sobre él
+            drawArrow(side_pt, side_E, 'rgba(0,0,0,0.6)', 2, "E"); 
+            drawArrow(side_pt, side_n, '#d9534f', 3, "n̂");
+
+        }
+
+        slider_r.addEventListener('input', updateSim);
+        slider_L.addEventListener('input', updateSim);
+        slider_cam.addEventListener('input', updateSim);
+
+        updateSim();
+    })();
+</script>
+</div></div>
+</div>
+</section>
+<section id="analisis-del-flujo">
+<h2>Análisis del Flujo<a class="headerlink" href="#analisis-del-flujo" title="Permalink to this heading">#</a></h2>
+<p>Nuestra “lata” gaussiana tiene tres superficies: la tapa superior, la tapa inferior y el manto (el cuerpo cilíndrico).</p>
+<ul class="simple">
+<li><p><strong>Las Tapas:</strong> El vector área <span class="math notranslate nohighlight">\(d\vec{A}\)</span> de las tapas apunta hacia arriba y hacia abajo (paralelo al alambre). Pero el campo <span class="math notranslate nohighlight">\(\vec{E}\)</span> apunta hacia afuera (perpendicular al alambre). Como forman <span class="math notranslate nohighlight">\(90^\circ\)</span>, el flujo por ambas tapas es exactamente <strong>cero</strong> (<span class="math notranslate nohighlight">\(\cos 90^\circ = 0\)</span>).</p></li>
+<li><p><strong>El Manto:</strong> En la pared curva, el vector área <span class="math notranslate nohighlight">\(d\vec{A}\)</span> apunta radialmente hacia afuera, exactamente en la misma dirección que el campo <span class="math notranslate nohighlight">\(\vec{E}\)</span>. Además, toda la pared curva está a la misma distancia <span class="math notranslate nohighlight">\(r\)</span> del alambre, por lo que <span class="math notranslate nohighlight">\(E\)</span> es constante.</p></li>
+</ul>
+</section>
+<section id="planteamiento-matematico">
+<h2>Planteamiento Matemático<a class="headerlink" href="#planteamiento-matematico" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\oint_{S} \vec{E} \cdot d\vec{A} = \frac{q_{\text{enc}}}{\epsilon_0}\]</div>
+<p>El flujo total es la suma de las tres partes, pero las tapas son cero:</p>
+<div class="math notranslate nohighlight">
+\[\Phi_{\text{total}} = \Phi_{\text{arriba}} + \Phi_{\text{abajo}} + \Phi_{\text{manto}} = 0 + 0 + \int_{\text{manto}} E dA\]</div>
+<p>Nuevamente, sacamos <span class="math notranslate nohighlight">\(E\)</span> de la integral por ser constante:</p>
+<div class="math notranslate nohighlight">
+\[E \int_{\text{manto}} dA = \frac{q_{\text{enc}}}{\epsilon_0}\]</div>
+<p>El área del manto de un cilindro es el perímetro de la base por la altura: <span class="math notranslate nohighlight">\(2\pi r L\)</span>. Además, la carga encerrada dentro de nuestro cilindro de largo <span class="math notranslate nohighlight">\(L\)</span> es simplemente la densidad lineal por el largo (<span class="math notranslate nohighlight">\(q_{\text{enc}} = \lambda L\)</span>). Sustituimos ambas cosas:</p>
+<div class="math notranslate nohighlight">
+\[E (2\pi r L) = \frac{\lambda L}{\epsilon_0}\]</div>
+</section>
+<section id="resultado-final">
+<h2>Resultado Final<a class="headerlink" href="#resultado-final" title="Permalink to this heading">#</a></h2>
+<p>¡Observa que el largo <span class="math notranslate nohighlight">\(L\)</span> de nuestro cilindro imaginario se cancela a ambos lados de la ecuación! Esto es hermoso, porque demuestra que el resultado final es independiente de la superficie imaginaria que elegimos. Despejando <span class="math notranslate nohighlight">\(E\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[E = \frac{\lambda}{2\pi\epsilon_0 r}\]</div>
+<p>Hemos llegado exactamente a la misma ecuación que obtuvimos con cálculo avanzado, pero esta vez usando un cilindro y un par de multiplicaciones. ¡Ese es el verdadero poder predictivo del electromagnetismo!</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
+<span class="c1"># import plotly.graph_objects as go</span>
+<span class="c1"># from plotly.subplots import make_subplots</span>
+
+<span class="c1"># def generar_gauss_alambre_3d():</span>
+<span class="c1">#     fig = make_subplots(</span>
+<span class="c1">#         rows=1, cols=3,</span>
+<span class="c1">#         specs=[[{&#39;type&#39;: &#39;scene&#39;}, {&#39;type&#39;: &#39;scene&#39;}, {&#39;type&#39;: &#39;scene&#39;}]],</span>
+<span class="c1">#         subplot_titles=(&quot;A) Superficie Cilíndrica (Ideal)&quot;, &quot;B) Superficie Esférica&quot;, &quot;C) Paralelepípedo&quot;)</span>
+<span class="c1">#     )</span>
+
+<span class="c1">#     H_alambre = 6.0    </span>
+<span class="c1">#     R_gauss = 1.5      </span>
+<span class="c1">#     L_flecha_E = 1.0   </span>
+<span class="c1">#     L_flecha_dA = 0.7  </span>
+<span class="c1">#     color_E = &#39;red&#39;</span>
+<span class="c1">#     color_dA = &#39;blue&#39;</span>
+<span class="c1">#     color_S = &#39;lightblue&#39;</span>
+
+<span class="c1">#     def add_vector_3d(fig, row, col, start, direction, color, width, label=&quot;&quot;):</span>
+<span class="c1">#         fig.add_trace(go.Scatter3d(</span>
+<span class="c1">#             x=[start[0], start[0] + direction[0]],</span>
+<span class="c1">#             y=[start[1], start[1] + direction[1]],</span>
+<span class="c1">#             z=[start[2], start[2] + direction[2]],</span>
+<span class="c1">#             mode=&#39;lines&#39;, line=dict(color=color, width=width), showlegend=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#         ), row=row, col=col)</span>
+<span class="c1">#         fig.add_trace(go.Cone(</span>
+<span class="c1">#             x=[start[0] + direction[0]], y=[start[1] + direction[1]], z=[start[2] + direction[2]],</span>
+<span class="c1">#             u=[direction[0]], v=[direction[1]], w=[direction[2]],</span>
+<span class="c1">#             sizemode=&#39;absolute&#39;, sizeref=0.25 if width &gt; 4 else 0.2, anchor=&#39;tail&#39;,</span>
+<span class="c1">#             colorscale=[[0, color], [1, color]], showscale=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#         ), row=row, col=col)</span>
+
+<span class="c1">#     def add_alambre(fig, row, col, mostrar_leyenda=False):</span>
+<span class="c1">#         fig.add_trace(go.Scatter3d(</span>
+<span class="c1">#             x=[0, 0], y=[0, 0], z=[-H_alambre/2, H_alambre/2],</span>
+<span class="c1">#             mode=&#39;lines+markers&#39;, line=dict(color=&#39;black&#39;, width=6),</span>
+<span class="c1">#             marker=dict(size=4, color=&#39;black&#39;), name=&#39;Alambre (λ)&#39;, hoverinfo=&#39;skip&#39;,</span>
+<span class="c1">#             showlegend=mostrar_leyenda </span>
+<span class="c1">#         ), row=row, col=col)</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # CASO A: CILINDRO</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     add_alambre(fig, 1, 1, mostrar_leyenda=True)</span>
+    
+<span class="c1">#     z_mesh = np.linspace(-H_alambre/3, H_alambre/3, 20)</span>
+<span class="c1">#     theta_mesh = np.linspace(0, 2*np.pi, 30)</span>
+<span class="c1">#     Theta, Z = np.meshgrid(theta_mesh, z_mesh)</span>
+<span class="c1">#     X = R_gauss * np.cos(Theta)</span>
+<span class="c1">#     Y = R_gauss * np.sin(Theta)</span>
+    
+<span class="c1">#     fig.add_trace(go.Surface(</span>
+<span class="c1">#         x=X, y=Y, z=Z, opacity=0.3, colorscale=[[0, color_S], [1, color_S]], showscale=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=1)</span>
+
+<span class="c1">#     puntos_cilindro = [(np.pi/4, 0), (3*np.pi/4, 0), (np.pi, H_alambre/6), (3*np.pi/2, -H_alambre/6)]</span>
+<span class="c1">#     for angle, z_pos in puntos_cilindro:</span>
+<span class="c1">#         px = R_gauss * np.cos(angle)</span>
+<span class="c1">#         py = R_gauss * np.sin(angle)</span>
+<span class="c1">#         pz = z_pos</span>
+        
+<span class="c1">#         dir_E = np.array([np.cos(angle), np.sin(angle), 0])</span>
+<span class="c1">#         add_vector_3d(fig, 1, 1, [px, py, pz], dir_E * L_flecha_E, color_E, 5)</span>
+<span class="c1">#         add_vector_3d(fig, 1, 1, [px+0.1, py+0.1, pz], dir_E * L_flecha_dA, color_dA, 4)</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # CASO B: ESFERA</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     add_alambre(fig, 1, 2, mostrar_leyenda=False)</span>
+    
+<span class="c1">#     u = np.linspace(0, 2 * np.pi, 30)</span>
+<span class="c1">#     v = np.linspace(0, np.pi, 20)</span>
+<span class="c1">#     X_sph = R_gauss * np.outer(np.cos(u), np.sin(v))</span>
+<span class="c1">#     Y_sph = R_gauss * np.outer(np.sin(u), np.sin(v))</span>
+<span class="c1">#     Z_sph = R_gauss * np.outer(np.ones(np.size(u)), np.cos(v))</span>
+    
+<span class="c1">#     fig.add_trace(go.Surface(</span>
+<span class="c1">#         x=X_sph, y=Y_sph, z=Z_sph, opacity=0.2, colorscale=[[0, color_S], [1, color_S]], showscale=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=2)</span>
+
+<span class="c1">#     puntos_esfera = [(np.pi/4, np.pi/4), (np.pi, np.pi/4), (3*np.pi/2, 3*np.pi/4), (0, 3*np.pi/4)]</span>
+<span class="c1">#     for phi, theta in puntos_esfera:</span>
+<span class="c1">#         px = R_gauss * np.cos(phi) * np.sin(theta)</span>
+<span class="c1">#         py = R_gauss * np.sin(phi) * np.sin(theta)</span>
+<span class="c1">#         pz = R_gauss * np.cos(theta)</span>
+        
+<span class="c1">#         r_dist = np.sqrt(px**2 + py**2)</span>
+<span class="c1">#         dir_E = np.array([px/r_dist, py/r_dist, 0])</span>
+<span class="c1">#         add_vector_3d(fig, 1, 2, [px, py, pz], dir_E * L_flecha_E, color_E, 5)</span>
+        
+<span class="c1">#         dir_dA = np.array([px, py, pz]) / R_gauss</span>
+<span class="c1">#         add_vector_3d(fig, 1, 2, [px+0.1, py+0.1, pz], dir_dA * L_flecha_dA, color_dA, 4)</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # CASO C: PARALELEPÍPEDO</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     add_alambre(fig, 1, 3, mostrar_leyenda=False)</span>
+    
+<span class="c1">#     W, D, H = 1.5, 1.5, 2.0 </span>
+<span class="c1">#     x_p = [-W, W, W, -W, -W, W, W, -W]</span>
+<span class="c1">#     y_p = [-D, -D, D, D, -D, -D, D, D]</span>
+<span class="c1">#     z_p = [-H, -H, -H, -H, H, H, H, H]</span>
+<span class="c1">#     i_p = [7, 0, 0, 0, 4, 4, 6, 6, 4, 0, 3, 2]</span>
+<span class="c1">#     j_p = [3, 4, 1, 2, 5, 6, 5, 2, 0, 1, 6, 3]</span>
+<span class="c1">#     k_p = [0, 7, 2, 3, 6, 7, 1, 1, 5, 5, 7, 6]</span>
+    
+<span class="c1">#     fig.add_trace(go.Mesh3d(</span>
+<span class="c1">#         x=x_p, y=y_p, z=z_p, i=i_p, j=j_p, k=k_p, opacity=0.2, color=color_S, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=3)</span>
+
+<span class="c1">#     puntos_para = [</span>
+<span class="c1">#         (W, 0, 0),         </span>
+<span class="c1">#         (W, D/1.3, 0),     </span>
+<span class="c1">#         (W, -D/1.3, 0)     </span>
+<span class="c1">#     ]</span>
+    
+<span class="c1">#     for px, py, pz in puntos_para:</span>
+<span class="c1">#         r_dist = np.sqrt(px**2 + py**2)</span>
+<span class="c1">#         dir_E = np.array([px/r_dist, py/r_dist, 0])</span>
+<span class="c1">#         add_vector_3d(fig, 1, 3, [px, py, pz], dir_E * L_flecha_E, color_E, 5)</span>
+        
+<span class="c1">#         dir_dA = np.array([1, 0, 0])</span>
+<span class="c1">#         add_vector_3d(fig, 1, 3, [px, py, pz+0.2], dir_dA * L_flecha_dA, color_dA, 4)</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # ESTILOS GLOBALES Y LEYENDA</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(x=[None], y=[None], z=[None], mode=&#39;lines&#39;, line=dict(color=color_E, width=5), name=&#39;Campo E (Radial desde el alambre)&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(x=[None], y=[None], z=[None], mode=&#39;lines&#39;, line=dict(color=color_dA, width=4), name=&#39;Normal dA (Hacia afuera)&#39;))</span>
+
+<span class="c1">#     camera_settings = dict(eye=dict(x=1.3, y=1.3, z=1.0))</span>
+<span class="c1">#     axis_settings = dict(visible=False, range=[-3.5, 3.5])</span>
+<span class="c1">#     scene_config = dict(xaxis=axis_settings, yaxis=axis_settings, zaxis=axis_settings, camera=camera_settings, aspectmode=&#39;cube&#39;)</span>
+
+<span class="c1">#     fig.update_layout(</span>
+<span class="c1">#         title=dict(</span>
+<span class="c1">#             text=&quot;Ley de Gauss: Alambre Infinito y Elección de Superficie&lt;br&gt;&lt;sup&gt;Nota cómo en el Cilindro (A), E y dA son paralelos en la cara curva, facilitando la integral.&lt;/sup&gt;&quot;,</span>
+<span class="c1">#             x=0.5, y=0.97, font=dict(size=18)</span>
+<span class="c1">#         ),</span>
+<span class="c1">#         scene=scene_config, scene2=scene_config, scene3=scene_config,</span>
+<span class="c1">#         margin=dict(l=0, r=0, b=0, t=80),</span>
+<span class="c1">#         legend=dict(x=0.5, y=0.05, xanchor=&#39;center&#39;, orientation=&quot;h&quot;, bgcolor=&#39;rgba(255, 255, 255, 0.8)&#39;)</span>
+<span class="c1">#     )</span>
+
+<span class="c1">#     fig.show()</span>
+<span class="c1">#     fig.write_html(&quot;gauss_alambre_3d.html&quot;, include_plotlyjs=&#39;cdn&#39;)</span>
+<span class="c1">#     print(&quot;¡Listo! Archivo &#39;gauss_alambre_3d.html&#39; guardado con éxito.&quot;)</span>
+
+<span class="c1"># generar_gauss_alambre_3d()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="visualizacion-3d-por-que-un-cilindro">
+<h2>Visualización 3D: ¿Por qué un cilindro?<a class="headerlink" href="#visualizacion-3d-por-que-un-cilindro" title="Permalink to this heading">#</a></h2>
+<p>Puedes rotar libremente las figuras arrastrando con el ratón. Nota cómo en la esfera y en el paralelepípedo, los vectores rojos y azules se separan angularmente, haciendo que el producto punto <span class="math notranslate nohighlight">\(\vec{E} \cdot d\vec{A}\)</span> sea variable.</p>
+<iframe src="_static/gauss_alambre_3d.html" width="100%" height="600" style="border:none;"></iframe>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_03_gauss_esfera.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.3 Simetría Esférica</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_05_gauss_plano.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.5 Simetría Plana</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eleccion-de-la-superficie-gaussiana">Elección de la Superficie Gaussiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-3d-ley-de-gauss-para-un-alambre-infinito">Simulación 3D: Ley de Gauss para un Alambre Infinito</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-del-flujo">Análisis del Flujo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-matematico">Planteamiento Matemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-un-cilindro">Visualización 3D: ¿Por qué un cilindro?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By José Miguel Pinto
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

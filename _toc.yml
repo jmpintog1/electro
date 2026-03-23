@@ -5,22 +5,28 @@ format: jb-book
 root: intro
 
 parts:
-  - caption: Carga Eléctrica y Campo Eléctrico
+  - caption: 1 Carga Eléctrica y Campo Eléctrico
     chapters:
-      - file: 01_carga
-      - file: 02_coulomb
-      - file: 03_campo
-      - file: 04_continua
-      - file: 05_anillo
-      - file: 06_disco
-      - file: 07_alambre
+      - file: 01_01_carga
+      - file: 01_02_coulomb
+      - file: 01_03_campo
+      - file: 01_04_continua
+      - file: 01_05_anillo
+      - file: 01_06_disco
+      - file: 01_07_alambre
+      - file: 01_08_no_uniforme
 
-  - caption: Ley de Gauss
+  - caption: 2 Ley de Gauss
     chapters:
-      - file: 08_flujo
-      - file: 09_gauss
-      - file: 10_gauss_esfera
-      - file: 11_gauss_cilindro
-      - file: 12_gauss_plano
-      - file: 13_conductores
-      - file: 14_cavidades
+      - file: 02_01_flujo
+      - file: 02_02_gauss
+      - file: 02_03_gauss_esfera
+      - file: 02_04_gauss_cilindro
+      - file: 02_05_gauss_plano
+      - file: 02_06_conductores
+      - file: 02_07_cavidades
+
+  - caption: 3 Potencial Eléctrico
+    chapters:
+      - file: 03_01_potencial
+      - file: 03_02_energia

@@ -1,0 +1,816 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2.5 Simetría Plana &#8212; Curso de Electricidad y Magnetismo</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02_05_gauss_plano';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2.6 Conductores y Aislantes" href="02_06_conductores.html" />
+    <link rel="prev" title="2.4 Simetría Cilíndrica" href="02_04_gauss_cilindro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Curso de Electricidad y Magnetismo - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Curso de Electricidad y Magnetismo - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenidos al Curso de Electricidad y Magnetismo
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1 Carga Eléctrica y Campo Eléctrico</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_01_carga.html">1.1 Carga Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_02_coulomb.html">1.2 Ley de Coulomb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_03_campo.html">1.3 Campo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_04_continua.html">1.4 Distribución de Carga</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_05_anillo.html">1.5 Anillo Uniformemente Cargado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_06_disco.html">1.6 Disco Cargado Uniformemente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_07_alambre.html">1.7 Alambre Infinito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Explorando la Densidad de Carga en un Disco</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2 Ley de Gauss</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_01_flujo.html">2.1 Flujo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_02_gauss.html">2.2 La Ley de Gauss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_03_gauss_esfera.html">2.3 Simetría Esférica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_04_gauss_cilindro.html">2.4 Simetría Cilíndrica</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2.5 Simetría Plana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_06_conductores.html">2.6 Conductores y Aislantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera Aislante</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3 Potencial Eléctrico</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03_01_potencial.html">3.1 Campo y Potencial Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_02_energia.html">3.2 Energía Potencial Electrostática y Trabajo</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmpintog1/electro/blob/main/./02_05_gauss_plano.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmpintog1/electro" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2F02_05_gauss_plano.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/02_05_gauss_plano.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2.5 Simetría Plana</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explorando-opciones-en-3d">Explorando Opciones en 3D</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instrucciones-de-observacion">Instrucciones de observación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-las-superficies">Análisis de las Superficies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-cilindro-la-caja-de-pastillas-clasica">1. El Cilindro (La “Caja de Pastillas” clásica)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-esfera-inadecuada">2. La Esfera (Inadecuada)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-paralelepipedo-tambien-funciona">3. El Paralelepípedo (¡También funciona!)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-matematica">Conclusión Matemática</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="simetria-plana">
+<h1>2.5 Simetría Plana<a class="headerlink" href="#simetria-plana" title="Permalink to this heading">#</a></h1>
+<p>Imagina una lámina plana, infinita y muy delgada, con una densidad de carga superficial uniforme <span class="math notranslate nohighlight">\(\sigma\)</span>. Por simetría, sabemos que el campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> debe apuntar perpendicularmente alejándose de la lámina (si la carga es positiva) en ambos lados. Además, como la lámina es infinita, el campo no puede “inclinarse” hacia ningún lado, y su magnitud debe ser constante a una distancia dada.</p>
+<p>¿Qué superficie gaussiana imaginaria debemos elegir para calcular este campo?</p>
+<p>Aquí es donde la Ley de Gauss nos permite ser creativos. Necesitamos una superficie cerrada donde el producto punto <span class="math notranslate nohighlight">\(\vec{E} \cdot d\vec{A}\)</span> sea fácil de evaluar.</p>
+<a class="reference internal image-reference" href="_images/02_05.svg"><img alt="Plano infinito" class="align-center" src="_images/02_05.svg" width="100%" /></a>
+<section id="explorando-opciones-en-3d">
+<h2>Explorando Opciones en 3D<a class="headerlink" href="#explorando-opciones-en-3d" title="Permalink to this heading">#</a></h2>
+<p>En la siguiente simulación, hemos colocado una porción de nuestra lámina infinita (naranja). Sobre ella, probaremos tres superficies gaussianas diferentes: un cilindro (caja de pastillas), una esfera y un paralelepípedo.</p>
+<section id="instrucciones-de-observacion">
+<h3>Instrucciones de observación<a class="headerlink" href="#instrucciones-de-observacion" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Rota las figuras con tu ratón.</p></li>
+<li><p>Observa la relación entre el campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> (flechas rojas, siempre perpendiculares a la lámina) y los vectores normales de área <span class="math notranslate nohighlight">\(d\vec{A}\)</span> (flechas azules, siempre perpendiculares a la superficie gaussiana).</p></li>
+</ol>
+<iframe src="_static/gauss_plano_3d.html" width="100%" height="600" style="border:none;"></iframe>
+</section>
+<section id="analisis-de-las-superficies">
+<h3>Análisis de las Superficies<a class="headerlink" href="#analisis-de-las-superficies" title="Permalink to this heading">#</a></h3>
+<p>Al girar la simulación, deberías notar lo siguiente:</p>
+<section id="el-cilindro-la-caja-de-pastillas-clasica">
+<h4>1. El Cilindro (La “Caja de Pastillas” clásica)<a class="headerlink" href="#el-cilindro-la-caja-de-pastillas-clasica" title="Permalink to this heading">#</a></h4>
+<p>Esta es una elección excelente. El cilindro se coloca atravesando la lámina, con sus tapas paralelas a ella.</p>
+<ul class="simple">
+<li><p><strong>En las caras laterales (curvas):</strong> El vector de área <span class="math notranslate nohighlight">\(d\vec{A}\)</span> apunta radialmente hacia afuera, mientras que el campo <span class="math notranslate nohighlight">\(\vec{E}\)</span> apunta hacia arriba o hacia abajo. ¡Son perpendiculares! (<span class="math notranslate nohighlight">\(\theta = 90^\circ\)</span>). Por lo tanto, el flujo a través de los lados es <strong>cero</strong> (<span class="math notranslate nohighlight">\(\vec{E} \cdot d\vec{A} = 0\)</span>).</p></li>
+<li><p><strong>En las tapas (planas):</strong> El vector <span class="math notranslate nohighlight">\(d\vec{A}\)</span> y el campo <span class="math notranslate nohighlight">\(\vec{E}\)</span> son perfectamente paralelos (<span class="math notranslate nohighlight">\(\theta = 0^\circ\)</span>). El flujo es simplemente <span class="math notranslate nohighlight">\(E \cdot A_{tapa}\)</span>.</p></li>
+</ul>
+</section>
+<section id="la-esfera-inadecuada">
+<h4>2. La Esfera (Inadecuada)<a class="headerlink" href="#la-esfera-inadecuada" title="Permalink to this heading">#</a></h4>
+<p>Aunque funcionó perfecto para la carga puntual, aquí es un desastre matemático.</p>
+<ul class="simple">
+<li><p>Los vectores normales <span class="math notranslate nohighlight">\(d\vec{A}\)</span> apuntan radialmente hacia afuera desde el centro de la esfera.</p></li>
+<li><p>El campo <span class="math notranslate nohighlight">\(\vec{E}\)</span> siempre apunta verticalmente.</p></li>
+<li><p>El ángulo entre ellos cambia constantemente en cada punto de la superficie esférica. Calcular la integral <span class="math notranslate nohighlight">\(\oint \vec{E} \cdot d\vec{A}\)</span> sería una pesadilla.</p></li>
+</ul>
+</section>
+<section id="el-paralelepipedo-tambien-funciona">
+<h4>3. El Paralelepípedo (¡También funciona!)<a class="headerlink" href="#el-paralelepipedo-tambien-funciona" title="Permalink to this heading">#</a></h4>
+<p>¡Sorpresa! El cilindro no es la única opción válida. Una caja rectangular (paralelepípedo) funciona exactamente igual de bien.</p>
+<ul class="simple">
+<li><p><strong>En las cuatro caras laterales:</strong> <span class="math notranslate nohighlight">\(d\vec{A}\)</span> es perpendicular a <span class="math notranslate nohighlight">\(\vec{E}\)</span>. El flujo es <strong>cero</strong>.</p></li>
+<li><p><strong>En las dos tapas (superior e inferior):</strong> <span class="math notranslate nohighlight">\(d\vec{A}\)</span> es paralelo a <span class="math notranslate nohighlight">\(\vec{E}\)</span>. El flujo es <span class="math notranslate nohighlight">\(E \cdot A_{tapa}\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="conclusion-matematica">
+<h3>Conclusión Matemática<a class="headerlink" href="#conclusion-matematica" title="Permalink to this heading">#</a></h3>
+<p>Tanto para el cilindro como para la caja, el flujo total <span class="math notranslate nohighlight">\(\Phi_E\)</span> se reduce únicamente a lo que cruza las dos tapas (una arriba y otra abajo):</p>
+<div class="math notranslate nohighlight">
+\[\Phi_E = \oint \vec{E} \cdot d\vec{A} = \int_{tapa\_sup} E \, dA + \int_{tapa\_inf} E \, dA = 2\,E\,A\]</div>
+<p>Aplicando la Ley de Gauss:</p>
+<div class="math notranslate nohighlight">
+\[\Phi_E = \frac{q_{\text{enc}}}{\epsilon_0}\]</div>
+<div class="math notranslate nohighlight">
+\[2EA = \frac{\sigma A}{\epsilon_0}\]</div>
+<p>Despejando el campo eléctrico <span class="math notranslate nohighlight">\(E\)</span>, notamos que el área <span class="math notranslate nohighlight">\(A\)</span> de las tapas se cancela:</p>
+<div class="math notranslate nohighlight">
+\[E = \frac{\sigma}{2\epsilon_0}\]</div>
+<p><strong>¡Un resultado profundo!</strong> El campo eléctrico generado por una lámina plana infinita es constante. No depende de la distancia a la lámina.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
+<span class="c1"># import plotly.graph_objects as go</span>
+<span class="c1"># from plotly.subplots import make_subplots</span>
+
+<span class="c1"># def generar_gauss_plano_3d():</span>
+<span class="c1">#     fig = make_subplots(</span>
+<span class="c1">#         rows=1, cols=3,</span>
+<span class="c1">#         specs=[[{&#39;type&#39;: &#39;scene&#39;}, {&#39;type&#39;: &#39;scene&#39;}, {&#39;type&#39;: &#39;scene&#39;}]],</span>
+<span class="c1">#         subplot_titles=(&quot;A) Caja Cilíndrica (Ideal)&quot;, &quot;B) Esfera (Inadecuada)&quot;, &quot;C) Caja Rectangular (Ideal)&quot;)</span>
+<span class="c1">#     )</span>
+
+<span class="c1">#     H_caja = 1.5       </span>
+<span class="c1">#     R_gauss = 1.5      </span>
+<span class="c1">#     L_flecha_E = 1.0   </span>
+<span class="c1">#     L_flecha_dA = 0.7  </span>
+<span class="c1">#     color_E = &#39;red&#39;</span>
+<span class="c1">#     color_dA = &#39;blue&#39;</span>
+<span class="c1">#     color_S = &#39;lightblue&#39;</span>
+<span class="c1">#     color_plano = &#39;orange&#39;</span>
+
+<span class="c1">#     def add_vector_3d(fig, row, col, start, direction, color, width):</span>
+<span class="c1">#         fig.add_trace(go.Scatter3d(</span>
+<span class="c1">#             x=[start[0], start[0] + direction[0]],</span>
+<span class="c1">#             y=[start[1], start[1] + direction[1]],</span>
+<span class="c1">#             z=[start[2], start[2] + direction[2]],</span>
+<span class="c1">#             mode=&#39;lines&#39;, line=dict(color=color, width=width), showlegend=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#         ), row=row, col=col)</span>
+<span class="c1">#         fig.add_trace(go.Cone(</span>
+<span class="c1">#             x=[start[0] + direction[0]], y=[start[1] + direction[1]], z=[start[2] + direction[2]],</span>
+<span class="c1">#             u=[direction[0]], v=[direction[1]], w=[direction[2]],</span>
+<span class="c1">#             sizemode=&#39;absolute&#39;, sizeref=0.25 if width &gt; 4 else 0.2, anchor=&#39;tail&#39;,</span>
+<span class="c1">#             colorscale=[[0, color], [1, color]], showscale=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#         ), row=row, col=col)</span>
+
+<span class="c1">#     def add_plano_infinito(fig, row, col, mostrar_leyenda=False):</span>
+<span class="c1">#         X_p, Y_p = np.meshgrid(np.linspace(-3.5, 3.5, 5), np.linspace(-3.5, 3.5, 5))</span>
+<span class="c1">#         Z_p = np.zeros_like(X_p)</span>
+<span class="c1">#         fig.add_trace(go.Surface(</span>
+<span class="c1">#             x=X_p, y=Y_p, z=Z_p, opacity=0.4, colorscale=[[0, color_plano], [1, color_plano]], </span>
+<span class="c1">#             showscale=False, hoverinfo=&#39;skip&#39;, name=&#39;Lámina Infinita (+σ)&#39;, showlegend=mostrar_leyenda</span>
+<span class="c1">#         ), row=row, col=col)</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # CASO A: CILINDRO (Caja de pastillas)</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     add_plano_infinito(fig, 1, 1, mostrar_leyenda=True)</span>
+    
+<span class="c1">#     z_mesh = np.linspace(-H_caja, H_caja, 10)</span>
+<span class="c1">#     theta_mesh = np.linspace(0, 2*np.pi, 30)</span>
+<span class="c1">#     Theta, Z = np.meshgrid(theta_mesh, z_mesh)</span>
+<span class="c1">#     X = R_gauss * np.cos(Theta)</span>
+<span class="c1">#     Y = R_gauss * np.sin(Theta)</span>
+    
+<span class="c1">#     fig.add_trace(go.Surface(</span>
+<span class="c1">#         x=X, y=Y, z=Z, opacity=0.3, colorscale=[[0, color_S], [1, color_S]], showscale=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=1)</span>
+
+<span class="c1">#     r_mesh = np.linspace(0, R_gauss, 5)</span>
+<span class="c1">#     R_grid, Theta_grid = np.meshgrid(r_mesh, theta_mesh)</span>
+<span class="c1">#     X_cap = R_grid * np.cos(Theta_grid)</span>
+<span class="c1">#     Y_cap = R_grid * np.sin(Theta_grid)</span>
+    
+<span class="c1">#     for z_cap in [H_caja, -H_caja]:</span>
+<span class="c1">#         fig.add_trace(go.Surface(</span>
+<span class="c1">#             x=X_cap, y=Y_cap, z=np.full_like(X_cap, z_cap), opacity=0.3, </span>
+<span class="c1">#             colorscale=[[0, color_S], [1, color_S]], showscale=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#         ), row=1, col=1)</span>
+
+<span class="c1">#     puntos_cilindro_tapa = [(0.5, 0.5, H_caja), (-0.5, -0.5, H_caja)]</span>
+<span class="c1">#     for px, py, pz in puntos_cilindro_tapa:</span>
+<span class="c1">#         dir_E = np.array([0, 0, 1])</span>
+<span class="c1">#         dir_dA = np.array([0, 0, 1])</span>
+<span class="c1">#         add_vector_3d(fig, 1, 1, [px, py, pz], dir_E * L_flecha_E, color_E, 5)</span>
+<span class="c1">#         add_vector_3d(fig, 1, 1, [px+0.1, py, pz], dir_dA * L_flecha_dA, color_dA, 4)</span>
+
+<span class="c1">#     puntos_cilindro_lado = [(R_gauss, 0, H_caja/2), (0, R_gauss, H_caja/2)]</span>
+<span class="c1">#     for px, py, pz in puntos_cilindro_lado:</span>
+<span class="c1">#         dir_E = np.array([0, 0, 1])</span>
+<span class="c1">#         r_dist = np.sqrt(px**2 + py**2)</span>
+<span class="c1">#         dir_dA = np.array([px/r_dist, py/r_dist, 0])</span>
+<span class="c1">#         add_vector_3d(fig, 1, 1, [px, py, pz], dir_E * L_flecha_E, color_E, 5)</span>
+<span class="c1">#         add_vector_3d(fig, 1, 1, [px, py, pz], dir_dA * L_flecha_dA, color_dA, 4)</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # CASO B: ESFERA</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     add_plano_infinito(fig, 1, 2)</span>
+    
+<span class="c1">#     u = np.linspace(0, 2 * np.pi, 30)</span>
+<span class="c1">#     v = np.linspace(0, np.pi, 20)</span>
+<span class="c1">#     X_sph = R_gauss * np.outer(np.cos(u), np.sin(v))</span>
+<span class="c1">#     Y_sph = R_gauss * np.outer(np.sin(u), np.sin(v))</span>
+<span class="c1">#     Z_sph = R_gauss * np.outer(np.ones(np.size(u)), np.cos(v))</span>
+    
+<span class="c1">#     fig.add_trace(go.Surface(</span>
+<span class="c1">#         x=X_sph, y=Y_sph, z=Z_sph, opacity=0.2, colorscale=[[0, color_S], [1, color_S]], showscale=False, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=2)</span>
+
+<span class="c1">#     puntos_esfera = [(np.pi/4, np.pi/6), (np.pi, np.pi/4), (3*np.pi/2, np.pi/3)]</span>
+<span class="c1">#     for phi, theta in puntos_esfera:</span>
+<span class="c1">#         px = R_gauss * np.cos(phi) * np.sin(theta)</span>
+<span class="c1">#         py = R_gauss * np.sin(phi) * np.sin(theta)</span>
+<span class="c1">#         pz = R_gauss * np.cos(theta)</span>
+        
+<span class="c1">#         dir_E = np.array([0, 0, 1])</span>
+<span class="c1">#         dir_dA = np.array([px, py, pz]) / R_gauss</span>
+<span class="c1">#         add_vector_3d(fig, 1, 2, [px, py, pz], dir_E * L_flecha_E, color_E, 5)</span>
+<span class="c1">#         add_vector_3d(fig, 1, 2, [px+0.1, py, pz], dir_dA * L_flecha_dA, color_dA, 4)</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # CASO C: PARALELEPÍPEDO</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     add_plano_infinito(fig, 1, 3)</span>
+    
+<span class="c1">#     W, D = 1.2, 1.2 </span>
+<span class="c1">#     x_p = [-W, W, W, -W, -W, W, W, -W]</span>
+<span class="c1">#     y_p = [-D, -D, D, D, -D, -D, D, D]</span>
+<span class="c1">#     z_p = [-H_caja, -H_caja, -H_caja, -H_caja, H_caja, H_caja, H_caja, H_caja]</span>
+<span class="c1">#     i_p = [7, 0, 0, 0, 4, 4, 6, 6, 4, 0, 3, 2]</span>
+<span class="c1">#     j_p = [3, 4, 1, 2, 5, 6, 5, 2, 0, 1, 6, 3]</span>
+<span class="c1">#     k_p = [0, 7, 2, 3, 6, 7, 1, 1, 5, 5, 7, 6]</span>
+    
+<span class="c1">#     fig.add_trace(go.Mesh3d(</span>
+<span class="c1">#         x=x_p, y=y_p, z=z_p, i=i_p, j=j_p, k=k_p, opacity=0.2, color=color_S, hoverinfo=&#39;skip&#39;</span>
+<span class="c1">#     ), row=1, col=3)</span>
+
+<span class="c1">#     puntos_para_tapa = [(0, 0, H_caja), (W/1.5, D/1.5, H_caja)]</span>
+<span class="c1">#     for px, py, pz in puntos_para_tapa:</span>
+<span class="c1">#         dir_E = np.array([0, 0, 1])</span>
+<span class="c1">#         dir_dA = np.array([0, 0, 1])</span>
+<span class="c1">#         add_vector_3d(fig, 1, 3, [px, py, pz], dir_E * L_flecha_E, color_E, 5)</span>
+<span class="c1">#         add_vector_3d(fig, 1, 3, [px+0.1, py, pz], dir_dA * L_flecha_dA, color_dA, 4)</span>
+
+<span class="c1">#     puntos_para_lado = [(W, 0, H_caja/2), (0, D, H_caja/2)]</span>
+<span class="c1">#     for px, py, pz in puntos_para_lado:</span>
+<span class="c1">#         dir_E = np.array([0, 0, 1])</span>
+<span class="c1">#         dir_dA = np.array([1, 0, 0]) if px == W else np.array([0, 1, 0])</span>
+<span class="c1">#         add_vector_3d(fig, 1, 3, [px, py, pz], dir_E * L_flecha_E, color_E, 5)</span>
+<span class="c1">#         add_vector_3d(fig, 1, 3, [px, py, pz], dir_dA * L_flecha_dA, color_dA, 4)</span>
+
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     # ESTILOS GLOBALES Y LEYENDA</span>
+<span class="c1">#     # ==========================================</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(x=[None], y=[None], z=[None], mode=&#39;lines&#39;, line=dict(color=color_E, width=5), name=&#39;Campo E (Uniforme en Z)&#39;))</span>
+<span class="c1">#     fig.add_trace(go.Scatter3d(x=[None], y=[None], z=[None], mode=&#39;lines&#39;, line=dict(color=color_dA, width=4), name=&#39;Normal dA (Hacia afuera)&#39;))</span>
+
+<span class="c1">#     camera_settings = dict(eye=dict(x=1.3, y=1.3, z=1.0))</span>
+<span class="c1">#     axis_settings = dict(visible=False, range=[-3.5, 3.5])</span>
+<span class="c1">#     scene_config = dict(xaxis=axis_settings, yaxis=axis_settings, zaxis=axis_settings, camera=camera_settings, aspectmode=&#39;cube&#39;)</span>
+
+<span class="c1">#     fig.update_layout(</span>
+<span class="c1">#         title=dict(</span>
+<span class="c1">#             text=&quot;Ley de Gauss: Lámina Infinita&lt;br&gt;&lt;sup&gt;Tanto el Cilindro (A) como la Caja (C) son ideales. El flujo solo cruza las tapas planas.&lt;/sup&gt;&quot;,</span>
+<span class="c1">#             x=0.5, y=0.97, font=dict(size=18)</span>
+<span class="c1">#         ),</span>
+<span class="c1">#         scene=scene_config, scene2=scene_config, scene3=scene_config,</span>
+<span class="c1">#         margin=dict(l=0, r=0, b=0, t=80),</span>
+<span class="c1">#         legend=dict(x=0.5, y=0.05, xanchor=&#39;center&#39;, orientation=&quot;h&quot;, bgcolor=&#39;rgba(255, 255, 255, 0.8)&#39;)</span>
+<span class="c1">#     )</span>
+
+<span class="c1">#     fig.show()</span>
+<span class="c1">#     fig.write_html(&quot;gauss_plano_3d.html&quot;, include_plotlyjs=&#39;cdn&#39;)</span>
+<span class="c1">#     print(&quot;¡Listo! Archivo &#39;gauss_plano_3d.html&#39; guardado con éxito.&quot;)</span>
+
+<span class="c1"># generar_gauss_plano_3d()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_04_gauss_cilindro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.4 Simetría Cilíndrica</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_06_conductores.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.6 Conductores y Aislantes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explorando-opciones-en-3d">Explorando Opciones en 3D</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instrucciones-de-observacion">Instrucciones de observación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-las-superficies">Análisis de las Superficies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-cilindro-la-caja-de-pastillas-clasica">1. El Cilindro (La “Caja de Pastillas” clásica)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-esfera-inadecuada">2. La Esfera (Inadecuada)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-paralelepipedo-tambien-funciona">3. El Paralelepípedo (¡También funciona!)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-matematica">Conclusión Matemática</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By José Miguel Pinto
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
