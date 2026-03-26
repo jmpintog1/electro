@@ -179,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="01_05_anillo.html">1.5 Anillo Uniformemente Cargado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_06_disco.html">1.6 Disco Cargado Uniformemente</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_07_alambre.html">1.7 Alambre Infinito</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Explorando la Densidad de Carga en un Disco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Densidad de Carga No Uniforme</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2 Ley de Gauss</span></p>
 <ul class="current nav bd-sidenav">
@@ -194,7 +194,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3 Potencial Eléctrico</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="03_01_potencial.html">3.1 Campo y Potencial Eléctrico</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_02_energia.html">3.2 Energía Potencial y Trabajo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
 </ul>
 
     </div>
@@ -433,6 +434,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-conceptual">Análisis conceptual:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
             </nav>
         </div>
@@ -523,6 +525,322 @@ E_{\text{III}}&amp;=\frac{\rho\frac{4}{3}\pi(b^{3}-a^{3})}{4\pi\epsilon_{0}r^{2}
 <p>En nuestro problema, la carga no está distribuida simétricamente alrededor de la cavidad. La cavidad está desplazada con respecto al centro de la esfera grande. Esta asimetría es la clave. La carga fuera de la cavidad (el material aislante con densidad de carga <span class="math notranslate nohighlight">\(\rho\)</span>) contribuye al campo eléctrico en el interior de la cavidad, lo que hace que el campo sea no nulo y uniforme, como se demostró en el problema anterior usando el principio de superposición.</p>
 </section>
 </section>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_gauss_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    if (typeof window.checkFisiQuiz === &#39;undefined&#39;) {</span>
+<span class="s2">        window.checkFisiQuiz = function(radioName, feedbackId) {</span>
+<span class="s2">            var radios = document.getElementsByName(radioName);</span>
+<span class="s2">            var selected = null;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">            </span>
+<span class="s2">            for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                if (radios[i].checked) {</span>
+<span class="s2">                    selected = radios[i];</span>
+<span class="s2">                    break;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            if (!selected) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">            var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            if (isCorrect) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            }</span>
+<span class="s2">        };</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/script&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Tienes dos esferas sólidas del mismo radio R y misma carga total Q. Una es conductora (cobre) y la otra es aislante no conductora con carga uniforme. Si mides el campo eléctrico exactamente en el centro (r=0) y a la mitad del radio (r=R/2), ¿qué observarás?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qgauss1&quot; value=&quot;a&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! En el centro (r=0), por simetría, ambos campos son nulos. Sin embargo, en un conductor las cargas se van a la superficie, por lo que el campo interior siempre es cero. En el aislante, la carga está distribuida en el volumen, por lo que en r=R/2 encierras carga y el campo crece linealmente.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;En el centro de ambas el campo es cero, pero en r=R/2 el campo de la esfera de cobre es nulo y el de la esfera de plástico es distinto de cero.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qgauss1&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Recuerda que en una esfera aislante uniformemente cargada, el campo en el interior no es cero; crece de forma proporcional a la distancia r (E &amp;prop; r).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;En ambas esferas el campo es cero en cualquier punto interior, sin importar si es r=0 o r=R/2.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qgauss1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. En el centro exacto (r=0) de una esfera aislante uniforme, la carga encerrada es nula y, por simetría, los vectores se cancelan, resultando en un campo de cero.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El campo en el centro del plástico es el máximo de toda la distribución, mientras que en el cobre es cero.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qgauss1&#39;, &#39;feedback-gauss1&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-gauss1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. Al aplicar la Ley de Gauss a un plano infinito cargado con densidad &amp;sigma;, se obtiene que la magnitud del campo es E = &amp;sigma; / (2&amp;epsilon;&amp;#8320;). ¿Qué rasgo distintivo tiene este resultado físico?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qgauss2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. El campo magnético se comporta de forma distinta. En electrostática, las líneas salen o entran del plano de forma paralela.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el campo eléctrico forma trayectorias circulares cerradas alrededor del plano.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qgauss2&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. A diferencia de una carga puntual (cae con 1/r&amp;sup2;) o un alambre (cae con 1/r), la fórmula del plano no contiene la variable de distancia.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el campo disminuye proporcionalmente al cuadrado de la distancia perpendicular a la placa.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qgauss2&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Al no aparecer la distancia en la fórmula (E = &amp;sigma; / 2&amp;epsilon;&amp;#8320;), concluimos que el campo no disminuye con la distancia; es uniforme (constante) en todo el espacio por encima y por debajo del plano.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el campo es completamente uniforme; no disminuye ni varía sin importar a qué distancia perpendicular nos encontremos del plano.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qgauss2&#39;, &#39;feedback-gauss2&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-gauss2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. Se tiene una esfera aislante maciza y uniformemente cargada, pero que en su interior tiene una cavidad esférica vacía (un agujero) desplazada del centro. ¿Cómo es el campo eléctrico en el interior de esa cavidad?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qgauss3&quot; value=&quot;a&quot; data-fb=&quot;¡Cuidado! Este es un error muy común. Aunque q_enc = 0 en el hueco, la Ley de Gauss no implica que el campo sea cero si no hay simetría esférica perfecta alrededor del punto. Las cargas que están fuera del hueco también aportan al campo interior.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Es cero en todo el hueco, porque cualquier superficie Gaussiana trazada completamente dentro de la cavidad no encierra ninguna carga neta.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qgauss3&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Brillante! Utilizando el principio de superposición, al restar el campo vectorial de la &#39;esfera hueco&#39; al de la esfera sólida, los términos radiales se simplifican dejando un campo que depende únicamente del vector distancia entre centros (d). Como d es constante, el campo en el hueco es constante en magnitud y dirección.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Es distinto de cero y completamente uniforme (constante en magnitud y dirección) en cualquier punto de la cavidad.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qgauss3&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Aunque intuitivamente uno podría pensar que el campo es más fuerte cerca del material cargado, la superposición vectorial demuestra que dentro del hueco el campo se vuelve perfectamente constante.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Es variable, siendo mucho más fuerte cerca de las paredes interiores del hueco y más débil en el centro de la cavidad.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qgauss3&#39;, &#39;feedback-gauss3&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-gauss3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_gauss_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<script>
+    if (typeof window.checkFisiQuiz === 'undefined') {
+        window.checkFisiQuiz = function(radioName, feedbackId) {
+            var radios = document.getElementsByName(radioName);
+            var selected = null;
+            var feedbackDiv = document.getElementById(feedbackId);
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i];
+                    break;
+                }
+            }
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selected) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.style.color = '#856404';
+                feedbackDiv.style.border = '1px solid #ffeeba';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                return;
+            }
+            
+            var isCorrect = selected.getAttribute('data-correct') === 'true';
+            var msg = selected.getAttribute('data-fb');
+            
+            if (isCorrect) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.style.border = '1px solid #c3e6cb';
+                feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.style.border = '1px solid #f5c6cb';
+                feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+            }
+        };
+    }
+</script>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        1. Tienes dos esferas sólidas del mismo radio R y misma carga total Q. Una es conductora (cobre) y la otra es aislante no conductora con carga uniforme. Si mides el campo eléctrico exactamente en el centro (r=0) y a la mitad del radio (r=R/2), ¿qué observarás?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qgauss1" value="a" data-correct="true" data-fb="¡Correcto! En el centro (r=0), por simetría, ambos campos son nulos. Sin embargo, en un conductor las cargas se van a la superficie, por lo que el campo interior siempre es cero. En el aislante, la carga está distribuida en el volumen, por lo que en r=R/2 encierras carga y el campo crece linealmente."> 
+        <span>En el centro de ambas el campo es cero, pero en r=R/2 el campo de la esfera de cobre es nulo y el de la esfera de plástico es distinto de cero.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qgauss1" value="b" data-fb="Incorrecto. Recuerda que en una esfera aislante uniformemente cargada, el campo en el interior no es cero; crece de forma proporcional a la distancia r (E &prop; r)."> 
+        <span>En ambas esferas el campo es cero en cualquier punto interior, sin importar si es r=0 o r=R/2.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qgauss1" value="c" data-fb="Incorrecto. En el centro exacto (r=0) de una esfera aislante uniforme, la carga encerrada es nula y, por simetría, los vectores se cancelan, resultando en un campo de cero."> 
+        <span>El campo en el centro del plástico es el máximo de toda la distribución, mientras que en el cobre es cero.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qgauss1', 'feedback-gauss1')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-gauss1"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        2. Al aplicar la Ley de Gauss a un plano infinito cargado con densidad &sigma;, se obtiene que la magnitud del campo es E = &sigma; / (2&epsilon;&#8320;). ¿Qué rasgo distintivo tiene este resultado físico?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qgauss2" value="a" data-fb="Incorrecto. El campo magnético se comporta de forma distinta. En electrostática, las líneas salen o entran del plano de forma paralela."> 
+        <span>Que el campo eléctrico forma trayectorias circulares cerradas alrededor del plano.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qgauss2" value="b" data-fb="Incorrecto. A diferencia de una carga puntual (cae con 1/r&sup2;) o un alambre (cae con 1/r), la fórmula del plano no contiene la variable de distancia."> 
+        <span>Que el campo disminuye proporcionalmente al cuadrado de la distancia perpendicular a la placa.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qgauss2" value="c" data-correct="true" data-fb="¡Exacto! Al no aparecer la distancia en la fórmula (E = &sigma; / 2&epsilon;&#8320;), concluimos que el campo no disminuye con la distancia; es uniforme (constante) en todo el espacio por encima y por debajo del plano."> 
+        <span>Que el campo es completamente uniforme; no disminuye ni varía sin importar a qué distancia perpendicular nos encontremos del plano.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qgauss2', 'feedback-gauss2')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-gauss2"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        3. Se tiene una esfera aislante maciza y uniformemente cargada, pero que en su interior tiene una cavidad esférica vacía (un agujero) desplazada del centro. ¿Cómo es el campo eléctrico en el interior de esa cavidad?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qgauss3" value="a" data-fb="¡Cuidado! Este es un error muy común. Aunque q_enc = 0 en el hueco, la Ley de Gauss no implica que el campo sea cero si no hay simetría esférica perfecta alrededor del punto. Las cargas que están fuera del hueco también aportan al campo interior."> 
+        <span>Es cero en todo el hueco, porque cualquier superficie Gaussiana trazada completamente dentro de la cavidad no encierra ninguna carga neta.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qgauss3" value="b" data-correct="true" data-fb="¡Brillante! Utilizando el principio de superposición, al restar el campo vectorial de la 'esfera hueco' al de la esfera sólida, los términos radiales se simplifican dejando un campo que depende únicamente del vector distancia entre centros (d). Como d es constante, el campo en el hueco es constante en magnitud y dirección."> 
+        <span>Es distinto de cero y completamente uniforme (constante en magnitud y dirección) en cualquier punto de la cavidad.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qgauss3" value="c" data-fb="Incorrecto. Aunque intuitivamente uno podría pensar que el campo es más fuerte cerca del material cargado, la superposición vectorial demuestra que dentro del hueco el campo se vuelve perfectamente constante."> 
+        <span>Es variable, siendo mucho más fuerte cerca de las paredes interiores del hueco y más débil en el centro de la cavidad.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qgauss3', 'feedback-gauss3')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-gauss3"></div>
+</div>
+</div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -600,6 +918,7 @@ E_{\text{III}}&amp;=\frac{\rho\frac{4}{3}\pi(b^{3}-a^{3})}{4\pi\epsilon_{0}r^{2}
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-conceptual">Análisis conceptual:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
   </nav></div>
 

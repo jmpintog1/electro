@@ -430,6 +430,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#densidad-de-carga-con-dependencia-exponencial-sigma-sigma-0-e-alpha-r-2">Densidad de carga con dependencia exponencial (<span class="math notranslate nohighlight">\(\sigma = \sigma_{0}e^{-\alpha r^{2}}\)</span>)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
             </nav>
         </div>
@@ -516,6 +517,324 @@ document.write(`
 </ul>
 </section>
 </section>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_disco_ana_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    // Definimos una función global única para que funcione en cualquier celda de Jupyter</span>
+<span class="s2">    if (typeof window.checkFisiQuiz === &#39;undefined&#39;) {</span>
+<span class="s2">        window.checkFisiQuiz = function(radioName, feedbackId) {</span>
+<span class="s2">            var radios = document.getElementsByName(radioName);</span>
+<span class="s2">            var selected = null;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">            </span>
+<span class="s2">            for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                if (radios[i].checked) {</span>
+<span class="s2">                    selected = radios[i];</span>
+<span class="s2">                    break;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            if (!selected) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">            var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            if (isCorrect) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            }</span>
+<span class="s2">        };</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/script&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Considera el disco con densidad de carga angular &amp;sigma; = &amp;sigma;&amp;#8320; cos(&amp;theta;). Si calculamos el campo eléctrico en un punto P situado sobre el eje Z central, ¿hacia dónde apuntará el vector resultante?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdisco1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. La distribución no tiene simetría de revolución. La mitad derecha es positiva y la izquierda es negativa.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;A lo largo del eje Z, ya que las componentes perpendiculares se anulan por simetría.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdisco1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! La mitad derecha (X positivo) tiene carga positiva y la izquierda (X negativo) carga negativa. El campo generado por la parte positiva &#39;empuja&#39; hacia la izquierda y el de la negativa &#39;tira&#39; hacia la izquierda, por lo que el campo resultante sobre el eje Z es completamente horizontal y paralelo al eje X.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;A lo largo del eje X, paralelo a la superficie del disco.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdisco1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Si bien el campo tiene componente en el plano XY, no apunta en la dirección Y. Revisa los signos de la función coseno.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;A lo largo del eje Y, paralelo a la línea donde la carga es nula.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qdisco1&#39;, &#39;feedback-disco1&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-disco1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. Tienes dos discos del mismo radio R y misma carga total Q. El Disco A tiene carga constante (&amp;sigma; = constante), mientras que el Disco B tiene carga que aumenta hacia el borde (&amp;sigma; = &amp;sigma;&amp;#8320;(r/R)). Si te paras en un punto P en el eje Z muy cercano al centro del disco, ¿qué campo será más intenso?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdisco2&quot; value=&quot;a&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Cerca del origen (r &amp;approx; 0), la densidad de carga del Disco B tiende a cero, mientras que el Disco A tiene carga constante en todas partes, incluyendo el centro. Por lo tanto, el material cargado &#39;justo debajo&#39; del punto P es mucho mayor en el Disco A.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El campo del Disco A (carga constante) será más intenso.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdisco2&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Recuerda que para el Disco B, en r=0 la densidad de carga es 0. Casi no hay carga cerca del centro para generar campo.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El campo del Disco B (carga hacia el borde) será más intenso.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdisco2&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Aunque la carga total Q es la misma, la distribución importa enormemente en puntos cercanos. El teorema de Gauss puro no nos salva aquí porque no estamos rodeando toda la carga.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Ambos campos serán exactamente iguales porque la carga total Q es la misma.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qdisco2&#39;, &#39;feedback-disco2&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-disco2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. Analizando la densidad &amp;sigma; = &amp;sigma;&amp;#8320;e&lt;sup&gt;-&amp;alpha;r&amp;sup2;&lt;/sup&gt;. Si el parámetro &amp;alpha; toma un valor extremadamente grande (&amp;alpha; &amp;rarr; &amp;infin;), ¿a qué modelo físico idealizado se aproximará el comportamiento de este disco?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdisco3&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Si &amp;alpha; es muy grande, la exponencial decae a cero casi inmediatamente al alejarse del centro r=0. Es decir, casi toda la carga está en el centro.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;A un anillo cargado de radio R.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdisco3&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Para que sea un plano infinito uniforme, el parámetro &amp;alpha; debería tender a cero, de modo que e^0 = 1 y la densidad sea constante en todas partes.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;A un plano infinito con densidad uniforme.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdisco3&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Si &amp;alpha; es gigante, la función e^(-&amp;alpha;r&amp;sup2;) decae a cero rapidísimo al alejarse apenas un poco de r=0. Físicamente, esto significa que toda la carga está concentrada en un punto central minúsculo, comportándose matemáticamente como una carga puntual.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;A una sola carga puntual en el origen.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qdisco3&#39;, &#39;feedback-disco3&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-disco3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_disco_ana_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<script>
+    // Definimos una función global única para que funcione en cualquier celda de Jupyter
+    if (typeof window.checkFisiQuiz === 'undefined') {
+        window.checkFisiQuiz = function(radioName, feedbackId) {
+            var radios = document.getElementsByName(radioName);
+            var selected = null;
+            var feedbackDiv = document.getElementById(feedbackId);
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i];
+                    break;
+                }
+            }
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selected) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.style.color = '#856404';
+                feedbackDiv.style.border = '1px solid #ffeeba';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                return;
+            }
+            
+            var isCorrect = selected.getAttribute('data-correct') === 'true';
+            var msg = selected.getAttribute('data-fb');
+            
+            if (isCorrect) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.style.border = '1px solid #c3e6cb';
+                feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.style.border = '1px solid #f5c6cb';
+                feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+            }
+        };
+    }
+</script>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        1. Considera el disco con densidad de carga angular &sigma; = &sigma;&#8320; cos(&theta;). Si calculamos el campo eléctrico en un punto P situado sobre el eje Z central, ¿hacia dónde apuntará el vector resultante?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qdisco1" value="a" data-fb="Incorrecto. La distribución no tiene simetría de revolución. La mitad derecha es positiva y la izquierda es negativa."> 
+        <span>A lo largo del eje Z, ya que las componentes perpendiculares se anulan por simetría.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdisco1" value="b" data-correct="true" data-fb="¡Correcto! La mitad derecha (X positivo) tiene carga positiva y la izquierda (X negativo) carga negativa. El campo generado por la parte positiva 'empuja' hacia la izquierda y el de la negativa 'tira' hacia la izquierda, por lo que el campo resultante sobre el eje Z es completamente horizontal y paralelo al eje X."> 
+        <span>A lo largo del eje X, paralelo a la superficie del disco.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdisco1" value="c" data-fb="Incorrecto. Si bien el campo tiene componente en el plano XY, no apunta en la dirección Y. Revisa los signos de la función coseno."> 
+        <span>A lo largo del eje Y, paralelo a la línea donde la carga es nula.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qdisco1', 'feedback-disco1')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-disco1"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        2. Tienes dos discos del mismo radio R y misma carga total Q. El Disco A tiene carga constante (&sigma; = constante), mientras que el Disco B tiene carga que aumenta hacia el borde (&sigma; = &sigma;&#8320;(r/R)). Si te paras en un punto P en el eje Z muy cercano al centro del disco, ¿qué campo será más intenso?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qdisco2" value="a" data-correct="true" data-fb="¡Exacto! Cerca del origen (r &approx; 0), la densidad de carga del Disco B tiende a cero, mientras que el Disco A tiene carga constante en todas partes, incluyendo el centro. Por lo tanto, el material cargado 'justo debajo' del punto P es mucho mayor en el Disco A."> 
+        <span>El campo del Disco A (carga constante) será más intenso.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdisco2" value="b" data-fb="Incorrecto. Recuerda que para el Disco B, en r=0 la densidad de carga es 0. Casi no hay carga cerca del centro para generar campo."> 
+        <span>El campo del Disco B (carga hacia el borde) será más intenso.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdisco2" value="c" data-fb="Incorrecto. Aunque la carga total Q es la misma, la distribución importa enormemente en puntos cercanos. El teorema de Gauss puro no nos salva aquí porque no estamos rodeando toda la carga."> 
+        <span>Ambos campos serán exactamente iguales porque la carga total Q es la misma.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qdisco2', 'feedback-disco2')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-disco2"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        3. Analizando la densidad &sigma; = &sigma;&#8320;e<sup>-&alpha;r&sup2;</sup>. Si el parámetro &alpha; toma un valor extremadamente grande (&alpha; &rarr; &infin;), ¿a qué modelo físico idealizado se aproximará el comportamiento de este disco?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qdisco3" value="a" data-fb="Incorrecto. Si &alpha; es muy grande, la exponencial decae a cero casi inmediatamente al alejarse del centro r=0. Es decir, casi toda la carga está en el centro."> 
+        <span>A un anillo cargado de radio R.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdisco3" value="b" data-fb="Incorrecto. Para que sea un plano infinito uniforme, el parámetro &alpha; debería tender a cero, de modo que e^0 = 1 y la densidad sea constante en todas partes."> 
+        <span>A un plano infinito con densidad uniforme.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdisco3" value="c" data-correct="true" data-fb="¡Correcto! Si &alpha; es gigante, la función e^(-&alpha;r&sup2;) decae a cero rapidísimo al alejarse apenas un poco de r=0. Físicamente, esto significa que toda la carga está concentrada en un punto central minúsculo, comportándose matemáticamente como una carga puntual."> 
+        <span>A una sola carga puntual en el origen.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qdisco3', 'feedback-disco3')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-disco3"></div>
+</div>
+</div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -589,6 +908,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#densidad-de-carga-con-dependencia-exponencial-sigma-sigma-0-e-alpha-r-2">Densidad de carga con dependencia exponencial (<span class="math notranslate nohighlight">\(\sigma = \sigma_{0}e^{-\alpha r^{2}}\)</span>)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
   </nav></div>
 
