@@ -439,18 +439,23 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="calculo-del-potencial-electrico">
 <h1>3.2 Cálculo del Potencial Eléctrico<a class="headerlink" href="#calculo-del-potencial-electrico" title="Permalink to this heading">#</a></h1>
-<p>Partiendo de la relación matemática del gradiente para el vector de posición:
-$<span class="math notranslate nohighlight">\(\vec{\nabla}\left(\frac{1}{\left|\vec{r}-\vec{r}^{\, \prime}\right|}\right)=-\frac{\left(\vec{r}-\vec{r}^{\, \prime}\right)}{\left|\vec{r}-\vec{r}^{\, \prime}\right|^{3}}\)</span>$</p>
+<p>Partiendo de la relación matemática del gradiente para el vector de posición:</p>
+<div class="math notranslate nohighlight">
+\[\vec{\nabla}\left(\frac{1}{\left|\vec{r}-\vec{r}^{\, \prime}\right|}\right)=-\frac{\left(\vec{r}-\vec{r}^{\, \prime}\right)}{\left|\vec{r}-\vec{r}^{\, \prime}\right|^{3}}\]</div>
 <section id="potencial-electrico-para-una-distribucion-continua">
 <h2>Potencial eléctrico para una distribución continua<a class="headerlink" href="#potencial-electrico-para-una-distribucion-continua" title="Permalink to this heading">#</a></h2>
-<p>Para una distribución de carga continua el campo eléctrico se expresa inicialmente como:
-$<span class="math notranslate nohighlight">\(\vec{E}=\frac{1}{4\pi\epsilon_{0}}\int dq^{\prime}\frac{(\vec{r}-\vec{r}^{\, \prime})}{|\vec{r}-\vec{r}^{\, \prime}|^{3}}\)</span>$</p>
+<p>Para una distribución de carga continua el campo eléctrico se expresa inicialmente como:</p>
+<div class="math notranslate nohighlight">
+\[\vec{E}=\frac{1}{4\pi\epsilon_{0}}\int dq^{\prime}\frac{(\vec{r}-\vec{r}^{\, \prime})}{|\vec{r}-\vec{r}^{\, \prime}|^{3}}\]</div>
 <a class="reference internal image-reference" href="_images/01_07.svg"><img alt="Distribución de carga" class="align-center" src="_images/01_07.svg" width="60%" /></a>
-<p>Reemplazando la identidad del gradiente obtenida previamente:
-$<span class="math notranslate nohighlight">\(\vec{E}=-\frac{1}{4\pi\epsilon_{0}}\int dq^{\prime} \, \vec{\nabla}\left(\frac{1}{|\vec{r}-\vec{r}^{\, \prime}|}\right)\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\vec{E}=-\vec{\nabla}\left(\frac{1}{4\pi\epsilon_{0}}\int dq^{\prime}\frac{1}{|\vec{r}-\vec{r}^{\, \prime}|}\right)\)</span><span class="math notranslate nohighlight">\(
-Dado que \)</span>\vec{E} = -\vec{\nabla}V<span class="math notranslate nohighlight">\(, de aquí se define el potencial eléctrico \)</span>V<span class="math notranslate nohighlight">\( para una distribución continua como:
-\)</span><span class="math notranslate nohighlight">\(V=\frac{1}{4\pi\epsilon_{0}}\int\frac{dq^{\prime}}{|\vec{r}-\vec{r}^{\, \prime}|}\)</span>$</p>
+<p>Reemplazando la identidad del gradiente obtenida previamente:</p>
+<div class="math notranslate nohighlight">
+\[\vec{E}=-\frac{1}{4\pi\epsilon_{0}}\int dq^{\prime} \, \vec{\nabla}\left(\frac{1}{|\vec{r}-\vec{r}^{\, \prime}|}\right)\]</div>
+<div class="math notranslate nohighlight">
+\[\vec{E}=-\vec{\nabla}\left(\frac{1}{4\pi\epsilon_{0}}\int dq^{\prime}\frac{1}{|\vec{r}-\vec{r}^{\, \prime}|}\right)\]</div>
+<p>Dado que <span class="math notranslate nohighlight">\(\vec{E} = -\vec{\nabla}V\)</span>, de aquí se define el potencial eléctrico <span class="math notranslate nohighlight">\(V\)</span> para una distribución continua como:</p>
+<div class="math notranslate nohighlight">
+\[V=\frac{1}{4\pi\epsilon_{0}}\int\frac{dq^{\prime}}{|\vec{r}-\vec{r}^{\, \prime}|}\]</div>
 </section>
 <section id="potencial-electrico-para-una-carga-puntual">
 <h2>Potencial eléctrico para una carga puntual<a class="headerlink" href="#potencial-electrico-para-una-carga-puntual" title="Permalink to this heading">#</a></h2>
@@ -462,9 +467,10 @@ $<span class="math notranslate nohighlight">\(V=\frac{1}{4\pi\epsilon_{0}}\frac{
 <h2>Ejemplo 1: Potencial en P debido a una carga q<a class="headerlink" href="#ejemplo-1-potencial-en-p-debido-a-una-carga-q" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Para un punto <span class="math notranslate nohighlight">\(P\)</span> (y un punto simétrico <span class="math notranslate nohighlight">\(P^{\prime}\)</span>) ubicado a una distancia <span class="math notranslate nohighlight">\(R\)</span> de una carga puntual <span class="math notranslate nohighlight">\(q\)</span>.</p></li>
-<li><p>El potencial eléctrico en dicha posición es:
-$<span class="math notranslate nohighlight">\(V_{P}=\frac{1}{4\pi\epsilon_{\circ}}\frac{q}{R}=V_{P^{\prime}}\)</span>$</p></li>
+<li><p>El potencial eléctrico en dicha posición es:</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[V_{P}=\frac{1}{4\pi\epsilon_{\circ}}\frac{q}{R}=V_{P^{\prime}}\]</div>
 </section>
 <section id="ejemplo-2-potencial-en-p-debido-a-un-alambre-de-carga-q">
 <h2>Ejemplo 2: Potencial en P debido a un alambre de carga Q<a class="headerlink" href="#ejemplo-2-potencial-en-p-debido-a-un-alambre-de-carga-q" title="Permalink to this heading">#</a></h2>
@@ -479,21 +485,31 @@ $<span class="math notranslate nohighlight">\(V_{P}=\frac{1}{4\pi\epsilon_{\circ
 </ul>
 </li>
 <li><p>Relacionando la carga con la geometría, la densidad lineal es <span class="math notranslate nohighlight">\(\lambda=\frac{Q}{L}\)</span>, lo que implica que <span class="math notranslate nohighlight">\(dq^{\prime}=\lambda dl=\frac{Q}{L}dl\)</span> (donde <span class="math notranslate nohighlight">\(dl = dy\)</span>).</p></li>
-<li><p>El potencial en el punto <span class="math notranslate nohighlight">\(P\)</span> se plantea integrando a lo largo del alambre:
-$<span class="math notranslate nohighlight">\(V_{P}=\frac{1}{4\pi\epsilon_{0}}\int\frac{dq^{\prime}}{|\vec{r}-\vec{r}^{\, \prime}|}=\frac{1}{4\pi\epsilon_{0}}\int\frac{(Q/L)dy}{\sqrt{y^{2}+a^{2}}}\)</span>$</p></li>
-<li><p>Evaluando los límites de integración correspondientes a la longitud del alambre, desde <span class="math notranslate nohighlight">\(-L/2\)</span> hasta <span class="math notranslate nohighlight">\(L/2\)</span>:
-$<span class="math notranslate nohighlight">\(V_{P}=\frac{Q}{4\pi\epsilon_{0}L}\int_{-L/2}^{L/2}\frac{dy}{\sqrt{y^{2}+a^{2}}}\)</span>$</p></li>
+<li><p>El potencial en el punto <span class="math notranslate nohighlight">\(P\)</span> se plantea integrando a lo largo del alambre:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[V_{P}=\frac{1}{4\pi\epsilon_{0}}\int\frac{dq^{\prime}}{|\vec{r}-\vec{r}^{\, \prime}|}=\frac{1}{4\pi\epsilon_{0}}\int\frac{(Q/L)dy}{\sqrt{y^{2}+a^{2}}}\]</div>
+<ul class="simple">
+<li><p>Evaluando los límites de integración correspondientes a la longitud del alambre, desde <span class="math notranslate nohighlight">\(-L/2\)</span> hasta <span class="math notranslate nohighlight">\(L/2\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[V_{P}=\frac{Q}{4\pi\epsilon_{0}L}\int_{-L/2}^{L/2}\frac{dy}{\sqrt{y^{2}+a^{2}}}\]</div>
+<ul class="simple">
 <li><p>Para resolver esta integral, se utiliza el siguiente cambio de variable trigonométrico:</p>
 <ul>
 <li><p><span class="math notranslate nohighlight">\(y=a\tan\theta\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(dy=a\sec^{2}\theta d\theta\)</span></p></li>
 </ul>
 </li>
-<li><p>La solución de esta integral conocida es:
-$<span class="math notranslate nohighlight">\(\int\frac{dy}{\sqrt{y^{2}+a^{2}}}=\ln\left(y+\sqrt{y^{2}+a^{2}}\right)\)</span>$</p></li>
-<li><p>Aplicando esta solución a los límites físicos del problema, el potencial resultante es:
-$<span class="math notranslate nohighlight">\(V_{P}=\frac{Q}{4\pi\epsilon_{0}L}\ln\left(y+\sqrt{y^{2}+a^{2}}\right)\Bigg|_{-L/2}^{L/2}\)</span>$</p></li>
+<li><p>La solución de esta integral conocida es:</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[\int\frac{dy}{\sqrt{y^{2}+a^{2}}}=\ln\left(y+\sqrt{y^{2}+a^{2}}\right)\]</div>
+<ul class="simple">
+<li><p>Aplicando esta solución a los límites físicos del problema, el potencial resultante es:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[V_{P}=\frac{Q}{4\pi\epsilon_{0}L}\ln\left(y+\sqrt{y^{2}+a^{2}}\right)\Bigg|_{-L/2}^{L/2}\]</div>
 </section>
 </section>
 
