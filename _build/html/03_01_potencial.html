@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '03_01_potencial';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3.2 Energía Potencial Electrostática y Trabajo" href="03_02_energia.html" />
-    <link rel="prev" title="2.7 Cavidades en una Esfera Aislante" href="02_07_cavidades.html" />
+    <link rel="next" title="3.2 Cálculo del Potencial Eléctrico" href="03_02_calculo.html" />
+    <link rel="prev" title="2.7 Cavidades en una Esfera" href="02_07_cavidades.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="01_05_anillo.html">1.5 Anillo Uniformemente Cargado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_06_disco.html">1.6 Disco Cargado Uniformemente</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_07_alambre.html">1.7 Alambre Infinito</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Explorando la Densidad de Carga en un Disco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Densidad de Carga No Uniforme</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2 Ley de Gauss</span></p>
 <ul class="nav bd-sidenav">
@@ -189,13 +189,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="02_04_gauss_cilindro.html">2.4 Simetría Cilíndrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_05_gauss_plano.html">2.5 Simetría Plana</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_06_conductores.html">2.6 Conductores y Aislantes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera Aislante</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3 Potencial Eléctrico</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3.1 Campo y Potencial Eléctrico</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_02_energia.html">3.2 Energía Potencial Electrostática y Trabajo</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
 </ul>
 
     </div>
@@ -422,9 +422,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-campo-electrostatico-como-campo-conservativo">El Campo Electrostático como Campo Conservativo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-carga-puntual-y-simetria-radial">Simulación: Carga Puntual y Simetría Radial</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-la-barra-cargada-y-geometrias-complejas">Simulación: La Barra Cargada y Geometrías Complejas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#campo-electrico-conservativo">Campo eléctrico conservativo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-carga-puntual-y-simetria-radial">Simulación: Carga puntual y simetría radial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-barra-cargada-y-geometrias-complejas">Simulación: Barra cargada y geometrías complejas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-explorando-superficies-equipotenciales-con-phet">🌐 Simulación: Explorando Superficies Equipotenciales con PhET</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-inicial">Configuración Inicial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1-superficies-equipotenciales-de-una-carga-puntual">Caso 1: Superficies Equipotenciales de una Carga Puntual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2-superficies-equipotenciales-de-una-barra-uniforme">Caso 2: Superficies Equipotenciales de una Barra Uniforme</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -447,9 +453,10 @@ document.write(`
 <p>Para calcular la diferencia de potencial <span class="math notranslate nohighlight">\(\Delta V\)</span> entre un punto inicial <span class="math notranslate nohighlight">\(i\)</span> y un punto final <span class="math notranslate nohighlight">\(f\)</span>, integramos el campo eléctrico a lo largo de una trayectoria:</p>
 <div class="math notranslate nohighlight">
 \[\Delta V=-\int_{i}^{f}\vec{E}\cdot d\vec{l}\]</div>
+<a class="reference internal image-reference" href="_images/03_01.svg"><img alt="Integral de línea" class="align-center" src="_images/03_01.svg" width="60%" /></a>
 <p>Dado que nos enfrentamos a un campo conservativo, el cambio de potencial es independiente de la trayectoria elegida para ir desde <span class="math notranslate nohighlight">\(i\)</span> hasta <span class="math notranslate nohighlight">\(f\)</span>.</p>
-<section id="el-campo-electrostatico-como-campo-conservativo">
-<h2>El Campo Electrostático como Campo Conservativo<a class="headerlink" href="#el-campo-electrostatico-como-campo-conservativo" title="Permalink to this heading">#</a></h2>
+<section id="campo-electrico-conservativo">
+<h2>Campo eléctrico conservativo<a class="headerlink" href="#campo-electrico-conservativo" title="Permalink to this heading">#</a></h2>
 <p>Una de las ideas más contraintuitivas cuando comenzamos a estudiar el electromagnetismo es pensar que, al mover una carga entre dos puntos, el camino más largo o más sinuoso requerirá “gastar” más energía. Nuestra experiencia cotidiana con la fricción nos dice que la ruta importa. Sin embargo, en la electrostática, esto es estrictamente falso.</p>
 <p>El campo eléctrico estático es un <strong>campo conservativo</strong>. Esto significa que el trabajo realizado por la fuerza eléctrica para mover una carga de prueba desde un punto inicial <span class="math notranslate nohighlight">\(i\)</span> hasta un punto final <span class="math notranslate nohighlight">\(f\)</span> es <strong>independiente de la trayectoria</strong>.</p>
 <p>Matemáticamente, el trabajo <span class="math notranslate nohighlight">\(W\)</span> por unidad de carga (medido en J/C o Voltios) se define a través de la integral de línea del producto punto entre el campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> y el diferencial de desplazamiento <span class="math notranslate nohighlight">\(d\vec{l}\)</span>:</p>
@@ -672,7 +679,7 @@ document.write(`
 </div>
 </section>
 <section id="simulacion-carga-puntual-y-simetria-radial">
-<h2>Simulación: Carga Puntual y Simetría Radial<a class="headerlink" href="#simulacion-carga-puntual-y-simetria-radial" title="Permalink to this heading">#</a></h2>
+<h2>Simulación: Carga puntual y simetría radial<a class="headerlink" href="#simulacion-carga-puntual-y-simetria-radial" title="Permalink to this heading">#</a></h2>
 <p>En nuestra primera simulación interactiva, exploramos el campo generado por una única carga puntual <span class="math notranslate nohighlight">\(+Q\)</span>. Las líneas de campo aquí divergen radialmente desde el origen.</p>
 <iframe src="_static/potencial_trayectoria1.html" width="100%" height="600" style="border:none;"></iframe>
 <p>Observa atentamente las cuatro trayectorias. A medida que avanza la animación, notarás detalles clave sobre el diferencial de trabajo (<span class="math notranslate nohighlight">\(dW\)</span>):</p>
@@ -903,12 +910,100 @@ document.write(`
 </details>
 </div>
 </section>
-<section id="simulacion-la-barra-cargada-y-geometrias-complejas">
-<h2>Simulación: La Barra Cargada y Geometrías Complejas<a class="headerlink" href="#simulacion-la-barra-cargada-y-geometrias-complejas" title="Permalink to this heading">#</a></h2>
+<section id="simulacion-barra-cargada-y-geometrias-complejas">
+<h2>Simulación: Barra cargada y geometrías complejas<a class="headerlink" href="#simulacion-barra-cargada-y-geometrias-complejas" title="Permalink to this heading">#</a></h2>
 <p>Es fácil pensar que la independencia de la trayectoria es solo una “suerte” matemática que ocurre por la simetría perfecta de una carga puntual. La segunda simulación está diseñada para romper ese mito.</p>
 <iframe src="_static/potencial_trayectoria2.html" width="100%" height="600" style="border:none;"></iframe>
 <p>Aquí, la fuente es una distribución continua: una barra horizontal de longitud <span class="math notranslate nohighlight">\(L\)</span> con densidad de carga lineal uniforme (<span class="math notranslate nohighlight">\(+\lambda\)</span>). El campo eléctrico resultante es mucho más complejo. Ya no es puramente radial; cerca del centro las flechas apuntan hacia arriba, pero hacia los extremos se curvan violentamente debido a los efectos de borde.</p>
 <p>A pesar de esta geometría vectorial asimétrica e intrincada, el principio físico se mantiene inquebrantable. Las cuatro partículas navegan por encima de la barra, cruzando el campo en ángulos totalmente distintos, pero al aterrizar en el punto final <span class="math notranslate nohighlight">\(f\)</span>, el trabajo acumulado vuelve a coincidir a la perfección. La naturaleza conservativa no depende de la forma de la fuente, sino que es una propiedad fundamental del propio campo electrostático.</p>
+</section>
+<section id="simulacion-explorando-superficies-equipotenciales-con-phet">
+<h2>🌐 Simulación: Explorando Superficies Equipotenciales con PhET<a class="headerlink" href="#simulacion-explorando-superficies-equipotenciales-con-phet" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">phet_iframe</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;div style=&quot;width: 100%; text-align: center; margin-bottom: 20px;&quot;&gt;</span>
+<span class="s2">    &lt;iframe src=&quot;https://phet.colorado.edu/sims/html/charges-and-fields/latest/charges-and-fields_es.html&quot;</span>
+<span class="s2">        width=&quot;100%&quot;</span>
+<span class="s2">        height=&quot;500&quot;</span>
+<span class="s2">        scrolling=&quot;no&quot;</span>
+<span class="s2">        allowfullscreen&gt;</span>
+<span class="s2">    &lt;/iframe&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">phet_iframe</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div style="width: 100%; text-align: center; margin-bottom: 20px;">
+    <iframe src="https://phet.colorado.edu/sims/html/charges-and-fields/latest/charges-and-fields_es.html"
+        width="100%"
+        height="500"
+        scrolling="no"
+        allowfullscreen>
+    </iframe>
+</div>
+</div></div>
+</div>
+<p>La simulación <strong>“Cargas y Campos”</strong> de PhET es una herramienta excelente para visualizar el campo eléctrico y el potencial electrostático. A continuación, se detallan los pasos para modelar y observar las superficies equipotenciales tanto de una carga puntual como de una distribución lineal de carga (barra uniforme).</p>
+<section id="configuracion-inicial">
+<h3>Configuración Inicial<a class="headerlink" href="#configuracion-inicial" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Ingresa a la simulación.</p></li>
+<li><p>En el menú lateral derecho, activa las siguientes opciones para facilitar la visualización y medición:</p>
+<ul class="simple">
+<li><p><strong>Campo eléctrico:</strong> Para visualizar las líneas de campo y su dirección.</p></li>
+<li><p><strong>Grilla:</strong> Para alinear las cargas con precisión y establecer referencias espaciales.</p></li>
+<li><p><strong>Valores:</strong> Para obtener lecturas numéricas del potencial eléctrico en voltios (<strong>V</strong>).</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="caso-1-superficies-equipotenciales-de-una-carga-puntual">
+<h3>Caso 1: Superficies Equipotenciales de una Carga Puntual<a class="headerlink" href="#caso-1-superficies-equipotenciales-de-una-carga-puntual" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Posicionamiento:</strong> Arrastra una carga positiva de <strong>+1 nC</strong> desde el panel inferior hacia el centro de la grilla.</p></li>
+<li><p><strong>Observación del campo:</strong> Nota que las líneas del campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span> divergen con simetría radial desde la carga.</p></li>
+<li><p><strong>Medición del potencial:</strong> Selecciona la herramienta de medición de equipotenciales (el sensor azul con forma de cruz) y ubícala a una distancia específica de la carga (por ejemplo, a dos cuadrículas de distancia).</p></li>
+<li><p><strong>Trazado de la superficie:</strong> Haz clic en el ícono del <strong>lápiz verde</strong> adjunto al sensor. Esto trazará la superficie equipotencial correspondiente a ese voltaje, que para una carga puntual será una circunferencia perfecta.</p></li>
+<li><p><strong>Mapeo del espacio:</strong> Aleja el sensor radialmente a nuevas distancias y repite el trazado. Observarás que las superficies equipotenciales forman una familia de circunferencias concéntricas.</p></li>
+</ol>
+</section>
+<section id="caso-2-superficies-equipotenciales-de-una-barra-uniforme">
+<h3>Caso 2: Superficies Equipotenciales de una Barra Uniforme<a class="headerlink" href="#caso-2-superficies-equipotenciales-de-una-barra-uniforme" title="Permalink to this heading">#</a></h3>
+<p>Dado que la simulación opera con cargas puntuales, aproximaremos una distribución continua lineal agrupando múltiples cargas individuales.</p>
+<ol class="arabic simple">
+<li><p><strong>Limpieza del área:</strong> Utiliza el botón de reinicio (flecha circular naranja en la esquina inferior derecha) para despejar el área de trabajo.</p></li>
+<li><p><strong>Construcción de la distribución lineal:</strong></p>
+<ul class="simple">
+<li><p>Coloca una carga de <strong>+1 nC</strong> en una intersección de la grilla.</p></li>
+<li><p>Arrastra cargas adicionales de <strong>+1 nC</strong> y ubícalas contiguas a la primera, formando una línea recta horizontal ininterrumpida. Utiliza entre 8 y 10 cargas para obtener un buen modelo de la barra.</p></li>
+</ul>
+</li>
+<li><p><strong>Análisis del campo:</strong> Observa que en la región central de la barra, las líneas de campo son aproximadamente paralelas y perpendiculares a la distribución. En los extremos, las líneas se curvan (efectos de borde).</p></li>
+<li><p><strong>Trazado de las superficies:</strong> Utiliza nuevamente el sensor de equipotenciales y ubícalo cerca del centro de la barra. Al trazar la línea con el lápiz, notarás una geometría ovalada o capsular que copia la simetría plana en el centro y se curva en los extremos.</p></li>
+<li><p><strong>Evolución con la distancia:</strong> Traza nuevas superficies alejándote progresivamente de la barra. Notarás un comportamiento dual:</p>
+<ul class="simple">
+<li><p><strong>Zona cercana (campo próximo):</strong> Las superficies son casi paralelas a la barra.</p></li>
+<li><p><strong>Zona lejana (campo lejano):</strong> Las superficies tienden a volverse circulares, demostrando que a distancias mucho mayores que la longitud de la barra, el sistema se aproxima al comportamiento de una carga puntual equivalente.</p></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<div><p><strong>Nota sobre el Trabajo Eléctrico:</strong> Si una carga de prueba se desplazara exactamente sobre cualquiera de estas trayectorias equipotenciales trazadas, el trabajo realizado por el campo eléctrico sería nulo (<span class="math notranslate nohighlight">\(W = 0\)</span>). Esto ocurre porque el desplazamiento diferencial <span class="math notranslate nohighlight">\(d\vec{l}\)</span> es en todo momento perpendicular a las líneas de campo eléctrico <span class="math notranslate nohighlight">\(\vec{E}\)</span>, haciendo que el producto escalar <span class="math notranslate nohighlight">\(\vec{E} \cdot d\vec{l}\)</span> sea cero.</p>
+</div></blockquote>
+</section>
 </section>
 </section>
 
@@ -948,15 +1043,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">2.7 Cavidades en una Esfera Aislante</p>
+        <p class="prev-next-title">2.7 Cavidades en una Esfera</p>
       </div>
     </a>
     <a class="right-next"
-       href="03_02_energia.html"
+       href="03_02_calculo.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3.2 Energía Potencial Electrostática y Trabajo</p>
+        <p class="prev-next-title">3.2 Cálculo del Potencial Eléctrico</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -975,9 +1070,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-campo-electrostatico-como-campo-conservativo">El Campo Electrostático como Campo Conservativo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-carga-puntual-y-simetria-radial">Simulación: Carga Puntual y Simetría Radial</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-la-barra-cargada-y-geometrias-complejas">Simulación: La Barra Cargada y Geometrías Complejas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#campo-electrico-conservativo">Campo eléctrico conservativo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-carga-puntual-y-simetria-radial">Simulación: Carga puntual y simetría radial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-barra-cargada-y-geometrias-complejas">Simulación: Barra cargada y geometrías complejas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-explorando-superficies-equipotenciales-con-phet">🌐 Simulación: Explorando Superficies Equipotenciales con PhET</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-inicial">Configuración Inicial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1-superficies-equipotenciales-de-una-carga-puntual">Caso 1: Superficies Equipotenciales de una Carga Puntual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2-superficies-equipotenciales-de-una-barra-uniforme">Caso 2: Superficies Equipotenciales de una Barra Uniforme</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

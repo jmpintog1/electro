@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.8 Explorando la Densidad de Carga en un Disco &#8212; Curso de Electricidad y Magnetismo</title>
+    <title>1.8 Densidad de Carga No Uniforme &#8212; Curso de Electricidad y Magnetismo</title>
   
   
   
@@ -179,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="01_05_anillo.html">1.5 Anillo Uniformemente Cargado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_06_disco.html">1.6 Disco Cargado Uniformemente</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_07_alambre.html">1.7 Alambre Infinito</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1.8 Explorando la Densidad de Carga en un Disco</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1.8 Densidad de Carga No Uniforme</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2 Ley de Gauss</span></p>
 <ul class="nav bd-sidenav">
@@ -189,13 +189,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="02_04_gauss_cilindro.html">2.4 Simetría Cilíndrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_05_gauss_plano.html">2.5 Simetría Plana</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_06_conductores.html">2.6 Conductores y Aislantes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera Aislante</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3 Potencial Eléctrico</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="03_01_potencial.html">3.1 Campo y Potencial Eléctrico</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_02_energia.html">3.2 Energía Potencial Electrostática y Trabajo</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
 </ul>
 
     </div>
@@ -412,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1.8 Explorando la Densidad de Carga en un Disco</h1>
+    <h1>1.8 Densidad de Carga No Uniforme</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -441,8 +441,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="explorando-la-densidad-de-carga-en-un-disco">
-<h1>1.8 Explorando la Densidad de Carga en un Disco<a class="headerlink" href="#explorando-la-densidad-de-carga-en-un-disco" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="densidad-de-carga-no-uniforme">
+<h1>1.8 Densidad de Carga No Uniforme<a class="headerlink" href="#densidad-de-carga-no-uniforme" title="Permalink to this heading">#</a></h1>
 <p>El objetivo de esta guía es que los estudiantes analicen, diferencien y grafiquen distintas distribuciones de densidad de carga en un disco plano, así como que comprendan su impacto en el campo eléctrico resultante.</p>
 <section id="conceptos-fundamentales">
 <h2>Conceptos Fundamentales<a class="headerlink" href="#conceptos-fundamentales" title="Permalink to this heading">#</a></h2>
@@ -461,7 +461,7 @@ document.write(`
 <section id="densidad-de-carga-constante-sigma-sigma-0">
 <h3>Densidad de carga constante (<span class="math notranslate nohighlight">\(\sigma = \sigma_{0}\)</span>)<a class="headerlink" href="#densidad-de-carga-constante-sigma-sigma-0" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>Descripción</strong>: La densidad de carga superficial es uniforme en todo el disco. Esto significa que la carga está distribuida de manera homogénea. A diferencia de las otras densidades de carga que dependen de la posición, en este caso, cada elemento de área (<span class="math notranslate nohighlight">\(dA\)</span>) del disco contribuye con la misma cantidad de carga (<span class="math notranslate nohighlight">\(dq = \sigma_{0}dA\)</span>).</p></li>
+<li><p><strong>Descripción</strong>: La densidad de carga superficial es uniforme en todo el disco. Esto significa que la carga está distribuida de manera homogénea. A diferencia de las otras densidades de carga que dependen de la posición, en este caso, cada elemento de área (<span class="math notranslate nohighlight">\(dA\)</span>) del disco contribuye con la misma cantidad de carga (<span class="math notranslate nohighlight">\(dq = \sigma_{0} \, dA\)</span>).</p></li>
 </ul>
 <a class="reference internal image-reference" href="_images/01_10.svg"><img alt="Disco uniforme" class="align-center" src="_images/01_10.svg" width="60%" /></a>
 <p><strong>Preguntas:</strong></p>
