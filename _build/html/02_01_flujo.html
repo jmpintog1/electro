@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2.2 La Ley de Gauss" href="02_02_gauss.html" />
-    <link rel="prev" title="1.8 Explorando la Densidad de Carga en un Disco" href="01_08_no_uniforme.html" />
+    <link rel="prev" title="1.8 Densidad de Carga No Uniforme" href="01_08_no_uniforme.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="01_05_anillo.html">1.5 Anillo Uniformemente Cargado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_06_disco.html">1.6 Disco Cargado Uniformemente</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_07_alambre.html">1.7 Alambre Infinito</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Explorando la Densidad de Carga en un Disco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Densidad de Carga No Uniforme</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2 Ley de Gauss</span></p>
 <ul class="current nav bd-sidenav">
@@ -189,13 +189,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="02_04_gauss_cilindro.html">2.4 Simetría Cilíndrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_05_gauss_plano.html">2.5 Simetría Plana</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_06_conductores.html">2.6 Conductores y Aislantes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera Aislante</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3 Potencial Eléctrico</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="03_01_potencial.html">3.1 Campo y Potencial Eléctrico</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_02_energia.html">3.2 Energía Potencial Electrostática y Trabajo</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
 </ul>
 
     </div>
@@ -431,6 +431,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizacion-la-integral-de-flujo">Generalización: La Integral de Flujo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-interactiva-el-flujo-electrico-y-el-vector-area">Simulación Interactiva: El Flujo Eléctrico y el Vector Área</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-3d-cubo-de-colores-en-campo-uniforme">Simulación 3D: Cubo de Colores en Campo Uniforme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
             </nav>
         </div>
@@ -1450,6 +1451,322 @@ document.write(`
 </div></div>
 </div>
 </section>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_flujo_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    if (typeof window.checkFisiQuiz === &#39;undefined&#39;) {</span>
+<span class="s2">        window.checkFisiQuiz = function(radioName, feedbackId) {</span>
+<span class="s2">            var radios = document.getElementsByName(radioName);</span>
+<span class="s2">            var selected = null;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">            </span>
+<span class="s2">            for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                if (radios[i].checked) {</span>
+<span class="s2">                    selected = radios[i];</span>
+<span class="s2">                    break;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            if (!selected) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">            var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            if (isCorrect) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            }</span>
+<span class="s2">        };</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/script&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Según la analogía del viento explicada en el texto, si colocamos un marco plano de forma que quede exactamente &quot;de perfil&quot; (paralelo) a la corriente de un campo eléctrico uniforme, ¿cuál es el ángulo entre el vector Área y el campo eléctrico, y qué ocurre con el flujo?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qflujo1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Recuerda que el vector Área siempre es estrictamente perpendicular a la superficie plana. Si la superficie está de perfil al campo, el ángulo entre el vector normal (Área) y el campo no es 0°.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El ángulo es 0° y el flujo eléctrico es máximo, porque el campo atraviesa directamente el área.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qflujo1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! El vector Área (A) es perpendicular a la superficie. Si la superficie es paralela al campo, el ángulo θ entre A y E es de 90°. Como cos(90°) = 0, no hay líneas que crucen el marco y el flujo es nulo.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El ángulo es 90° y el flujo eléctrico es nulo, ya que las líneas de campo &quot;resbalan&quot; por encima y por debajo sin cruzar la superficie.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qflujo1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. El flujo negativo (180°) ocurre cuando las líneas de campo entran por la cara trasera perpendicularmente, pero no cuando la superficie está simplemente de perfil.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El ángulo es 180° y el flujo eléctrico es negativo, porque el campo va en sentido contrario a la cara principal.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qflujo1&#39;, &#39;feedback-flujo1&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-flujo1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. El flujo eléctrico (&amp;Phi;&lt;sub&gt;E&lt;/sub&gt;) requiere medir qué tan alineados están la superficie y el campo eléctrico. Matemáticamente, ¿qué operación se utiliza para calcular esto en una superficie plana y cuáles son sus unidades en el Sistema Internacional?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qflujo2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. El producto cruz nos daría un nuevo vector y se usa para otras magnitudes como el torque magnético. Además, las unidades N/C corresponden solamente al campo eléctrico.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El producto cruz (vectorial), y sus unidades son N/C.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qflujo2&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Se utiliza el producto punto (escalar) definido como E·A·cos(&amp;theta;). Al multiplicar las unidades de campo (N/C) por las de área (m&amp;sup2;), obtenemos las unidades de flujo: N·m&amp;sup2;/C.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El producto punto (escalar), y sus unidades son N·m&amp;sup2;/C.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qflujo2&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Aunque involucra la multiplicación de la magnitud del campo y el área, la orientación es clave y no se puede ignorar (hace falta el coseno del ángulo).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La multiplicación aritmética directa del campo por el área sin importar la dirección, y sus unidades son V/m.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qflujo2&#39;, &#39;feedback-flujo2&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-flujo2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. En la simulación 3D del cubo sumergido en un campo eléctrico uniforme, ¿qué conclusión fundamental se obtiene sobre el flujo neto total a través de todas las caras de este volumen cerrado?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qflujo3&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Si miras con detenimiento la simulación o aplicas la lógica matemática, las caras paralelas al campo tienen flujo nulo, y el flujo no es saliente en todas las caras simultáneamente.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El flujo neto total es positivo y grande, porque las 6 caras del cubo están recolectando líneas de campo eléctrico en todas direcciones.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qflujo3&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Si bien el flujo que pasa por una sola cara sí aumentará si la arista es mayor (porque crece el Área), al calcular el total neto sobre un volumen cerrado vacío en un campo uniforme, la suma sigue comportándose igual sin importar el tamaño.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El flujo neto total depende estrictamente del tamaño del cubo; a mayor longitud de la arista, mayor será el flujo neto positivo.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qflujo3&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Excelente análisis! En un campo uniforme, toda línea de campo que atraviesa el cubo y &#39;entra&#39; por una cara (generando flujo negativo), eventualmente &#39;sale&#39; por la opuesta (generando flujo positivo de igual magnitud). Al sumarse, el flujo neto total es 0.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El flujo neto total es cero, ya que el flujo negativo de las líneas que entran por una cara se cancela matemáticamente con el flujo positivo de las líneas que salen por la cara opuesta.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qflujo3&#39;, &#39;feedback-flujo3&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-flujo3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_flujo_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<script>
+    if (typeof window.checkFisiQuiz === 'undefined') {
+        window.checkFisiQuiz = function(radioName, feedbackId) {
+            var radios = document.getElementsByName(radioName);
+            var selected = null;
+            var feedbackDiv = document.getElementById(feedbackId);
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i];
+                    break;
+                }
+            }
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selected) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.style.color = '#856404';
+                feedbackDiv.style.border = '1px solid #ffeeba';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                return;
+            }
+            
+            var isCorrect = selected.getAttribute('data-correct') === 'true';
+            var msg = selected.getAttribute('data-fb');
+            
+            if (isCorrect) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.style.border = '1px solid #c3e6cb';
+                feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.style.border = '1px solid #f5c6cb';
+                feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+            }
+        };
+    }
+</script>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        1. Según la analogía del viento explicada en el texto, si colocamos un marco plano de forma que quede exactamente "de perfil" (paralelo) a la corriente de un campo eléctrico uniforme, ¿cuál es el ángulo entre el vector Área y el campo eléctrico, y qué ocurre con el flujo?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qflujo1" value="a" data-fb="Incorrecto. Recuerda que el vector Área siempre es estrictamente perpendicular a la superficie plana. Si la superficie está de perfil al campo, el ángulo entre el vector normal (Área) y el campo no es 0°."> 
+        <span>El ángulo es 0° y el flujo eléctrico es máximo, porque el campo atraviesa directamente el área.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qflujo1" value="b" data-correct="true" data-fb="¡Correcto! El vector Área (A) es perpendicular a la superficie. Si la superficie es paralela al campo, el ángulo θ entre A y E es de 90°. Como cos(90°) = 0, no hay líneas que crucen el marco y el flujo es nulo."> 
+        <span>El ángulo es 90° y el flujo eléctrico es nulo, ya que las líneas de campo "resbalan" por encima y por debajo sin cruzar la superficie.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qflujo1" value="c" data-fb="Incorrecto. El flujo negativo (180°) ocurre cuando las líneas de campo entran por la cara trasera perpendicularmente, pero no cuando la superficie está simplemente de perfil."> 
+        <span>El ángulo es 180° y el flujo eléctrico es negativo, porque el campo va en sentido contrario a la cara principal.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qflujo1', 'feedback-flujo1')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-flujo1"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        2. El flujo eléctrico (&Phi;<sub>E</sub>) requiere medir qué tan alineados están la superficie y el campo eléctrico. Matemáticamente, ¿qué operación se utiliza para calcular esto en una superficie plana y cuáles son sus unidades en el Sistema Internacional?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qflujo2" value="a" data-fb="Incorrecto. El producto cruz nos daría un nuevo vector y se usa para otras magnitudes como el torque magnético. Además, las unidades N/C corresponden solamente al campo eléctrico."> 
+        <span>El producto cruz (vectorial), y sus unidades son N/C.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qflujo2" value="b" data-correct="true" data-fb="¡Exacto! Se utiliza el producto punto (escalar) definido como E·A·cos(&theta;). Al multiplicar las unidades de campo (N/C) por las de área (m&sup2;), obtenemos las unidades de flujo: N·m&sup2;/C."> 
+        <span>El producto punto (escalar), y sus unidades son N·m&sup2;/C.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qflujo2" value="c" data-fb="Incorrecto. Aunque involucra la multiplicación de la magnitud del campo y el área, la orientación es clave y no se puede ignorar (hace falta el coseno del ángulo)."> 
+        <span>La multiplicación aritmética directa del campo por el área sin importar la dirección, y sus unidades son V/m.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qflujo2', 'feedback-flujo2')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-flujo2"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        3. En la simulación 3D del cubo sumergido en un campo eléctrico uniforme, ¿qué conclusión fundamental se obtiene sobre el flujo neto total a través de todas las caras de este volumen cerrado?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qflujo3" value="a" data-fb="Incorrecto. Si miras con detenimiento la simulación o aplicas la lógica matemática, las caras paralelas al campo tienen flujo nulo, y el flujo no es saliente en todas las caras simultáneamente."> 
+        <span>El flujo neto total es positivo y grande, porque las 6 caras del cubo están recolectando líneas de campo eléctrico en todas direcciones.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qflujo3" value="b" data-fb="Incorrecto. Si bien el flujo que pasa por una sola cara sí aumentará si la arista es mayor (porque crece el Área), al calcular el total neto sobre un volumen cerrado vacío en un campo uniforme, la suma sigue comportándose igual sin importar el tamaño."> 
+        <span>El flujo neto total depende estrictamente del tamaño del cubo; a mayor longitud de la arista, mayor será el flujo neto positivo.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qflujo3" value="c" data-correct="true" data-fb="¡Excelente análisis! En un campo uniforme, toda línea de campo que atraviesa el cubo y 'entra' por una cara (generando flujo negativo), eventualmente 'sale' por la opuesta (generando flujo positivo de igual magnitud). Al sumarse, el flujo neto total es 0."> 
+        <span>El flujo neto total es cero, ya que el flujo negativo de las líneas que entran por una cara se cancela matemáticamente con el flujo positivo de las líneas que salen por la cara opuesta.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qflujo3', 'feedback-flujo3')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-flujo3"></div>
+</div>
+</div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1488,7 +1805,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">1.8 Explorando la Densidad de Carga en un Disco</p>
+        <p class="prev-next-title">1.8 Densidad de Carga No Uniforme</p>
       </div>
     </a>
     <a class="right-next"
@@ -1524,6 +1841,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizacion-la-integral-de-flujo">Generalización: La Integral de Flujo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-interactiva-el-flujo-electrico-y-el-vector-area">Simulación Interactiva: El Flujo Eléctrico y el Vector Área</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulacion-3d-cubo-de-colores-en-campo-uniforme">Simulación 3D: Cubo de Colores en Campo Uniforme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
   </nav></div>
 

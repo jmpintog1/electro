@@ -179,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="01_05_anillo.html">1.5 Anillo Uniformemente Cargado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_06_disco.html">1.6 Disco Cargado Uniformemente</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_07_alambre.html">1.7 Alambre Infinito</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Explorando la Densidad de Carga en un Disco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Densidad de Carga No Uniforme</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2 Ley de Gauss</span></p>
 <ul class="current nav bd-sidenav">
@@ -189,13 +189,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="02_04_gauss_cilindro.html">2.4 Simetría Cilíndrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_05_gauss_plano.html">2.5 Simetría Plana</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_06_conductores.html">2.6 Conductores y Aislantes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera Aislante</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3 Potencial Eléctrico</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="03_01_potencial.html">3.1 Campo y Potencial Eléctrico</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_02_energia.html">3.2 Energía Potencial Electrostática y Trabajo</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
 </ul>
 
     </div>
@@ -427,6 +427,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-matematico">Planteamiento Matemático</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-no-un-cubo">Visualización 3D: ¿Por qué no un cubo?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
             </nav>
         </div>
@@ -886,6 +887,322 @@ document.write(`
 <p>Puedes rotar libremente ambas figuras arrastrando con el ratón. Nota cómo en el cubo, los vectores rojos y azules se separan angularmente en las esquinas, haciendo que el producto punto <span class="math notranslate nohighlight">\(\vec{E} \cdot d\vec{A}\)</span> sea variable.</p>
 <iframe src="_static/gauss_comparacion_3d.html" width="100%" height="600" style="border:none;"></iframe>
 </section>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_esfera_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    if (typeof window.checkFisiQuiz === &#39;undefined&#39;) {</span>
+<span class="s2">        window.checkFisiQuiz = function(radioName, feedbackId) {</span>
+<span class="s2">            var radios = document.getElementsByName(radioName);</span>
+<span class="s2">            var selected = null;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">            </span>
+<span class="s2">            for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                if (radios[i].checked) {</span>
+<span class="s2">                    selected = radios[i];</span>
+<span class="s2">                    break;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            if (!selected) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">            var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            if (isCorrect) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            }</span>
+<span class="s2">        };</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/script&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Al aplicar la Ley de Gauss a una carga puntual, ¿por qué es matemáticamente ideal elegir una esfera imaginaria centrada en la carga en lugar de cualquier otra forma geométrica?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qesfera1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Una esfera no maximiza el flujo; de hecho, el flujo total depende únicamente de la carga encerrada, sin importar la forma o el tamaño de la superficie.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque el área de una esfera es compacta y maximiza el flujo eléctrico total que podemos medir.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qesfera1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Esta doble condición de simetría (vectores siempre paralelos y magnitud E constante) es lo que permite que el producto punto se simplifique drásticamente y podamos resolver la integral sin esfuerzo.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque en todos los puntos de la esfera, el campo eléctrico y el vector normal de área son paralelos (&amp;theta; = 0&amp;deg;), y la magnitud del campo se mantiene constante.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qesfera1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Cualquier superficie cerrada tridimensional (un cubo, un cilindro, una &#39;papa amorfa&#39;) puede encerrar completamente una carga puntual.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque es la única superficie tridimensional cerrada que es capaz de encerrar por completo a una carga puntual.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qesfera1&#39;, &#39;feedback-esfera1&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-esfera1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. En el desarrollo matemático mostrado en el texto, pasamos de la expresión &amp;int;E&amp;middot;dA = Q/&amp;epsilon;&amp;#8320; a la expresión E&amp;int;dA = Q/&amp;epsilon;&amp;#8320;. ¿Cuál es la justificación física que nos permite &quot;sacar&quot; la variable E de la integral?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qesfera2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. El campo eléctrico de una carga puntual NO es constante en todo el espacio; decae rápidamente con el cuadrado de la distancia.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Como el campo eléctrico es un vector constante en todo el espacio del universo, cualquier integral puede ignorarlo.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qesfera2&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Muy bien! Dado que todos los puntos de la superficie esférica equidistan de la carga central, E no varía a lo largo del área de integración. Al ser un valor uniforme sobre esa superficie, puede extraerse matemáticamente de la integral.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Debido a que todos los puntos de la superficie esférica están a la misma distancia radial (r) de la carga, la magnitud del campo eléctrico (E) tiene exactamente el mismo valor en toda la superficie.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qesfera2&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Que la carga sea constante nos da un valor fijo al lado derecho de la ecuación (Q/&amp;epsilon;&amp;#8320;), pero no justifica la manipulación de la variable E dentro de la integral de área.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque la carga encerrada Q es puntual y constante, lo que automáticamente anula las variaciones de cualquier campo.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qesfera2&#39;, &#39;feedback-esfera2&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-esfera2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. Según las animaciones y la &quot;Visualización 3D&quot; del texto, ¿qué complicación matemática tendríamos si intentáramos usar un cubo como superficie Gaussiana alrededor de la carga puntual?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qesfera3&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. El flujo eléctrico neto a través del cubo seguiría siendo exactamente Q/&amp;epsilon;&amp;#8320; porque sigue encerrando la misma carga neta. La Ley de Gauss no falla, es nuestra capacidad de resolver la integral la que se complica.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El flujo eléctrico neto a través del cubo sería cero, anulando la Ley de Gauss, ya que las líneas de campo entrarían y saldrían por las esquinas de forma impredecible.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qesfera3&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. La Ley de Gauss es una ley universal del electromagnetismo y es completamente válida para CUALQUIER superficie cerrada imaginaria, incluyendo un cubo.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La Ley de Gauss dejaría de ser físicamente válida, ya que las leyes de Maxwell dictan que solo se aplica estrictamente a geometrías con simetría circular o esférica.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qesfera3&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Perfecto! Aunque la Ley de Gauss sigue siendo válida (el flujo total es el mismo), en un cubo el ángulo entre E y dA cambia de un punto a otro, y la magnitud E también varía (las esquinas están más lejos que los centros de las caras). Esto hace imposible &#39;sacar&#39; la E de la integral.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El ángulo entre el campo eléctrico (E) y el vector normal (dA) variaría a lo largo de las caras, y la magnitud de E tampoco sería constante, haciendo que la integral sea sumamente difícil de resolver analíticamente.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qesfera3&#39;, &#39;feedback-esfera3&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-esfera3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_esfera_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<script>
+    if (typeof window.checkFisiQuiz === 'undefined') {
+        window.checkFisiQuiz = function(radioName, feedbackId) {
+            var radios = document.getElementsByName(radioName);
+            var selected = null;
+            var feedbackDiv = document.getElementById(feedbackId);
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i];
+                    break;
+                }
+            }
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selected) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.style.color = '#856404';
+                feedbackDiv.style.border = '1px solid #ffeeba';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                return;
+            }
+            
+            var isCorrect = selected.getAttribute('data-correct') === 'true';
+            var msg = selected.getAttribute('data-fb');
+            
+            if (isCorrect) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.style.border = '1px solid #c3e6cb';
+                feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.style.border = '1px solid #f5c6cb';
+                feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+            }
+        };
+    }
+</script>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        1. Al aplicar la Ley de Gauss a una carga puntual, ¿por qué es matemáticamente ideal elegir una esfera imaginaria centrada en la carga en lugar de cualquier otra forma geométrica?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qesfera1" value="a" data-fb="Incorrecto. Una esfera no maximiza el flujo; de hecho, el flujo total depende únicamente de la carga encerrada, sin importar la forma o el tamaño de la superficie."> 
+        <span>Porque el área de una esfera es compacta y maximiza el flujo eléctrico total que podemos medir.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qesfera1" value="b" data-correct="true" data-fb="¡Exacto! Esta doble condición de simetría (vectores siempre paralelos y magnitud E constante) es lo que permite que el producto punto se simplifique drásticamente y podamos resolver la integral sin esfuerzo."> 
+        <span>Porque en todos los puntos de la esfera, el campo eléctrico y el vector normal de área son paralelos (&theta; = 0&deg;), y la magnitud del campo se mantiene constante.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qesfera1" value="c" data-fb="Incorrecto. Cualquier superficie cerrada tridimensional (un cubo, un cilindro, una 'papa amorfa') puede encerrar completamente una carga puntual."> 
+        <span>Porque es la única superficie tridimensional cerrada que es capaz de encerrar por completo a una carga puntual.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qesfera1', 'feedback-esfera1')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-esfera1"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        2. En el desarrollo matemático mostrado en el texto, pasamos de la expresión &int;E&middot;dA = Q/&epsilon;&#8320; a la expresión E&int;dA = Q/&epsilon;&#8320;. ¿Cuál es la justificación física que nos permite "sacar" la variable E de la integral?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qesfera2" value="a" data-fb="Incorrecto. El campo eléctrico de una carga puntual NO es constante en todo el espacio; decae rápidamente con el cuadrado de la distancia."> 
+        <span>Como el campo eléctrico es un vector constante en todo el espacio del universo, cualquier integral puede ignorarlo.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qesfera2" value="b" data-correct="true" data-fb="¡Muy bien! Dado que todos los puntos de la superficie esférica equidistan de la carga central, E no varía a lo largo del área de integración. Al ser un valor uniforme sobre esa superficie, puede extraerse matemáticamente de la integral."> 
+        <span>Debido a que todos los puntos de la superficie esférica están a la misma distancia radial (r) de la carga, la magnitud del campo eléctrico (E) tiene exactamente el mismo valor en toda la superficie.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qesfera2" value="c" data-fb="Incorrecto. Que la carga sea constante nos da un valor fijo al lado derecho de la ecuación (Q/&epsilon;&#8320;), pero no justifica la manipulación de la variable E dentro de la integral de área."> 
+        <span>Porque la carga encerrada Q es puntual y constante, lo que automáticamente anula las variaciones de cualquier campo.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qesfera2', 'feedback-esfera2')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-esfera2"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        3. Según las animaciones y la "Visualización 3D" del texto, ¿qué complicación matemática tendríamos si intentáramos usar un cubo como superficie Gaussiana alrededor de la carga puntual?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qesfera3" value="a" data-fb="Incorrecto. El flujo eléctrico neto a través del cubo seguiría siendo exactamente Q/&epsilon;&#8320; porque sigue encerrando la misma carga neta. La Ley de Gauss no falla, es nuestra capacidad de resolver la integral la que se complica."> 
+        <span>El flujo eléctrico neto a través del cubo sería cero, anulando la Ley de Gauss, ya que las líneas de campo entrarían y saldrían por las esquinas de forma impredecible.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qesfera3" value="b" data-fb="Incorrecto. La Ley de Gauss es una ley universal del electromagnetismo y es completamente válida para CUALQUIER superficie cerrada imaginaria, incluyendo un cubo."> 
+        <span>La Ley de Gauss dejaría de ser físicamente válida, ya que las leyes de Maxwell dictan que solo se aplica estrictamente a geometrías con simetría circular o esférica.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qesfera3" value="c" data-correct="true" data-fb="¡Perfecto! Aunque la Ley de Gauss sigue siendo válida (el flujo total es el mismo), en un cubo el ángulo entre E y dA cambia de un punto a otro, y la magnitud E también varía (las esquinas están más lejos que los centros de las caras). Esto hace imposible 'sacar' la E de la integral."> 
+        <span>El ángulo entre el campo eléctrico (E) y el vector normal (dA) variaría a lo largo de las caras, y la magnitud de E tampoco sería constante, haciendo que la integral sea sumamente difícil de resolver analíticamente.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qesfera3', 'feedback-esfera3')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-esfera3"></div>
+</div>
+</div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -956,6 +1273,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-matematico">Planteamiento Matemático</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-final">Resultado Final</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-3d-por-que-no-un-cubo">Visualización 3D: ¿Por qué no un cubo?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
   </nav></div>
 
