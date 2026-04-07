@@ -67,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '03_03_energia';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3.4 Movimiento Oscilatorio de un Electrón" href="03_04_oscilatorio.html" />
     <link rel="prev" title="3.2 Cálculo del Potencial Eléctrico" href="03_02_calculo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -195,6 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="03_01_potencial.html">3.1 Campo y Potencial Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3.3 Energía Potencial y Trabajo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_04_oscilatorio.html">3.4 Movimiento Oscilatorio de un Electrón</a></li>
 </ul>
 
     </div>
@@ -421,8 +423,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajo-de-un-agente-externo">Trabajo de un agente externo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-de-cargas-puntuales">Sistemas de cargas puntuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajo-de-un-agente-externo">Trabajo de un agente externo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidad-constante">Velocidad constante:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campo-electrico-constante">Campo eléctrico constante:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-electrostatica">Energía Electrostática</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-de-cargas-discretas">Sistema de Cargas Discretas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-continua-de-carga">Distribución Continua de Carga</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-de-una-esfera-uniformemente-cargada">Energía de una esfera uniformemente cargada</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -450,7 +463,9 @@ document.write(`
 </div></blockquote>
 <section id="trabajo-de-un-agente-externo">
 <h2>Trabajo de un agente externo<a class="headerlink" href="#trabajo-de-un-agente-externo" title="Permalink to this heading">#</a></h2>
-<p>Imaginemos ahora el proceso inverso: movemos una carga de prueba <span class="math notranslate nohighlight">\(q_0\)</span> desde un punto muy lejano (<span class="math notranslate nohighlight">\(i \rightarrow \infty\)</span>, donde asumimos que <span class="math notranslate nohighlight">\(V_i = 0\)</span>) hasta un punto <span class="math notranslate nohighlight">\(f\)</span>. El teorema del trabajo y la energía cinética nos dice que <span class="math notranslate nohighlight">\(W_{\text{Total}} = \Delta K\)</span>.</p>
+<section id="velocidad-constante">
+<h3>Velocidad constante:<a class="headerlink" href="#velocidad-constante" title="Permalink to this heading">#</a></h3>
+<p>Imaginemos el proceso de mover una carga de prueba <span class="math notranslate nohighlight">\(q_0\)</span> desde un punto muy lejano (<span class="math notranslate nohighlight">\(i \rightarrow \infty\)</span>, donde asumimos que <span class="math notranslate nohighlight">\(V_i = 0\)</span>) hasta un punto <span class="math notranslate nohighlight">\(f\)</span>. El teorema del trabajo y la energía cinética nos dice que <span class="math notranslate nohighlight">\(W_{\text{Total}} = \Delta K\)</span>.</p>
 <p>Si un agente externo mueve la carga con velocidad constante, el cambio de energía cinética es nulo (<span class="math notranslate nohighlight">\(\Delta K = 0\)</span>), lo que implica que el trabajo total sobre el sistema es cero.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -461,19 +476,60 @@ W_q + W_{\text{ext}} &amp;= 0 \\
 <div class="math notranslate nohighlight">
 \[W_{\text{ext}} = q \, \Delta V\]</div>
 </section>
-<section id="sistemas-de-cargas-puntuales">
-<h2>Sistemas de cargas puntuales<a class="headerlink" href="#sistemas-de-cargas-puntuales" title="Permalink to this heading">#</a></h2>
-<p>Si analizamos la interacción discreta entre dos cargas puntuales <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span> separadas por una distancia <span class="math notranslate nohighlight">\(|\vec{r}_2 - \vec{r}_1|\)</span> en el espacio, la energía potencial electrostática del sistema es:</p>
+<section id="campo-electrico-constante">
+<h3>Campo eléctrico constante:<a class="headerlink" href="#campo-electrico-constante" title="Permalink to this heading">#</a></h3>
+<p>Si movemos una carga <span class="math notranslate nohighlight">\(q\)</span> a través de una distancia <span class="math notranslate nohighlight">\(d\)</span> en un campo eléctrico constante <span class="math notranslate nohighlight">\(\vec{E}\)</span>, con una aceleración constante, esta aumentará su energía cinética y disminuirá su energía potencial eléctrica:
+$<span class="math notranslate nohighlight">\(\Delta V=-Ed\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\Delta U_q=-qEd\)</span>$</p>
+</section>
+</section>
+<section id="energia-electrostatica">
+<h2>Energía Electrostática<a class="headerlink" href="#energia-electrostatica" title="Permalink to this heading">#</a></h2>
+<section id="sistema-de-cargas-discretas">
+<h3>Sistema de Cargas Discretas<a class="headerlink" href="#sistema-de-cargas-discretas" title="Permalink to this heading">#</a></h3>
+<p>Para un sistema discreto, si analizamos el trabajo realizado para traer las cargas desde el infinito y armar el sistema, la energía para dos cargas <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span> es:</p>
 <div class="math notranslate nohighlight">
-\[U = \frac{1}{4\pi\epsilon_0}\frac{q_1 q_2}{|\vec{r}_2 - \vec{r}_1|}\]</div>
+\[U = \frac{1}{4\pi\epsilon_0}\frac{q_1 q_2}{|\vec{r}_2 - \vec{r}_1|} = q_1 V_2 = q_2 V_1\]</div>
 <p>El signo de la energía potencial resultante tiene un significado físico directo:</p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(U &gt; 0\)</span>, las fuerzas entre las cargas son de repulsión.</p></li>
 <li><p>Si <span class="math notranslate nohighlight">\(U &lt; 0\)</span>, las fuerzas son de atracción.</p></li>
 </ul>
-<p>Esta idea se extiende por superposición. La energía potencial electrostática de un sistema compuesto por tres cargas es la suma de las energías de cada par individual:</p>
+<p>Para incorporar una tercera carga <span class="math notranslate nohighlight">\(q_3\)</span> al sistema, el trabajo requerido es <span class="math notranslate nohighlight">\(W_3 = q_3(V_1 + V_2)\)</span>. Así, la energía total de un sistema de tres cargas discretas queda conformada por la superposición de los pares:</p>
 <div class="math notranslate nohighlight">
-\[U = \frac{1}{4\pi\epsilon_0} \left( \frac{q_1 q_2}{|\vec{r}_2 - \vec{r}_1|} + \frac{q_1 q_3}{|\vec{r}_3 - \vec{r}_1|} + \frac{q_2 q_3}{|\vec{r}_2 - \vec{r}_3|} \right)\]</div>
+\[U = \frac{1}{4\pi\epsilon_0} \left( \frac{q_1 q_2}{|\vec{r}_2 - \vec{r}_1|} + \frac{q_2 q_3}{|\vec{r}_3 - \vec{r}_1|} + \frac{q_2 q_3}{|\vec{r}_3 - \vec{r}_2|} \right)\]</div>
+<p>Escribiendo esto de manera general para cualquier cantidad de cargas, la energía electrostática se expresa como:</p>
+<div class="math notranslate nohighlight">
+\[U = \frac{1}{2} \frac{1}{4\pi\epsilon_0} \sum_{i \neq j} \frac{q_i q_j}{|\vec{r}_j - \vec{r}_i|} = \frac{1}{2} \sum_{i \neq j} q_i V_j\]</div>
+<p>El término <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> se introduce debido a que en la sumatoria se considera cada par de cargas dos veces.</p>
+</section>
+<section id="distribucion-continua-de-carga">
+<h3>Distribución Continua de Carga<a class="headerlink" href="#distribucion-continua-de-carga" title="Permalink to this heading">#</a></h3>
+<p>Considerando el caso continuo, la sumatoria se transforma en una integral sobre toda la distribución:
+$<span class="math notranslate nohighlight">\(U = \frac{1}{2} \int V dq\)</span>$</p>
+<section id="energia-de-una-esfera-uniformemente-cargada">
+<h4>Energía de una esfera uniformemente cargada<a class="headerlink" href="#energia-de-una-esfera-uniformemente-cargada" title="Permalink to this heading">#</a></h4>
+<p>Consideremos una esfera de radio <span class="math notranslate nohighlight">\(R\)</span> con una carga total <span class="math notranslate nohighlight">\(Q\)</span> distribuida uniformemente en su volumen. Iremos armando esta esfera construyendo capas sucesivas, de modo que el potencial irá aumentando progresivamente.
+El trabajo diferencial es <span class="math notranslate nohighlight">\(dW = V dq\)</span>, por lo que la energía total equivale a <span class="math notranslate nohighlight">\(W = \int V dq\)</span>.</p>
+<p>Utilizando la densidad volumétrica <span class="math notranslate nohighlight">\(\rho = \frac{Q}{\frac{4}{3}\pi R^3}\)</span>, el diferencial de carga es <span class="math notranslate nohighlight">\(dq = \rho d\nu\)</span>.
+El potencial en la superficie de un radio intermedio <span class="math notranslate nohighlight">\(r\)</span> generado por la carga encerrada es:</p>
+<div class="math notranslate nohighlight">
+\[V = \frac{\rho \frac{4}{3}\pi r^3}{4\pi\epsilon_0 r}\]</div>
+<p>Integrando el trabajo a través de todo el volumen (desde <span class="math notranslate nohighlight">\(0\)</span> hasta <span class="math notranslate nohighlight">\(R\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned} W &amp;= \int_0^R \frac{\rho \frac{4}{3}\pi r^3}{4\pi\epsilon_0 r} (\rho 4\pi r^2) dr \\
+W &amp;= \frac{\rho^2 \frac{4\pi}{3} 4\pi}{4\pi\epsilon_0} \int_0^R r^4 dr \\
+W &amp;= \frac{\rho^2 \frac{4\pi}{3}}{\epsilon_0} \frac{R^5}{5}\end{aligned}\end{split}\]</div>
+<p>Reemplazando <span class="math notranslate nohighlight">\(\rho\)</span> nuevamente en términos de la carga total <span class="math notranslate nohighlight">\(Q\)</span>, encontramos que la energía almacenada en esta distribución de carga es:</p>
+<div class="math notranslate nohighlight">
+\[U = W = \frac{3}{5} \frac{Q^2}{4\pi\epsilon_0 R}\]</div>
+<p><em>Método Alternativo:</em> Podemos llegar al mismo resultado utilizando la ecuación general <span class="math notranslate nohighlight">\(U = \frac{1}{2} \int \rho d\nu \cdot V\)</span> integrando sobre todo el volumen con el potencial interno de la esfera <span class="math notranslate nohighlight">\(V_I = \frac{Q}{8\pi\epsilon_0 R^3}(3R^2 - r^2)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned} U &amp;= \frac{1}{2} \int_0^R (\rho 4\pi r^2 dr) \frac{Q}{8\pi\epsilon_0 R^3}(3R^2 - r^2) \\
+U &amp;= \frac{1}{2} \rho \frac{4\pi Q}{8\pi\epsilon_0 R^3} \frac{4}{5}R^5 = \frac{3Q^2}{5 \cdot 4\pi\epsilon_0 R}\end{aligned}\end{split}\]</div>
+<p>Se verifica analíticamente que se obtiene el mismo resultado anterior.</p>
+</section>
+</section>
 </section>
 </section>
 
@@ -516,6 +572,15 @@ W_q + W_{\text{ext}} &amp;= 0 \\
         <p class="prev-next-title">3.2 Cálculo del Potencial Eléctrico</p>
       </div>
     </a>
+    <a class="right-next"
+       href="03_04_oscilatorio.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.4 Movimiento Oscilatorio de un Electrón</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -531,8 +596,19 @@ W_q + W_{\text{ext}} &amp;= 0 \\
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajo-de-un-agente-externo">Trabajo de un agente externo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-de-cargas-puntuales">Sistemas de cargas puntuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajo-de-un-agente-externo">Trabajo de un agente externo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidad-constante">Velocidad constante:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campo-electrico-constante">Campo eléctrico constante:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-electrostatica">Energía Electrostática</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-de-cargas-discretas">Sistema de Cargas Discretas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-continua-de-carga">Distribución Continua de Carga</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-de-una-esfera-uniformemente-cargada">Energía de una esfera uniformemente cargada</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
