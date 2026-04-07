@@ -196,6 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="03_01_potencial.html">3.1 Campo y Potencial Eléctrico</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3.2 Cálculo del Potencial Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_04_oscilatorio.html">3.4 Movimiento Oscilatorio de un Electrón</a></li>
 </ul>
 
     </div>
@@ -426,6 +427,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potencial-electrico-para-una-carga-puntual">Potencial eléctrico para una carga puntual</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-potencial-en-p-debido-a-una-carga-q">Ejemplo 1: Potencial en P debido a una carga q</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2-potencial-en-p-debido-a-un-alambre-de-carga-q">Ejemplo 2: Potencial en P debido a un alambre de carga Q</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3-esfera-no-conductora">Ejemplo 3: Esfera No Conductora</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-4-esfera-conductora">Ejemplo 4: Esfera Conductora</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-5-dos-esferas-conductoras-conectadas">Ejemplo 5: Dos Esferas Conductoras Conectadas</a></li>
 </ul>
             </nav>
         </div>
@@ -518,6 +522,166 @@ document.write(`
 \[V_{P}=\frac{Q}{4\pi\epsilon_{0}L}\ln\left(y+\sqrt{y^{2}+a^{2}}\right)\Bigg|_{-L/2}^{L/2}\]</div>
 <a class="reference internal image-reference" href="_images/03_05.svg"><img alt="Superficies equipotenciales barra" class="align-center" src="_images/03_05.svg" width="40%" /></a>
 </section>
+<section id="ejemplo-3-esfera-no-conductora">
+<h2>Ejemplo 3: Esfera No Conductora<a class="headerlink" href="#ejemplo-3-esfera-no-conductora" title="Permalink to this heading">#</a></h2>
+<p>Consideremos una esfera no conductora de radio <span class="math notranslate nohighlight">\(R\)</span> con una carga total <span class="math notranslate nohighlight">\(Q\)</span> distribuida uniformemente en todo su volumen.
+Conocemos el campo eléctrico en las dos regiones espaciales:</p>
+<ul class="simple">
+<li><p><strong>Exterior (<span class="math notranslate nohighlight">\(r \ge R\)</span>):</strong> <span class="math notranslate nohighlight">\(\vec{E}_{\text{II}} = \dfrac{Q}{4\pi\epsilon_0 r^2}\hat{r}\)</span></p></li>
+<li><p><strong>Interior (<span class="math notranslate nohighlight">\(r &lt; R\)</span>):</strong> <span class="math notranslate nohighlight">\(\vec{E}_{\text{I}} = \dfrac{Q r}{4\pi\epsilon_0 R^3}\hat{r} = \dfrac{\rho r}{3\epsilon_0}\hat{r}\)</span></p></li>
+</ul>
+<p><strong>Potencial en el exterior (<span class="math notranslate nohighlight">\(r \ge R\)</span>):</strong>
+Tomando el infinito como punto de referencia (<span class="math notranslate nohighlight">\(V_i = 0\)</span>), el potencial en un punto <span class="math notranslate nohighlight">\(r\)</span> es:</p>
+<div class="math notranslate nohighlight">
+\[V_{\text{II}}(r) = -\int_{\infty}^{r} \vec{E}_{\text{II}} \cdot d\vec{l} = -\int_{\infty}^{r} \frac{Q}{4\pi\epsilon_0 r'^2} dr' = \frac{Q}{4\pi\epsilon_0 r}\]</div>
+<p><strong>Potencial en el interior (<span class="math notranslate nohighlight">\(r &lt; R\)</span>):</strong>
+Para calcular el potencial en un punto interior <span class="math notranslate nohighlight">\(r\)</span>, integramos desde la superficie de la esfera (<span class="math notranslate nohighlight">\(R\)</span>) hasta <span class="math notranslate nohighlight">\(r\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\Delta V = V_{\text{I}}(r) - V(R) = -\int_{R}^{r} \vec{E}_{\text{I}} \cdot d\vec{l}\]</div>
+<div class="math notranslate nohighlight">
+\[V_{\text{I}}(r) - V(R) = -\int_{R}^{r} \frac{Q r'}{4\pi\epsilon_0 R^3} dr' = \frac{Q}{8\pi\epsilon_0 R^3}(R^2 - r^2)\]</div>
+<p>Como el potencial debe ser continuo en la frontera, evaluamos el potencial exterior en la superficie obteniendo <span class="math notranslate nohighlight">\(V(R) = \frac{Q}{4\pi\epsilon_0 R}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned} V_{\text{I}}(r) &amp;= \frac{Q}{4\pi\epsilon_0 R} + \frac{Q}{8\pi\epsilon_0 R^3}(R^2 - r^2) \\
+V_{\text{I}}(r) &amp;= \frac{Q}{8\pi\epsilon_0 R^3}(3R^2 - r^2)\end{aligned}\end{split}\]</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Definir el rango de r (normalizado respecto al radio R, es decir x = r/R)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+<span class="c1"># Calcular el potencial normalizado V / (Q / 4*pi*epsilon_0*R)</span>
+<span class="c1"># Interior (r &lt; 1): V = (3 - r^2) / 2</span>
+<span class="c1"># Exterior (r &gt;= 1): V = 1 / r</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">piecewise</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">x</span><span class="p">])</span>
+
+<span class="c1"># Crear el gráfico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#2ca02c&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Potencial $V(r)$&#39;</span><span class="p">)</span>
+
+<span class="c1"># Añadir líneas punteadas para los puntos clave del apunte (r=R)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Configurar las etiquetas de los ejes usando la notación de los apuntes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;$R$&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{Q}</span><span class="s1">{4\pi\epsilon_0 R}$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{3Q}</span><span class="s1">{8\pi\epsilon_0 R}$&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># Configurar nombres de ejes y título</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distancia radial ($r$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Potencial Eléctrico ($V$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Potencial Eléctrico de una Esfera No Conductora&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># Mejorar el diseño general</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># Guardar la imagen para el libro digital</span>
+<span class="c1"># plt.savefig(&#39;potencial_esfera_no_conductora.png&#39;, dpi=300)</span>
+
+<span class="c1"># Mostrar el gráfico en pantalla</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/9fa39fed101b97ecf7af77dd3437af69802438e7f012e9059d4d51ee6e0c3af9.png" src="_images/9fa39fed101b97ecf7af77dd3437af69802438e7f012e9059d4d51ee6e0c3af9.png" />
+</div>
+</div>
+</section>
+<section id="ejemplo-4-esfera-conductora">
+<h2>Ejemplo 4: Esfera Conductora<a class="headerlink" href="#ejemplo-4-esfera-conductora" title="Permalink to this heading">#</a></h2>
+<p>Ahora analicemos una esfera conductora de radio <span class="math notranslate nohighlight">\(R\)</span> con carga total <span class="math notranslate nohighlight">\(Q\)</span>.</p>
+<ul class="simple">
+<li><p><strong>Exterior (<span class="math notranslate nohighlight">\(r \ge R\)</span>):</strong> El campo eléctrico exterior es idéntico al de una carga puntual, por lo que el potencial es el mismo:
+$<span class="math notranslate nohighlight">\(V_{\text{II}}(r) = \frac{Q}{4\pi\epsilon_0 r}\)</span>$</p></li>
+<li><p><strong>Interior (<span class="math notranslate nohighlight">\(r &lt; R\)</span>):</strong> En condiciones electrostáticas, el campo eléctrico en el interior de un conductor es estrictamente nulo (<span class="math notranslate nohighlight">\(\vec{E}_\text{I} = \vec{0}\)</span>).
+Por lo tanto, la diferencia de potencial al moverse desde la superficie hacia cualquier punto interior es cero:
+$<span class="math notranslate nohighlight">\(\Delta V = -\int_{R}^{r} \vec{E}_\text{I} \cdot d\vec{l} = 0\)</span><span class="math notranslate nohighlight">\(
+  Esto implica que el potencial es constante en todo el volumen interior e igual al potencial de la superficie (es decir, constituye un volumen equipotencial):
+  \)</span><span class="math notranslate nohighlight">\(V_{\text{I}}(r) = \frac{Q}{4\pi\epsilon_0 R}\)</span>$</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Definir el rango de r (normalizado respecto al radio R, es decir x = r/R)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+<span class="c1"># Calcular el potencial normalizado V / (Q / 4*pi*epsilon_0*R)</span>
+<span class="c1"># Interior (r &lt; 1): V = (3 - r^2) / 2</span>
+<span class="c1"># Exterior (r &gt;= 1): V = 1 / r</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">piecewise</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">x</span><span class="p">])</span>
+
+<span class="c1"># Crear el gráfico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#2ca02c&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Potencial $V(r)$&#39;</span><span class="p">)</span>
+
+<span class="c1"># Añadir líneas punteadas para los puntos clave del apunte (r=R)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Configurar las etiquetas de los ejes usando la notación de los apuntes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;$R$&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{Q}</span><span class="s1">{4\pi\epsilon_0 R}$&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># Configurar nombres de ejes y título</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distancia radial ($r$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Potencial Eléctrico ($V$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Potencial Eléctrico de una Esfera Conductora&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># Mejorar el diseño general</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># Guardar la imagen para el libro digital</span>
+<span class="c1"># plt.savefig(&#39;potencial_esfera_no_conductora.png&#39;, dpi=300)</span>
+
+<span class="c1"># Mostrar el gráfico en pantalla</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/c93599826d6bb6085c2a258612024d1b27de1ef4194b8b07eb870c766607b2ae.png" src="_images/c93599826d6bb6085c2a258612024d1b27de1ef4194b8b07eb870c766607b2ae.png" />
+</div>
+</div>
+</section>
+<section id="ejemplo-5-dos-esferas-conductoras-conectadas">
+<h2>Ejemplo 5: Dos Esferas Conductoras Conectadas<a class="headerlink" href="#ejemplo-5-dos-esferas-conductoras-conectadas" title="Permalink to this heading">#</a></h2>
+<p>Supongamos dos esferas conductoras de radios <span class="math notranslate nohighlight">\(R_1\)</span> y <span class="math notranslate nohighlight">\(R_2\)</span> (con <span class="math notranslate nohighlight">\(R_1 &lt; R_2\)</span>), muy alejadas entre sí pero conectadas por un alambre conductor largo. Al estar conectadas, las cargas fluyen entre ellas hasta que ambas forman un único sistema equipotencial:</p>
+<div class="math notranslate nohighlight">
+\[V_1(R_1) = V_2(R_2)\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{Q_1}{4\pi\epsilon_0 R_1} = \frac{Q_2}{4\pi\epsilon_0 R_2} \implies \frac{Q_1}{Q_2} = \frac{R_1}{R_2}\]</div>
+<p>Evaluando los campos eléctricos justo en la superficie de cada esfera:</p>
+<div class="math notranslate nohighlight">
+\[E_1(R_1) = \frac{Q_1}{4\pi\epsilon_0 R_1^2} \quad \text{y} \quad E_2(R_2) = \frac{Q_2}{4\pi\epsilon_0 R_2^2}\]</div>
+<p>La razón entre las magnitudes de estos campos es:</p>
+<div class="math notranslate nohighlight">
+\[\frac{E_1}{E_2} = \frac{\frac{Q_1}{4\pi\epsilon_0 R_1^2}}{\frac{Q_2}{4\pi\epsilon_0 R_2^2}} = \frac{Q_1}{Q_2} \cdot \frac{R_2^2}{R_1^2}\]</div>
+<p>Sustituyendo la relación de cargas obtenida:</p>
+<div class="math notranslate nohighlight">
+\[\frac{E_1}{E_2} = \frac{R_1}{R_2} \cdot \frac{R_2^2}{R_1^2} = \frac{R_2}{R_1}\]</div>
+<p>Dado que <span class="math notranslate nohighlight">\(R_1 &lt; R_2\)</span>, concluimos que <span class="math notranslate nohighlight">\(E_1 &gt; E_2\)</span>. Esto demuestra analíticamente el efecto de las puntas: en un conductor, el campo eléctrico es más intenso en las superficies de menor radio de curvatura.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -587,6 +751,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potencial-electrico-para-una-carga-puntual">Potencial eléctrico para una carga puntual</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-potencial-en-p-debido-a-una-carga-q">Ejemplo 1: Potencial en P debido a una carga q</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2-potencial-en-p-debido-a-un-alambre-de-carga-q">Ejemplo 2: Potencial en P debido a un alambre de carga Q</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3-esfera-no-conductora">Ejemplo 3: Esfera No Conductora</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-4-esfera-conductora">Ejemplo 4: Esfera Conductora</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-5-dos-esferas-conductoras-conectadas">Ejemplo 5: Dos Esferas Conductoras Conectadas</a></li>
 </ul>
   </nav></div>
 

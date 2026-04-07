@@ -31,3 +31,4 @@ parts:
       - file: 03_01_potencial
       - file: 03_02_calculo
       - file: 03_03_energia
+      - file: 03_04_oscilatorio
