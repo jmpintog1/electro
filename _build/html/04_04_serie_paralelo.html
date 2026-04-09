@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.4 Conexión de Condensadores en Circuitos &#8212; Curso de Electricidad y Magnetismo</title>
+    <title>4.4 Condensadores en Circuitos &#8212; Curso de Electricidad y Magnetismo</title>
   
   
   
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '04_04_serie_paralelo';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="4.3 Energía Almacenada en un Condensador" href="04_03_energia.html" />
+    <link rel="prev" title="4.3 Energía en un Condensador" href="04_03_energia.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -199,10 +199,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4 Capacitancia y Dieléctricos</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="04_01_capacitancia.html">4.1 Capacitancia y Conceptos Básicos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_02_geometrias.html">4.2 Geometrías Comunes de Condensadores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_03_energia.html">4.3 Energía Almacenada en un Condensador</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">4.4 Conexión de Condensadores en Circuitos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_01_capacitancia.html">4.1 Capacitancia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_02_geometrias.html">4.2 Cálculo de Capacitancias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_03_energia.html">4.3 Energía en un Condensador</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4.4 Condensadores en Circuitos</a></li>
 </ul>
 
     </div>
@@ -419,7 +419,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>4.4 Conexión de Condensadores en Circuitos</h1>
+    <h1>4.4 Condensadores en Circuitos</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -443,58 +443,84 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="conexion-de-condensadores-en-circuitos">
-<h1>4.4 Conexión de Condensadores en Circuitos<a class="headerlink" href="#conexion-de-condensadores-en-circuitos" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="condensadores-en-circuitos">
+<h1>4.4 Condensadores en Circuitos<a class="headerlink" href="#condensadores-en-circuitos" title="Permalink to this heading">#</a></h1>
 <p>En los circuitos eléctricos, los condensadores pueden combinarse de diversas formas. Nos enfocaremos en las dos configuraciones principales: paralelo y serie.</p>
 <section id="condensadores-en-paralelo">
 <h2>Condensadores en Paralelo<a class="headerlink" href="#condensadores-en-paralelo" title="Permalink to this heading">#</a></h2>
 <p>Cuando los condensadores están conectados en paralelo, la diferencia de potencial es la misma para todos ellos, pero la carga total se distribuye.</p>
-<a class="reference internal image-reference" href="_images/04_07.svg"><img alt="Condensadores en paralelo" class="align-center" src="_images/04_07.svg" width="40%" /></a>
-<ul class="simple">
+<br>
+```{image} images_tikz/04_07.svg
+:alt: Condensadores en paralelo
+:width: 50%
+:align: center
+<br><ul class="simple">
 <li><p><strong>Voltaje:</strong> <span class="math notranslate nohighlight">\(V_{\text{eq}} = V_1 = V_2 = \dots = V_0\)</span></p></li>
 <li><p><strong>Carga Total:</strong> <span class="math notranslate nohighlight">\(Q_{\text{Total}} = Q_1 + Q_2 = C_1V_1 + C_2V_2\)</span></p></li>
 <li><p><strong>Capacitancia Equivalente:</strong> <span class="math notranslate nohighlight">\(C_{\text{eq}} = C_1 + C_2\)</span></p></li>
 </ul>
-<p>En general, para <span class="math notranslate nohighlight">\(N\)</span> condensadores en paralelo:
-$<span class="math notranslate nohighlight">\(C_{\text{eq}} = \sum_{i=1}^{N} C_i\)</span>$</p>
+<p>En general, para <span class="math notranslate nohighlight">\(N\)</span> condensadores en paralelo:</p>
+<div class="math notranslate nohighlight">
+\[C_{\text{eq}} = \sum_{i=1}^{N} C_i\]</div>
 </section>
 <section id="condensadores-en-serie">
 <h2>Condensadores en Serie<a class="headerlink" href="#condensadores-en-serie" title="Permalink to this heading">#</a></h2>
 <p>En una conexión en serie, la carga en todas las placas es idéntica por conservación de carga, pero el voltaje total se divide entre los condensadores.</p>
-<a class="reference internal image-reference" href="_images/04_08.svg"><img alt="Condensadores en serie" class="align-center" src="_images/04_08.svg" width="40%" /></a>
-<ul class="simple">
+<br>
+```{image} images_tikz/04_08.svg
+:alt: Condensadores en serie
+:width: 50%
+:align: center
+<br><ul class="simple">
 <li><p><strong>Carga:</strong> <span class="math notranslate nohighlight">\(Q_1 = Q_2 = Q_{\text{eq}} = Q_0\)</span></p></li>
 <li><p><strong>Voltaje Total:</strong> <span class="math notranslate nohighlight">\(V_0 = V_1 + V_2 = \frac{Q_1}{C_1} + \frac{Q_2}{C_2}\)</span></p></li>
 <li><p><strong>Capacitancia Equivalente:</strong> <span class="math notranslate nohighlight">\(\frac{1}{C_{\text{eq}}} = \frac{1}{C_1} + \frac{1}{C_2}\)</span></p></li>
 </ul>
-<p>En general, para <span class="math notranslate nohighlight">\(N\)</span> condensadores en serie:
-$<span class="math notranslate nohighlight">\(\frac{1}{C_{\text{eq}}} = \sum_{i=1}^{N} \frac{1}{C_i}\)</span>$</p>
+<p>En general, para <span class="math notranslate nohighlight">\(N\)</span> condensadores en serie:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{C_{\text{eq}}} = \sum_{i=1}^{N} \frac{1}{C_i}\]</div>
 </section>
 <section id="ejemplo-analisis-de-un-circuito-con-condensadores">
 <h2>Ejemplo: Análisis de un circuito con condensadores<a class="headerlink" href="#ejemplo-analisis-de-un-circuito-con-condensadores" title="Permalink to this heading">#</a></h2>
 <p>Consideremos un circuito inicial con una fuente de voltaje <span class="math notranslate nohighlight">\(V_0\)</span>, dos interruptores (<span class="math notranslate nohighlight">\(S_1\)</span> y <span class="math notranslate nohighlight">\(S_2\)</span>), y tres condensadores (<span class="math notranslate nohighlight">\(C_0\)</span>, <span class="math notranslate nohighlight">\(C_1\)</span> y <span class="math notranslate nohighlight">\(C_2\)</span>).</p>
-<a class="reference internal image-reference" href="_images/04_09.svg"><img alt="Circuito de ejemplo" class="align-center" src="_images/04_09.svg" width="40%" /></a>
-<p>Datos del problema:</p>
+<br>
+```{image} images_tikz/04_09.svg
+:alt: Circuito de ejemplo
+:width: 60%
+:align: center
+<br><p>Datos del problema:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(C_1 = 2C_0\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(C_2 = 6C_0\)</span></p></li>
 </ul>
 <p><strong>a) Cerramos <span class="math notranslate nohighlight">\(S_1\)</span> manteniendo abierto <span class="math notranslate nohighlight">\(S_2\)</span>:</strong></p>
 <p>Al cerrar <span class="math notranslate nohighlight">\(S_1\)</span>, el condensador <span class="math notranslate nohighlight">\(C_0\)</span> se conecta directamente a la batería.</p>
-<a class="reference internal image-reference" href="_images/04_10.svg"><img alt="Interruptor 1 cerrado" class="align-center" src="_images/04_10.svg" width="40%" /></a>
-<p>Una vez que se alcanza el equilibrio electrostático, la carga almacenada por el condensador <span class="math notranslate nohighlight">\(C_0\)</span> es:</p>
+<br>
+```{image} images_tikz/04_10.svg
+:alt: Interruptor 1 cerrado
+:width: 40%
+:align: center
+<br><p>Una vez que se alcanza el equilibrio electrostático, la carga almacenada por el condensador <span class="math notranslate nohighlight">\(C_0\)</span> es:</p>
 <div class="math notranslate nohighlight">
 \[Q_0 = C_0 V_0\]</div>
 <p><strong>b) Cerramos <span class="math notranslate nohighlight">\(S_2\)</span> y abrimos <span class="math notranslate nohighlight">\(S_1\)</span>:</strong></p>
 <p>Al abrir <span class="math notranslate nohighlight">\(S_1\)</span>, la fuente de voltaje queda completamente desconectada del sistema. Al cerrar <span class="math notranslate nohighlight">\(S_2\)</span>, el condensador <span class="math notranslate nohighlight">\(C_0\)</span> (que ahora actúa como fuente aportando su carga inicial <span class="math notranslate nohighlight">\(Q_0\)</span>) queda conectado al resto del circuito.</p>
-<a class="reference internal image-reference" href="_images/04_11.svg"><img alt="Interruptor 2 cerrado" class="align-center" src="_images/04_11.svg" width="40%" /></a>
-<p>Al observar la nueva configuración, notamos que:</p>
+<br>
+```{image} images_tikz/04_11.svg
+:alt: Interruptor 2 cerrado
+:width: 40%
+:align: center
+<br><p>Al observar la nueva configuración, notamos que:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(C_1\)</span> está en serie con <span class="math notranslate nohighlight">\(C_2\)</span>.</p></li>
 <li><p>El conjunto <span class="math notranslate nohighlight">\(C_1-C_2\)</span> está en paralelo con <span class="math notranslate nohighlight">\(C_0\)</span>.</p></li>
 </ul>
-<a class="reference internal image-reference" href="_images/04_12.svg"><img alt="Interruptor 2 cerrado" class="align-center" src="_images/04_12.svg" width="40%" /></a>
-<p>Para resolver cómo se distribuye la carga, primero calculamos la capacitancia equivalente de la rama en serie (<span class="math notranslate nohighlight">\(C_{1,2}\)</span>):</p>
+<br>
+```{image} images_tikz/04_12.svg
+:alt: Interruptor 2 cerrado
+:width: 40%
+:align: center
+<br><p>Para resolver cómo se distribuye la carga, primero calculamos la capacitancia equivalente de la rama en serie (<span class="math notranslate nohighlight">\(C_{1,2}\)</span>):</p>
 <div class="math notranslate nohighlight">
 \[\frac{1}{C_{1,2}} = \frac{1}{C_1} + \frac{1}{C_2} = \frac{1}{2C_0} + \frac{1}{6C_0}\]</div>
 <div class="math notranslate nohighlight">
@@ -509,19 +535,26 @@ $<span class="math notranslate nohighlight">\(\frac{1}{C_{\text{eq}}} = \sum_{i=
 \[\Delta V_{ab} = \frac{2}{5} \frac{Q_0}{C_0}\]</div>
 <p><strong>Después de la distribución de la carga:</strong></p>
 <p>Conociendo el nuevo voltaje del sistema, calculamos cómo se repartió la carga original.</p>
-<p>Para el condensador <span class="math notranslate nohighlight">\(C_0\)</span>:
-$<span class="math notranslate nohighlight">\(Q'_0 = C_0 \Delta V_{ab} = C_0 \left( \frac{2}{5} \frac{Q_0}{C_0} \right) \implies Q'_0 = \frac{2}{5}Q_0\)</span>$</p>
-<p>Para la rama equivalente <span class="math notranslate nohighlight">\(C_{1,2}\)</span>:
-$<span class="math notranslate nohighlight">\(Q_{1,2} = C_{1,2} \Delta V_{ab} = \left( \frac{3}{2}C_0 \right) \left( \frac{2}{5} \frac{Q_0}{C_0} \right) \implies Q_{1,2} = \frac{3}{5}Q_0\)</span>$</p>
-<p>Dado que los condensadores <span class="math notranslate nohighlight">\(C_1\)</span> y <span class="math notranslate nohighlight">\(C_2\)</span> están en serie, la carga en cada uno de ellos es idéntica a la carga de su capacitancia equivalente:
-$<span class="math notranslate nohighlight">\(Q'_1 = Q'_2 = Q_{1,2} = \frac{3}{5}Q_0\)</span>$</p>
+<p>Para el condensador <span class="math notranslate nohighlight">\(C_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[Q'_0 = C_0 \Delta V_{ab} = C_0 \left( \frac{2}{5} \frac{Q_0}{C_0} \right) \implies Q'_0 = \frac{2}{5}Q_0\]</div>
+<p>Para la rama equivalente <span class="math notranslate nohighlight">\(C_{1,2}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[Q_{1,2} = C_{1,2} \Delta V_{ab} = \left( \frac{3}{2}C_0 \right) \left( \frac{2}{5} \frac{Q_0}{C_0} \right) \implies Q_{1,2} = \frac{3}{5}Q_0\]</div>
+<p>Dado que los condensadores <span class="math notranslate nohighlight">\(C_1\)</span> y <span class="math notranslate nohighlight">\(C_2\)</span> están en serie, la carga en cada uno de ellos es idéntica a la carga de su capacitancia equivalente:</p>
+<div class="math notranslate nohighlight">
+\[Q'_1 = Q'_2 = Q_{1,2} = \frac{3}{5}Q_0\]</div>
 <p>Finalmente, podemos determinar las nuevas diferencias de potencial individuales para <span class="math notranslate nohighlight">\(C_1\)</span> y <span class="math notranslate nohighlight">\(C_2\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[V'_1 = \frac{Q'_1}{C_1} = \frac{\frac{3}{5}Q_0}{2C_0} = \frac{3}{10}\frac{Q_0}{C_0}\]</div>
 <div class="math notranslate nohighlight">
 \[V'_2 = \frac{Q'_2}{C_2} = \frac{\frac{3}{5}Q_0}{6C_0} = \frac{3}{30}\frac{Q_0}{C_0} = \frac{1}{10}\frac{Q_0}{C_0}\]</div>
-<a class="reference internal image-reference" href="_images/04_13.svg"><img alt="Condensadores y sus valores" class="align-center" src="_images/04_13.svg" width="40%" /></a>
-</section>
+<br>
+```{image} images_tikz/04_13.svg
+:alt: Condensadores y sus valores
+:width: 70%
+:align: center
+<br></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -560,7 +593,7 @@ $<span class="math notranslate nohighlight">\(Q'_1 = Q'_2 = Q_{1,2} = \frac{3}{5
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">4.3 Energía Almacenada en un Condensador</p>
+        <p class="prev-next-title">4.3 Energía en un Condensador</p>
       </div>
     </a>
 </div>
