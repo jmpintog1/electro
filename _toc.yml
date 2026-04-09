@@ -32,3 +32,10 @@ parts:
       - file: 03_02_calculo
       - file: 03_03_energia
       - file: 03_04_oscilatorio
+
+  - caption: 4 Capacitancia y Dieléctricos
+    chapters:
+      - file: 04_01_capacitancia
+      - file: 04_02_geometrias
+      - file: 04_03_energia
+      - file: 04_04_serie_paralelo
