@@ -450,6 +450,8 @@ document.write(`
 <h2>Condensadores en Paralelo<a class="headerlink" href="#condensadores-en-paralelo" title="Permalink to this heading">#</a></h2>
 <p>Cuando los condensadores están conectados en paralelo, la diferencia de potencial es la misma para todos ellos, pero la carga total se distribuye.</p>
 <p> </p>
+<a class="reference internal image-reference" href="_images/04_07.svg"><img alt="Condensadores en paralelo" class="align-center" src="_images/04_07.svg" width="50%" /></a>
+<p> </p>
 <ul class="simple">
 <li><p><strong>Voltaje:</strong> <span class="math notranslate nohighlight">\(V_{\text{eq}} = V_1 = V_2 = \dots = V_0\)</span></p></li>
 <li><p><strong>Carga Total:</strong> <span class="math notranslate nohighlight">\(Q_{\text{Total}} = Q_1 + Q_2 = C_1V_1 + C_2V_2\)</span></p></li>
@@ -462,6 +464,8 @@ document.write(`
 <section id="condensadores-en-serie">
 <h2>Condensadores en Serie<a class="headerlink" href="#condensadores-en-serie" title="Permalink to this heading">#</a></h2>
 <p>En una conexión en serie, la carga en todas las placas es idéntica por conservación de carga, pero el voltaje total se divide entre los condensadores.</p>
+<p> </p>
+<a class="reference internal image-reference" href="_images/04_08.svg"><img alt="Condensadores en serie" class="align-center" src="_images/04_08.svg" width="50%" /></a>
 <p> </p>
 <ul class="simple">
 <li><p><strong>Carga:</strong> <span class="math notranslate nohighlight">\(Q_1 = Q_2 = Q_{\text{eq}} = Q_0\)</span></p></li>
@@ -476,6 +480,8 @@ document.write(`
 <h2>Ejemplo: Análisis de un circuito con condensadores<a class="headerlink" href="#ejemplo-analisis-de-un-circuito-con-condensadores" title="Permalink to this heading">#</a></h2>
 <p>Consideremos un circuito inicial con una fuente de voltaje <span class="math notranslate nohighlight">\(V_0\)</span>, dos interruptores (<span class="math notranslate nohighlight">\(S_1\)</span> y <span class="math notranslate nohighlight">\(S_2\)</span>), y tres condensadores (<span class="math notranslate nohighlight">\(C_0\)</span>, <span class="math notranslate nohighlight">\(C_1\)</span> y <span class="math notranslate nohighlight">\(C_2\)</span>).</p>
 <p> </p>
+<a class="reference internal image-reference" href="_images/04_09.svg"><img alt="Circuito de ejemplo" class="align-center" src="_images/04_09.svg" width="60%" /></a>
+<p> </p>
 <p>Datos del problema:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(C_1 = 2C_0\)</span></p></li>
@@ -484,17 +490,23 @@ document.write(`
 <p><strong>a) Cerramos <span class="math notranslate nohighlight">\(S_1\)</span> manteniendo abierto <span class="math notranslate nohighlight">\(S_2\)</span>:</strong></p>
 <p>Al cerrar <span class="math notranslate nohighlight">\(S_1\)</span>, el condensador <span class="math notranslate nohighlight">\(C_0\)</span> se conecta directamente a la batería.</p>
 <p> </p>
+<a class="reference internal image-reference" href="_images/04_10.svg"><img alt="Interruptor 1 cerrado" class="align-center" src="_images/04_10.svg" width="40%" /></a>
+<p> </p>
 <p>Una vez que se alcanza el equilibrio electrostático, la carga almacenada por el condensador <span class="math notranslate nohighlight">\(C_0\)</span> es:</p>
 <div class="math notranslate nohighlight">
 \[Q_0 = C_0 V_0\]</div>
 <p><strong>b) Cerramos <span class="math notranslate nohighlight">\(S_2\)</span> y abrimos <span class="math notranslate nohighlight">\(S_1\)</span>:</strong></p>
 <p>Al abrir <span class="math notranslate nohighlight">\(S_1\)</span>, la fuente de voltaje queda completamente desconectada del sistema. Al cerrar <span class="math notranslate nohighlight">\(S_2\)</span>, el condensador <span class="math notranslate nohighlight">\(C_0\)</span> (que ahora actúa como fuente aportando su carga inicial <span class="math notranslate nohighlight">\(Q_0\)</span>) queda conectado al resto del circuito.</p>
 <p> </p>
+<a class="reference internal image-reference" href="_images/04_11.svg"><img alt="Interruptor 2 cerrado" class="align-center" src="_images/04_11.svg" width="40%" /></a>
+<p> </p>
 <p>Al observar la nueva configuración, notamos que:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(C_1\)</span> está en serie con <span class="math notranslate nohighlight">\(C_2\)</span>.</p></li>
 <li><p>El conjunto <span class="math notranslate nohighlight">\(C_1-C_2\)</span> está en paralelo con <span class="math notranslate nohighlight">\(C_0\)</span>.</p></li>
 </ul>
+<p> </p>
+<a class="reference internal image-reference" href="_images/04_12.svg"><img alt="Interruptor 2 cerrado" class="align-center" src="_images/04_12.svg" width="40%" /></a>
 <p> </p>
 <p>Para resolver cómo se distribuye la carga, primero calculamos la capacitancia equivalente de la rama en serie (<span class="math notranslate nohighlight">\(C_{1,2}\)</span>):</p>
 <div class="math notranslate nohighlight">
@@ -525,6 +537,8 @@ document.write(`
 \[V'_1 = \frac{Q'_1}{C_1} = \frac{\frac{3}{5}Q_0}{2C_0} = \frac{3}{10}\frac{Q_0}{C_0}\]</div>
 <div class="math notranslate nohighlight">
 \[V'_2 = \frac{Q'_2}{C_2} = \frac{\frac{3}{5}Q_0}{6C_0} = \frac{3}{30}\frac{Q_0}{C_0} = \frac{1}{10}\frac{Q_0}{C_0}\]</div>
+<p> </p>
+<a class="reference internal image-reference" href="_images/04_13.svg"><img alt="Condensadores y sus valores" class="align-center" src="_images/04_13.svg" width="70%" /></a>
 <p> </p>
 </section>
 </section>
