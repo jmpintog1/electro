@@ -198,10 +198,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4 Capacitancia y Dieléctricos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="04_01_capacitancia.html">4.1 Capacitancia y Conceptos Básicos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_02_geometrias.html">4.2 Geometrías Comunes de Condensadores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_03_energia.html">4.3 Energía Almacenada en un Condensador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_04_serie_paralelo.html">4.4 Conexión de Condensadores en Circuitos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_01_capacitancia.html">4.1 Capacitancia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_02_geometrias.html">4.2 Cálculo de Capacitancia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_03_energia.html">4.3 Energía en un Condensador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_04_serie_paralelo.html">4.4 Condensadores en Circuitos</a></li>
 </ul>
 
     </div>
@@ -488,6 +488,365 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[C = \frac{Q}{\Delta V} = \frac{Q}{E_0 d / \kappa} = \kappa \frac{Q}{\Delta V_0} = \kappa C_0\]</div>
 <p>La capacitancia de cualquier condensador aumenta en un factor <span class="math notranslate nohighlight">\(\kappa\)</span> cuando el espacio entre sus conductores se llena completamente con un dieléctrico. Para un condensador de placas paralelas, su nueva capacitancia será <span class="math notranslate nohighlight">\(C = \frac{\kappa \epsilon_0 A}{d}\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">simulacion_placas_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;div style=&quot;border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif;&quot;&gt;</span>
+<span class="s2">    &lt;h3 style=&quot;margin-top:0; color: #2c3e50;&quot;&gt;Simulación 2D: Condensador de Placas Paralelas&lt;/h3&gt;</span>
+<span class="s2">    &lt;p style=&quot;font-size: 0.95em; color: #555; margin-bottom: 15px;&quot;&gt;Modifica el área geométrica, la separación y el material dieléctrico para observar su impacto en la capacitancia y el campo eléctrico (asumiendo 10V constantes).&lt;/p&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;&quot;&gt;</span>
+<span class="s2">        &lt;div style=&quot;flex: 1.5; min-width: 280px;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 170px;&quot;&gt;Área A (cm²): &lt;span id=&quot;pp_val_A&quot; style=&quot;font-weight: normal;&quot;&gt;100&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;pp_slider_A&quot; min=&quot;10&quot; max=&quot;500&quot; step=&quot;10&quot; value=&quot;100&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 170px;&quot;&gt;Separación d (mm): &lt;span id=&quot;pp_val_d&quot; style=&quot;font-weight: normal;&quot;&gt;5.0&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;pp_slider_d&quot; min=&quot;1&quot; max=&quot;20&quot; step=&quot;0.5&quot; value=&quot;5&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 170px; color: #6c757d;&quot;&gt;Dieléctrico (κ): &lt;span id=&quot;pp_val_k&quot; style=&quot;font-weight: normal;&quot;&gt;1.0&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;pp_slider_k&quot; min=&quot;1&quot; max=&quot;10&quot; step=&quot;0.1&quot; value=&quot;1&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 220px; font-size: 0.95em; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Capacitancia C:&lt;/b&gt; &lt;span id=&quot;pp_val_C&quot; style=&quot;color: #198754; font-weight: bold;&quot;&gt;0&lt;/span&gt; pF&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Campo Eléctrico E:&lt;/b&gt; &lt;span id=&quot;pp_val_E&quot; style=&quot;color: #dc3545; font-weight: bold;&quot;&gt;0&lt;/span&gt; V/m&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Carga Q:&lt;/b&gt; &lt;span id=&quot;pp_val_Q&quot; style=&quot;color: #0d6efd; font-weight: bold;&quot;&gt;0&lt;/span&gt; pC&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;font-size: 0.8em; color: #777; margin-top: 5px;&quot;&gt;*V = 10V (Batería conectada)&lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;text-align: center; position: relative;&quot;&gt;</span>
+<span class="s2">        &lt;canvas id=&quot;pp_canvas&quot; width=&quot;600&quot; height=&quot;350&quot; style=&quot;background: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;&quot;&gt;&lt;/canvas&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    (function() {</span>
+<span class="s2">        const canvas = document.getElementById(&#39;pp_canvas&#39;);</span>
+<span class="s2">        const ctx = canvas.getContext(&#39;2d&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const slider_A = document.getElementById(&#39;pp_slider_A&#39;);</span>
+<span class="s2">        const slider_d = document.getElementById(&#39;pp_slider_d&#39;);</span>
+<span class="s2">        const slider_k = document.getElementById(&#39;pp_slider_k&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const val_A = document.getElementById(&#39;pp_val_A&#39;);</span>
+<span class="s2">        const val_d = document.getElementById(&#39;pp_val_d&#39;);</span>
+<span class="s2">        const val_k = document.getElementById(&#39;pp_val_k&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const val_C = document.getElementById(&#39;pp_val_C&#39;);</span>
+<span class="s2">        const val_E = document.getElementById(&#39;pp_val_E&#39;);</span>
+<span class="s2">        const val_Q = document.getElementById(&#39;pp_val_Q&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const epsilon_0 = 8.854e-12;</span>
+<span class="s2">        const V = 10; // Voltaje fijo</span>
+
+<span class="s2">        function drawArrow(fromx, fromy, tox, toy, color, width) {</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.moveTo(fromx, fromy);</span>
+<span class="s2">            ctx.lineTo(tox, toy);</span>
+<span class="s2">            ctx.strokeStyle = color;</span>
+<span class="s2">            ctx.lineWidth = width;</span>
+<span class="s2">            ctx.stroke();</span>
+
+<span class="s2">            let angle = Math.atan2(toy - fromy, tox - fromx);</span>
+<span class="s2">            let dist = Math.hypot(tox - fromx, toy - fromy);</span>
+<span class="s2">            if (dist &lt; 4) return; </span>
+<span class="s2">            </span>
+<span class="s2">            let headlen = 8;</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.moveTo(tox, toy);</span>
+<span class="s2">            ctx.lineTo(tox - headlen * Math.cos(angle - Math.PI/7), toy - headlen * Math.sin(angle - Math.PI/7));</span>
+<span class="s2">            ctx.lineTo(tox - headlen * Math.cos(angle + Math.PI/7), toy - headlen * Math.sin(angle + Math.PI/7));</span>
+<span class="s2">            ctx.lineTo(tox, toy);</span>
+<span class="s2">            ctx.fillStyle = color;</span>
+<span class="s2">            ctx.fill();</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function updateSim() {</span>
+<span class="s2">            let A_cm2 = parseFloat(slider_A.value);</span>
+<span class="s2">            let d_mm = parseFloat(slider_d.value);</span>
+<span class="s2">            let k = parseFloat(slider_k.value);</span>
+<span class="s2">            </span>
+<span class="s2">            val_A.innerText = A_cm2;</span>
+<span class="s2">            val_d.innerText = d_mm.toFixed(1);</span>
+<span class="s2">            val_k.innerText = k.toFixed(1);</span>
+
+<span class="s2">            // Cálculos físicos</span>
+<span class="s2">            let A_m2 = A_cm2 * 1e-4;</span>
+<span class="s2">            let d_m = d_mm * 1e-3;</span>
+<span class="s2">            </span>
+<span class="s2">            // C = k * e0 * A / d</span>
+<span class="s2">            let C = (k * epsilon_0 * A_m2) / d_m;</span>
+<span class="s2">            let C_pF = C * 1e12;</span>
+<span class="s2">            val_C.innerText = C_pF.toFixed(2);</span>
+<span class="s2">            </span>
+<span class="s2">            // E = V / d</span>
+<span class="s2">            let E = V / d_m;</span>
+<span class="s2">            val_E.innerText = E.toFixed(0);</span>
+<span class="s2">            </span>
+<span class="s2">            // Q = C * V</span>
+<span class="s2">            let Q = C * V;</span>
+<span class="s2">            let Q_pC = Q * 1e12;</span>
+<span class="s2">            val_Q.innerText = Q_pC.toFixed(2);</span>
+
+<span class="s2">            // Dibujo</span>
+<span class="s2">            ctx.clearRect(0, 0, canvas.width, canvas.height);</span>
+<span class="s2">            let cx = canvas.width / 2;</span>
+<span class="s2">            let cy = canvas.height / 2;</span>
+<span class="s2">            </span>
+<span class="s2">            // Escalas visuales</span>
+<span class="s2">            // Distancia: 20mm max = 150px</span>
+<span class="s2">            let scale_d = 150 / 20; </span>
+<span class="s2">            let d_px = d_mm * scale_d;</span>
+<span class="s2">            </span>
+<span class="s2">            // Ancho placa: proporcional a sqrt(A). Max A = 500 -&gt; sqrt(500) aprox 22.3 cm. </span>
+<span class="s2">            // Hagamos que 22.3 cm sean 400px</span>
+<span class="s2">            let side_cm = Math.sqrt(A_cm2);</span>
+<span class="s2">            let scale_w = 400 / Math.sqrt(500);</span>
+<span class="s2">            let w_px = side_cm * scale_w;</span>
+<span class="s2">            let plate_thickness = 8;</span>
+
+<span class="s2">            let top_y = cy - d_px / 2;</span>
+<span class="s2">            let bottom_y = cy + d_px / 2;</span>
+
+<span class="s2">            // Dieléctrico</span>
+<span class="s2">            if (k &gt; 1.0) {</span>
+<span class="s2">                ctx.fillStyle = `rgba(108, 117, 125, ${0.1 + (k/20)})`; // Se oscurece ligeramente con mayor k</span>
+<span class="s2">                ctx.fillRect(cx - w_px/2, top_y, w_px, d_px);</span>
+<span class="s2">                ctx.fillStyle = &#39;#6c757d&#39;;</span>
+<span class="s2">                ctx.font = &#39;14px Arial&#39;;</span>
+<span class="s2">                ctx.textAlign = &#39;center&#39;;</span>
+<span class="s2">                ctx.fillText(`k = ${k.toFixed(1)}`, cx, cy + 5);</span>
+<span class="s2">            }</span>
+
+<span class="s2">            // Campo Eléctrico (Flechas)</span>
+<span class="s2">            let num_arrows = Math.max(3, Math.floor(w_px / 40));</span>
+<span class="s2">            let arrow_spacing = w_px / num_arrows;</span>
+<span class="s2">            let E_intensity = E / (V / 1e-3); // Normalizado respecto a la d mínima (1mm)</span>
+<span class="s2">            let arrow_width = Math.max(1, E_intensity * 3);</span>
+<span class="s2">            let arrow_alpha = Math.max(0.3, E_intensity);</span>
+
+<span class="s2">            for(let i = 0; i &lt;= num_arrows; i++) {</span>
+<span class="s2">                let x = (cx - w_px/2) + i * arrow_spacing;</span>
+<span class="s2">                // No dibujar la flecha central si está tapando el texto del dieléctrico</span>
+<span class="s2">                if (k &gt; 1.0 &amp;&amp; Math.abs(x - cx) &lt; 30) continue; </span>
+<span class="s2">                </span>
+<span class="s2">                drawArrow(x, top_y + plate_thickness/2 + 2, x, bottom_y - plate_thickness/2 - 2, `rgba(44, 62, 80, $</span><span class="si">{arrow_alpha}</span><span class="s2">)`, arrow_width);</span>
+<span class="s2">            }</span>
+
+<span class="s2">            // Placa Superior (Carga Positiva)</span>
+<span class="s2">            ctx.fillStyle = &#39;#dc3545&#39;;</span>
+<span class="s2">            ctx.fillRect(cx - w_px/2, top_y - plate_thickness/2, w_px, plate_thickness);</span>
+<span class="s2">            ctx.fillStyle = &#39;white&#39;;</span>
+<span class="s2">            ctx.font = &#39;bold 16px Arial&#39;;</span>
+<span class="s2">            ctx.textAlign = &#39;center&#39;;</span>
+<span class="s2">            ctx.fillText(&quot;+++++&quot;, cx, top_y - 12);</span>
+
+<span class="s2">            // Placa Inferior (Carga Negativa)</span>
+<span class="s2">            ctx.fillStyle = &#39;#0d6efd&#39;;</span>
+<span class="s2">            ctx.fillRect(cx - w_px/2, bottom_y - plate_thickness/2, w_px, plate_thickness);</span>
+<span class="s2">            ctx.fillStyle = &#39;#0d6efd&#39;;</span>
+<span class="s2">            // ctx.fillText(&quot;-----&quot;, cx, bottom_y + 25);</span>
+<span class="s2">        }</span>
+
+<span class="s2">        slider_A.addEventListener(&#39;input&#39;, updateSim);</span>
+<span class="s2">        slider_d.addEventListener(&#39;input&#39;, updateSim);</span>
+<span class="s2">        slider_k.addEventListener(&#39;input&#39;, updateSim);</span>
+
+<span class="s2">        updateSim();</span>
+<span class="s2">    })();</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">simulacion_placas_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+    <h3 style="margin-top:0; color: #2c3e50;">Simulación 2D: Condensador de Placas Paralelas</h3>
+    <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">Modifica el área geométrica, la separación y el material dieléctrico para observar su impacto en la capacitancia y el campo eléctrico (asumiendo 10V constantes).</p>
+    
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;">
+        <div style="flex: 1.5; min-width: 280px;">
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 170px;">Área A (cm²): <span id="pp_val_A" style="font-weight: normal;">100</span></label>
+                <input type="range" id="pp_slider_A" min="10" max="500" step="10" value="100" style="width: 40%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 170px;">Separación d (mm): <span id="pp_val_d" style="font-weight: normal;">5.0</span></label>
+                <input type="range" id="pp_slider_d" min="1" max="20" step="0.5" value="5" style="width: 40%; vertical-align: middle;">
+            </div>
+            <div>
+                <label style="font-weight: 600; display: inline-block; width: 170px; color: #6c757d;">Dieléctrico (κ): <span id="pp_val_k" style="font-weight: normal;">1.0</span></label>
+                <input type="range" id="pp_slider_k" min="1" max="10" step="0.1" value="1" style="width: 40%; vertical-align: middle;">
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 220px; font-size: 0.95em; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
+            <div style="margin-bottom: 5px;"><b>Capacitancia C:</b> <span id="pp_val_C" style="color: #198754; font-weight: bold;">0</span> pF</div>
+            <div style="margin-bottom: 5px;"><b>Campo Eléctrico E:</b> <span id="pp_val_E" style="color: #dc3545; font-weight: bold;">0</span> V/m</div>
+            <div style="margin-bottom: 5px;"><b>Carga Q:</b> <span id="pp_val_Q" style="color: #0d6efd; font-weight: bold;">0</span> pC</div>
+            <div style="font-size: 0.8em; color: #777; margin-top: 5px;">*V = 10V (Batería conectada)</div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; position: relative;">
+        <canvas id="pp_canvas" width="600" height="350" style="background: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const canvas = document.getElementById('pp_canvas');
+        const ctx = canvas.getContext('2d');
+        
+        const slider_A = document.getElementById('pp_slider_A');
+        const slider_d = document.getElementById('pp_slider_d');
+        const slider_k = document.getElementById('pp_slider_k');
+        
+        const val_A = document.getElementById('pp_val_A');
+        const val_d = document.getElementById('pp_val_d');
+        const val_k = document.getElementById('pp_val_k');
+        
+        const val_C = document.getElementById('pp_val_C');
+        const val_E = document.getElementById('pp_val_E');
+        const val_Q = document.getElementById('pp_val_Q');
+        
+        const epsilon_0 = 8.854e-12;
+        const V = 10; // Voltaje fijo
+
+        function drawArrow(fromx, fromy, tox, toy, color, width) {
+            ctx.beginPath();
+            ctx.moveTo(fromx, fromy);
+            ctx.lineTo(tox, toy);
+            ctx.strokeStyle = color;
+            ctx.lineWidth = width;
+            ctx.stroke();
+
+            let angle = Math.atan2(toy - fromy, tox - fromx);
+            let dist = Math.hypot(tox - fromx, toy - fromy);
+            if (dist < 4) return; 
+            
+            let headlen = 8;
+            ctx.beginPath();
+            ctx.moveTo(tox, toy);
+            ctx.lineTo(tox - headlen * Math.cos(angle - Math.PI/7), toy - headlen * Math.sin(angle - Math.PI/7));
+            ctx.lineTo(tox - headlen * Math.cos(angle + Math.PI/7), toy - headlen * Math.sin(angle + Math.PI/7));
+            ctx.lineTo(tox, toy);
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+
+        function updateSim() {
+            let A_cm2 = parseFloat(slider_A.value);
+            let d_mm = parseFloat(slider_d.value);
+            let k = parseFloat(slider_k.value);
+            
+            val_A.innerText = A_cm2;
+            val_d.innerText = d_mm.toFixed(1);
+            val_k.innerText = k.toFixed(1);
+
+            // Cálculos físicos
+            let A_m2 = A_cm2 * 1e-4;
+            let d_m = d_mm * 1e-3;
+            
+            // C = k * e0 * A / d
+            let C = (k * epsilon_0 * A_m2) / d_m;
+            let C_pF = C * 1e12;
+            val_C.innerText = C_pF.toFixed(2);
+            
+            // E = V / d
+            let E = V / d_m;
+            val_E.innerText = E.toFixed(0);
+            
+            // Q = C * V
+            let Q = C * V;
+            let Q_pC = Q * 1e12;
+            val_Q.innerText = Q_pC.toFixed(2);
+
+            // Dibujo
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            let cx = canvas.width / 2;
+            let cy = canvas.height / 2;
+            
+            // Escalas visuales
+            // Distancia: 20mm max = 150px
+            let scale_d = 150 / 20; 
+            let d_px = d_mm * scale_d;
+            
+            // Ancho placa: proporcional a sqrt(A). Max A = 500 -> sqrt(500) aprox 22.3 cm. 
+            // Hagamos que 22.3 cm sean 400px
+            let side_cm = Math.sqrt(A_cm2);
+            let scale_w = 400 / Math.sqrt(500);
+            let w_px = side_cm * scale_w;
+            let plate_thickness = 8;
+
+            let top_y = cy - d_px / 2;
+            let bottom_y = cy + d_px / 2;
+
+            // Dieléctrico
+            if (k > 1.0) {
+                ctx.fillStyle = `rgba(108, 117, 125, ${0.1 + (k/20)})`; // Se oscurece ligeramente con mayor k
+                ctx.fillRect(cx - w_px/2, top_y, w_px, d_px);
+                ctx.fillStyle = '#6c757d';
+                ctx.font = '14px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(`k = ${k.toFixed(1)}`, cx, cy + 5);
+            }
+
+            // Campo Eléctrico (Flechas)
+            let num_arrows = Math.max(3, Math.floor(w_px / 40));
+            let arrow_spacing = w_px / num_arrows;
+            let E_intensity = E / (V / 1e-3); // Normalizado respecto a la d mínima (1mm)
+            let arrow_width = Math.max(1, E_intensity * 3);
+            let arrow_alpha = Math.max(0.3, E_intensity);
+
+            for(let i = 0; i <= num_arrows; i++) {
+                let x = (cx - w_px/2) + i * arrow_spacing;
+                // No dibujar la flecha central si está tapando el texto del dieléctrico
+                if (k > 1.0 && Math.abs(x - cx) < 30) continue; 
+                
+                drawArrow(x, top_y + plate_thickness/2 + 2, x, bottom_y - plate_thickness/2 - 2, `rgba(44, 62, 80, ${arrow_alpha})`, arrow_width);
+            }
+
+            // Placa Superior (Carga Positiva)
+            ctx.fillStyle = '#dc3545';
+            ctx.fillRect(cx - w_px/2, top_y - plate_thickness/2, w_px, plate_thickness);
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 16px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText("+++++", cx, top_y - 12);
+
+            // Placa Inferior (Carga Negativa)
+            ctx.fillStyle = '#0d6efd';
+            ctx.fillRect(cx - w_px/2, bottom_y - plate_thickness/2, w_px, plate_thickness);
+            ctx.fillStyle = '#0d6efd';
+            // ctx.fillText("-----", cx, bottom_y + 25);
+        }
+
+        slider_A.addEventListener('input', updateSim);
+        slider_d.addEventListener('input', updateSim);
+        slider_k.addEventListener('input', updateSim);
+
+        updateSim();
+    })();
+</script>
+</div></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
