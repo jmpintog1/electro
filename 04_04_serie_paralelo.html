@@ -475,6 +475,451 @@ document.write(`
 <p>En general, para <span class="math notranslate nohighlight">\(N\)</span> condensadores en serie:</p>
 <div class="math notranslate nohighlight">
 \[\frac{1}{C_{\text{eq}}} = \sum_{i=1}^{N} \frac{1}{C_i}\]</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">simulacion_serie_paralelo_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;div style=&quot;border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif;&quot;&gt;</span>
+<span class="s2">    &lt;h3 style=&quot;margin-top:0; color: #2c3e50;&quot;&gt;Simulación: Condensadores en Serie vs Paralelo&lt;/h3&gt;</span>
+<span class="s2">    &lt;p style=&quot;font-size: 0.95em; color: #555; margin-bottom: 15px;&quot;&gt;Selecciona la configuración del circuito y ajusta los valores para observar cómo se distribuyen el voltaje y la carga en tiempo real.&lt;/p&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;&quot;&gt;</span>
+<span class="s2">        &lt;div style=&quot;flex: 1.5; min-width: 280px;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 15px; padding: 10px; background: #e9ecef; border-radius: 6px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: bold; margin-right: 15px;&quot;&gt;Configuración:&lt;/label&gt;</span>
+<span class="s2">                &lt;label style=&quot;cursor: pointer; margin-right: 15px;&quot;&gt;</span>
+<span class="s2">                    &lt;input type=&quot;radio&quot; name=&quot;csp_config&quot; value=&quot;serie&quot; checked&gt; Serie</span>
+<span class="s2">                &lt;/label&gt;</span>
+<span class="s2">                &lt;label style=&quot;cursor: pointer;&quot;&gt;</span>
+<span class="s2">                    &lt;input type=&quot;radio&quot; name=&quot;csp_config&quot; value=&quot;paralelo&quot;&gt; Paralelo</span>
+<span class="s2">                &lt;/label&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            </span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 150px;&quot;&gt;Capacitancia C₁ (μF): &lt;span id=&quot;csp_val_c1&quot; style=&quot;font-weight: normal;&quot;&gt;10&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;csp_slider_c1&quot; min=&quot;1&quot; max=&quot;50&quot; step=&quot;1&quot; value=&quot;10&quot; style=&quot;width: 50%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 150px;&quot;&gt;Capacitancia C₂ (μF): &lt;span id=&quot;csp_val_c2&quot; style=&quot;font-weight: normal;&quot;&gt;10&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;csp_slider_c2&quot; min=&quot;1&quot; max=&quot;50&quot; step=&quot;1&quot; value=&quot;10&quot; style=&quot;width: 50%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 150px;&quot;&gt;Voltaje Fuente V (V): &lt;span id=&quot;csp_val_v&quot; style=&quot;font-weight: normal;&quot;&gt;12&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;csp_slider_v&quot; min=&quot;1&quot; max=&quot;24&quot; step=&quot;1&quot; value=&quot;12&quot; style=&quot;width: 50%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 250px; font-size: 0.9em; display: flex; flex-direction: column; gap: 10px;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;&quot;&gt;</span>
+<span class="s2">                &lt;h4 style=&quot;margin: 0 0 5px 0; color: #2c3e50;&quot;&gt;Totales del Sistema&lt;/h4&gt;</span>
+<span class="s2">                &lt;div&gt;&lt;b&gt;C_eq:&lt;/b&gt; &lt;span id=&quot;csp_out_ceq&quot; style=&quot;color: #198754; font-weight: bold;&quot;&gt;5.00&lt;/span&gt; μF&lt;/div&gt;</span>
+<span class="s2">                &lt;div&gt;&lt;b&gt;Q_total:&lt;/b&gt; &lt;span id=&quot;csp_out_qtot&quot; style=&quot;color: #0d6efd; font-weight: bold;&quot;&gt;60.00&lt;/span&gt; μC&lt;/div&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;display: flex; gap: 10px;&quot;&gt;</span>
+<span class="s2">                &lt;div style=&quot;flex: 1; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #dc3545;&quot;&gt;</span>
+<span class="s2">                    &lt;h4 style=&quot;margin: 0 0 5px 0; color: #dc3545;&quot;&gt;C₁&lt;/h4&gt;</span>
+<span class="s2">                    &lt;div&gt;&lt;b&gt;V₁:&lt;/b&gt; &lt;span id=&quot;csp_out_v1&quot;&gt;6.00&lt;/span&gt; V&lt;/div&gt;</span>
+<span class="s2">                    &lt;div&gt;&lt;b&gt;Q₁:&lt;/b&gt; &lt;span id=&quot;csp_out_q1&quot;&gt;60.00&lt;/span&gt; μC&lt;/div&gt;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">                &lt;div style=&quot;flex: 1; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #fd7e14;&quot;&gt;</span>
+<span class="s2">                    &lt;h4 style=&quot;margin: 0 0 5px 0; color: #fd7e14;&quot;&gt;C₂&lt;/h4&gt;</span>
+<span class="s2">                    &lt;div&gt;&lt;b&gt;V₂:&lt;/b&gt; &lt;span id=&quot;csp_out_v2&quot;&gt;6.00&lt;/span&gt; V&lt;/div&gt;</span>
+<span class="s2">                    &lt;div&gt;&lt;b&gt;Q₂:&lt;/b&gt; &lt;span id=&quot;csp_out_q2&quot;&gt;60.00&lt;/span&gt; μC&lt;/div&gt;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;text-align: center; position: relative; margin-top: 20px;&quot;&gt;</span>
+<span class="s2">        &lt;canvas id=&quot;csp_canvas&quot; width=&quot;600&quot; height=&quot;280&quot; style=&quot;background: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;&quot;&gt;&lt;/canvas&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    (function() {</span>
+<span class="s2">        const canvas = document.getElementById(&#39;csp_canvas&#39;);</span>
+<span class="s2">        const ctx = canvas.getContext(&#39;2d&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const slider_c1 = document.getElementById(&#39;csp_slider_c1&#39;);</span>
+<span class="s2">        const slider_c2 = document.getElementById(&#39;csp_slider_c2&#39;);</span>
+<span class="s2">        const slider_v = document.getElementById(&#39;csp_slider_v&#39;);</span>
+<span class="s2">        const radios_config = document.getElementsByName(&#39;csp_config&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const val_c1 = document.getElementById(&#39;csp_val_c1&#39;);</span>
+<span class="s2">        const val_c2 = document.getElementById(&#39;csp_val_c2&#39;);</span>
+<span class="s2">        const val_v = document.getElementById(&#39;csp_val_v&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const out_ceq = document.getElementById(&#39;csp_out_ceq&#39;);</span>
+<span class="s2">        const out_qtot = document.getElementById(&#39;csp_out_qtot&#39;);</span>
+<span class="s2">        const out_v1 = document.getElementById(&#39;csp_out_v1&#39;);</span>
+<span class="s2">        const out_q1 = document.getElementById(&#39;csp_out_q1&#39;);</span>
+<span class="s2">        const out_v2 = document.getElementById(&#39;csp_out_v2&#39;);</span>
+<span class="s2">        const out_q2 = document.getElementById(&#39;csp_out_q2&#39;);</span>
+
+<span class="s2">        function drawCircuit() {</span>
+<span class="s2">            let C1 = parseFloat(slider_c1.value);</span>
+<span class="s2">            let C2 = parseFloat(slider_c2.value);</span>
+<span class="s2">            let V = parseFloat(slider_v.value);</span>
+<span class="s2">            let config = Array.from(radios_config).find(r =&gt; r.checked).value;</span>
+<span class="s2">            </span>
+<span class="s2">            val_c1.innerText = C1;</span>
+<span class="s2">            val_c2.innerText = C2;</span>
+<span class="s2">            val_v.innerText = V;</span>
+
+<span class="s2">            let C_eq, Q_tot, V1, V2, Q1, Q2;</span>
+
+<span class="s2">            if (config === &#39;serie&#39;) {</span>
+<span class="s2">                C_eq = (C1 * C2) / (C1 + C2);</span>
+<span class="s2">                Q_tot = C_eq * V;</span>
+<span class="s2">                Q1 = Q_tot;</span>
+<span class="s2">                Q2 = Q_tot;</span>
+<span class="s2">                V1 = Q1 / C1;</span>
+<span class="s2">                V2 = Q2 / C2;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                C_eq = C1 + C2;</span>
+<span class="s2">                V1 = V;</span>
+<span class="s2">                V2 = V;</span>
+<span class="s2">                Q1 = C1 * V;</span>
+<span class="s2">                Q2 = C2 * V;</span>
+<span class="s2">                Q_tot = Q1 + Q2;</span>
+<span class="s2">            }</span>
+
+<span class="s2">            out_ceq.innerText = C_eq.toFixed(2);</span>
+<span class="s2">            out_qtot.innerText = Q_tot.toFixed(2);</span>
+<span class="s2">            out_v1.innerText = V1.toFixed(2);</span>
+<span class="s2">            out_q1.innerText = Q1.toFixed(2);</span>
+<span class="s2">            out_v2.innerText = V2.toFixed(2);</span>
+<span class="s2">            out_q2.innerText = Q2.toFixed(2);</span>
+
+<span class="s2">            ctx.clearRect(0, 0, canvas.width, canvas.height);</span>
+<span class="s2">            ctx.lineWidth = 2;</span>
+<span class="s2">            ctx.strokeStyle = &#39;#333&#39;;</span>
+
+<span class="s2">            // Dibujar Batería</span>
+<span class="s2">            let bx = 100, by = 140;</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.moveTo(bx, 50); ctx.lineTo(bx, by - 15);</span>
+<span class="s2">            ctx.moveTo(bx, by + 15); ctx.lineTo(bx, 230);</span>
+<span class="s2">            ctx.stroke();</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.lineWidth = 4;</span>
+<span class="s2">            ctx.beginPath(); ctx.moveTo(bx - 25, by - 15); ctx.lineTo(bx + 25, by - 15); ctx.stroke(); // Positivo</span>
+<span class="s2">            ctx.lineWidth = 6;</span>
+<span class="s2">            ctx.beginPath(); ctx.moveTo(bx - 12, by + 15); ctx.lineTo(bx + 12, by + 15); ctx.stroke(); // Negativo</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.fillStyle = &#39;#dc3545&#39;;</span>
+<span class="s2">            ctx.font = &#39;bold 16px Arial&#39;;</span>
+<span class="s2">            ctx.fillText(&#39;+&#39;, bx - 40, by - 10);</span>
+<span class="s2">            ctx.fillStyle = &#39;#000&#39;;</span>
+<span class="s2">            ctx.fillText(V + &#39; V&#39;, bx - 55, by + 10);</span>
+
+<span class="s2">            ctx.lineWidth = 2;</span>
+
+<span class="s2">            function drawCap(cx, cy, label, Q, V_drop, C_val, colorStr) {</span>
+<span class="s2">                let w = 40; </span>
+<span class="s2">                let gap = 10;</span>
+<span class="s2">                </span>
+<span class="s2">                // Efecto visual: intensidad de color según la carga (relativo a 1200 μC máx aprox)</span>
+<span class="s2">                let alpha = Math.min(1.0, Math.max(0.2, Q / 500)); </span>
+<span class="s2">                </span>
+<span class="s2">                // Placas internas (color de carga)</span>
+<span class="s2">                ctx.fillStyle = `rgba(220, 53, 69, $</span><span class="si">{alpha}</span><span class="s2">)`;</span>
+<span class="s2">                ctx.fillRect(cx - w/2, cy - gap, w, 4);</span>
+<span class="s2">                ctx.fillStyle = `rgba(13, 110, 253, $</span><span class="si">{alpha}</span><span class="s2">)`;</span>
+<span class="s2">                ctx.fillRect(cx - w/2, cy + gap - 4, w, 4);</span>
+
+<span class="s2">                // Bordes</span>
+<span class="s2">                ctx.fillStyle = &#39;#000&#39;;</span>
+<span class="s2">                ctx.fillRect(cx - w/2, cy - gap, w, 4);</span>
+<span class="s2">                ctx.fillRect(cx - w/2, cy + gap - 4, w, 4);</span>
+
+<span class="s2">                // Etiquetas de texto</span>
+<span class="s2">                ctx.fillStyle = colorStr;</span>
+<span class="s2">                ctx.font = &#39;bold 14px Arial&#39;;</span>
+<span class="s2">                ctx.fillText(label, cx + 30, cy - 5);</span>
+<span class="s2">                ctx.fillStyle = &#39;#555&#39;;</span>
+<span class="s2">                ctx.font = &#39;12px Arial&#39;;</span>
+<span class="s2">                ctx.fillText(C_val + &#39; μF&#39;, cx + 30, cy + 10);</span>
+<span class="s2">                </span>
+<span class="s2">                // Símbolos de polaridad</span>
+<span class="s2">                ctx.fillStyle = &#39;#dc3545&#39;; ctx.fillText(&#39;+&#39;, cx - w/2 - 15, cy - 5);</span>
+<span class="s2">                ctx.fillStyle = &#39;#0d6efd&#39;; ctx.fillText(&#39;-&#39;, cx - w/2 - 12, cy + 10);</span>
+<span class="s2">            }</span>
+
+<span class="s2">            if (config === &#39;serie&#39;) {</span>
+<span class="s2">                // Trazado de cables Serie</span>
+<span class="s2">                ctx.beginPath();</span>
+<span class="s2">                ctx.moveTo(bx, 50); ctx.lineTo(300, 50); </span>
+<span class="s2">                ctx.moveTo(bx, 230); ctx.lineTo(300, 230); </span>
+<span class="s2">                </span>
+<span class="s2">                ctx.moveTo(300, 50); ctx.lineTo(300, 90); </span>
+<span class="s2">                ctx.moveTo(300, 110); ctx.lineTo(300, 170); </span>
+<span class="s2">                ctx.moveTo(300, 190); ctx.lineTo(300, 230); </span>
+<span class="s2">                ctx.stroke();</span>
+
+<span class="s2">                drawCap(300, 100, &#39;C₁&#39;, Q1, V1, C1, &#39;#dc3545&#39;);</span>
+<span class="s2">                drawCap(300, 180, &#39;C₂&#39;, Q2, V2, C2, &#39;#fd7e14&#39;);</span>
+
+<span class="s2">            } else {</span>
+<span class="s2">                // Trazado de cables Paralelo</span>
+<span class="s2">                ctx.beginPath();</span>
+<span class="s2">                ctx.moveTo(bx, 50); ctx.lineTo(400, 50); </span>
+<span class="s2">                ctx.moveTo(bx, 230); ctx.lineTo(400, 230); </span>
+<span class="s2">                </span>
+<span class="s2">                // Rama 1</span>
+<span class="s2">                ctx.moveTo(200, 50); ctx.lineTo(200, 130);</span>
+<span class="s2">                ctx.moveTo(200, 150); ctx.lineTo(200, 230);</span>
+<span class="s2">                </span>
+<span class="s2">                // Rama 2</span>
+<span class="s2">                ctx.moveTo(400, 50); ctx.lineTo(400, 130);</span>
+<span class="s2">                ctx.moveTo(400, 150); ctx.lineTo(400, 230);</span>
+<span class="s2">                </span>
+<span class="s2">                ctx.stroke();</span>
+
+<span class="s2">                drawCap(200, 140, &#39;C₁&#39;, Q1, V1, C1, &#39;#dc3545&#39;);</span>
+<span class="s2">                drawCap(400, 140, &#39;C₂&#39;, Q2, V2, C2, &#39;#fd7e14&#39;);</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        // Listeners</span>
+<span class="s2">        slider_c1.addEventListener(&#39;input&#39;, drawCircuit);</span>
+<span class="s2">        slider_c2.addEventListener(&#39;input&#39;, drawCircuit);</span>
+<span class="s2">        slider_v.addEventListener(&#39;input&#39;, drawCircuit);</span>
+<span class="s2">        Array.from(radios_config).forEach(r =&gt; r.addEventListener(&#39;change&#39;, drawCircuit));</span>
+
+<span class="s2">        // Inicializar</span>
+<span class="s2">        drawCircuit();</span>
+<span class="s2">    })();</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">simulacion_serie_paralelo_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+    <h3 style="margin-top:0; color: #2c3e50;">Simulación: Condensadores en Serie vs Paralelo</h3>
+    <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">Selecciona la configuración del circuito y ajusta los valores para observar cómo se distribuyen el voltaje y la carga en tiempo real.</p>
+    
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;">
+        <div style="flex: 1.5; min-width: 280px;">
+            <div style="margin-bottom: 15px; padding: 10px; background: #e9ecef; border-radius: 6px;">
+                <label style="font-weight: bold; margin-right: 15px;">Configuración:</label>
+                <label style="cursor: pointer; margin-right: 15px;">
+                    <input type="radio" name="csp_config" value="serie" checked> Serie
+                </label>
+                <label style="cursor: pointer;">
+                    <input type="radio" name="csp_config" value="paralelo"> Paralelo
+                </label>
+            </div>
+            
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 150px;">Capacitancia C₁ (μF): <span id="csp_val_c1" style="font-weight: normal;">10</span></label>
+                <input type="range" id="csp_slider_c1" min="1" max="50" step="1" value="10" style="width: 50%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 150px;">Capacitancia C₂ (μF): <span id="csp_val_c2" style="font-weight: normal;">10</span></label>
+                <input type="range" id="csp_slider_c2" min="1" max="50" step="1" value="10" style="width: 50%; vertical-align: middle;">
+            </div>
+            <div>
+                <label style="font-weight: 600; display: inline-block; width: 150px;">Voltaje Fuente V (V): <span id="csp_val_v" style="font-weight: normal;">12</span></label>
+                <input type="range" id="csp_slider_v" min="1" max="24" step="1" value="12" style="width: 50%; vertical-align: middle;">
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 250px; font-size: 0.9em; display: flex; flex-direction: column; gap: 10px;">
+            <div style="background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
+                <h4 style="margin: 0 0 5px 0; color: #2c3e50;">Totales del Sistema</h4>
+                <div><b>C_eq:</b> <span id="csp_out_ceq" style="color: #198754; font-weight: bold;">5.00</span> μF</div>
+                <div><b>Q_total:</b> <span id="csp_out_qtot" style="color: #0d6efd; font-weight: bold;">60.00</span> μC</div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <div style="flex: 1; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #dc3545;">
+                    <h4 style="margin: 0 0 5px 0; color: #dc3545;">C₁</h4>
+                    <div><b>V₁:</b> <span id="csp_out_v1">6.00</span> V</div>
+                    <div><b>Q₁:</b> <span id="csp_out_q1">60.00</span> μC</div>
+                </div>
+                <div style="flex: 1; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #fd7e14;">
+                    <h4 style="margin: 0 0 5px 0; color: #fd7e14;">C₂</h4>
+                    <div><b>V₂:</b> <span id="csp_out_v2">6.00</span> V</div>
+                    <div><b>Q₂:</b> <span id="csp_out_q2">60.00</span> μC</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; position: relative; margin-top: 20px;">
+        <canvas id="csp_canvas" width="600" height="280" style="background: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const canvas = document.getElementById('csp_canvas');
+        const ctx = canvas.getContext('2d');
+        
+        const slider_c1 = document.getElementById('csp_slider_c1');
+        const slider_c2 = document.getElementById('csp_slider_c2');
+        const slider_v = document.getElementById('csp_slider_v');
+        const radios_config = document.getElementsByName('csp_config');
+        
+        const val_c1 = document.getElementById('csp_val_c1');
+        const val_c2 = document.getElementById('csp_val_c2');
+        const val_v = document.getElementById('csp_val_v');
+        
+        const out_ceq = document.getElementById('csp_out_ceq');
+        const out_qtot = document.getElementById('csp_out_qtot');
+        const out_v1 = document.getElementById('csp_out_v1');
+        const out_q1 = document.getElementById('csp_out_q1');
+        const out_v2 = document.getElementById('csp_out_v2');
+        const out_q2 = document.getElementById('csp_out_q2');
+
+        function drawCircuit() {
+            let C1 = parseFloat(slider_c1.value);
+            let C2 = parseFloat(slider_c2.value);
+            let V = parseFloat(slider_v.value);
+            let config = Array.from(radios_config).find(r => r.checked).value;
+            
+            val_c1.innerText = C1;
+            val_c2.innerText = C2;
+            val_v.innerText = V;
+
+            let C_eq, Q_tot, V1, V2, Q1, Q2;
+
+            if (config === 'serie') {
+                C_eq = (C1 * C2) / (C1 + C2);
+                Q_tot = C_eq * V;
+                Q1 = Q_tot;
+                Q2 = Q_tot;
+                V1 = Q1 / C1;
+                V2 = Q2 / C2;
+            } else {
+                C_eq = C1 + C2;
+                V1 = V;
+                V2 = V;
+                Q1 = C1 * V;
+                Q2 = C2 * V;
+                Q_tot = Q1 + Q2;
+            }
+
+            out_ceq.innerText = C_eq.toFixed(2);
+            out_qtot.innerText = Q_tot.toFixed(2);
+            out_v1.innerText = V1.toFixed(2);
+            out_q1.innerText = Q1.toFixed(2);
+            out_v2.innerText = V2.toFixed(2);
+            out_q2.innerText = Q2.toFixed(2);
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#333';
+
+            // Dibujar Batería
+            let bx = 100, by = 140;
+            ctx.beginPath();
+            ctx.moveTo(bx, 50); ctx.lineTo(bx, by - 15);
+            ctx.moveTo(bx, by + 15); ctx.lineTo(bx, 230);
+            ctx.stroke();
+            
+            ctx.lineWidth = 4;
+            ctx.beginPath(); ctx.moveTo(bx - 25, by - 15); ctx.lineTo(bx + 25, by - 15); ctx.stroke(); // Positivo
+            ctx.lineWidth = 6;
+            ctx.beginPath(); ctx.moveTo(bx - 12, by + 15); ctx.lineTo(bx + 12, by + 15); ctx.stroke(); // Negativo
+            
+            ctx.fillStyle = '#dc3545';
+            ctx.font = 'bold 16px Arial';
+            ctx.fillText('+', bx - 40, by - 10);
+            ctx.fillStyle = '#000';
+            ctx.fillText(V + ' V', bx - 55, by + 10);
+
+            ctx.lineWidth = 2;
+
+            function drawCap(cx, cy, label, Q, V_drop, C_val, colorStr) {
+                let w = 40; 
+                let gap = 10;
+                
+                // Efecto visual: intensidad de color según la carga (relativo a 1200 μC máx aprox)
+                let alpha = Math.min(1.0, Math.max(0.2, Q / 500)); 
+                
+                // Placas internas (color de carga)
+                ctx.fillStyle = `rgba(220, 53, 69, ${alpha})`;
+                ctx.fillRect(cx - w/2, cy - gap, w, 4);
+                ctx.fillStyle = `rgba(13, 110, 253, ${alpha})`;
+                ctx.fillRect(cx - w/2, cy + gap - 4, w, 4);
+
+                // Bordes
+                ctx.fillStyle = '#000';
+                ctx.fillRect(cx - w/2, cy - gap, w, 4);
+                ctx.fillRect(cx - w/2, cy + gap - 4, w, 4);
+
+                // Etiquetas de texto
+                ctx.fillStyle = colorStr;
+                ctx.font = 'bold 14px Arial';
+                ctx.fillText(label, cx + 30, cy - 5);
+                ctx.fillStyle = '#555';
+                ctx.font = '12px Arial';
+                ctx.fillText(C_val + ' μF', cx + 30, cy + 10);
+                
+                // Símbolos de polaridad
+                ctx.fillStyle = '#dc3545'; ctx.fillText('+', cx - w/2 - 15, cy - 5);
+                ctx.fillStyle = '#0d6efd'; ctx.fillText('-', cx - w/2 - 12, cy + 10);
+            }
+
+            if (config === 'serie') {
+                // Trazado de cables Serie
+                ctx.beginPath();
+                ctx.moveTo(bx, 50); ctx.lineTo(300, 50); 
+                ctx.moveTo(bx, 230); ctx.lineTo(300, 230); 
+                
+                ctx.moveTo(300, 50); ctx.lineTo(300, 90); 
+                ctx.moveTo(300, 110); ctx.lineTo(300, 170); 
+                ctx.moveTo(300, 190); ctx.lineTo(300, 230); 
+                ctx.stroke();
+
+                drawCap(300, 100, 'C₁', Q1, V1, C1, '#dc3545');
+                drawCap(300, 180, 'C₂', Q2, V2, C2, '#fd7e14');
+
+            } else {
+                // Trazado de cables Paralelo
+                ctx.beginPath();
+                ctx.moveTo(bx, 50); ctx.lineTo(400, 50); 
+                ctx.moveTo(bx, 230); ctx.lineTo(400, 230); 
+                
+                // Rama 1
+                ctx.moveTo(200, 50); ctx.lineTo(200, 130);
+                ctx.moveTo(200, 150); ctx.lineTo(200, 230);
+                
+                // Rama 2
+                ctx.moveTo(400, 50); ctx.lineTo(400, 130);
+                ctx.moveTo(400, 150); ctx.lineTo(400, 230);
+                
+                ctx.stroke();
+
+                drawCap(200, 140, 'C₁', Q1, V1, C1, '#dc3545');
+                drawCap(400, 140, 'C₂', Q2, V2, C2, '#fd7e14');
+            }
+        }
+
+        // Listeners
+        slider_c1.addEventListener('input', drawCircuit);
+        slider_c2.addEventListener('input', drawCircuit);
+        slider_v.addEventListener('input', drawCircuit);
+        Array.from(radios_config).forEach(r => r.addEventListener('change', drawCircuit));
+
+        // Inicializar
+        drawCircuit();
+    })();
+</script>
+</div></div>
+</div>
 </section>
 <section id="ejemplo-analisis-de-un-circuito-con-condensadores">
 <h2>Ejemplo: Análisis de un circuito con condensadores<a class="headerlink" href="#ejemplo-analisis-de-un-circuito-con-condensadores" title="Permalink to this heading">#</a></h2>
@@ -540,6 +985,525 @@ document.write(`
 <p> </p>
 <a class="reference internal image-reference" href="_images/04_13.svg"><img alt="Condensadores y sus valores" class="align-center" src="_images/04_13.svg" width="70%" /></a>
 <p> </p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">simulacion_analisis_final_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;div style=&quot;border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif;&quot;&gt;</span>
+<span class="s2">    &lt;h3 style=&quot;margin-top:0; color: #2c3e50;&quot;&gt;Simulación 2D: Análisis de Circuito (Conexiones Perfectas)&lt;/h3&gt;</span>
+<span class="s2">    &lt;p style=&quot;font-size: 0.95em; color: #555; margin-bottom: 15px;&quot;&gt;Sigue la secuencia cerrando y abriendo los interruptores para observar el principio de conservación de la carga.&lt;/p&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;&quot;&gt;</span>
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 250px;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 15px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 140px;&quot;&gt;Voltaje V₀ (V): &lt;span id=&quot;ccaf_val_v0&quot; style=&quot;font-weight: normal;&quot;&gt;10&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;ccaf_slider_v0&quot; min=&quot;5&quot; max=&quot;24&quot; step=&quot;1&quot; value=&quot;10&quot; style=&quot;width: 50%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 15px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 140px;&quot;&gt;Base C₀ (μF): &lt;span id=&quot;ccaf_val_c0&quot; style=&quot;font-weight: normal;&quot;&gt;2&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;ccaf_slider_c0&quot; min=&quot;1&quot; max=&quot;10&quot; step=&quot;1&quot; value=&quot;2&quot; style=&quot;width: 50%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            </span>
+<span class="s2">            &lt;div style=&quot;background: #e9ecef; padding: 10px; border-radius: 6px; margin-bottom: 10px;&quot;&gt;</span>
+<span class="s2">                &lt;b style=&quot;display: block; margin-bottom: 5px;&quot;&gt;Controles del Sistema:&lt;/b&gt;</span>
+<span class="s2">                &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;</span>
+<span class="s2">                    &lt;label style=&quot;cursor: pointer; font-weight: bold; color: #dc3545;&quot;&gt;</span>
+<span class="s2">                        &lt;input type=&quot;radio&quot; name=&quot;ccaf_estado&quot; value=&quot;0&quot; checked&gt; Estado 0: Todo abierto</span>
+<span class="s2">                    &lt;/label&gt;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">                &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;</span>
+<span class="s2">                    &lt;label style=&quot;cursor: pointer; font-weight: bold; color: #198754;&quot;&gt;</span>
+<span class="s2">                        &lt;input type=&quot;radio&quot; name=&quot;ccaf_estado&quot; value=&quot;1&quot;&gt; Fase a): Cerrar S₁ (Cargar C₀)</span>
+<span class="s2">                    &lt;/label&gt;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">                &lt;div&gt;</span>
+<span class="s2">                    &lt;label style=&quot;cursor: pointer; font-weight: bold; color: #0d6efd;&quot;&gt;</span>
+<span class="s2">                        &lt;input type=&quot;radio&quot; name=&quot;ccaf_estado&quot; value=&quot;2&quot;&gt; Fase b): Abrir S₁, Cerrar S₂ (Distribuir)</span>
+<span class="s2">                    &lt;/label&gt;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div style=&quot;flex: 1.2; min-width: 300px; font-size: 0.9em;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;display: flex; gap: 10px;&quot;&gt;</span>
+<span class="s2">                &lt;div style=&quot;flex: 1; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;&quot;&gt;</span>
+<span class="s2">                    &lt;h4 style=&quot;margin: 0 0 5px 0;&quot;&gt;Condensador C₀&lt;/h4&gt;</span>
+<span class="s2">                    &lt;div&gt;&lt;b&gt;C₀ =&lt;/b&gt; &lt;span id=&quot;ccaf_out_c0&quot;&gt;2.0&lt;/span&gt; μF&lt;/div&gt;</span>
+<span class="s2">                    &lt;div&gt;&lt;b&gt;V₀ =&lt;/b&gt; &lt;span id=&quot;ccaf_out_vc0&quot;&gt;0.0&lt;/span&gt; V&lt;/div&gt;</span>
+<span class="s2">                    &lt;div&gt;&lt;b&gt;Q₀ =&lt;/b&gt; &lt;span id=&quot;ccaf_out_qc0&quot; style=&quot;color: #198754; font-weight: bold;&quot;&gt;0.0&lt;/span&gt; μC&lt;/div&gt;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">                &lt;div style=&quot;flex: 1; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;&quot;&gt;</span>
+<span class="s2">                    &lt;h4 style=&quot;margin: 0 0 5px 0;&quot;&gt;Rama C₁ y C₂&lt;/h4&gt;</span>
+<span class="s2">                    &lt;div&gt;&lt;b&gt;C₁ = 2C₀ =&lt;/b&gt; &lt;span id=&quot;ccaf_out_c1&quot;&gt;4.0&lt;/span&gt; μF&lt;/div&gt;</span>
+<span class="s2">                    &lt;div&gt;&lt;b&gt;C₂ = 6C₀ =&lt;/b&gt; &lt;span id=&quot;ccaf_out_c2&quot;&gt;12.0&lt;/span&gt; μF&lt;/div&gt;</span>
+<span class="s2">                    &lt;hr style=&quot;margin: 5px 0;&quot;&gt;</span>
+<span class="s2">                    &lt;div&gt;&lt;b&gt;V₁ =&lt;/b&gt; &lt;span id=&quot;ccaf_out_vc1&quot;&gt;0.0&lt;/span&gt; V&lt;/div&gt;</span>
+<span class="s2">                    &lt;div&gt;&lt;b&gt;V₂ =&lt;/b&gt; &lt;span id=&quot;ccaf_out_vc2&quot;&gt;0.0&lt;/span&gt; V&lt;/div&gt;</span>
+<span class="s2">                    &lt;div&gt;&lt;b&gt;Q₁ = Q₂ =&lt;/b&gt; &lt;span id=&quot;ccaf_out_q12&quot; style=&quot;color: #0d6efd; font-weight: bold;&quot;&gt;0.0&lt;/span&gt; μC&lt;/div&gt;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-top: 10px; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ffc107; text-align: center;&quot;&gt;</span>
+<span class="s2">                &lt;b&gt;Carga Total del Sistema (Q_total):&lt;/b&gt; &lt;span id=&quot;ccaf_out_qtot&quot; style=&quot;font-size: 1.1em; font-weight: bold;&quot;&gt;0.0&lt;/span&gt; μC</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;text-align: center; position: relative;&quot;&gt;</span>
+<span class="s2">        &lt;canvas id=&quot;ccaf_canvas&quot; width=&quot;650&quot; height=&quot;250&quot; style=&quot;background: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;&quot;&gt;&lt;/canvas&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    (function() {</span>
+<span class="s2">        const canvas = document.getElementById(&#39;ccaf_canvas&#39;);</span>
+<span class="s2">        const ctx = canvas.getContext(&#39;2d&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const slider_v0 = document.getElementById(&#39;ccaf_slider_v0&#39;);</span>
+<span class="s2">        const slider_c0 = document.getElementById(&#39;ccaf_slider_c0&#39;);</span>
+<span class="s2">        const radios_estado = document.getElementsByName(&#39;ccaf_estado&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const val_v0 = document.getElementById(&#39;ccaf_val_v0&#39;);</span>
+<span class="s2">        const val_c0 = document.getElementById(&#39;ccaf_val_c0&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const out_c0 = document.getElementById(&#39;ccaf_out_c0&#39;);</span>
+<span class="s2">        const out_vc0 = document.getElementById(&#39;ccaf_out_vc0&#39;);</span>
+<span class="s2">        const out_qc0 = document.getElementById(&#39;ccaf_out_qc0&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const out_c1 = document.getElementById(&#39;ccaf_out_c1&#39;);</span>
+<span class="s2">        const out_c2 = document.getElementById(&#39;ccaf_out_c2&#39;);</span>
+<span class="s2">        const out_vc1 = document.getElementById(&#39;ccaf_out_vc1&#39;);</span>
+<span class="s2">        const out_vc2 = document.getElementById(&#39;ccaf_out_vc2&#39;);</span>
+<span class="s2">        const out_q12 = document.getElementById(&#39;ccaf_out_q12&#39;);</span>
+<span class="s2">        const out_qtot = document.getElementById(&#39;ccaf_out_qtot&#39;);</span>
+
+<span class="s2">        // Geometría del circuito en el Eje X</span>
+<span class="s2">        const x_bat = 80;</span>
+<span class="s2">        const x_s1_left = 140;</span>
+<span class="s2">        const x_s1_right = 180;</span>
+<span class="s2">        const x_c0 = 280;</span>
+<span class="s2">        const x_s2_left = 380;</span>
+<span class="s2">        const x_s2_right = 420;</span>
+<span class="s2">        const x_c12 = 520;</span>
+<span class="s2">        </span>
+<span class="s2">        // Geometría del circuito en el Eje Y</span>
+<span class="s2">        const y_top = 50;</span>
+<span class="s2">        const y_bot = 200;</span>
+<span class="s2">        </span>
+<span class="s2">        // Coordenadas Y centrales de los condensadores</span>
+<span class="s2">        const y_c0 = 120;</span>
+<span class="s2">        const y_c1 = 90;</span>
+<span class="s2">        const y_c2 = 160;</span>
+
+<span class="s2">        function drawSwitch(x_left, x_right, y, label, closed) {</span>
+<span class="s2">            ctx.fillStyle = &#39;#000&#39;;</span>
+<span class="s2">            ctx.font = &#39;bold 14px Arial&#39;;</span>
+<span class="s2">            ctx.textAlign = &#39;center&#39;;</span>
+<span class="s2">            ctx.fillText(label, (x_left + x_right)/2, y - 25);</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.fillStyle = &#39;#000&#39;;</span>
+<span class="s2">            ctx.arc(x_left, y, 4, 0, Math.PI*2);</span>
+<span class="s2">            ctx.arc(x_right, y, 4, 0, Math.PI*2);</span>
+<span class="s2">            ctx.fill();</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.lineWidth = 3;</span>
+<span class="s2">            ctx.strokeStyle = closed ? &#39;#198754&#39; : &#39;#dc3545&#39;;</span>
+<span class="s2">            ctx.moveTo(x_left, y);</span>
+<span class="s2">            </span>
+<span class="s2">            if(closed) {</span>
+<span class="s2">                ctx.lineTo(x_right, y);</span>
+<span class="s2">            } else {</span>
+<span class="s2">                ctx.lineTo(x_left + (x_right - x_left)*0.8, y - 18);</span>
+<span class="s2">            }</span>
+<span class="s2">            ctx.stroke();</span>
+<span class="s2">            ctx.textAlign = &#39;left&#39;;</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function drawCap(x, y, label, Q, max_Q, color_rgb) {</span>
+<span class="s2">            let w = 40; </span>
+<span class="s2">            let d = 6;   // Grosor de la placa</span>
+<span class="s2">            let gap = 6; // Distancia desde el centro al borde interno de la placa</span>
+<span class="s2">            </span>
+<span class="s2">            // Coordenadas exactas de dibujo</span>
+<span class="s2">            let y_top_plate = y - gap - d; // Borde superior exterior</span>
+<span class="s2">            let y_bot_plate = y + gap;     // Borde inferior exterior</span>
+
+<span class="s2">            let intensity = max_Q &gt; 0 ? Math.min(1.0, Math.max(0.1, Q / max_Q)) : 0.1;</span>
+<span class="s2">            if (Q === 0) intensity = 0;</span>
+
+<span class="s2">            ctx.fillStyle = `rgba($</span><span class="si">{color_rgb}</span><span class="s2">, $</span><span class="si">{intensity}</span><span class="s2">)`;</span>
+<span class="s2">            ctx.fillRect(x - w/2, y_top_plate, w, d);</span>
+<span class="s2">            ctx.fillRect(x - w/2, y_bot_plate, w, d);</span>
+
+<span class="s2">            ctx.fillStyle = &#39;#000&#39;;</span>
+<span class="s2">            ctx.lineWidth = 1;</span>
+<span class="s2">            ctx.strokeRect(x - w/2, y_top_plate, w, d);</span>
+<span class="s2">            ctx.strokeRect(x - w/2, y_bot_plate, w, d);</span>
+
+<span class="s2">            ctx.fillStyle = &#39;#000&#39;;</span>
+<span class="s2">            ctx.font = &#39;bold 14px Arial&#39;;</span>
+<span class="s2">            ctx.fillText(label, x + 25, y + 5);</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function updateSim() {</span>
+<span class="s2">            let V0 = parseFloat(slider_v0.value);</span>
+<span class="s2">            let C0 = parseFloat(slider_c0.value);</span>
+<span class="s2">            let estado = parseInt(Array.from(radios_estado).find(r =&gt; r.checked).value);</span>
+<span class="s2">            </span>
+<span class="s2">            val_v0.innerText = V0;</span>
+<span class="s2">            val_c0.innerText = C0;</span>
+
+<span class="s2">            let C1 = 2 * C0;</span>
+<span class="s2">            let C2 = 6 * C0;</span>
+<span class="s2">            </span>
+<span class="s2">            out_c0.innerText = C0.toFixed(1);</span>
+<span class="s2">            out_c1.innerText = C1.toFixed(1);</span>
+<span class="s2">            out_c2.innerText = C2.toFixed(1);</span>
+
+<span class="s2">            let Q0_max = C0 * V0;</span>
+<span class="s2">            let v_c0 = 0, q_c0 = 0, v_c1 = 0, v_c2 = 0, q_c12 = 0, q_total = 0;</span>
+
+<span class="s2">            if (estado === 1) {</span>
+<span class="s2">                v_c0 = V0; q_c0 = Q0_max; q_total = q_c0;</span>
+<span class="s2">            } else if (estado === 2) {</span>
+<span class="s2">                let C12_eq = (C1 * C2) / (C1 + C2);</span>
+<span class="s2">                let C_tot = C0 + C12_eq;</span>
+<span class="s2">                q_total = Q0_max; </span>
+<span class="s2">                let V_ab = q_total / C_tot;</span>
+<span class="s2">                v_c0 = V_ab; q_c0 = C0 * V_ab;</span>
+<span class="s2">                q_c12 = C12_eq * V_ab; v_c1 = q_c12 / C1; v_c2 = q_c12 / C2;</span>
+<span class="s2">            }</span>
+
+<span class="s2">            out_vc0.innerText = v_c0.toFixed(2);</span>
+<span class="s2">            out_qc0.innerText = q_c0.toFixed(2);</span>
+<span class="s2">            out_vc1.innerText = v_c1.toFixed(2);</span>
+<span class="s2">            out_vc2.innerText = v_c2.toFixed(2);</span>
+<span class="s2">            out_q12.innerText = q_c12.toFixed(2);</span>
+<span class="s2">            out_qtot.innerText = q_total.toFixed(2);</span>
+
+<span class="s2">            ctx.clearRect(0, 0, canvas.width, canvas.height);</span>
+<span class="s2">            ctx.lineWidth = 2;</span>
+<span class="s2">            ctx.strokeStyle = &#39;#333&#39;;</span>
+
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            // Cable Superior</span>
+<span class="s2">            ctx.moveTo(x_bat, y_top); ctx.lineTo(x_s1_left, y_top); </span>
+<span class="s2">            ctx.moveTo(x_s1_right, y_top); ctx.lineTo(x_c0, y_top); </span>
+<span class="s2">            ctx.lineTo(x_s2_left, y_top); </span>
+<span class="s2">            ctx.moveTo(x_s2_right, y_top); ctx.lineTo(x_c12, y_top); </span>
+<span class="s2">            </span>
+<span class="s2">            // Cable Inferior</span>
+<span class="s2">            ctx.moveTo(x_bat, y_bot); ctx.lineTo(x_c12, y_bot); </span>
+<span class="s2">            </span>
+<span class="s2">            // CONEXIONES EXACTAS A COMPONENTES</span>
+<span class="s2">            </span>
+<span class="s2">            // Batería</span>
+<span class="s2">            ctx.moveTo(x_bat, y_top); ctx.lineTo(x_bat, 110); </span>
+<span class="s2">            ctx.moveTo(x_bat, 140); ctx.lineTo(x_bat, y_bot); </span>
+<span class="s2">            </span>
+<span class="s2">            // C0 (Centro en 120, placa exterior superior en 108, placa exterior inferior en 132)</span>
+<span class="s2">            ctx.moveTo(x_c0, y_top); ctx.lineTo(x_c0, 108); // Hasta placa superior</span>
+<span class="s2">            ctx.moveTo(x_c0, 132); ctx.lineTo(x_c0, y_bot); // Desde placa inferior</span>
+<span class="s2">            </span>
+<span class="s2">            // C1 (Centro en 90, placa exterior superior en 78, placa exterior inferior en 102)</span>
+<span class="s2">            // C2 (Centro en 160, placa exterior superior en 148, placa exterior inferior en 172)</span>
+<span class="s2">            ctx.moveTo(x_c12, y_top); ctx.lineTo(x_c12, 78);   // Hasta placa sup C1</span>
+<span class="s2">            ctx.moveTo(x_c12, 102); ctx.lineTo(x_c12, 148);  // Entre placa inf C1 y placa sup C2</span>
+<span class="s2">            ctx.moveTo(x_c12, 172); ctx.lineTo(x_c12, y_bot);  // Desde placa inf C2 hasta abajo</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.stroke();</span>
+
+<span class="s2">            // Dibujar Batería</span>
+<span class="s2">            ctx.lineWidth = 4;</span>
+<span class="s2">            ctx.beginPath(); ctx.moveTo(x_bat - 20, 110); ctx.lineTo(x_bat + 20, 110); ctx.stroke(); </span>
+<span class="s2">            ctx.lineWidth = 6;</span>
+<span class="s2">            ctx.beginPath(); ctx.moveTo(x_bat - 12, 140); ctx.lineTo(x_bat + 12, 140); ctx.stroke(); </span>
+<span class="s2">            ctx.fillStyle = &#39;#000&#39;; ctx.font = &#39;bold 16px Arial&#39;; ctx.fillText(V0 + &#39; V&#39;, x_bat - 55, 130);</span>
+
+<span class="s2">            // Interruptores</span>
+<span class="s2">            drawSwitch(x_s1_left, x_s1_right, y_top, &#39;S₁&#39;, estado === 1);</span>
+<span class="s2">            drawSwitch(x_s2_left, x_s2_right, y_top, &#39;S₂&#39;, estado === 2);</span>
+
+<span class="s2">            // Condensadores</span>
+<span class="s2">            drawCap(x_c0, y_c0, &#39;C₀&#39;, q_c0, Q0_max, &#39;25, 135, 84&#39;);</span>
+<span class="s2">            drawCap(x_c12, y_c1, &#39;C₁&#39;, q_c12, Q0_max, &#39;13, 110, 253&#39;);</span>
+<span class="s2">            drawCap(x_c12, y_c2, &#39;C₂&#39;, q_c12, Q0_max, &#39;13, 110, 253&#39;);</span>
+<span class="s2">        }</span>
+
+<span class="s2">        slider_v0.addEventListener(&#39;input&#39;, updateSim);</span>
+<span class="s2">        slider_c0.addEventListener(&#39;input&#39;, updateSim);</span>
+<span class="s2">        Array.from(radios_estado).forEach(r =&gt; r.addEventListener(&#39;change&#39;, updateSim));</span>
+
+<span class="s2">        updateSim();</span>
+<span class="s2">    })();</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">simulacion_analisis_final_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+    <h3 style="margin-top:0; color: #2c3e50;">Simulación 2D: Análisis de Circuito (Conexiones Perfectas)</h3>
+    <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">Sigue la secuencia cerrando y abriendo los interruptores para observar el principio de conservación de la carga.</p>
+    
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;">
+        <div style="flex: 1; min-width: 250px;">
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: 600; display: inline-block; width: 140px;">Voltaje V₀ (V): <span id="ccaf_val_v0" style="font-weight: normal;">10</span></label>
+                <input type="range" id="ccaf_slider_v0" min="5" max="24" step="1" value="10" style="width: 50%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: 600; display: inline-block; width: 140px;">Base C₀ (μF): <span id="ccaf_val_c0" style="font-weight: normal;">2</span></label>
+                <input type="range" id="ccaf_slider_c0" min="1" max="10" step="1" value="2" style="width: 50%; vertical-align: middle;">
+            </div>
+            
+            <div style="background: #e9ecef; padding: 10px; border-radius: 6px; margin-bottom: 10px;">
+                <b style="display: block; margin-bottom: 5px;">Controles del Sistema:</b>
+                <div style="margin-bottom: 5px;">
+                    <label style="cursor: pointer; font-weight: bold; color: #dc3545;">
+                        <input type="radio" name="ccaf_estado" value="0" checked> Estado 0: Todo abierto
+                    </label>
+                </div>
+                <div style="margin-bottom: 5px;">
+                    <label style="cursor: pointer; font-weight: bold; color: #198754;">
+                        <input type="radio" name="ccaf_estado" value="1"> Fase a): Cerrar S₁ (Cargar C₀)
+                    </label>
+                </div>
+                <div>
+                    <label style="cursor: pointer; font-weight: bold; color: #0d6efd;">
+                        <input type="radio" name="ccaf_estado" value="2"> Fase b): Abrir S₁, Cerrar S₂ (Distribuir)
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div style="flex: 1.2; min-width: 300px; font-size: 0.9em;">
+            <div style="display: flex; gap: 10px;">
+                <div style="flex: 1; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
+                    <h4 style="margin: 0 0 5px 0;">Condensador C₀</h4>
+                    <div><b>C₀ =</b> <span id="ccaf_out_c0">2.0</span> μF</div>
+                    <div><b>V₀ =</b> <span id="ccaf_out_vc0">0.0</span> V</div>
+                    <div><b>Q₀ =</b> <span id="ccaf_out_qc0" style="color: #198754; font-weight: bold;">0.0</span> μC</div>
+                </div>
+                <div style="flex: 1; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
+                    <h4 style="margin: 0 0 5px 0;">Rama C₁ y C₂</h4>
+                    <div><b>C₁ = 2C₀ =</b> <span id="ccaf_out_c1">4.0</span> μF</div>
+                    <div><b>C₂ = 6C₀ =</b> <span id="ccaf_out_c2">12.0</span> μF</div>
+                    <hr style="margin: 5px 0;">
+                    <div><b>V₁ =</b> <span id="ccaf_out_vc1">0.0</span> V</div>
+                    <div><b>V₂ =</b> <span id="ccaf_out_vc2">0.0</span> V</div>
+                    <div><b>Q₁ = Q₂ =</b> <span id="ccaf_out_q12" style="color: #0d6efd; font-weight: bold;">0.0</span> μC</div>
+                </div>
+            </div>
+            <div style="margin-top: 10px; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ffc107; text-align: center;">
+                <b>Carga Total del Sistema (Q_total):</b> <span id="ccaf_out_qtot" style="font-size: 1.1em; font-weight: bold;">0.0</span> μC
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; position: relative;">
+        <canvas id="ccaf_canvas" width="650" height="250" style="background: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const canvas = document.getElementById('ccaf_canvas');
+        const ctx = canvas.getContext('2d');
+        
+        const slider_v0 = document.getElementById('ccaf_slider_v0');
+        const slider_c0 = document.getElementById('ccaf_slider_c0');
+        const radios_estado = document.getElementsByName('ccaf_estado');
+        
+        const val_v0 = document.getElementById('ccaf_val_v0');
+        const val_c0 = document.getElementById('ccaf_val_c0');
+        
+        const out_c0 = document.getElementById('ccaf_out_c0');
+        const out_vc0 = document.getElementById('ccaf_out_vc0');
+        const out_qc0 = document.getElementById('ccaf_out_qc0');
+        
+        const out_c1 = document.getElementById('ccaf_out_c1');
+        const out_c2 = document.getElementById('ccaf_out_c2');
+        const out_vc1 = document.getElementById('ccaf_out_vc1');
+        const out_vc2 = document.getElementById('ccaf_out_vc2');
+        const out_q12 = document.getElementById('ccaf_out_q12');
+        const out_qtot = document.getElementById('ccaf_out_qtot');
+
+        // Geometría del circuito en el Eje X
+        const x_bat = 80;
+        const x_s1_left = 140;
+        const x_s1_right = 180;
+        const x_c0 = 280;
+        const x_s2_left = 380;
+        const x_s2_right = 420;
+        const x_c12 = 520;
+        
+        // Geometría del circuito en el Eje Y
+        const y_top = 50;
+        const y_bot = 200;
+        
+        // Coordenadas Y centrales de los condensadores
+        const y_c0 = 120;
+        const y_c1 = 90;
+        const y_c2 = 160;
+
+        function drawSwitch(x_left, x_right, y, label, closed) {
+            ctx.fillStyle = '#000';
+            ctx.font = 'bold 14px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(label, (x_left + x_right)/2, y - 25);
+            
+            ctx.beginPath();
+            ctx.fillStyle = '#000';
+            ctx.arc(x_left, y, 4, 0, Math.PI*2);
+            ctx.arc(x_right, y, 4, 0, Math.PI*2);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = closed ? '#198754' : '#dc3545';
+            ctx.moveTo(x_left, y);
+            
+            if(closed) {
+                ctx.lineTo(x_right, y);
+            } else {
+                ctx.lineTo(x_left + (x_right - x_left)*0.8, y - 18);
+            }
+            ctx.stroke();
+            ctx.textAlign = 'left';
+        }
+
+        function drawCap(x, y, label, Q, max_Q, color_rgb) {
+            let w = 40; 
+            let d = 6;   // Grosor de la placa
+            let gap = 6; // Distancia desde el centro al borde interno de la placa
+            
+            // Coordenadas exactas de dibujo
+            let y_top_plate = y - gap - d; // Borde superior exterior
+            let y_bot_plate = y + gap;     // Borde inferior exterior
+
+            let intensity = max_Q > 0 ? Math.min(1.0, Math.max(0.1, Q / max_Q)) : 0.1;
+            if (Q === 0) intensity = 0;
+
+            ctx.fillStyle = `rgba(${color_rgb}, ${intensity})`;
+            ctx.fillRect(x - w/2, y_top_plate, w, d);
+            ctx.fillRect(x - w/2, y_bot_plate, w, d);
+
+            ctx.fillStyle = '#000';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(x - w/2, y_top_plate, w, d);
+            ctx.strokeRect(x - w/2, y_bot_plate, w, d);
+
+            ctx.fillStyle = '#000';
+            ctx.font = 'bold 14px Arial';
+            ctx.fillText(label, x + 25, y + 5);
+        }
+
+        function updateSim() {
+            let V0 = parseFloat(slider_v0.value);
+            let C0 = parseFloat(slider_c0.value);
+            let estado = parseInt(Array.from(radios_estado).find(r => r.checked).value);
+            
+            val_v0.innerText = V0;
+            val_c0.innerText = C0;
+
+            let C1 = 2 * C0;
+            let C2 = 6 * C0;
+            
+            out_c0.innerText = C0.toFixed(1);
+            out_c1.innerText = C1.toFixed(1);
+            out_c2.innerText = C2.toFixed(1);
+
+            let Q0_max = C0 * V0;
+            let v_c0 = 0, q_c0 = 0, v_c1 = 0, v_c2 = 0, q_c12 = 0, q_total = 0;
+
+            if (estado === 1) {
+                v_c0 = V0; q_c0 = Q0_max; q_total = q_c0;
+            } else if (estado === 2) {
+                let C12_eq = (C1 * C2) / (C1 + C2);
+                let C_tot = C0 + C12_eq;
+                q_total = Q0_max; 
+                let V_ab = q_total / C_tot;
+                v_c0 = V_ab; q_c0 = C0 * V_ab;
+                q_c12 = C12_eq * V_ab; v_c1 = q_c12 / C1; v_c2 = q_c12 / C2;
+            }
+
+            out_vc0.innerText = v_c0.toFixed(2);
+            out_qc0.innerText = q_c0.toFixed(2);
+            out_vc1.innerText = v_c1.toFixed(2);
+            out_vc2.innerText = v_c2.toFixed(2);
+            out_q12.innerText = q_c12.toFixed(2);
+            out_qtot.innerText = q_total.toFixed(2);
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#333';
+
+            ctx.beginPath();
+            // Cable Superior
+            ctx.moveTo(x_bat, y_top); ctx.lineTo(x_s1_left, y_top); 
+            ctx.moveTo(x_s1_right, y_top); ctx.lineTo(x_c0, y_top); 
+            ctx.lineTo(x_s2_left, y_top); 
+            ctx.moveTo(x_s2_right, y_top); ctx.lineTo(x_c12, y_top); 
+            
+            // Cable Inferior
+            ctx.moveTo(x_bat, y_bot); ctx.lineTo(x_c12, y_bot); 
+            
+            // CONEXIONES EXACTAS A COMPONENTES
+            
+            // Batería
+            ctx.moveTo(x_bat, y_top); ctx.lineTo(x_bat, 110); 
+            ctx.moveTo(x_bat, 140); ctx.lineTo(x_bat, y_bot); 
+            
+            // C0 (Centro en 120, placa exterior superior en 108, placa exterior inferior en 132)
+            ctx.moveTo(x_c0, y_top); ctx.lineTo(x_c0, 108); // Hasta placa superior
+            ctx.moveTo(x_c0, 132); ctx.lineTo(x_c0, y_bot); // Desde placa inferior
+            
+            // C1 (Centro en 90, placa exterior superior en 78, placa exterior inferior en 102)
+            // C2 (Centro en 160, placa exterior superior en 148, placa exterior inferior en 172)
+            ctx.moveTo(x_c12, y_top); ctx.lineTo(x_c12, 78);   // Hasta placa sup C1
+            ctx.moveTo(x_c12, 102); ctx.lineTo(x_c12, 148);  // Entre placa inf C1 y placa sup C2
+            ctx.moveTo(x_c12, 172); ctx.lineTo(x_c12, y_bot);  // Desde placa inf C2 hasta abajo
+            
+            ctx.stroke();
+
+            // Dibujar Batería
+            ctx.lineWidth = 4;
+            ctx.beginPath(); ctx.moveTo(x_bat - 20, 110); ctx.lineTo(x_bat + 20, 110); ctx.stroke(); 
+            ctx.lineWidth = 6;
+            ctx.beginPath(); ctx.moveTo(x_bat - 12, 140); ctx.lineTo(x_bat + 12, 140); ctx.stroke(); 
+            ctx.fillStyle = '#000'; ctx.font = 'bold 16px Arial'; ctx.fillText(V0 + ' V', x_bat - 55, 130);
+
+            // Interruptores
+            drawSwitch(x_s1_left, x_s1_right, y_top, 'S₁', estado === 1);
+            drawSwitch(x_s2_left, x_s2_right, y_top, 'S₂', estado === 2);
+
+            // Condensadores
+            drawCap(x_c0, y_c0, 'C₀', q_c0, Q0_max, '25, 135, 84');
+            drawCap(x_c12, y_c1, 'C₁', q_c12, Q0_max, '13, 110, 253');
+            drawCap(x_c12, y_c2, 'C₂', q_c12, Q0_max, '13, 110, 253');
+        }
+
+        slider_v0.addEventListener('input', updateSim);
+        slider_c0.addEventListener('input', updateSim);
+        Array.from(radios_estado).forEach(r => r.addEventListener('change', updateSim));
+
+        updateSim();
+    })();
+</script>
+</div></div>
+</div>
 </section>
 </section>
 
