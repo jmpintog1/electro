@@ -486,19 +486,19 @@ document.write(`
 <span class="s2">    &lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;&quot;&gt;</span>
 <span class="s2">        &lt;div style=&quot;flex: 1; min-width: 250px;&quot;&gt;</span>
 <span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
-<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 160px; color: #dc3545;&quot;&gt;Radio interior a (mm): &lt;span id=&quot;cond_val_a&quot; style=&quot;font-weight: normal;&quot;&gt;5&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 160px; color: #E63946;&quot;&gt;Radio interior a (mm): &lt;span id=&quot;cond_val_a&quot; style=&quot;font-weight: normal;&quot;&gt;5&lt;/span&gt;&lt;/label&gt;</span>
 <span class="s2">                &lt;input type=&quot;range&quot; id=&quot;cond_slider_a&quot; min=&quot;1&quot; max=&quot;15&quot; step=&quot;0.5&quot; value=&quot;5&quot; style=&quot;width: 45%; vertical-align: middle;&quot;&gt;</span>
 <span class="s2">            &lt;/div&gt;</span>
 <span class="s2">            &lt;div&gt;</span>
-<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 160px; color: #0d6efd;&quot;&gt;Radio exterior b (mm): &lt;span id=&quot;cond_val_b&quot; style=&quot;font-weight: normal;&quot;&gt;15&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 160px; color: #457B9D;&quot;&gt;Radio exterior b (mm): &lt;span id=&quot;cond_val_b&quot; style=&quot;font-weight: normal;&quot;&gt;15&lt;/span&gt;&lt;/label&gt;</span>
 <span class="s2">                &lt;input type=&quot;range&quot; id=&quot;cond_slider_b&quot; min=&quot;5&quot; max=&quot;30&quot; step=&quot;0.5&quot; value=&quot;15&quot; style=&quot;width: 45%; vertical-align: middle;&quot;&gt;</span>
 <span class="s2">            &lt;/div&gt;</span>
 <span class="s2">        &lt;/div&gt;</span>
 
 <span class="s2">        &lt;div style=&quot;flex: 1; min-width: 250px; font-size: 0.95em; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;&quot;&gt;</span>
-<span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Capacitancia (por metro):&lt;/b&gt; &lt;span id=&quot;cond_val_C&quot; style=&quot;color: #198754; font-weight: bold;&quot;&gt;0&lt;/span&gt; pF/m&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Capacitancia:&lt;/b&gt; &lt;span id=&quot;cond_val_C&quot; style=&quot;color: #198754; font-weight: bold;&quot;&gt;0&lt;/span&gt; pF&lt;/div&gt;</span>
 <span class="s2">            &lt;div&gt;&lt;b&gt;Campo E máx (en r=a):&lt;/b&gt; &lt;span id=&quot;cond_val_E&quot; style=&quot;color: #dc3545; font-weight: bold;&quot;&gt;0&lt;/span&gt; V/m&lt;/div&gt;</span>
-<span class="s2">            &lt;div style=&quot;font-size: 0.8em; color: #777; margin-top: 5px;&quot;&gt;*Asumiendo una diferencia de potencial de 10V&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;font-size: 0.8em; color: #777; margin-top: 5px;&quot;&gt;*Asumiendo que L = 1 m y está conectado a una diferencia de potencial de 10 V&lt;/div&gt;</span>
 <span class="s2">        &lt;/div&gt;</span>
 <span class="s2">    &lt;/div&gt;</span>
 <span class="s2">    </span>
@@ -582,10 +582,11 @@ document.write(`
 <span class="s2">            // Dibujar cilindro exterior (Cátodo)</span>
 <span class="s2">            ctx.beginPath();</span>
 <span class="s2">            ctx.arc(cx, cy, r_b_px, 0, 2 * Math.PI);</span>
-<span class="s2">            ctx.fillStyle = &#39;rgba(13, 110, 253, 0.1)&#39;; // Azul claro</span>
+<span class="s2">            ctx.fillStyle = &#39;#E6E6E6&#39;; // Azul claro</span>
+<span class="s2">            // ctx.fillStyle = &#39;rgba(13, 110, 253, 0.1)&#39;; // Azul claro</span>
 <span class="s2">            ctx.fill();</span>
-<span class="s2">            ctx.lineWidth = 4;</span>
-<span class="s2">            ctx.strokeStyle = &#39;#0d6efd&#39;;</span>
+<span class="s2">            ctx.lineWidth = 5;</span>
+<span class="s2">            ctx.strokeStyle = &#39;#457B9D&#39;;</span>
 <span class="s2">            ctx.stroke();</span>
 
 <span class="s2">            // Dibujar líneas de campo (Vectores)</span>
@@ -618,18 +619,19 @@ document.write(`
 <span class="s2">            // Dibujar cilindro interior (Ánodo)</span>
 <span class="s2">            ctx.beginPath();</span>
 <span class="s2">            ctx.arc(cx, cy, r_a_px, 0, 2 * Math.PI);</span>
-<span class="s2">            ctx.fillStyle = &#39;#dc3545&#39;; // Rojo sólido</span>
+<span class="s2">            ctx.fillStyle = &#39;#FFFFFF&#39;; // Rojo sólido</span>
+<span class="s2">            // ctx.fillStyle = &#39;#E63946&#39;; // Rojo sólido</span>
 <span class="s2">            ctx.fill();</span>
-<span class="s2">            ctx.lineWidth = 2;</span>
-<span class="s2">            ctx.strokeStyle = &#39;#842029&#39;;</span>
-<span class="s2">            ctx.stroke();</span>
+<span class="s2">            ctx.lineWidth = 5;</span>
+<span class="s2">            ctx.strokeStyle = &#39;#E63946&#39;;</span>
+<span class="s2">            ctx.stroke(); </span>
 <span class="s2">            </span>
 <span class="s2">            // Etiquetas de cargas</span>
-<span class="s2">            ctx.fillStyle = &#39;white&#39;;</span>
-<span class="s2">            ctx.font = &#39;bold 14px Arial&#39;;</span>
-<span class="s2">            ctx.fillText(&quot;+&quot;, cx - 4, cy + 5);</span>
-<span class="s2">            ctx.fillStyle = &#39;#0d6efd&#39;;</span>
-<span class="s2">            ctx.fillText(&quot;-&quot;, cx + r_b_px + 5, cy + 5);</span>
+<span class="s2">            // ctx.fillStyle = &#39;white&#39;;</span>
+<span class="s2">            // ctx.font = &#39;bold 14px Arial&#39;;</span>
+<span class="s2">            // ctx.fillText(&quot;+&quot;, cx - 4, cy + 5);</span>
+<span class="s2">            // ctx.fillStyle = &#39;#0d6efd&#39;;</span>
+<span class="s2">            // ctx.fillText(&quot;-&quot;, cx + r_b_px + 5, cy + 5);</span>
 <span class="s2">        }</span>
 
 <span class="s2">        slider_a.addEventListener(&#39;input&#39;, updateSim);</span>
@@ -654,19 +656,19 @@ document.write(`
     <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;">
         <div style="flex: 1; min-width: 250px;">
             <div style="margin-bottom: 8px;">
-                <label style="font-weight: 600; display: inline-block; width: 160px; color: #dc3545;">Radio interior a (mm): <span id="cond_val_a" style="font-weight: normal;">5</span></label>
+                <label style="font-weight: 600; display: inline-block; width: 160px; color: #E63946;">Radio interior a (mm): <span id="cond_val_a" style="font-weight: normal;">5</span></label>
                 <input type="range" id="cond_slider_a" min="1" max="15" step="0.5" value="5" style="width: 45%; vertical-align: middle;">
             </div>
             <div>
-                <label style="font-weight: 600; display: inline-block; width: 160px; color: #0d6efd;">Radio exterior b (mm): <span id="cond_val_b" style="font-weight: normal;">15</span></label>
+                <label style="font-weight: 600; display: inline-block; width: 160px; color: #457B9D;">Radio exterior b (mm): <span id="cond_val_b" style="font-weight: normal;">15</span></label>
                 <input type="range" id="cond_slider_b" min="5" max="30" step="0.5" value="15" style="width: 45%; vertical-align: middle;">
             </div>
         </div>
 
         <div style="flex: 1; min-width: 250px; font-size: 0.95em; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
-            <div style="margin-bottom: 5px;"><b>Capacitancia (por metro):</b> <span id="cond_val_C" style="color: #198754; font-weight: bold;">0</span> pF/m</div>
+            <div style="margin-bottom: 5px;"><b>Capacitancia:</b> <span id="cond_val_C" style="color: #198754; font-weight: bold;">0</span> pF</div>
             <div><b>Campo E máx (en r=a):</b> <span id="cond_val_E" style="color: #dc3545; font-weight: bold;">0</span> V/m</div>
-            <div style="font-size: 0.8em; color: #777; margin-top: 5px;">*Asumiendo una diferencia de potencial de 10V</div>
+            <div style="font-size: 0.8em; color: #777; margin-top: 5px;">*Asumiendo que L = 1 m y está conectado a una diferencia de potencial de 10 V</div>
         </div>
     </div>
     
@@ -750,10 +752,11 @@ document.write(`
             // Dibujar cilindro exterior (Cátodo)
             ctx.beginPath();
             ctx.arc(cx, cy, r_b_px, 0, 2 * Math.PI);
-            ctx.fillStyle = 'rgba(13, 110, 253, 0.1)'; // Azul claro
+            ctx.fillStyle = '#E6E6E6'; // Azul claro
+            // ctx.fillStyle = 'rgba(13, 110, 253, 0.1)'; // Azul claro
             ctx.fill();
-            ctx.lineWidth = 4;
-            ctx.strokeStyle = '#0d6efd';
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = '#457B9D';
             ctx.stroke();
 
             // Dibujar líneas de campo (Vectores)
@@ -786,18 +789,19 @@ document.write(`
             // Dibujar cilindro interior (Ánodo)
             ctx.beginPath();
             ctx.arc(cx, cy, r_a_px, 0, 2 * Math.PI);
-            ctx.fillStyle = '#dc3545'; // Rojo sólido
+            ctx.fillStyle = '#FFFFFF'; // Rojo sólido
+            // ctx.fillStyle = '#E63946'; // Rojo sólido
             ctx.fill();
-            ctx.lineWidth = 2;
-            ctx.strokeStyle = '#842029';
-            ctx.stroke();
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = '#E63946';
+            ctx.stroke(); 
             
             // Etiquetas de cargas
-            ctx.fillStyle = 'white';
-            ctx.font = 'bold 14px Arial';
-            ctx.fillText("+", cx - 4, cy + 5);
-            ctx.fillStyle = '#0d6efd';
-            ctx.fillText("-", cx + r_b_px + 5, cy + 5);
+            // ctx.fillStyle = 'white';
+            // ctx.font = 'bold 14px Arial';
+            // ctx.fillText("+", cx - 4, cy + 5);
+            // ctx.fillStyle = '#0d6efd';
+            // ctx.fillText("-", cx + r_b_px + 5, cy + 5);
         }
 
         slider_a.addEventListener('input', updateSim);
@@ -857,7 +861,7 @@ document.write(`
 <span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Capacitancia C:&lt;/b&gt; &lt;span id=&quot;pps_val_C&quot; style=&quot;color: #198754; font-weight: bold;&quot;&gt;0&lt;/span&gt; pF&lt;/div&gt;</span>
 <span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Campo Eléctrico E:&lt;/b&gt; &lt;span id=&quot;pps_val_E&quot; style=&quot;color: #dc3545; font-weight: bold;&quot;&gt;0&lt;/span&gt; V/m&lt;/div&gt;</span>
 <span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Carga Q:&lt;/b&gt; &lt;span id=&quot;pps_val_Q&quot; style=&quot;color: #0d6efd; font-weight: bold;&quot;&gt;0&lt;/span&gt; pC&lt;/div&gt;</span>
-<span class="s2">            &lt;div style=&quot;font-size: 0.8em; color: #777; margin-top: 5px;&quot;&gt;*V = 10V (Batería conectada)&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;font-size: 0.8em; color: #777; margin-top: 5px;&quot;&gt;*V = 10 V (Batería conectada)&lt;/div&gt;</span>
 <span class="s2">        &lt;/div&gt;</span>
 <span class="s2">    &lt;/div&gt;</span>
 <span class="s2">    </span>
@@ -962,17 +966,17 @@ document.write(`
 <span class="s2">            }</span>
 
 <span class="s2">            // Placa Superior (Carga Positiva)</span>
-<span class="s2">            ctx.fillStyle = &#39;#dc3545&#39;;</span>
+<span class="s2">            ctx.fillStyle = &#39;#E63946&#39;;</span>
 <span class="s2">            ctx.fillRect(cx - w_px/2, top_y - plate_thickness/2, w_px, plate_thickness);</span>
-<span class="s2">            ctx.fillStyle = &#39;white&#39;;</span>
-<span class="s2">            ctx.font = &#39;bold 16px Arial&#39;;</span>
-<span class="s2">            ctx.textAlign = &#39;center&#39;;</span>
-<span class="s2">            ctx.fillText(&quot;+++++&quot;, cx, top_y - 12);</span>
+<span class="s2">            // ctx.fillStyle = &#39;white&#39;;</span>
+<span class="s2">            // ctx.font = &#39;bold 16px Arial&#39;;</span>
+<span class="s2">            // ctx.textAlign = &#39;center&#39;;</span>
+<span class="s2">            // ctx.fillText(&quot;+++++&quot;, cx, top_y - 12);</span>
 
 <span class="s2">            // Placa Inferior (Carga Negativa)</span>
-<span class="s2">            ctx.fillStyle = &#39;#0d6efd&#39;;</span>
+<span class="s2">            ctx.fillStyle = &#39;#457B9D&#39;;</span>
 <span class="s2">            ctx.fillRect(cx - w_px/2, bottom_y - plate_thickness/2, w_px, plate_thickness);</span>
-<span class="s2">            ctx.fillStyle = &#39;#0d6efd&#39;;</span>
+<span class="s2">            // ctx.fillStyle = &#39;#0d6efd&#39;;</span>
 <span class="s2">            // ctx.fillText(&quot;-----&quot;, cx, bottom_y + 25);</span>
 <span class="s2">        }</span>
 
@@ -1012,7 +1016,7 @@ document.write(`
             <div style="margin-bottom: 5px;"><b>Capacitancia C:</b> <span id="pps_val_C" style="color: #198754; font-weight: bold;">0</span> pF</div>
             <div style="margin-bottom: 5px;"><b>Campo Eléctrico E:</b> <span id="pps_val_E" style="color: #dc3545; font-weight: bold;">0</span> V/m</div>
             <div style="margin-bottom: 5px;"><b>Carga Q:</b> <span id="pps_val_Q" style="color: #0d6efd; font-weight: bold;">0</span> pC</div>
-            <div style="font-size: 0.8em; color: #777; margin-top: 5px;">*V = 10V (Batería conectada)</div>
+            <div style="font-size: 0.8em; color: #777; margin-top: 5px;">*V = 10 V (Batería conectada)</div>
         </div>
     </div>
     
@@ -1117,17 +1121,17 @@ document.write(`
             }
 
             // Placa Superior (Carga Positiva)
-            ctx.fillStyle = '#dc3545';
+            ctx.fillStyle = '#E63946';
             ctx.fillRect(cx - w_px/2, top_y - plate_thickness/2, w_px, plate_thickness);
-            ctx.fillStyle = 'white';
-            ctx.font = 'bold 16px Arial';
-            ctx.textAlign = 'center';
-            ctx.fillText("+++++", cx, top_y - 12);
+            // ctx.fillStyle = 'white';
+            // ctx.font = 'bold 16px Arial';
+            // ctx.textAlign = 'center';
+            // ctx.fillText("+++++", cx, top_y - 12);
 
             // Placa Inferior (Carga Negativa)
-            ctx.fillStyle = '#0d6efd';
+            ctx.fillStyle = '#457B9D';
             ctx.fillRect(cx - w_px/2, bottom_y - plate_thickness/2, w_px, plate_thickness);
-            ctx.fillStyle = '#0d6efd';
+            // ctx.fillStyle = '#0d6efd';
             // ctx.fillText("-----", cx, bottom_y + 25);
         }
 
