@@ -41,3 +41,8 @@ parts:
       - file: 04_04_serie_paralelo
       - file: 04_05_dielectricos
       - file: 04_06_dielec_capacidad
+
+  - caption: 5 Corriente, Resistencia y Fuerza Electromotriz
+    chapters:
+      - file: 05_01_corriente
+      - file: 05_01_densidad

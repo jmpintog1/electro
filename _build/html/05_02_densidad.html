@@ -7,8 +7,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Curso de Electricidad y Magnetismo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>5.2 Densidad de corriente y Ley de Ohm &#8212; Curso de Electricidad y Magnetismo</title>
   
   
   
@@ -61,8 +62,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
-    <link rel="index" title="Index" href="#" />
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '05_02_densidad';</script>
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -251,6 +254,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmpintog1/electro/blob/main/./05_02_densidad.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -276,7 +310,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2F05_02_densidad.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -288,6 +322,54 @@ const thebe_selector_output = ".output, .cell_output"
   </span>
 <span class="btn__text-container">Open issue</span>
 </a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/05_02_densidad.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
 </li>
       
   </ul>
@@ -329,7 +411,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -340,11 +424,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
+    <h1>5.2 Densidad de corriente y Ley de Ohm</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-ohm-microscopica">Ley de Ohm microscópica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-ohm-macroscopica">Ley de Ohm macroscópica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencia-de-la-temperatura">Dependencia de la temperatura</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-esferas-conductoras-concentricas">Ejemplo: Esferas Conductoras Concéntricas</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -354,13 +449,91 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
+  <section class="tex2jax_ignore mathjax_ignore" id="densidad-de-corriente-y-ley-de-ohm">
+<h1>5.2 Densidad de corriente y Ley de Ohm<a class="headerlink" href="#densidad-de-corriente-y-ley-de-ohm" title="Permalink to this heading">#</a></h1>
+<p>Volviendo a nuestra expresión de corriente e incorporando la velocidad de deriva, obtenemos:</p>
+<div class="math notranslate nohighlight">
+\[I = n \, A \, v_d \, q\]</div>
+<p>Definimos la <strong>densidad de corriente</strong> (<span class="math notranslate nohighlight">\(\vec{J}\)</span>) como la corriente por unidad de área, un vector que apunta en la dirección del flujo de cargas positivas:</p>
+<div class="math notranslate nohighlight">
+\[\vec{J} = \frac{I}{A}\hat{n} = n \, q \, \vec{v}_d\]</div>
+<p>De forma general, la corriente macroscópica es el flujo de la densidad de corriente a través de una superficie:</p>
+<div class="math notranslate nohighlight">
+\[I = \int \vec{J} \cdot d\vec{A}\]</div>
+<section id="ley-de-ohm-microscopica">
+<h2>Ley de Ohm microscópica<a class="headerlink" href="#ley-de-ohm-microscopica" title="Permalink to this heading">#</a></h2>
+<p>Sabiendo que <span class="math notranslate nohighlight">\(v_d\)</span> es proporcional al campo eléctrico, podemos establecer que la densidad de corriente es directamente proporcional al campo eléctrico aplicado. Esta relación es conocida como la Ley de Ohm microscópica:</p>
+<div class="math notranslate nohighlight">
+\[\vec{J} = \sigma \vec{E} \quad \text{o bien} \quad \vec{J} = \frac{1}{\rho}\vec{E}\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(\sigma\)</span> es la conductividad del material y <span class="math notranslate nohighlight">\(\rho\)</span> es su resistividad (<span class="math notranslate nohighlight">\(\rho = 1/\sigma\)</span>).</p>
+</section>
+<section id="ley-de-ohm-macroscopica">
+<h2>Ley de Ohm macroscópica<a class="headerlink" href="#ley-de-ohm-macroscopica" title="Permalink to this heading">#</a></h2>
+<p>Si aplicamos la relación microscópica a un segmento de cable de longitud <span class="math notranslate nohighlight">\(L\)</span> y área transversal <span class="math notranslate nohighlight">\(A\)</span>, la diferencia de potencial <span class="math notranslate nohighlight">\(\Delta V\)</span> entre los extremos es:</p>
+<div class="math notranslate nohighlight">
+\[\Delta V = E L\]</div>
+<p>Sustituyendo el campo eléctrico <span class="math notranslate nohighlight">\(E = \rho J\)</span> y sabiendo que <span class="math notranslate nohighlight">\(J = I/A\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\Delta V = \left(\rho \frac{I}{A}\right) L = \left(\frac{\rho L}{A}\right) I\]</div>
+<p>El término entre paréntesis agrupa las propiedades geométricas del material, definiendo la <strong>Resistencia</strong> (<span class="math notranslate nohighlight">\(R\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[R = \frac{\rho L}{A}\]</div>
+<p>Llegando así a la conocida forma macroscópica de la Ley de Ohm:</p>
+<div class="math notranslate nohighlight">
+\[\Delta V = R I\]</div>
+<blockquote>
+<div><p><strong>Nota:</strong> La unidad de la resistencia es el Ohmio, <span class="math notranslate nohighlight">\(1 \, \Omega = 1 \text{ V/A}\)</span></p>
+</div></blockquote>
+</section>
+<section id="dependencia-de-la-temperatura">
+<h2>Dependencia de la temperatura<a class="headerlink" href="#dependencia-de-la-temperatura" title="Permalink to this heading">#</a></h2>
+<p>La resistividad de un material no es estrictamente constante, sino que depende de la temperatura. Para rangos moderados, obedece a una relación lineal:</p>
+<div class="math notranslate nohighlight">
+\[\rho(T) = \rho_0(1 + \alpha(T - T_0))\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(\alpha\)</span> es el coeficiente térmico del material. Consecuentemente, la resistencia también varía:</p>
+<div class="math notranslate nohighlight">
+\[R(T) = R_0(1 + \alpha(T - T_0))\]</div>
+<p>En algunos materiales, al descender la temperatura por debajo de un valor crítico <span class="math notranslate nohighlight">\(T_c\)</span>, la resistividad cae abruptamente a cero, fenómeno conocido como <strong>superconductividad</strong>.</p>
+</section>
+<section id="ejemplo-esferas-conductoras-concentricas">
+<h2>Ejemplo: Esferas Conductoras Concéntricas<a class="headerlink" href="#ejemplo-esferas-conductoras-concentricas" title="Permalink to this heading">#</a></h2>
+<p>Consideremos dos esferas conductoras concéntricas de radios <span class="math notranslate nohighlight">\(R_1\)</span> (interior) y <span class="math notranslate nohighlight">\(R_2\)</span> (exterior) con un material de resistividad <span class="math notranslate nohighlight">\(\rho\)</span> entre ellas.
+Si fluye una corriente <span class="math notranslate nohighlight">\(I\)</span> con simetría radial, la densidad de corriente es:</p>
+<div class="math notranslate nohighlight">
+\[\vec{J} = \frac{I}{4\pi r^2}\hat{r}\]</div>
+<p>Por la ley de Ohm microscópica, el campo eléctrico en la región intermedia es:</p>
+<div class="math notranslate nohighlight">
+\[E = \rho J = \frac{\rho I}{4\pi r^2}\]</div>
+<p>La diferencia de potencial <span class="math notranslate nohighlight">\(\Delta V\)</span> entre las esferas se calcula integrando el campo eléctrico:</p>
+<div class="math notranslate nohighlight">
+\[\Delta V = -\int_{R_2}^{R_1} \vec{E} \cdot d\vec{r} = -\int_{R_2}^{R_1} \frac{\rho I}{4\pi r^2} dr = \frac{\rho I}{4\pi} \left[ \frac{1}{r} \right]_{R_2}^{R_1}\]</div>
+<div class="math notranslate nohighlight">
+\[\Delta V = \frac{\rho I}{4\pi} \left( \frac{1}{R_1} - \frac{1}{R_2} \right) = \frac{\rho I}{4\pi} \left( \frac{R_2 - R_1}{R_1 R_2} \right)\]</div>
+<p>Dado que macroscópicamente <span class="math notranslate nohighlight">\(\Delta V = I R\)</span>, podemos identificar la resistencia equivalente de este arreglo:</p>
+<div class="math notranslate nohighlight">
+\[R = \frac{\rho}{4\pi} \left( \frac{R_2 - R_1}{R_1 R_2} \right)\]</div>
+</section>
+</section>
 
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
-</div>
-
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -378,6 +551,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-ohm-microscopica">Ley de Ohm microscópica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-ohm-macroscopica">Ley de Ohm macroscópica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencia-de-la-temperatura">Dependencia de la temperatura</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-esferas-conductoras-concentricas">Ejemplo: Esferas Conductoras Concéntricas</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
