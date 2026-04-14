@@ -45,4 +45,4 @@ parts:
   - caption: 5 Corriente, Resistencia y Fuerza Electromotriz
     chapters:
       - file: 05_01_corriente
-      - file: 05_01_densidad
+      - file: 05_02_densidad
