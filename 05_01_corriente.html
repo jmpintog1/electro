@@ -197,6 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_04_oscilatorio.html">3.4 Movimiento Oscilatorio de un Electrón</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_05_tierra.html">3.5 Conductores Conectados a Tierra</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4 Capacitancia y Dieléctricos</span></p>
 <ul class="nav bd-sidenav">
@@ -211,6 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">5.1 Corriente Eléctrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_02_densidad.html">5.2 Densidad de Corriente y Ley de Ohm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
 </ul>
 
     </div>
@@ -462,10 +464,13 @@ document.write(`
 <h2>Modelo microscópico<a class="headerlink" href="#modelo-microscopico" title="Permalink to this heading">#</a></h2>
 <p>Para entender la corriente a nivel microscópico, consideremos un volumen diferencial de un material conductor cilíndrico, dado por <span class="math notranslate nohighlight">\(dV = A \, dx\)</span>. Si la densidad volumétrica de portadores de carga es <span class="math notranslate nohighlight">\(n\)</span> (número de cargas <span class="math notranslate nohighlight">\(N\)</span> por unidad de volumen), la carga diferencial contenida en este volumen es:</p>
 <div class="math notranslate nohighlight">
-\[dQ = N \, q = (n A dx) q\]</div>
+\[\begin{split}\begin{aligned} Q &amp;= N \, q \\
+dQ &amp;= q \, dN \\
+dQ &amp;= q \, n \, dV \\
+dQ &amp;= q \, n \, A \, dx \end{aligned}\end{split}\]</div>
 <p>Reemplazando esto en la definición de corriente:</p>
 <div class="math notranslate nohighlight">
-\[I = \frac{dQ}{dt} = n A \left(\frac{dx}{dt}\right) q\]</div>
+\[I = \frac{dQ}{dt} = q \, n \, A \left(\frac{dx}{dt}\right)\]</div>
 <p>La dinámica de una carga individual de masa <span class="math notranslate nohighlight">\(m\)</span> dentro del conductor está gobernada por la fuerza eléctrica y una fuerza de “fricción” o amortiguamiento interna proporcional a la velocidad (<span class="math notranslate nohighlight">\(f = \gamma v\)</span>), generada por las colisiones con la red atómica. Usando la Segunda Ley de Newton (<span class="math notranslate nohighlight">\(\vec{F}_{\text{Neta}} = m\vec{a}\)</span>):</p>
 <div class="math notranslate nohighlight">
 \[qE - \gamma v = m\frac{dv}{dt}\]</div>
@@ -482,6 +487,386 @@ t &amp;= -\frac{m}{\gamma} \ln\left(\frac{qE - \gamma v}{qE}\right)\end{aligned}
 <blockquote>
 <div><p><strong>Nota:</strong> En metales, esta velocidad de deriva es sumamente baja, del orden de <span class="math notranslate nohighlight">\(10^{-3}\)</span> a <span class="math notranslate nohighlight">\(10^{-4}\text{ m/s}\)</span>).</p>
 </div></blockquote>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">simulacion_deriva_v3_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;div style=&quot;border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif;&quot;&gt;</span>
+<span class="s2">    &lt;h3 style=&quot;margin-top:0; color: #2c3e50;&quot;&gt;Simulación Microscópica: Modelo de Drude&lt;/h3&gt;</span>
+<span class="s2">    &lt;p style=&quot;font-size: 0.95em; color: #555; margin-bottom: 15px;&quot;&gt;Ajusta el campo eléctrico, la densidad de la red y la velocidad térmica (temperatura) para observar su efecto en el flujo neto de electrones.&lt;/p&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;&quot;&gt;</span>
+<span class="s2">        &lt;div style=&quot;flex: 1.5; min-width: 300px;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 180px;&quot;&gt;Campo Eléctrico (E): &lt;span id=&quot;drude_valE_v3&quot; style=&quot;font-weight: normal;&quot;&gt;0&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;drude_E_v3&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;1&quot; value=&quot;0&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 180px;&quot;&gt;Densidad de Red: &lt;span id=&quot;drude_valIons_v3&quot; style=&quot;font-weight: normal;&quot;&gt;Media&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;drude_ions_v3&quot; min=&quot;1&quot; max=&quot;3&quot; step=&quot;1&quot; value=&quot;2&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 180px;&quot;&gt;Velocidad Térmica: &lt;span id=&quot;drude_valTh_v3&quot; style=&quot;font-weight: normal;&quot;&gt;2.0&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;drude_th_v3&quot; min=&quot;0.5&quot; max=&quot;6.0&quot; step=&quot;0.5&quot; value=&quot;2.0&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 220px; font-size: 0.95em; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Velocidad de Deriva (vd):&lt;/b&gt; &lt;span id=&quot;drude_valVd_v3&quot; style=&quot;color: #dc3545; font-weight: bold;&quot;&gt;0.000&lt;/span&gt; au&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Corriente Relativa (I):&lt;/b&gt; &lt;span id=&quot;drude_valC_v3&quot; style=&quot;color: #0d6efd; font-weight: bold;&quot;&gt;0.00&lt;/span&gt; au&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;font-size: 0.8em; color: #777; margin-top: 5px;&quot;&gt;*Velocidad térmica simula la T° del conductor&lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;text-align: center; position: relative;&quot;&gt;</span>
+<span class="s2">        &lt;canvas id=&quot;drude_canvas_v3&quot; width=&quot;600&quot; height=&quot;300&quot; style=&quot;background: #eef2f5; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;&quot;&gt;&lt;/canvas&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    setTimeout(function() {</span>
+<span class="s2">        const canvas = document.getElementById(&#39;drude_canvas_v3&#39;);</span>
+<span class="s2">        if (!canvas) return;</span>
+<span class="s2">        const ctx = canvas.getContext(&#39;2d&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const slider_E = document.getElementById(&#39;drude_E_v3&#39;);</span>
+<span class="s2">        const slider_Ions = document.getElementById(&#39;drude_ions_v3&#39;);</span>
+<span class="s2">        const slider_Th = document.getElementById(&#39;drude_th_v3&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const val_E = document.getElementById(&#39;drude_valE_v3&#39;);</span>
+<span class="s2">        const val_Ions = document.getElementById(&#39;drude_valIons_v3&#39;);</span>
+<span class="s2">        const val_Th = document.getElementById(&#39;drude_valTh_v3&#39;);</span>
+<span class="s2">        const val_Vd = document.getElementById(&#39;drude_valVd_v3&#39;);</span>
+<span class="s2">        const val_C = document.getElementById(&#39;drude_valC_v3&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        let E_field = 0;</span>
+<span class="s2">        let ion_density = 2; </span>
+<span class="s2">        let thermal_velocity = 2.0; </span>
+<span class="s2">        </span>
+<span class="s2">        // Variable para el filtro de suavizado</span>
+<span class="s2">        let smoothed_vd = 0;</span>
+<span class="s2">        </span>
+<span class="s2">        const num_electrons = 150;</span>
+<span class="s2">        let electrons = [];</span>
+<span class="s2">        let ions = [];</span>
+<span class="s2">        </span>
+<span class="s2">        function initIons() {</span>
+<span class="s2">            ions = [];</span>
+<span class="s2">            const rows = 3 * ion_density;</span>
+<span class="s2">            const cols = 6 * ion_density;</span>
+<span class="s2">            const dx = canvas.width / cols;</span>
+<span class="s2">            const dy = canvas.height / rows;</span>
+<span class="s2">            const radius = 8 + (4 - ion_density); </span>
+<span class="s2">            </span>
+<span class="s2">            for(let i = 0; i &lt;= cols; i++) {</span>
+<span class="s2">                for(let j = 0; j &lt;= rows; j++) {</span>
+<span class="s2">                    let offsetX = (Math.random() - 0.5) * 10;</span>
+<span class="s2">                    let offsetY = (Math.random() - 0.5) * 10;</span>
+<span class="s2">                    ions.push({x: i*dx + offsetX, y: j*dy + offsetY, r: radius});</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+<span class="s2">        </span>
+<span class="s2">        function initElectrons() {</span>
+<span class="s2">            electrons = [];</span>
+<span class="s2">            for(let i=0; i&lt;num_electrons; i++) {</span>
+<span class="s2">                let angle = Math.random() * 2 * Math.PI;</span>
+<span class="s2">                electrons.push({</span>
+<span class="s2">                    x: Math.random() * canvas.width,</span>
+<span class="s2">                    y: Math.random() * canvas.height,</span>
+<span class="s2">                    vx: Math.cos(angle) * thermal_velocity,</span>
+<span class="s2">                    vy: Math.sin(angle) * thermal_velocity,</span>
+<span class="s2">                    r: 2</span>
+<span class="s2">                });</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function updateParams() {</span>
+<span class="s2">            E_field = parseFloat(slider_E.value) / 1000; </span>
+<span class="s2">            let new_density = parseInt(slider_Ions.value);</span>
+<span class="s2">            thermal_velocity = parseFloat(slider_Th.value);</span>
+<span class="s2">            </span>
+<span class="s2">            val_E.innerText = slider_E.value;</span>
+<span class="s2">            val_Th.innerText = thermal_velocity.toFixed(1);</span>
+<span class="s2">            </span>
+<span class="s2">            let densityText = [&quot;Baja&quot;, &quot;Media&quot;, &quot;Alta&quot;];</span>
+<span class="s2">            val_Ions.innerText = densityText[new_density - 1];</span>
+<span class="s2">            </span>
+<span class="s2">            if(new_density !== ion_density) {</span>
+<span class="s2">                ion_density = new_density;</span>
+<span class="s2">                initIons();</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function animate() {</span>
+<span class="s2">            ctx.clearRect(0, 0, canvas.width, canvas.height);</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.fillStyle = &#39;#dc3545&#39;;</span>
+<span class="s2">            ions.forEach(ion =&gt; {</span>
+<span class="s2">                ctx.beginPath();</span>
+<span class="s2">                ctx.arc(ion.x, ion.y, ion.r, 0, Math.PI * 2);</span>
+<span class="s2">                ctx.fill();</span>
+<span class="s2">            });</span>
+<span class="s2">            </span>
+<span class="s2">            let total_vx = 0;</span>
+
+<span class="s2">            ctx.fillStyle = &#39;#0d6efd&#39;;</span>
+<span class="s2">            electrons.forEach(e =&gt; {</span>
+<span class="s2">                e.vx += E_field;</span>
+<span class="s2">                </span>
+<span class="s2">                e.x += e.vx;</span>
+<span class="s2">                e.y += e.vy;</span>
+<span class="s2">                </span>
+<span class="s2">                if(e.x &gt; canvas.width) e.x = 0;</span>
+<span class="s2">                if(e.x &lt; 0) e.x = canvas.width;</span>
+<span class="s2">                if(e.y &gt; canvas.height) { e.y = canvas.height; e.vy *= -1; }</span>
+<span class="s2">                if(e.y &lt; 0) { e.y = 0; e.vy *= -1; }</span>
+<span class="s2">                </span>
+<span class="s2">                ions.forEach(ion =&gt; {</span>
+<span class="s2">                    let dx = e.x - ion.x;</span>
+<span class="s2">                    let dy = e.y - ion.y;</span>
+<span class="s2">                    let dist = Math.sqrt(dx*dx + dy*dy);</span>
+<span class="s2">                    </span>
+<span class="s2">                    if(dist &lt; ion.r + e.r) {</span>
+<span class="s2">                        let angle = Math.random() * 2 * Math.PI;</span>
+<span class="s2">                        e.vx = Math.cos(angle) * thermal_velocity;</span>
+<span class="s2">                        e.vy = Math.sin(angle) * thermal_velocity;</span>
+<span class="s2">                        </span>
+<span class="s2">                        e.x += (dx/dist) * 2;</span>
+<span class="s2">                        e.y += (dy/dist) * 2;</span>
+<span class="s2">                    }</span>
+<span class="s2">                });</span>
+<span class="s2">                </span>
+<span class="s2">                total_vx += e.vx;</span>
+<span class="s2">                </span>
+<span class="s2">                ctx.beginPath();</span>
+<span class="s2">                ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);</span>
+<span class="s2">                ctx.fill();</span>
+<span class="s2">            });</span>
+<span class="s2">            </span>
+<span class="s2">            // Cálculo instantáneo</span>
+<span class="s2">            let instant_vd = total_vx / num_electrons;</span>
+<span class="s2">            if(slider_E.value == 0) instant_vd = 0; </span>
+<span class="s2">            </span>
+<span class="s2">            // Aplicación del filtro de media móvil (suavizado exponencial)</span>
+<span class="s2">            // El factor 0.05 define qué tan suave es (valores menores = más estable pero más lento en reaccionar)</span>
+<span class="s2">            smoothed_vd = (0.05 * instant_vd) + (0.95 * smoothed_vd);</span>
+<span class="s2">            </span>
+<span class="s2">            // Forzar a 0 absoluto si no hay campo, para que no quede un remanente infinitesimal</span>
+<span class="s2">            if(slider_E.value == 0 &amp;&amp; Math.abs(smoothed_vd) &lt; 0.01) smoothed_vd = 0;</span>
+<span class="s2">            </span>
+<span class="s2">            val_Vd.innerText = Math.abs(smoothed_vd).toFixed(3);</span>
+<span class="s2">            val_C.innerText = (Math.abs(smoothed_vd) * num_electrons * 0.1).toFixed(2); </span>
+
+<span class="s2">            requestAnimationFrame(animate);</span>
+<span class="s2">        }</span>
+
+<span class="s2">        slider_E.addEventListener(&#39;input&#39;, updateParams);</span>
+<span class="s2">        slider_Ions.addEventListener(&#39;input&#39;, updateParams);</span>
+<span class="s2">        slider_Th.addEventListener(&#39;input&#39;, updateParams);</span>
+
+<span class="s2">        initIons();</span>
+<span class="s2">        initElectrons();</span>
+<span class="s2">        updateParams();</span>
+<span class="s2">        animate();</span>
+<span class="s2">    }, 150); </span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">simulacion_deriva_v3_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+    <h3 style="margin-top:0; color: #2c3e50;">Simulación Microscópica: Modelo de Drude</h3>
+    <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">Ajusta el campo eléctrico, la densidad de la red y la velocidad térmica (temperatura) para observar su efecto en el flujo neto de electrones.</p>
+    
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;">
+        <div style="flex: 1.5; min-width: 300px;">
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 180px;">Campo Eléctrico (E): <span id="drude_valE_v3" style="font-weight: normal;">0</span></label>
+                <input type="range" id="drude_E_v3" min="0" max="100" step="1" value="0" style="width: 40%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 180px;">Densidad de Red: <span id="drude_valIons_v3" style="font-weight: normal;">Media</span></label>
+                <input type="range" id="drude_ions_v3" min="1" max="3" step="1" value="2" style="width: 40%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 180px;">Velocidad Térmica: <span id="drude_valTh_v3" style="font-weight: normal;">2.0</span></label>
+                <input type="range" id="drude_th_v3" min="0.5" max="6.0" step="0.5" value="2.0" style="width: 40%; vertical-align: middle;">
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 220px; font-size: 0.95em; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
+            <div style="margin-bottom: 5px;"><b>Velocidad de Deriva (vd):</b> <span id="drude_valVd_v3" style="color: #dc3545; font-weight: bold;">0.000</span> au</div>
+            <div style="margin-bottom: 5px;"><b>Corriente Relativa (I):</b> <span id="drude_valC_v3" style="color: #0d6efd; font-weight: bold;">0.00</span> au</div>
+            <div style="font-size: 0.8em; color: #777; margin-top: 5px;">*Velocidad térmica simula la T° del conductor</div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; position: relative;">
+        <canvas id="drude_canvas_v3" width="600" height="300" style="background: #eef2f5; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+    </div>
+</div>
+
+<script>
+    setTimeout(function() {
+        const canvas = document.getElementById('drude_canvas_v3');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        
+        const slider_E = document.getElementById('drude_E_v3');
+        const slider_Ions = document.getElementById('drude_ions_v3');
+        const slider_Th = document.getElementById('drude_th_v3');
+        
+        const val_E = document.getElementById('drude_valE_v3');
+        const val_Ions = document.getElementById('drude_valIons_v3');
+        const val_Th = document.getElementById('drude_valTh_v3');
+        const val_Vd = document.getElementById('drude_valVd_v3');
+        const val_C = document.getElementById('drude_valC_v3');
+        
+        let E_field = 0;
+        let ion_density = 2; 
+        let thermal_velocity = 2.0; 
+        
+        // Variable para el filtro de suavizado
+        let smoothed_vd = 0;
+        
+        const num_electrons = 150;
+        let electrons = [];
+        let ions = [];
+        
+        function initIons() {
+            ions = [];
+            const rows = 3 * ion_density;
+            const cols = 6 * ion_density;
+            const dx = canvas.width / cols;
+            const dy = canvas.height / rows;
+            const radius = 8 + (4 - ion_density); 
+            
+            for(let i = 0; i <= cols; i++) {
+                for(let j = 0; j <= rows; j++) {
+                    let offsetX = (Math.random() - 0.5) * 10;
+                    let offsetY = (Math.random() - 0.5) * 10;
+                    ions.push({x: i*dx + offsetX, y: j*dy + offsetY, r: radius});
+                }
+            }
+        }
+        
+        function initElectrons() {
+            electrons = [];
+            for(let i=0; i<num_electrons; i++) {
+                let angle = Math.random() * 2 * Math.PI;
+                electrons.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: Math.cos(angle) * thermal_velocity,
+                    vy: Math.sin(angle) * thermal_velocity,
+                    r: 2
+                });
+            }
+        }
+
+        function updateParams() {
+            E_field = parseFloat(slider_E.value) / 1000; 
+            let new_density = parseInt(slider_Ions.value);
+            thermal_velocity = parseFloat(slider_Th.value);
+            
+            val_E.innerText = slider_E.value;
+            val_Th.innerText = thermal_velocity.toFixed(1);
+            
+            let densityText = ["Baja", "Media", "Alta"];
+            val_Ions.innerText = densityText[new_density - 1];
+            
+            if(new_density !== ion_density) {
+                ion_density = new_density;
+                initIons();
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#dc3545';
+            ions.forEach(ion => {
+                ctx.beginPath();
+                ctx.arc(ion.x, ion.y, ion.r, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            let total_vx = 0;
+
+            ctx.fillStyle = '#0d6efd';
+            electrons.forEach(e => {
+                e.vx += E_field;
+                
+                e.x += e.vx;
+                e.y += e.vy;
+                
+                if(e.x > canvas.width) e.x = 0;
+                if(e.x < 0) e.x = canvas.width;
+                if(e.y > canvas.height) { e.y = canvas.height; e.vy *= -1; }
+                if(e.y < 0) { e.y = 0; e.vy *= -1; }
+                
+                ions.forEach(ion => {
+                    let dx = e.x - ion.x;
+                    let dy = e.y - ion.y;
+                    let dist = Math.sqrt(dx*dx + dy*dy);
+                    
+                    if(dist < ion.r + e.r) {
+                        let angle = Math.random() * 2 * Math.PI;
+                        e.vx = Math.cos(angle) * thermal_velocity;
+                        e.vy = Math.sin(angle) * thermal_velocity;
+                        
+                        e.x += (dx/dist) * 2;
+                        e.y += (dy/dist) * 2;
+                    }
+                });
+                
+                total_vx += e.vx;
+                
+                ctx.beginPath();
+                ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Cálculo instantáneo
+            let instant_vd = total_vx / num_electrons;
+            if(slider_E.value == 0) instant_vd = 0; 
+            
+            // Aplicación del filtro de media móvil (suavizado exponencial)
+            // El factor 0.05 define qué tan suave es (valores menores = más estable pero más lento en reaccionar)
+            smoothed_vd = (0.05 * instant_vd) + (0.95 * smoothed_vd);
+            
+            // Forzar a 0 absoluto si no hay campo, para que no quede un remanente infinitesimal
+            if(slider_E.value == 0 && Math.abs(smoothed_vd) < 0.01) smoothed_vd = 0;
+            
+            val_Vd.innerText = Math.abs(smoothed_vd).toFixed(3);
+            val_C.innerText = (Math.abs(smoothed_vd) * num_electrons * 0.1).toFixed(2); 
+
+            requestAnimationFrame(animate);
+        }
+
+        slider_E.addEventListener('input', updateParams);
+        slider_Ions.addEventListener('input', updateParams);
+        slider_Th.addEventListener('input', updateParams);
+
+        initIons();
+        initElectrons();
+        updateParams();
+        animate();
+    }, 150); 
+</script>
+</div></div>
+</div>
 </section>
 </section>
 

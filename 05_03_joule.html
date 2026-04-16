@@ -1,0 +1,1091 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>5.3 Efecto Joule &#8212; Curso de Electricidad y Magnetismo</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '05_03_joule';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="5.2 Densidad de Corriente y Ley de Ohm" href="05_02_densidad.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Curso de Electricidad y Magnetismo - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Curso de Electricidad y Magnetismo - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenidos al Curso de Electricidad y Magnetismo
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1 Carga Eléctrica y Campo Eléctrico</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_01_carga.html">1.1 Carga Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_02_coulomb.html">1.2 Ley de Coulomb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_03_campo.html">1.3 Campo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_04_continua.html">1.4 Distribución de Carga</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_05_anillo.html">1.5 Anillo Uniformemente Cargado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_06_disco.html">1.6 Disco Cargado Uniformemente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_07_alambre.html">1.7 Alambre Infinito</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Densidad de Carga No Uniforme</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2 Ley de Gauss</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_01_flujo.html">2.1 Flujo Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_02_gauss.html">2.2 La Ley de Gauss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_03_gauss_esfera.html">2.3 Simetría Esférica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_04_gauss_cilindro.html">2.4 Simetría Cilíndrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_05_gauss_plano.html">2.5 Simetría Plana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_06_conductores.html">2.6 Conductores y Aislantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3 Potencial Eléctrico</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03_01_potencial.html">3.1 Campo y Potencial Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_04_oscilatorio.html">3.4 Movimiento Oscilatorio de un Electrón</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_05_tierra.html">3.5 Conductores Conectados a Tierra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4 Capacitancia y Dieléctricos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_01_capacitancia.html">4.1 Capacitancia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_02_geometrias.html">4.2 Cálculo de Capacitancia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_03_energia.html">4.3 Energía en un Condensador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_04_serie_paralelo.html">4.4 Condensadores en Circuitos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_05_dielectricos.html">4.5 Dieléctricos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_06_dielec_capacidad.html">4.6 Dieléctricos en Condensadores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5 Corriente, Resistencia y Fuerza Electromotriz</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_01_corriente.html">5.1 Corriente Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_densidad.html">5.2 Densidad de Corriente y Ley de Ohm</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5.3 Efecto Joule</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmpintog1/electro/blob/main/./05_03_joule.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmpintog1/electro" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2F05_03_joule.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/05_03_joule.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5.3 Efecto Joule</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cuantitativo">Análisis cuantitativo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-grafica">Representación gráfica</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="efecto-joule">
+<h1>5.3 Efecto Joule<a class="headerlink" href="#efecto-joule" title="Permalink to this heading">#</a></h1>
+<p>Cuando una corriente eléctrica circula a través de un conductor que posee resistencia, los electrones que forman esta corriente experimentan constantes colisiones inelásticas con los iones de la red cristalina del material. En cada colisión, parte de la energía cinética de los electrones se transfiere a la red, aumentando su energía vibracional. A nivel macroscópico, este incremento de energía interna se manifiesta como un aumento en la temperatura del conductor y la consecuente emisión de calor hacia el entorno. A este fenómeno se le conoce como <strong>Efecto Joule</strong>.</p>
+<section id="analisis-cuantitativo">
+<h2>Análisis cuantitativo<a class="headerlink" href="#analisis-cuantitativo" title="Permalink to this heading">#</a></h2>
+<p>Para cuantificar la energía disipada, consideramos un resistor de resistencia <span class="math notranslate nohighlight">\(R\)</span> por el cual circula una corriente constante <span class="math notranslate nohighlight">\(I\)</span>. La diferencia de potencial <span class="math notranslate nohighlight">\(\Delta V\)</span> entre los extremos del resistor representa el trabajo realizado por unidad de carga.</p>
+<p>La potencia eléctrica <span class="math notranslate nohighlight">\(P\)</span> (energía transferida por unidad de tiempo) se define como:</p>
+<div class="math notranslate nohighlight">
+\[P = I \cdot \Delta V\]</div>
+<p>Aplicando la Ley de Ohm (<span class="math notranslate nohighlight">\(\Delta V = I \cdot R\)</span>), podemos expresar la potencia disipada específicamente en forma de calor por el resistor:</p>
+<div class="math notranslate nohighlight">
+\[P = I^2 R = \frac{\Delta V^2}{R}\]</div>
+<p>La energía total <span class="math notranslate nohighlight">\(Q\)</span> disipada en forma de calor durante un intervalo de tiempo <span class="math notranslate nohighlight">\(\Delta t\)</span> es simplemente la potencia multiplicada por el tiempo:</p>
+<div class="math notranslate nohighlight">
+\[Q = I^2 R \Delta t\]</div>
+</section>
+<section id="representacion-grafica">
+<h2>Representación gráfica<a class="headerlink" href="#representacion-grafica" title="Permalink to this heading">#</a></h2>
+<p>A continuación, se presenta un esquema de un circuito básico ilustrando el Efecto Joule. La fuente de fuerza electromotriz (<span class="math notranslate nohighlight">\(\varepsilon\)</span>) provee la energía para establecer la corriente <span class="math notranslate nohighlight">\(I\)</span>, mientras que el resistor <span class="math notranslate nohighlight">\(R\)</span> disipa esa energía en forma de calor (<span class="math notranslate nohighlight">\(Q\)</span>).</p>
+<p> </p>
+<a class="reference internal image-reference" href="_images/05_04.svg"><img alt="Efecto Joule" class="align-center" src="_images/05_04.svg" width="60%" /></a>
+<p> </p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">simulacion_joule_v3_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;div style=&quot;border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif;&quot;&gt;</span>
+<span class="s2">    &lt;h3 style=&quot;margin-top:0; color: #2c3e50;&quot;&gt;Módulo Interactivo STEM: Efecto Joule&lt;/h3&gt;</span>
+<span class="s2">    &lt;p style=&quot;font-size: 0.95em; color: #555; margin-bottom: 15px;&quot;&gt;Observa cómo la energía eléctrica se transforma en calor. Analiza qué ocurre con la potencia disipada al modificar el voltaje de la fuente o la resistencia del elemento calefactor.&lt;/p&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;&quot;&gt;</span>
+<span class="s2">        &lt;div style=&quot;flex: 1.5; min-width: 300px;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 180px;&quot;&gt;Voltaje (V): &lt;span id=&quot;joule_valV_j3&quot; style=&quot;font-weight: normal;&quot;&gt;220&lt;/span&gt; V&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;joule_V_j3&quot; min=&quot;0&quot; max=&quot;220&quot; step=&quot;10&quot; value=&quot;220&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 180px;&quot;&gt;Resistencia (R): &lt;span id=&quot;joule_valR_j3&quot; style=&quot;font-weight: normal;&quot;&gt;100&lt;/span&gt; Ω&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;joule_R_j3&quot; min=&quot;10&quot; max=&quot;250&quot; step=&quot;10&quot; value=&quot;100&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-top: 15px;&quot;&gt;</span>
+<span class="s2">                &lt;button id=&quot;joule_btn_reset_j3&quot; style=&quot;background-color: #dc3545; color: white; border: none; padding: 6px 15px; border-radius: 4px; cursor: pointer; font-size: 0.9em;&quot;&gt;Reiniciar Sistema&lt;/button&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 220px; font-size: 0.95em; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Corriente (I):&lt;/b&gt; &lt;span id=&quot;joule_valI_j3&quot; style=&quot;color: #0d6efd; font-weight: bold;&quot;&gt;2.20&lt;/span&gt; A&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Potencia (P):&lt;/b&gt; &lt;span id=&quot;joule_valP_j3&quot; style=&quot;color: #dc3545; font-weight: bold;&quot;&gt;484&lt;/span&gt; W&lt;/div&gt;</span>
+<span class="s2">            &lt;hr style=&quot;border: 0; border-top: 1px solid #eee; margin: 8px 0;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Temp. Entorno:&lt;/b&gt; &lt;span id=&quot;joule_valT_j3&quot; style=&quot;color: #ff8c00; font-weight: bold;&quot;&gt;20.0&lt;/span&gt; °C&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;font-size: 0.8em; color: #777; margin-top: 5px;&quot;&gt;* P = V² / R  |  Q = P · Δt&lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;text-align: center; position: relative;&quot;&gt;</span>
+<span class="s2">        &lt;canvas id=&quot;joule_canvas_j3&quot; width=&quot;600&quot; height=&quot;300&quot; style=&quot;background: #1e1e1e; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;&quot;&gt;&lt;/canvas&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    setTimeout(function() {</span>
+<span class="s2">        const canvas = document.getElementById(&#39;joule_canvas_j3&#39;);</span>
+<span class="s2">        if (!canvas) return;</span>
+<span class="s2">        const ctx = canvas.getContext(&#39;2d&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const slider_V = document.getElementById(&#39;joule_V_j3&#39;);</span>
+<span class="s2">        const slider_R = document.getElementById(&#39;joule_R_j3&#39;);</span>
+<span class="s2">        const btn_reset = document.getElementById(&#39;joule_btn_reset_j3&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const val_V = document.getElementById(&#39;joule_valV_j3&#39;);</span>
+<span class="s2">        const val_R = document.getElementById(&#39;joule_valR_j3&#39;);</span>
+<span class="s2">        const val_I = document.getElementById(&#39;joule_valI_j3&#39;);</span>
+<span class="s2">        const val_P = document.getElementById(&#39;joule_valP_j3&#39;);</span>
+<span class="s2">        const val_T = document.getElementById(&#39;joule_valT_j3&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        let temperature = 20.0;</span>
+<span class="s2">        let heat_particles = [];</span>
+<span class="s2">        let electron_offset = 0; // Controla el avance de las partículas</span>
+<span class="s2">        </span>
+<span class="s2">        function getResistorColor(temp) {</span>
+<span class="s2">            if (temp &lt; 30) return &quot;#555555&quot;;</span>
+<span class="s2">            if (temp &lt; 100) {</span>
+<span class="s2">                let r = Math.floor(85 + (temp - 30) * 2.4);</span>
+<span class="s2">                return `rgb($</span><span class="si">{r}</span><span class="s2">, 85, 85)`;</span>
+<span class="s2">            }</span>
+<span class="s2">            if (temp &lt; 300) {</span>
+<span class="s2">                let g = Math.floor(85 + (temp - 100) * 0.85);</span>
+<span class="s2">                return `rgb(255, $</span><span class="si">{g}</span><span class="s2">, 85)`;</span>
+<span class="s2">            }</span>
+<span class="s2">            return &quot;rgb(255, 255, 200)&quot;;</span>
+<span class="s2">        }</span>
+
+<span class="s2">        // Motor de Trayectoria Estricta</span>
+<span class="s2">        function getElectronPosition(d, cx, cy, ch) {</span>
+<span class="s2">            // Segmentos del circuito</span>
+<span class="s2">            let l1 = ch - cy; // Subida izquierda</span>
+<span class="s2">            let l2 = 70;      // Avance horizontal izquierdo</span>
+<span class="s2">            let l3 = 160;     // Cruce por el resistor</span>
+<span class="s2">            let l4 = 70;      // Avance horizontal derecho</span>
+<span class="s2">            let l5 = ch - cy; // Bajada derecha</span>
+<span class="s2">            </span>
+<span class="s2">            if (d &lt; l1) return { x: cx - 150, y: ch - d };</span>
+<span class="s2">            d -= l1;</span>
+<span class="s2">            if (d &lt; l2) return { x: cx - 150 + d, y: cy };</span>
+<span class="s2">            d -= l2;</span>
+<span class="s2">            if (d &lt; l3) return { x: cx - 80 + d, y: cy };</span>
+<span class="s2">            d -= l3;</span>
+<span class="s2">            if (d &lt; l4) return { x: cx + 80 + d, y: cy };</span>
+<span class="s2">            d -= l4;</span>
+<span class="s2">            if (d &lt;= l5) return { x: cx + 150, y: cy + d };</span>
+<span class="s2">            </span>
+<span class="s2">            return { x: cx + 150, y: ch }; // Salvaguarda</span>
+<span class="s2">        }</span>
+
+<span class="s2">        btn_reset.addEventListener(&#39;click&#39;, () =&gt; {</span>
+<span class="s2">            temperature = 20.0;</span>
+<span class="s2">            heat_particles = [];</span>
+<span class="s2">        });</span>
+
+<span class="s2">        function animate() {</span>
+<span class="s2">            ctx.clearRect(0, 0, canvas.width, canvas.height);</span>
+<span class="s2">            </span>
+<span class="s2">            let V = parseFloat(slider_V.value);</span>
+<span class="s2">            let R = parseFloat(slider_R.value);</span>
+<span class="s2">            </span>
+<span class="s2">            let I = V / R;</span>
+<span class="s2">            let P = (V * V) / R;</span>
+<span class="s2">            </span>
+<span class="s2">            val_V.innerText = V;</span>
+<span class="s2">            val_R.innerText = R;</span>
+<span class="s2">            val_I.innerText = I.toFixed(2);</span>
+<span class="s2">            val_P.innerText = P.toFixed(0);</span>
+<span class="s2">            </span>
+<span class="s2">            let deltaT = P * 0.00015; </span>
+<span class="s2">            temperature += deltaT;</span>
+<span class="s2">            </span>
+<span class="s2">            let cooling = (temperature - 20) * 0.005;</span>
+<span class="s2">            temperature -= cooling;</span>
+<span class="s2">            if(temperature &lt; 20) temperature = 20;</span>
+
+<span class="s2">            val_T.innerText = temperature.toFixed(1);</span>
+
+<span class="s2">            let cx = canvas.width / 2;</span>
+<span class="s2">            let cy = canvas.height / 2;</span>
+
+<span class="s2">            // ================== DIBUJO DE CABLES BASE ==================</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.lineJoin = &quot;round&quot;;</span>
+<span class="s2">            // Cable izquierdo</span>
+<span class="s2">            ctx.moveTo(cx - 150, canvas.height + 10); </span>
+<span class="s2">            ctx.lineTo(cx - 150, cy);</span>
+<span class="s2">            ctx.lineTo(cx - 80, cy);</span>
+<span class="s2">            // Cable derecho</span>
+<span class="s2">            ctx.moveTo(cx + 80, cy);</span>
+<span class="s2">            ctx.lineTo(cx + 150, cy);</span>
+<span class="s2">            ctx.lineTo(cx + 150, canvas.height + 10);</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.strokeStyle = &quot;#555&quot;;</span>
+<span class="s2">            ctx.lineWidth = 4;</span>
+<span class="s2">            ctx.stroke();</span>
+
+<span class="s2">            // ================== DIBUJO DEL RESISTOR ==================</span>
+<span class="s2">            </span>
+<span class="s2">            let resColor = getResistorColor(temperature);</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.strokeStyle = resColor;</span>
+<span class="s2">            ctx.lineWidth = 8;</span>
+<span class="s2">            ctx.lineJoin = &quot;round&quot;;</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.moveTo(cx - 80, cy);</span>
+<span class="s2">            ctx.lineTo(cx - 60, cy - 20);</span>
+<span class="s2">            ctx.lineTo(cx - 40, cy + 20);</span>
+<span class="s2">            ctx.lineTo(cx - 20, cy - 20);</span>
+<span class="s2">            ctx.lineTo(cx, cy + 20);</span>
+<span class="s2">            ctx.lineTo(cx + 20, cy - 20);</span>
+<span class="s2">            ctx.lineTo(cx + 40, cy + 20);</span>
+<span class="s2">            ctx.lineTo(cx + 60, cy - 20);</span>
+<span class="s2">            ctx.lineTo(cx + 80, cy);</span>
+<span class="s2">            ctx.stroke();</span>
+<span class="s2">            </span>
+<span class="s2">            if(temperature &gt; 50) {</span>
+<span class="s2">                ctx.shadowBlur = Math.min((temperature - 50) / 2, 50);</span>
+<span class="s2">                ctx.shadowColor = resColor;</span>
+<span class="s2">                ctx.stroke();</span>
+<span class="s2">                ctx.shadowBlur = 0; </span>
+<span class="s2">            }</span>
+
+<span class="s2">            // ================== ELECTRONES (CÍRCULOS AZULES) ==================</span>
+<span class="s2">            </span>
+<span class="s2">            if (I &gt; 0) {</span>
+<span class="s2">                let total_distance = (canvas.height - cy) * 2 + 70 * 2 + 160;</span>
+<span class="s2">                let num_electrons = 25; // Cantidad de partículas visibles</span>
+<span class="s2">                let spacing = total_distance / num_electrons;</span>
+<span class="s2">                </span>
+<span class="s2">                // La velocidad de las partículas depende de la corriente</span>
+<span class="s2">                electron_offset = (electron_offset + I * 1.5) </span><span class="si">% s</span><span class="s2">pacing;</span>
+<span class="s2">                </span>
+<span class="s2">                ctx.fillStyle = &quot;#0d6efd&quot;;</span>
+<span class="s2">                for (let i = 0; i &lt; num_electrons; i++) {</span>
+<span class="s2">                    let d = electron_offset + i * spacing;</span>
+<span class="s2">                    let pos = getElectronPosition(d, cx, cy, canvas.height);</span>
+<span class="s2">                    </span>
+<span class="s2">                    ctx.beginPath();</span>
+<span class="s2">                    ctx.arc(pos.x, pos.y, 4, 0, Math.PI * 2);</span>
+<span class="s2">                    ctx.fill();</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+
+<span class="s2">            // ================== ONDAS DE CALOR ==================</span>
+<span class="s2">            </span>
+<span class="s2">            if (P &gt; 0 &amp;&amp; Math.random() &lt; P / 1000) {</span>
+<span class="s2">                heat_particles.push({</span>
+<span class="s2">                    x: cx - 60 + Math.random() * 120,</span>
+<span class="s2">                    y: cy - 30,</span>
+<span class="s2">                    speed: 1 + Math.random() * 2,</span>
+<span class="s2">                    alpha: 0.8,</span>
+<span class="s2">                    size: 10 + Math.random() * 15</span>
+<span class="s2">                });</span>
+<span class="s2">            }</span>
+
+<span class="s2">            heat_particles.forEach((p, index) =&gt; {</span>
+<span class="s2">                p.y -= p.speed;</span>
+<span class="s2">                p.alpha -= 0.01;</span>
+<span class="s2">                p.x += Math.sin(p.y / 10) * 1.5; </span>
+
+<span class="s2">                ctx.fillStyle = `rgba(255, 69, 0, $</span><span class="si">{p.alpha}</span><span class="s2">)`;</span>
+<span class="s2">                ctx.beginPath();</span>
+<span class="s2">                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);</span>
+<span class="s2">                ctx.fill();</span>
+
+<span class="s2">                if (p.alpha &lt;= 0) heat_particles.splice(index, 1);</span>
+<span class="s2">            });</span>
+<span class="s2">            </span>
+<span class="s2">            // ================== TERMÓMETRO VISUAL ==================</span>
+<span class="s2">            </span>
+<span class="s2">            let th_x = canvas.width - 50;</span>
+<span class="s2">            let th_y = 40;</span>
+<span class="s2">            let th_h = 200;</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.fillStyle = &quot;#333&quot;;</span>
+<span class="s2">            ctx.fillRect(th_x, th_y, 15, th_h);</span>
+<span class="s2">            </span>
+<span class="s2">            let fillPercent = Math.min((temperature - 20) / 280, 1);</span>
+<span class="s2">            let fillHeight = th_h * fillPercent;</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.fillStyle = &quot;#dc3545&quot;;</span>
+<span class="s2">            ctx.fillRect(th_x, th_y + th_h - fillHeight, 15, fillHeight);</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.arc(th_x + 7.5, th_y + th_h + 5, 12, 0, Math.PI*2);</span>
+<span class="s2">            ctx.fill();</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.fillStyle = &quot;#fff&quot;;</span>
+<span class="s2">            ctx.font = &quot;10px Arial&quot;;</span>
+<span class="s2">            ctx.fillText(&quot;Max&quot;, th_x - 25, th_y + 10);</span>
+<span class="s2">            ctx.fillText(&quot;20°C&quot;, th_x - 30, th_y + th_h);</span>
+
+<span class="s2">            requestAnimationFrame(animate);</span>
+<span class="s2">        }</span>
+
+<span class="s2">        slider_V.addEventListener(&#39;input&#39;, () =&gt; </span><span class="si">{}</span><span class="s2">);</span>
+<span class="s2">        slider_R.addEventListener(&#39;input&#39;, () =&gt; </span><span class="si">{}</span><span class="s2">);</span>
+
+<span class="s2">        animate();</span>
+<span class="s2">    }, 150);</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">simulacion_joule_v3_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+    <h3 style="margin-top:0; color: #2c3e50;">Módulo Interactivo STEM: Efecto Joule</h3>
+    <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">Observa cómo la energía eléctrica se transforma en calor. Analiza qué ocurre con la potencia disipada al modificar el voltaje de la fuente o la resistencia del elemento calefactor.</p>
+    
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;">
+        <div style="flex: 1.5; min-width: 300px;">
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 180px;">Voltaje (V): <span id="joule_valV_j3" style="font-weight: normal;">220</span> V</label>
+                <input type="range" id="joule_V_j3" min="0" max="220" step="10" value="220" style="width: 40%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 180px;">Resistencia (R): <span id="joule_valR_j3" style="font-weight: normal;">100</span> Ω</label>
+                <input type="range" id="joule_R_j3" min="10" max="250" step="10" value="100" style="width: 40%; vertical-align: middle;">
+            </div>
+            <div style="margin-top: 15px;">
+                <button id="joule_btn_reset_j3" style="background-color: #dc3545; color: white; border: none; padding: 6px 15px; border-radius: 4px; cursor: pointer; font-size: 0.9em;">Reiniciar Sistema</button>
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 220px; font-size: 0.95em; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
+            <div style="margin-bottom: 5px;"><b>Corriente (I):</b> <span id="joule_valI_j3" style="color: #0d6efd; font-weight: bold;">2.20</span> A</div>
+            <div style="margin-bottom: 5px;"><b>Potencia (P):</b> <span id="joule_valP_j3" style="color: #dc3545; font-weight: bold;">484</span> W</div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 8px 0;">
+            <div style="margin-bottom: 5px;"><b>Temp. Entorno:</b> <span id="joule_valT_j3" style="color: #ff8c00; font-weight: bold;">20.0</span> °C</div>
+            <div style="font-size: 0.8em; color: #777; margin-top: 5px;">* P = V² / R  |  Q = P · Δt</div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; position: relative;">
+        <canvas id="joule_canvas_j3" width="600" height="300" style="background: #1e1e1e; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+    </div>
+</div>
+
+<script>
+    setTimeout(function() {
+        const canvas = document.getElementById('joule_canvas_j3');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        
+        const slider_V = document.getElementById('joule_V_j3');
+        const slider_R = document.getElementById('joule_R_j3');
+        const btn_reset = document.getElementById('joule_btn_reset_j3');
+        
+        const val_V = document.getElementById('joule_valV_j3');
+        const val_R = document.getElementById('joule_valR_j3');
+        const val_I = document.getElementById('joule_valI_j3');
+        const val_P = document.getElementById('joule_valP_j3');
+        const val_T = document.getElementById('joule_valT_j3');
+        
+        let temperature = 20.0;
+        let heat_particles = [];
+        let electron_offset = 0; // Controla el avance de las partículas
+        
+        function getResistorColor(temp) {
+            if (temp < 30) return "#555555";
+            if (temp < 100) {
+                let r = Math.floor(85 + (temp - 30) * 2.4);
+                return `rgb(${r}, 85, 85)`;
+            }
+            if (temp < 300) {
+                let g = Math.floor(85 + (temp - 100) * 0.85);
+                return `rgb(255, ${g}, 85)`;
+            }
+            return "rgb(255, 255, 200)";
+        }
+
+        // Motor de Trayectoria Estricta
+        function getElectronPosition(d, cx, cy, ch) {
+            // Segmentos del circuito
+            let l1 = ch - cy; // Subida izquierda
+            let l2 = 70;      // Avance horizontal izquierdo
+            let l3 = 160;     // Cruce por el resistor
+            let l4 = 70;      // Avance horizontal derecho
+            let l5 = ch - cy; // Bajada derecha
+            
+            if (d < l1) return { x: cx - 150, y: ch - d };
+            d -= l1;
+            if (d < l2) return { x: cx - 150 + d, y: cy };
+            d -= l2;
+            if (d < l3) return { x: cx - 80 + d, y: cy };
+            d -= l3;
+            if (d < l4) return { x: cx + 80 + d, y: cy };
+            d -= l4;
+            if (d <= l5) return { x: cx + 150, y: cy + d };
+            
+            return { x: cx + 150, y: ch }; // Salvaguarda
+        }
+
+        btn_reset.addEventListener('click', () => {
+            temperature = 20.0;
+            heat_particles = [];
+        });
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            let V = parseFloat(slider_V.value);
+            let R = parseFloat(slider_R.value);
+            
+            let I = V / R;
+            let P = (V * V) / R;
+            
+            val_V.innerText = V;
+            val_R.innerText = R;
+            val_I.innerText = I.toFixed(2);
+            val_P.innerText = P.toFixed(0);
+            
+            let deltaT = P * 0.00015; 
+            temperature += deltaT;
+            
+            let cooling = (temperature - 20) * 0.005;
+            temperature -= cooling;
+            if(temperature < 20) temperature = 20;
+
+            val_T.innerText = temperature.toFixed(1);
+
+            let cx = canvas.width / 2;
+            let cy = canvas.height / 2;
+
+            // ================== DIBUJO DE CABLES BASE ==================
+            
+            ctx.beginPath();
+            ctx.lineJoin = "round";
+            // Cable izquierdo
+            ctx.moveTo(cx - 150, canvas.height + 10); 
+            ctx.lineTo(cx - 150, cy);
+            ctx.lineTo(cx - 80, cy);
+            // Cable derecho
+            ctx.moveTo(cx + 80, cy);
+            ctx.lineTo(cx + 150, cy);
+            ctx.lineTo(cx + 150, canvas.height + 10);
+            
+            ctx.strokeStyle = "#555";
+            ctx.lineWidth = 4;
+            ctx.stroke();
+
+            // ================== DIBUJO DEL RESISTOR ==================
+            
+            let resColor = getResistorColor(temperature);
+            
+            ctx.strokeStyle = resColor;
+            ctx.lineWidth = 8;
+            ctx.lineJoin = "round";
+            ctx.beginPath();
+            ctx.moveTo(cx - 80, cy);
+            ctx.lineTo(cx - 60, cy - 20);
+            ctx.lineTo(cx - 40, cy + 20);
+            ctx.lineTo(cx - 20, cy - 20);
+            ctx.lineTo(cx, cy + 20);
+            ctx.lineTo(cx + 20, cy - 20);
+            ctx.lineTo(cx + 40, cy + 20);
+            ctx.lineTo(cx + 60, cy - 20);
+            ctx.lineTo(cx + 80, cy);
+            ctx.stroke();
+            
+            if(temperature > 50) {
+                ctx.shadowBlur = Math.min((temperature - 50) / 2, 50);
+                ctx.shadowColor = resColor;
+                ctx.stroke();
+                ctx.shadowBlur = 0; 
+            }
+
+            // ================== ELECTRONES (CÍRCULOS AZULES) ==================
+            
+            if (I > 0) {
+                let total_distance = (canvas.height - cy) * 2 + 70 * 2 + 160;
+                let num_electrons = 25; // Cantidad de partículas visibles
+                let spacing = total_distance / num_electrons;
+                
+                // La velocidad de las partículas depende de la corriente
+                electron_offset = (electron_offset + I * 1.5) % spacing;
+                
+                ctx.fillStyle = "#0d6efd";
+                for (let i = 0; i < num_electrons; i++) {
+                    let d = electron_offset + i * spacing;
+                    let pos = getElectronPosition(d, cx, cy, canvas.height);
+                    
+                    ctx.beginPath();
+                    ctx.arc(pos.x, pos.y, 4, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            // ================== ONDAS DE CALOR ==================
+            
+            if (P > 0 && Math.random() < P / 1000) {
+                heat_particles.push({
+                    x: cx - 60 + Math.random() * 120,
+                    y: cy - 30,
+                    speed: 1 + Math.random() * 2,
+                    alpha: 0.8,
+                    size: 10 + Math.random() * 15
+                });
+            }
+
+            heat_particles.forEach((p, index) => {
+                p.y -= p.speed;
+                p.alpha -= 0.01;
+                p.x += Math.sin(p.y / 10) * 1.5; 
+
+                ctx.fillStyle = `rgba(255, 69, 0, ${p.alpha})`;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                if (p.alpha <= 0) heat_particles.splice(index, 1);
+            });
+            
+            // ================== TERMÓMETRO VISUAL ==================
+            
+            let th_x = canvas.width - 50;
+            let th_y = 40;
+            let th_h = 200;
+            
+            ctx.fillStyle = "#333";
+            ctx.fillRect(th_x, th_y, 15, th_h);
+            
+            let fillPercent = Math.min((temperature - 20) / 280, 1);
+            let fillHeight = th_h * fillPercent;
+            
+            ctx.fillStyle = "#dc3545";
+            ctx.fillRect(th_x, th_y + th_h - fillHeight, 15, fillHeight);
+            
+            ctx.beginPath();
+            ctx.arc(th_x + 7.5, th_y + th_h + 5, 12, 0, Math.PI*2);
+            ctx.fill();
+            
+            ctx.fillStyle = "#fff";
+            ctx.font = "10px Arial";
+            ctx.fillText("Max", th_x - 25, th_y + 10);
+            ctx.fillText("20°C", th_x - 30, th_y + th_h);
+
+            requestAnimationFrame(animate);
+        }
+
+        slider_V.addEventListener('input', () => {});
+        slider_R.addEventListener('input', () => {});
+
+        animate();
+    }, 150);
+</script>
+</div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="05_02_densidad.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">5.2 Densidad de Corriente y Ley de Ohm</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cuantitativo">Análisis cuantitativo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-grafica">Representación gráfica</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By José Miguel Pinto
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
