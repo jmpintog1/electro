@@ -32,6 +32,7 @@ parts:
       - file: 03_02_calculo
       - file: 03_03_energia
       - file: 03_04_oscilatorio
+      - file: 03_05_tierra
 
   - caption: 4 Capacitancia y Dieléctricos
     chapters:
@@ -46,3 +47,4 @@ parts:
     chapters:
       - file: 05_01_corriente
       - file: 05_02_densidad
+      - file: 05_03_joule

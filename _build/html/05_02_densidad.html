@@ -67,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '05_02_densidad';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5.3 Efecto Joule" href="05_03_joule.html" />
     <link rel="prev" title="5.1 Corriente Eléctrica" href="05_01_corriente.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -196,6 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_04_oscilatorio.html">3.4 Movimiento Oscilatorio de un Electrón</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_05_tierra.html">3.5 Conductores Conectados a Tierra</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4 Capacitancia y Dieléctricos</span></p>
 <ul class="nav bd-sidenav">
@@ -210,6 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="05_01_corriente.html">5.1 Corriente Eléctrica</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">5.2 Densidad de Corriente y Ley de Ohm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
 </ul>
 
     </div>
@@ -468,6 +471,416 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\vec{J} = \sigma \vec{E} \quad \text{o bien} \quad \vec{J} = \frac{1}{\rho}\vec{E}\]</div>
 <p>Donde <span class="math notranslate nohighlight">\(\sigma\)</span> es la conductividad del material y <span class="math notranslate nohighlight">\(\rho\)</span> es su resistividad (<span class="math notranslate nohighlight">\(\rho = 1/\sigma\)</span>).</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">simulacion_ohm_mic_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;div style=&quot;border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif;&quot;&gt;</span>
+<span class="s2">    &lt;h3 style=&quot;margin-top:0; color: #2c3e50;&quot;&gt;Ley de Ohm Microscópica&lt;/h3&gt;</span>
+<span class="s2">    &lt;p style=&quot;font-size: 0.95em; color: #555; margin-bottom: 15px;&quot;&gt;Observa un conductor con un estrechamiento central. En estado estacionario, la corriente total (I) es la misma en todas las secciones, pero el área transversal cambia.&lt;/p&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;&quot;&gt;</span>
+<span class="s2">        &lt;div style=&quot;flex: 1.5; min-width: 300px;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 200px;&quot;&gt;Corriente Total (I): &lt;span id=&quot;ohm_val_I&quot; style=&quot;font-weight: normal;&quot;&gt;50&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;ohm_slider_I&quot; min=&quot;10&quot; max=&quot;100&quot; step=&quot;5&quot; value=&quot;50&quot; style=&quot;width: 35%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 200px;&quot;&gt;Conductividad (σ): &lt;span id=&quot;ohm_val_Sigma&quot; style=&quot;font-weight: normal;&quot;&gt;Alta&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;ohm_slider_Sigma&quot; min=&quot;1&quot; max=&quot;5&quot; step=&quot;1&quot; value=&quot;4&quot; style=&quot;width: 35%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 200px;&quot;&gt;Estrechamiento (Grosor): &lt;span id=&quot;ohm_val_A2&quot; style=&quot;font-weight: normal;&quot;&gt;50%&lt;/span&gt;&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;ohm_slider_A2&quot; min=&quot;20&quot; max=&quot;100&quot; step=&quot;10&quot; value=&quot;50&quot; style=&quot;width: 35%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 250px; font-size: 0.9em; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;u&gt;Zona Ancha (1)&lt;/u&gt; vs &lt;u&gt;Zona Estrecha (2)&lt;/u&gt;&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Densidad (J):&lt;/b&gt; &lt;span id=&quot;ohm_val_J1&quot; style=&quot;color: #0d6efd;&quot;&gt;1.0&lt;/span&gt; | &lt;span id=&quot;ohm_val_J2&quot; style=&quot;color: #dc3545;&quot;&gt;2.0&lt;/span&gt; au&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 5px;&quot;&gt;&lt;b&gt;Campo (E):&lt;/b&gt; &lt;span id=&quot;ohm_val_E1&quot; style=&quot;color: #0d6efd;&quot;&gt;0.25&lt;/span&gt; | &lt;span id=&quot;ohm_val_E2&quot; style=&quot;color: #dc3545;&quot;&gt;0.50&lt;/span&gt; au&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;font-size: 0.8em; color: #777; margin-top: 5px;&quot;&gt;* J = I / A &lt;br&gt;* E = J / σ (Ley de Ohm Microscópica)&lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;text-align: center; position: relative;&quot;&gt;</span>
+<span class="s2">        &lt;canvas id=&quot;ohm_canvas&quot; width=&quot;600&quot; height=&quot;250&quot; style=&quot;background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;&quot;&gt;&lt;/canvas&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    setTimeout(function() {</span>
+<span class="s2">        const canvas = document.getElementById(&#39;ohm_canvas&#39;);</span>
+<span class="s2">        if (!canvas) return;</span>
+<span class="s2">        const ctx = canvas.getContext(&#39;2d&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const slider_I = document.getElementById(&#39;ohm_slider_I&#39;);</span>
+<span class="s2">        const slider_Sigma = document.getElementById(&#39;ohm_slider_Sigma&#39;);</span>
+<span class="s2">        const slider_A2 = document.getElementById(&#39;ohm_slider_A2&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        // Elementos UI</span>
+<span class="s2">        const val_I = document.getElementById(&#39;ohm_val_I&#39;);</span>
+<span class="s2">        const val_Sigma = document.getElementById(&#39;ohm_val_Sigma&#39;);</span>
+<span class="s2">        const val_A2 = document.getElementById(&#39;ohm_val_A2&#39;);</span>
+<span class="s2">        const val_J1 = document.getElementById(&#39;ohm_val_J1&#39;);</span>
+<span class="s2">        const val_J2 = document.getElementById(&#39;ohm_val_J2&#39;);</span>
+<span class="s2">        const val_E1 = document.getElementById(&#39;ohm_val_E1&#39;);</span>
+<span class="s2">        const val_E2 = document.getElementById(&#39;ohm_val_E2&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        let electrons = [];</span>
+<span class="s2">        const num_electrons = 200;</span>
+<span class="s2">        </span>
+<span class="s2">        function initElectrons() {</span>
+<span class="s2">            electrons = [];</span>
+<span class="s2">            for(let i=0; i&lt;num_electrons; i++) {</span>
+<span class="s2">                electrons.push({</span>
+<span class="s2">                    x: Math.random() * canvas.width,</span>
+<span class="s2">                    y: Math.random() // Posición relativa en Y (0 a 1) para escalar con el tubo</span>
+<span class="s2">                });</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function drawArrow(x, y, length, color, label) {</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.moveTo(x, y);</span>
+<span class="s2">            ctx.lineTo(x + length, y);</span>
+<span class="s2">            ctx.strokeStyle = color;</span>
+<span class="s2">            ctx.lineWidth = 2;</span>
+<span class="s2">            ctx.stroke();</span>
+<span class="s2">            </span>
+<span class="s2">            // Punta de flecha</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.moveTo(x + length, y);</span>
+<span class="s2">            ctx.lineTo(x + length - 6, y - 4);</span>
+<span class="s2">            ctx.lineTo(x + length - 6, y + 4);</span>
+<span class="s2">            ctx.fillStyle = color;</span>
+<span class="s2">            ctx.fill();</span>
+<span class="s2">            </span>
+<span class="s2">            if(label) {</span>
+<span class="s2">                ctx.fillStyle = color;</span>
+<span class="s2">                ctx.font = &quot;bold 12px Arial&quot;;</span>
+<span class="s2">                ctx.fillText(label, x + length/2 - 5, y - 8);</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function animate() {</span>
+<span class="s2">            ctx.clearRect(0, 0, canvas.width, canvas.height);</span>
+<span class="s2">            </span>
+<span class="s2">            let I = parseFloat(slider_I.value);</span>
+<span class="s2">            let sigma = parseFloat(slider_Sigma.value);</span>
+<span class="s2">            let A2_percent = parseFloat(slider_A2.value) / 100;</span>
+<span class="s2">            </span>
+<span class="s2">            val_I.innerText = I;</span>
+<span class="s2">            val_A2.innerText = slider_A2.value + &quot;%&quot;;</span>
+<span class="s2">            let sigma_labels = [&quot;Muy Baja&quot;, &quot;Baja&quot;, &quot;Media&quot;, &quot;Alta&quot;, &quot;Muy Alta&quot;];</span>
+<span class="s2">            val_Sigma.innerText = sigma_labels[sigma - 1];</span>
+<span class="s2">            </span>
+<span class="s2">            // Geometría del conductor</span>
+<span class="s2">            let H1 = 160; // Altura zona ancha</span>
+<span class="s2">            let H2 = H1 * A2_percent; // Altura zona estrecha</span>
+<span class="s2">            let cy = canvas.height / 2;</span>
+<span class="s2">            </span>
+<span class="s2">            let x_start = 150;</span>
+<span class="s2">            let x_end = 450;</span>
+<span class="s2">            let transition = 40;</span>
+<span class="s2">            </span>
+<span class="s2">            // Dibujar Conductor (Fondo)</span>
+<span class="s2">            ctx.fillStyle = &quot;#e9ecef&quot;;</span>
+<span class="s2">            ctx.beginPath();</span>
+<span class="s2">            ctx.moveTo(0, cy - H1/2);</span>
+<span class="s2">            ctx.lineTo(x_start, cy - H1/2);</span>
+<span class="s2">            ctx.lineTo(x_start + transition, cy - H2/2);</span>
+<span class="s2">            ctx.lineTo(x_end - transition, cy - H2/2);</span>
+<span class="s2">            ctx.lineTo(x_end, cy - H1/2);</span>
+<span class="s2">            ctx.lineTo(canvas.width, cy - H1/2);</span>
+<span class="s2">            </span>
+<span class="s2">            ctx.lineTo(canvas.width, cy + H1/2);</span>
+<span class="s2">            ctx.lineTo(x_end, cy + H1/2);</span>
+<span class="s2">            ctx.lineTo(x_end - transition, cy + H2/2);</span>
+<span class="s2">            ctx.lineTo(x_start + transition, cy + H2/2);</span>
+<span class="s2">            ctx.lineTo(x_start, cy + H1/2);</span>
+<span class="s2">            ctx.lineTo(0, cy + H1/2);</span>
+<span class="s2">            ctx.closePath();</span>
+<span class="s2">            ctx.fill();</span>
+<span class="s2">            ctx.strokeStyle = &quot;#adb5bd&quot;;</span>
+<span class="s2">            ctx.lineWidth = 2;</span>
+<span class="s2">            ctx.stroke();</span>
+
+<span class="s2">            // Cálculos Físicos</span>
+<span class="s2">            let J1 = I / H1;</span>
+<span class="s2">            let J2 = I / H2;</span>
+<span class="s2">            let E1 = J1 / sigma;</span>
+<span class="s2">            let E2 = J2 / sigma;</span>
+<span class="s2">            </span>
+<span class="s2">            val_J1.innerText = (J1 * 10).toFixed(2);</span>
+<span class="s2">            val_J2.innerText = (J2 * 10).toFixed(2);</span>
+<span class="s2">            val_E1.innerText = (E1 * 100).toFixed(2);</span>
+<span class="s2">            val_E2.innerText = (E2 * 100).toFixed(2);</span>
+
+<span class="s2">            // Mover y dibujar electrones</span>
+<span class="s2">            ctx.fillStyle = &quot;#0d6efd&quot;;</span>
+<span class="s2">            electrons.forEach(e =&gt; {</span>
+<span class="s2">                let current_H = H1;</span>
+<span class="s2">                let current_J = J1;</span>
+<span class="s2">                </span>
+<span class="s2">                // Determinar en qué zona está la partícula</span>
+<span class="s2">                if (e.x &gt; x_start + transition &amp;&amp; e.x &lt; x_end - transition) {</span>
+<span class="s2">                    current_H = H2;</span>
+<span class="s2">                    current_J = J2;</span>
+<span class="s2">                } else if (e.x &gt;= x_start &amp;&amp; e.x &lt;= x_start + transition) {</span>
+<span class="s2">                    // Interpolación lineal simple para la transición</span>
+<span class="s2">                    let ratio = (e.x - x_start) / transition;</span>
+<span class="s2">                    current_H = H1 - (H1 - H2) * ratio;</span>
+<span class="s2">                    current_J = I / current_H;</span>
+<span class="s2">                } else if (e.x &gt;= x_end - transition &amp;&amp; e.x &lt;= x_end) {</span>
+<span class="s2">                    let ratio = (e.x - (x_end - transition)) / transition;</span>
+<span class="s2">                    current_H = H2 + (H1 - H2) * ratio;</span>
+<span class="s2">                    current_J = I / current_H;</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                // La velocidad de deriva es proporcional a J</span>
+<span class="s2">                let vd = current_J * 2; </span>
+<span class="s2">                e.x += vd;</span>
+<span class="s2">                </span>
+<span class="s2">                if (e.x &gt; canvas.width) e.x = 0;</span>
+<span class="s2">                </span>
+<span class="s2">                // Calcular la posición Y real basada en la altura actual del tubo</span>
+<span class="s2">                let real_y = cy - (current_H/2) + (e.y * current_H);</span>
+<span class="s2">                </span>
+<span class="s2">                ctx.beginPath();</span>
+<span class="s2">                ctx.arc(e.x, real_y, 2.5, 0, Math.PI * 2);</span>
+<span class="s2">                ctx.fill();</span>
+<span class="s2">            });</span>
+<span class="s2">            </span>
+<span class="s2">            // Dibujar vectores macroscópicos representativos</span>
+<span class="s2">            drawArrow(50, cy - 30, J1 * 50, &quot;#0d6efd&quot;, &quot;J&quot;);</span>
+<span class="s2">            drawArrow(50, cy + 30, E1 * 500, &quot;#dc3545&quot;, &quot;E&quot;);</span>
+<span class="s2">            </span>
+<span class="s2">            drawArrow(300, cy - 15, J2 * 50, &quot;#0d6efd&quot;, &quot;J&quot;);</span>
+<span class="s2">            drawArrow(300, cy + 15, E2 * 500, &quot;#dc3545&quot;, &quot;E&quot;);</span>
+<span class="s2">            </span>
+<span class="s2">            requestAnimationFrame(animate);</span>
+<span class="s2">        }</span>
+
+<span class="s2">        slider_I.addEventListener(&#39;input&#39;, () =&gt; </span><span class="si">{}</span><span class="s2">);</span>
+<span class="s2">        slider_Sigma.addEventListener(&#39;input&#39;, () =&gt; </span><span class="si">{}</span><span class="s2">);</span>
+<span class="s2">        slider_A2.addEventListener(&#39;input&#39;, () =&gt; </span><span class="si">{}</span><span class="s2">);</span>
+
+<span class="s2">        initElectrons();</span>
+<span class="s2">        animate();</span>
+<span class="s2">    }, 150);</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">simulacion_ohm_mic_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+    <h3 style="margin-top:0; color: #2c3e50;">Ley de Ohm Microscópica</h3>
+    <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">Observa un conductor con un estrechamiento central. En estado estacionario, la corriente total (I) es la misma en todas las secciones, pero el área transversal cambia.</p>
+    
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;">
+        <div style="flex: 1.5; min-width: 300px;">
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 200px;">Corriente Total (I): <span id="ohm_val_I" style="font-weight: normal;">50</span></label>
+                <input type="range" id="ohm_slider_I" min="10" max="100" step="5" value="50" style="width: 35%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 200px;">Conductividad (σ): <span id="ohm_val_Sigma" style="font-weight: normal;">Alta</span></label>
+                <input type="range" id="ohm_slider_Sigma" min="1" max="5" step="1" value="4" style="width: 35%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 200px;">Estrechamiento (Grosor): <span id="ohm_val_A2" style="font-weight: normal;">50%</span></label>
+                <input type="range" id="ohm_slider_A2" min="20" max="100" step="10" value="50" style="width: 35%; vertical-align: middle;">
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 250px; font-size: 0.9em; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
+            <div style="margin-bottom: 5px;"><u>Zona Ancha (1)</u> vs <u>Zona Estrecha (2)</u></div>
+            <div style="margin-bottom: 5px;"><b>Densidad (J):</b> <span id="ohm_val_J1" style="color: #0d6efd;">1.0</span> | <span id="ohm_val_J2" style="color: #dc3545;">2.0</span> au</div>
+            <div style="margin-bottom: 5px;"><b>Campo (E):</b> <span id="ohm_val_E1" style="color: #0d6efd;">0.25</span> | <span id="ohm_val_E2" style="color: #dc3545;">0.50</span> au</div>
+            <div style="font-size: 0.8em; color: #777; margin-top: 5px;">* J = I / A <br>* E = J / σ (Ley de Ohm Microscópica)</div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; position: relative;">
+        <canvas id="ohm_canvas" width="600" height="250" style="background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+    </div>
+</div>
+
+<script>
+    setTimeout(function() {
+        const canvas = document.getElementById('ohm_canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        
+        const slider_I = document.getElementById('ohm_slider_I');
+        const slider_Sigma = document.getElementById('ohm_slider_Sigma');
+        const slider_A2 = document.getElementById('ohm_slider_A2');
+        
+        // Elementos UI
+        const val_I = document.getElementById('ohm_val_I');
+        const val_Sigma = document.getElementById('ohm_val_Sigma');
+        const val_A2 = document.getElementById('ohm_val_A2');
+        const val_J1 = document.getElementById('ohm_val_J1');
+        const val_J2 = document.getElementById('ohm_val_J2');
+        const val_E1 = document.getElementById('ohm_val_E1');
+        const val_E2 = document.getElementById('ohm_val_E2');
+        
+        let electrons = [];
+        const num_electrons = 200;
+        
+        function initElectrons() {
+            electrons = [];
+            for(let i=0; i<num_electrons; i++) {
+                electrons.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() // Posición relativa en Y (0 a 1) para escalar con el tubo
+                });
+            }
+        }
+
+        function drawArrow(x, y, length, color, label) {
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + length, y);
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            
+            // Punta de flecha
+            ctx.beginPath();
+            ctx.moveTo(x + length, y);
+            ctx.lineTo(x + length - 6, y - 4);
+            ctx.lineTo(x + length - 6, y + 4);
+            ctx.fillStyle = color;
+            ctx.fill();
+            
+            if(label) {
+                ctx.fillStyle = color;
+                ctx.font = "bold 12px Arial";
+                ctx.fillText(label, x + length/2 - 5, y - 8);
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            let I = parseFloat(slider_I.value);
+            let sigma = parseFloat(slider_Sigma.value);
+            let A2_percent = parseFloat(slider_A2.value) / 100;
+            
+            val_I.innerText = I;
+            val_A2.innerText = slider_A2.value + "%";
+            let sigma_labels = ["Muy Baja", "Baja", "Media", "Alta", "Muy Alta"];
+            val_Sigma.innerText = sigma_labels[sigma - 1];
+            
+            // Geometría del conductor
+            let H1 = 160; // Altura zona ancha
+            let H2 = H1 * A2_percent; // Altura zona estrecha
+            let cy = canvas.height / 2;
+            
+            let x_start = 150;
+            let x_end = 450;
+            let transition = 40;
+            
+            // Dibujar Conductor (Fondo)
+            ctx.fillStyle = "#e9ecef";
+            ctx.beginPath();
+            ctx.moveTo(0, cy - H1/2);
+            ctx.lineTo(x_start, cy - H1/2);
+            ctx.lineTo(x_start + transition, cy - H2/2);
+            ctx.lineTo(x_end - transition, cy - H2/2);
+            ctx.lineTo(x_end, cy - H1/2);
+            ctx.lineTo(canvas.width, cy - H1/2);
+            
+            ctx.lineTo(canvas.width, cy + H1/2);
+            ctx.lineTo(x_end, cy + H1/2);
+            ctx.lineTo(x_end - transition, cy + H2/2);
+            ctx.lineTo(x_start + transition, cy + H2/2);
+            ctx.lineTo(x_start, cy + H1/2);
+            ctx.lineTo(0, cy + H1/2);
+            ctx.closePath();
+            ctx.fill();
+            ctx.strokeStyle = "#adb5bd";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Cálculos Físicos
+            let J1 = I / H1;
+            let J2 = I / H2;
+            let E1 = J1 / sigma;
+            let E2 = J2 / sigma;
+            
+            val_J1.innerText = (J1 * 10).toFixed(2);
+            val_J2.innerText = (J2 * 10).toFixed(2);
+            val_E1.innerText = (E1 * 100).toFixed(2);
+            val_E2.innerText = (E2 * 100).toFixed(2);
+
+            // Mover y dibujar electrones
+            ctx.fillStyle = "#0d6efd";
+            electrons.forEach(e => {
+                let current_H = H1;
+                let current_J = J1;
+                
+                // Determinar en qué zona está la partícula
+                if (e.x > x_start + transition && e.x < x_end - transition) {
+                    current_H = H2;
+                    current_J = J2;
+                } else if (e.x >= x_start && e.x <= x_start + transition) {
+                    // Interpolación lineal simple para la transición
+                    let ratio = (e.x - x_start) / transition;
+                    current_H = H1 - (H1 - H2) * ratio;
+                    current_J = I / current_H;
+                } else if (e.x >= x_end - transition && e.x <= x_end) {
+                    let ratio = (e.x - (x_end - transition)) / transition;
+                    current_H = H2 + (H1 - H2) * ratio;
+                    current_J = I / current_H;
+                }
+                
+                // La velocidad de deriva es proporcional a J
+                let vd = current_J * 2; 
+                e.x += vd;
+                
+                if (e.x > canvas.width) e.x = 0;
+                
+                // Calcular la posición Y real basada en la altura actual del tubo
+                let real_y = cy - (current_H/2) + (e.y * current_H);
+                
+                ctx.beginPath();
+                ctx.arc(e.x, real_y, 2.5, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Dibujar vectores macroscópicos representativos
+            drawArrow(50, cy - 30, J1 * 50, "#0d6efd", "J");
+            drawArrow(50, cy + 30, E1 * 500, "#dc3545", "E");
+            
+            drawArrow(300, cy - 15, J2 * 50, "#0d6efd", "J");
+            drawArrow(300, cy + 15, E2 * 500, "#dc3545", "E");
+            
+            requestAnimationFrame(animate);
+        }
+
+        slider_I.addEventListener('input', () => {});
+        slider_Sigma.addEventListener('input', () => {});
+        slider_A2.addEventListener('input', () => {});
+
+        initElectrons();
+        animate();
+    }, 150);
+</script>
+</div></div>
+</div>
 </section>
 <section id="ley-de-ohm-macroscopica">
 <h2>Ley de Ohm macroscópica<a class="headerlink" href="#ley-de-ohm-macroscopica" title="Permalink to this heading">#</a></h2>
@@ -555,6 +968,15 @@ Si fluye una corriente <span class="math notranslate nohighlight">\(I\)</span> c
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">5.1 Corriente Eléctrica</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="05_03_joule.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">5.3 Efecto Joule</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
