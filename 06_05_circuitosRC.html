@@ -7,7 +7,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Search - Curso de Electricidad y Magnetismo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Circuitos RC: Comportamiento Transitorio &#8212; Curso de Electricidad y Magnetismo</title>
   
   
   
@@ -60,12 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'search';</script>
-  <script src="_static/searchtools.js"></script>
-  <script src="_static/language_data.js"></script>
-  <script src="searchindex.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06_05_circuitosRC';</script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
+    <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -102,7 +103,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="#"
+      action="search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -267,6 +268,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmpintog1/electro/blob/main/./06_05_circuitosRC.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -292,7 +324,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2Fsearch.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2F06_05_circuitosRC.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -304,6 +336,54 @@ const thebe_selector_output = ".output, .cell_output"
   </span>
 <span class="btn__text-container">Open issue</span>
 </a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/06_05_circuitosRC.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
 </li>
       
   </ul>
@@ -345,7 +425,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -354,42 +436,113 @@ document.write(`
 </div>
               
               
-  <div class="bd-search-container">
-    <h1>Search</h1>
-    <noscript>
-      <div class="admonition error">
-        <p class="admonition-title">Error</p>
-        <p>Please activate JavaScript to enable the search functionality.</p>
-      </div>
-    </noscript>
-    
-<form class="bd-search d-flex align-items-center"
-      action="#"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-    <div id="search-results"></div>
-  </div>
-  <script>
-    // Activate the search field on page load
-    let searchInput = document.querySelector("form.bd-search input");
-    if (searchInput) {
-        searchInput.focus();
-        searchInput.select();
-        console.log("[PST]: Set focus on search field.");
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Circuitos RC: Comportamiento Transitorio</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-un-condensador">1. Carga de un Condensador</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion-de-la-ecuacion">Solución de la Ecuación</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descarga-de-un-condensador">2. Descarga de un Condensador</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-en-tiempos-limite">3. Análisis en Tiempos Límite</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-aplicacion">Ejemplo de Aplicación</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="circuitos-rc-comportamiento-transitorio">
+<h1>Circuitos RC: Comportamiento Transitorio<a class="headerlink" href="#circuitos-rc-comportamiento-transitorio" title="Permalink to this heading">#</a></h1>
+<p>Los circuitos RC (Resistencia-Condensador) se caracterizan porque la corriente y la carga dependen del tiempo. Este comportamiento es fundamental para entender desde temporizadores hasta el filtrado de señales.</p>
+<section id="carga-de-un-condensador">
+<h2>1. Carga de un Condensador<a class="headerlink" href="#carga-de-un-condensador" title="Permalink to this heading">#</a></h2>
+<p>Consideremos un circuito con una fuente <span class="math notranslate nohighlight">\(V_0\)</span>, una resistencia <span class="math notranslate nohighlight">\(R\)</span> y un condensador <span class="math notranslate nohighlight">\(C\)</span> inicialmente descargado. Al cerrar el interruptor en <span class="math notranslate nohighlight">\(t=0\)</span>, el condensador comienza a acumular carga.</p>
+<p>La ecuación de malla para este circuito es:</p>
+<div class="math notranslate nohighlight">
+\[V_0 - IR - \frac{q}{C} = 0\]</div>
+<p>Como <span class="math notranslate nohighlight">\(I = \frac{dq}{dt}\)</span>, obtenemos la siguiente ecuación diferencial:</p>
+<div class="math notranslate nohighlight">
+\[V_0 = R\frac{dq}{dt} + \frac{q}{C}\]</div>
+<section id="solucion-de-la-ecuacion">
+<h3>Solución de la Ecuación<a class="headerlink" href="#solucion-de-la-ecuacion" title="Permalink to this heading">#</a></h3>
+<p>Resolviendo mediante integración, la carga en función del tiempo es:</p>
+<div class="math notranslate nohighlight">
+\[q(t) = V_0 C (1 - e^{-t/RC})\]</div>
+<p>Donde definimos la <strong>constante de tiempo</strong> <span class="math notranslate nohighlight">\(\tau = RC\)</span>. Esta constante representa el tiempo necesario para que el condensador alcance aproximadamente el 63.2% de su carga máxima (<span class="math notranslate nohighlight">\(Q_0 = V_0 C\)</span>).</p>
+<p>La corriente en el circuito disminuye exponencialmente:</p>
+<div class="math notranslate nohighlight">
+\[I(t) = \frac{dq}{dt} = \frac{V_0}{R} e^{-t/RC}\]</div>
+</section>
+</section>
+<section id="descarga-de-un-condensador">
+<h2>2. Descarga de un Condensador<a class="headerlink" href="#descarga-de-un-condensador" title="Permalink to this heading">#</a></h2>
+<p>Si un condensador con carga inicial <span class="math notranslate nohighlight">\(Q\)</span> se desconecta de la fuente y se cierra sobre una resistencia <span class="math notranslate nohighlight">\(R\)</span>, la energía almacenada se disipa en forma de calor.</p>
+<p>La ecuación del circuito es:</p>
+<div class="math notranslate nohighlight">
+\[IR + \frac{q}{C} = 0 \implies R\frac{dq}{dt} + \frac{q}{C} = 0\]</div>
+<p>La solución para la carga y la corriente durante la descarga es:</p>
+<ul class="simple">
+<li><p><strong>Carga:</strong> <span class="math notranslate nohighlight">\(q(t) = Q e^{-t/RC}\)</span></p></li>
+<li><p><strong>Corriente:</strong> <span class="math notranslate nohighlight">\(I(t) = -\frac{V_0}{R} e^{-t/RC}\)</span> (El signo negativo indica que la corriente fluye en sentido opuesto a la carga).</p></li>
+</ul>
+</section>
+<section id="analisis-en-tiempos-limite">
+<h2>3. Análisis en Tiempos Límite<a class="headerlink" href="#analisis-en-tiempos-limite" title="Permalink to this heading">#</a></h2>
+<p>Para circuitos complejos, es útil analizar el comportamiento en los extremos temporales:</p>
+<ul class="simple">
+<li><p><strong>En <span class="math notranslate nohighlight">\(t = 0\)</span> (Instante inicial):</strong> Un condensador descargado se comporta como un <strong>alambre</strong> (cortocircuito), permitiendo el flujo máximo de corriente.</p></li>
+<li><p><strong>En <span class="math notranslate nohighlight">\(t \to \infty\)</span> (Estado estacionario):</strong> El condensador se comporta como un <strong>circuito abierto</strong>, interrumpiendo la corriente en su rama una vez que está totalmente cargado.</p></li>
+</ul>
+<section id="ejemplo-de-aplicacion">
+<h3>Ejemplo de Aplicación<a class="headerlink" href="#ejemplo-de-aplicacion" title="Permalink to this heading">#</a></h3>
+<p>En un circuito donde el condensador está en paralelo con otras resistencias, la constante de tiempo equivalente puede variar. Por ejemplo, para el circuito analizado en clase con una resistencia <span class="math notranslate nohighlight">\(R\)</span> en serie y una combinación paralelo, se determinó que:</p>
+<div class="math notranslate nohighlight">
+\[\tau_{eq} = \frac{2}{3}RC\]</div>
+<div class="math notranslate nohighlight">
+\[q_{max} = \frac{2}{3}CV_0\]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
     }
-  </script>
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
 
               
               
@@ -404,6 +557,28 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-un-condensador">1. Carga de un Condensador</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion-de-la-ecuacion">Solución de la Ecuación</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descarga-de-un-condensador">2. Descarga de un Condensador</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-en-tiempos-limite">3. Análisis en Tiempos Límite</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-aplicacion">Ejemplo de Aplicación</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
