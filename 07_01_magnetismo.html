@@ -496,8 +496,9 @@ document.write(`
 <p>Cuando una carga ingresa a una zona con un campo magnético constante, la fuerza magnética perpendicular desvía su trayectoria, iniciando un movimiento circular. La fuerza de Lorentz actúa como fuerza centrípeta, por lo que se cumple:</p>
 <div class="math notranslate nohighlight">
 \[F_{\text{L}} = qvB = ma_{c} = \frac{mv^{2}}{R}\]</div>
-<p>A partir de esto, podemos determinar que el radio <span class="math notranslate nohighlight">\(R\)</span> de la trayectoria es:
-$<span class="math notranslate nohighlight">\(R = \frac{mv}{qB}\)</span>$</p>
+<p>A partir de esto, podemos determinar que el radio <span class="math notranslate nohighlight">\(R\)</span> de la trayectoria es:</p>
+<div class="math notranslate nohighlight">
+\[R = \frac{mv}{qB}\]</div>
 <p>Dado que la velocidad angular está relacionada por <span class="math notranslate nohighlight">\(\omega = \frac{v}{R}\)</span>, el periodo orbital <span class="math notranslate nohighlight">\(T\)</span> de la carga está dado por:</p>
 <div class="math notranslate nohighlight">
 \[T = \frac{2\pi m}{qB}\]</div>
@@ -752,58 +753,58 @@ $<span class="math notranslate nohighlight">\(R = \frac{mv}{qB}\)</span>$</p>
         <div style="flex: 1.5; min-width: 300px;">
             <div style="margin-bottom: 10px;">
                 <label style="font-weight: 600; display: inline-block; width: 140px;">Carga (q):</label>
-                <select id="charge_53094" style="padding: 4px; width: 45%;">
+                <select id="charge_60022" style="padding: 4px; width: 45%;">
                     <option value="1">Positiva (+)</option>
                     <option value="-1">Negativa (-)</option>
                     <option value="0">Neutra (0)</option>
                 </select>
             </div>
             <div style="margin-bottom: 8px;">
-                <label style="font-weight: 600; display: inline-block; width: 140px;">Campo (B): <span id="valB_53094" style="font-weight: normal;">2.0</span></label>
-                <input type="range" id="B_53094" min="-5" max="5" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
+                <label style="font-weight: 600; display: inline-block; width: 140px;">Campo (B): <span id="valB_60022" style="font-weight: normal;">2.0</span></label>
+                <input type="range" id="B_60022" min="-5" max="5" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
             </div>
             <div style="margin-bottom: 8px;">
-                <label style="font-weight: 600; display: inline-block; width: 140px;">Masa (m): <span id="valM_53094" style="font-weight: normal;">2.0</span></label>
-                <input type="range" id="M_53094" min="1" max="10" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
+                <label style="font-weight: 600; display: inline-block; width: 140px;">Masa (m): <span id="valM_60022" style="font-weight: normal;">2.0</span></label>
+                <input type="range" id="M_60022" min="1" max="10" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
             </div>
             <div style="margin-bottom: 8px;">
-                <label style="font-weight: 600; display: inline-block; width: 140px;">Velocidad (v₀): <span id="valV_53094" style="font-weight: normal;">3.0</span></label>
-                <input type="range" id="V_53094" min="1" max="6" step="0.5" value="3.0" style="width: 45%; vertical-align: middle;">
+                <label style="font-weight: 600; display: inline-block; width: 140px;">Velocidad (v₀): <span id="valV_60022" style="font-weight: normal;">3.0</span></label>
+                <input type="range" id="V_60022" min="1" max="6" step="0.5" value="3.0" style="width: 45%; vertical-align: middle;">
             </div>
         </div>
 
         <div style="flex: 1; min-width: 220px; display: flex; flex-direction: column; justify-content: center; gap: 10px;">
-            <button id="launch_53094" style="background-color: #f73bc5; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;">🚀 Lanzar Partícula</button>
-            <button id="clear_53094" style="background-color: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">Limpiar Trayectorias</button>
+            <button id="launch_60022" style="background-color: #f73bc5; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;">🚀 Lanzar Partícula</button>
+            <button id="clear_60022" style="background-color: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">Limpiar Trayectorias</button>
         </div>
     </div>
     
     <div style="text-align: center; position: relative; overflow: hidden;">
-        <canvas id="canvas_53094" width="800" height="500" style="background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+        <canvas id="canvas_60022" width="800" height="500" style="background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
     </div>
 </div>
 
 <script>
     (function() {
         function initSimulation() {
-            const canvas = document.getElementById('canvas_53094');
+            const canvas = document.getElementById('canvas_60022');
             if (!canvas) {
                 setTimeout(initSimulation, 50); 
                 return;
             }
             
             const ctx = canvas.getContext('2d');
-            const in_charge = document.getElementById('charge_53094');
-            const in_B = document.getElementById('B_53094');
-            const in_M = document.getElementById('M_53094');
-            const in_V = document.getElementById('V_53094');
+            const in_charge = document.getElementById('charge_60022');
+            const in_B = document.getElementById('B_60022');
+            const in_M = document.getElementById('M_60022');
+            const in_V = document.getElementById('V_60022');
             
-            const val_B = document.getElementById('valB_53094');
-            const val_M = document.getElementById('valM_53094');
-            const val_V = document.getElementById('valV_53094');
+            const val_B = document.getElementById('valB_60022');
+            const val_M = document.getElementById('valM_60022');
+            const val_V = document.getElementById('valV_60022');
             
-            const btn_launch = document.getElementById('launch_53094');
-            const btn_clear = document.getElementById('clear_53094');
+            const btn_launch = document.getElementById('launch_60022');
+            const btn_clear = document.getElementById('clear_60022');
             
             let particles = [];
             let deadPaths = []; 
