@@ -48,3 +48,17 @@ parts:
       - file: 05_01_corriente
       - file: 05_02_densidad
       - file: 05_03_joule
+      
+  - caption: 6 Circuitos de Corriente Directa
+    chapters:
+      - file: 06_01_circuitos
+
+- caption: 7 Campo Magnético y Fuerzas Magnéticas
+    chapters:
+      - file: 07_01_magnetismo
+
+#  - caption: 8 Fuentes de Campo Magnético
+#  - caption: 9 Inducción Electromagnética
+#  - caption: 10 Inductancia
+#  - caption: 11 Corriente Alterna
+#  - caption: 12 Ondas Electromagnéticas
