@@ -53,7 +53,7 @@ parts:
     chapters:
       - file: 06_01_circuitos
 
-- caption: 7 Campo Magnético y Fuerzas Magnéticas
+  - caption: 7 Campo Magnético y Fuerzas Magnéticas
     chapters:
       - file: 07_01_magnetismo
 
