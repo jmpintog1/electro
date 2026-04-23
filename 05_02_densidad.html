@@ -214,6 +214,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">5.2 Densidad de Corriente y Ley de Ohm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6 Circuitos de Corriente Directa</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07_01_magnetismo.html">7.1 Magnetismo</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -443,6 +454,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-ohm-macroscopica">Ley de Ohm macroscópica</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencia-de-la-temperatura">Dependencia de la temperatura</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-esferas-conductoras-concentricas">Ejemplo: Esferas conductoras concéntricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
             </nav>
         </div>
@@ -928,6 +940,442 @@ Si fluye una corriente <span class="math notranslate nohighlight">\(I\)</span> c
 <div class="math notranslate nohighlight">
 \[R = \frac{\rho}{4\pi} \left( \frac{R_2 - R_1}{R_1 R_2} \right)\]</div>
 </section>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_densidad_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    if (typeof window.checkFisiQuiz === &#39;undefined&#39;) {</span>
+<span class="s2">        window.checkFisiQuiz = function(radioName, feedbackId) {</span>
+<span class="s2">            var radios = document.getElementsByName(radioName);</span>
+<span class="s2">            var selected = null;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">            </span>
+<span class="s2">            for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                if (radios[i].checked) {</span>
+<span class="s2">                    selected = radios[i];</span>
+<span class="s2">                    break;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            if (!selected) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">            var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            if (isCorrect) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            }</span>
+<span class="s2">        };</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/script&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Teniendo en cuenta la simulación y la teoría sobre un conductor con un estrechamiento (donde el área transversal A disminuye a la mitad), ¿qué ocurre de forma simultánea con la corriente total (I) y la densidad de corriente (J) al pasar por la zona estrecha en estado estacionario?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Si la corriente se redujera a la mitad, se acumularían cargas en el embudo, rompiendo el estado estacionario.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Ambas, la corriente total y la densidad de corriente, se reducen a la mitad como consecuencia geométrica.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Por conservación de la carga en estado estacionario, los mismos electrones que entran deben salir; por lo tanto, la corriente I se mantiene constante en todo el circuito. Sin embargo, al pasar la misma corriente por la mitad del área, la densidad de corriente J = I/A inevitablemente se duplica, aumentando localmente el campo eléctrico y la velocidad de deriva.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La corriente total I se mantiene constante en todo el conductor, pero la densidad de corriente J se duplica en la zona estrecha.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. La corriente no se crea; lo que entra por un lado debe salir por el otro, por lo que la corriente no se duplica.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La corriente total I se duplica en la zona del estrechamiento, mientras que la densidad de corriente J permanece inalterada.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden1&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Si divides la misma corriente entre un área más pequeña, el resultado (la densidad) es mayor, no menor.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La densidad de corriente J se reduce a la mitad para compensar la falta de espacio y así mantener estable la corriente total I.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qden1&#39;, &#39;feedback-den1&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-den1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. La Ley de Ohm microscópica se expresa vectorialmente como J = σE. Según esta relación matemática, si analizamos un material que posee una conductividad (σ) extremadamente alta, ¿qué podemos deducir acerca del campo eléctrico interno (E) necesario para mantener una cierta densidad de corriente (J) constante?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Si el material es un excelente conductor (alta conductividad), es muy fácil mover las cargas, por lo que requerirás menos fuerza, no más.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Se requiere un campo eléctrico extremadamente grande para poder impulsar las cargas a través de la red cristalina.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden2&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Si despejamos el campo obtenemos E = J/σ. Si σ es muy grande, el cociente se vuelve diminuto. Esto significa que en un material muy buen conductor, se necesita un esfuerzo (campo E o diferencia de potencial) casi despreciable para lograr que fluya una gran cantidad de densidad de corriente.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El campo eléctrico necesario será muy pequeño, aproximándose a cero en el caso límite de un conductor ideal.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden2&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. La alta conductividad es un escalar positivo; no invierte el signo del vector ni la dirección del flujo de corriente.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El campo eléctrico se vuelve negativo, invirtiendo la dirección natural del vector de densidad de corriente.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden2&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. La conductividad sí afecta directamente la relación entre J y E en la forma microscópica de la Ley de Ohm.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La conductividad es irrelevante para el campo eléctrico interno; este solo depende de la longitud (L) del material.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qden2&#39;, &#39;feedback-den2&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-den2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. Partiendo de la definición puramente geométrica de la resistencia macroscópica (R = ρ·L / A), si quisieras fabricar un cable de cobre que tenga la menor resistencia eléctrica posible para reducir el Efecto Joule, ¿qué proporciones deberías priorizar?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden3&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Un cable largo (aumenta L) y delgado (disminuye A) haría que ambos factores en la fórmula aumenten la resistencia final del cable.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Debe ser un cable sumamente largo y muy delgado, para que la corriente viaje más rápido por efecto embudo.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden3&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. La resistividad (ρ) depende de la temperatura y del material, no del grosor o largo geométrico del cable.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Debe tener una longitud y grosor intermedios, logrando que la resistividad interna (ρ) del cobre disminuya por disipación térmica.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden3&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Según R = ρ·L / A, para minimizar la resistencia &#39;R&#39; necesitas que el numerador (la longitud L) sea lo más pequeño posible, y el denominador (el área transversal A) sea lo más grande posible. Físicamente, un camino corto y un &#39;túnel&#39; ancho facilitan enormemente el flujo de electrones.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Debe ser un cable lo más corto posible (menor L) y lo más grueso posible (mayor área transversal A).&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden3&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. El enrollar el cable no cancela la densidad de corriente. De hecho, incrementaría la longitud total L utilizada, subiendo la resistencia.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Debe ser un alambre retorcido en forma de espiral helicoidal para cancelar las componentes de la densidad de corriente.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qden3&#39;, &#39;feedback-den3&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-den3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        4. Sabemos que en condiciones normales, la resistividad térmica de un metal aumenta de forma lineal al incrementar su temperatura. Según se menciona en la sección, ¿qué ocurre microscópicamente en ciertos materiales si la temperatura desciende por debajo de un valor crítico conocido como Tc?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden4&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Disminuir la temperatura reduce la vibración de la red, facilitando el paso. No hace que la resistividad aumente.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Su resistividad aumenta de forma asintótica debido a que los electrones de conducción quedan &quot;congelados&quot; en sus órbitas.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden4&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Un aislante perfecto sería un material con resistencia infinita (conductividad cero), lo que es el efecto contrario al descrito.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Su conductividad cae a cero absoluto, convirtiendo al material temporalmente en un aislante eléctrico perfecto o dieléctrico.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden4&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! En el fenómeno de la superconductividad, al bajar de la temperatura crítica (Tc), la resistividad no solo disminuye, sino que desaparece por completo (ρ = 0). Esto permite que las corrientes eléctricas circulen indefinidamente sin pérdida de energía por Efecto Joule.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Su resistividad cae abruptamente a exactamente cero, permitiendo el flujo ininterrumpido de corriente sin disipación de energía (superconductividad).&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden4&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. La resistividad es una propiedad escalar intrínseca; no se &#39;invierte&#39; forzando a la corriente a desobedecer la fuente de voltaje.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Su resistividad se invierte hacia valores negativos, provocando que la corriente fluya espontáneamente en sentido contrario al campo aplicado.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qden4&#39;, &#39;feedback-den4&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-den4&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        5. En el análisis matemático de la resistencia entre dos esferas conductoras concéntricas sometidas a una corriente I con simetría radial, se deduce que el campo eléctrico E decae de forma proporcional a 1/r². ¿Cuál es la razón geométrica y física que obliga a este decaimiento radial?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden5&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Por el principio de conservación, la corriente total I en estado estacionario es la misma sin importar qué radio cruce.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque la corriente macroscópica total I va consumiéndose y disminuyendo gradualmente a medida que avanza desde la esfera interior a la exterior.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden5&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! La corriente I debe atravesar superficies esféricas imaginarias que crecen mientras nos alejamos. El área de estas superficies es A = 4πr². Al calcular la densidad J = I / (4πr²), la densidad disminuye como 1/r², y como la Ley de Ohm microscópica afirma que E = ρJ, el campo eléctrico decae con esa misma proporción espacial.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque la densidad de corriente (J) está inversamente relacionada al área de la superficie esférica de paso (4πr²), la cual aumenta al alejarnos del centro.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden5&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. La resistividad (ρ) es una propiedad del material (constante en este caso uniforme); no depende espacialmente del radio.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque la resistividad interna (ρ) del material conductor sólido entre las esferas aumenta proporcionalmente al cuadrado del radio.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qden5&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. La Ley de Ohm microscópica (J = σE) es universal a nivel local y se aplica independientemente de la geometría global del problema.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque la Ley de Ohm microscópica es únicamente válida para cables cilíndricos rectos, presentando un error predictivo en simetrías esféricas.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qden5&#39;, &#39;feedback-den5&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-den5&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_densidad_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<script>
+    if (typeof window.checkFisiQuiz === 'undefined') {
+        window.checkFisiQuiz = function(radioName, feedbackId) {
+            var radios = document.getElementsByName(radioName);
+            var selected = null;
+            var feedbackDiv = document.getElementById(feedbackId);
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i];
+                    break;
+                }
+            }
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selected) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.style.color = '#856404';
+                feedbackDiv.style.border = '1px solid #ffeeba';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                return;
+            }
+            
+            var isCorrect = selected.getAttribute('data-correct') === 'true';
+            var msg = selected.getAttribute('data-fb');
+            
+            if (isCorrect) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.style.border = '1px solid #c3e6cb';
+                feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.style.border = '1px solid #f5c6cb';
+                feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+            }
+        };
+    }
+</script>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        1. Teniendo en cuenta la simulación y la teoría sobre un conductor con un estrechamiento (donde el área transversal A disminuye a la mitad), ¿qué ocurre de forma simultánea con la corriente total (I) y la densidad de corriente (J) al pasar por la zona estrecha en estado estacionario?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qden1" value="a" data-fb="Incorrecto. Si la corriente se redujera a la mitad, se acumularían cargas en el embudo, rompiendo el estado estacionario."> 
+        <span>Ambas, la corriente total y la densidad de corriente, se reducen a la mitad como consecuencia geométrica.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden1" value="b" data-correct="true" data-fb="¡Exacto! Por conservación de la carga en estado estacionario, los mismos electrones que entran deben salir; por lo tanto, la corriente I se mantiene constante en todo el circuito. Sin embargo, al pasar la misma corriente por la mitad del área, la densidad de corriente J = I/A inevitablemente se duplica, aumentando localmente el campo eléctrico y la velocidad de deriva."> 
+        <span>La corriente total I se mantiene constante en todo el conductor, pero la densidad de corriente J se duplica en la zona estrecha.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden1" value="c" data-fb="Incorrecto. La corriente no se crea; lo que entra por un lado debe salir por el otro, por lo que la corriente no se duplica."> 
+        <span>La corriente total I se duplica en la zona del estrechamiento, mientras que la densidad de corriente J permanece inalterada.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden1" value="d" data-fb="Incorrecto. Si divides la misma corriente entre un área más pequeña, el resultado (la densidad) es mayor, no menor."> 
+        <span>La densidad de corriente J se reduce a la mitad para compensar la falta de espacio y así mantener estable la corriente total I.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qden1', 'feedback-den1')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-den1"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        2. La Ley de Ohm microscópica se expresa vectorialmente como J = σE. Según esta relación matemática, si analizamos un material que posee una conductividad (σ) extremadamente alta, ¿qué podemos deducir acerca del campo eléctrico interno (E) necesario para mantener una cierta densidad de corriente (J) constante?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qden2" value="a" data-fb="Incorrecto. Si el material es un excelente conductor (alta conductividad), es muy fácil mover las cargas, por lo que requerirás menos fuerza, no más."> 
+        <span>Se requiere un campo eléctrico extremadamente grande para poder impulsar las cargas a través de la red cristalina.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden2" value="b" data-correct="true" data-fb="¡Correcto! Si despejamos el campo obtenemos E = J/σ. Si σ es muy grande, el cociente se vuelve diminuto. Esto significa que en un material muy buen conductor, se necesita un esfuerzo (campo E o diferencia de potencial) casi despreciable para lograr que fluya una gran cantidad de densidad de corriente."> 
+        <span>El campo eléctrico necesario será muy pequeño, aproximándose a cero en el caso límite de un conductor ideal.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden2" value="c" data-fb="Incorrecto. La alta conductividad es un escalar positivo; no invierte el signo del vector ni la dirección del flujo de corriente."> 
+        <span>El campo eléctrico se vuelve negativo, invirtiendo la dirección natural del vector de densidad de corriente.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden2" value="d" data-fb="Incorrecto. La conductividad sí afecta directamente la relación entre J y E en la forma microscópica de la Ley de Ohm."> 
+        <span>La conductividad es irrelevante para el campo eléctrico interno; este solo depende de la longitud (L) del material.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qden2', 'feedback-den2')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-den2"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        3. Partiendo de la definición puramente geométrica de la resistencia macroscópica (R = ρ·L / A), si quisieras fabricar un cable de cobre que tenga la menor resistencia eléctrica posible para reducir el Efecto Joule, ¿qué proporciones deberías priorizar?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qden3" value="a" data-fb="Incorrecto. Un cable largo (aumenta L) y delgado (disminuye A) haría que ambos factores en la fórmula aumenten la resistencia final del cable."> 
+        <span>Debe ser un cable sumamente largo y muy delgado, para que la corriente viaje más rápido por efecto embudo.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden3" value="b" data-fb="Incorrecto. La resistividad (ρ) depende de la temperatura y del material, no del grosor o largo geométrico del cable."> 
+        <span>Debe tener una longitud y grosor intermedios, logrando que la resistividad interna (ρ) del cobre disminuya por disipación térmica.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden3" value="c" data-correct="true" data-fb="¡Exacto! Según R = ρ·L / A, para minimizar la resistencia 'R' necesitas que el numerador (la longitud L) sea lo más pequeño posible, y el denominador (el área transversal A) sea lo más grande posible. Físicamente, un camino corto y un 'túnel' ancho facilitan enormemente el flujo de electrones."> 
+        <span>Debe ser un cable lo más corto posible (menor L) y lo más grueso posible (mayor área transversal A).</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden3" value="d" data-fb="Incorrecto. El enrollar el cable no cancela la densidad de corriente. De hecho, incrementaría la longitud total L utilizada, subiendo la resistencia."> 
+        <span>Debe ser un alambre retorcido en forma de espiral helicoidal para cancelar las componentes de la densidad de corriente.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qden3', 'feedback-den3')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-den3"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        4. Sabemos que en condiciones normales, la resistividad térmica de un metal aumenta de forma lineal al incrementar su temperatura. Según se menciona en la sección, ¿qué ocurre microscópicamente en ciertos materiales si la temperatura desciende por debajo de un valor crítico conocido como Tc?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qden4" value="a" data-fb="Incorrecto. Disminuir la temperatura reduce la vibración de la red, facilitando el paso. No hace que la resistividad aumente."> 
+        <span>Su resistividad aumenta de forma asintótica debido a que los electrones de conducción quedan "congelados" en sus órbitas.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden4" value="b" data-fb="Incorrecto. Un aislante perfecto sería un material con resistencia infinita (conductividad cero), lo que es el efecto contrario al descrito."> 
+        <span>Su conductividad cae a cero absoluto, convirtiendo al material temporalmente en un aislante eléctrico perfecto o dieléctrico.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden4" value="c" data-correct="true" data-fb="¡Correcto! En el fenómeno de la superconductividad, al bajar de la temperatura crítica (Tc), la resistividad no solo disminuye, sino que desaparece por completo (ρ = 0). Esto permite que las corrientes eléctricas circulen indefinidamente sin pérdida de energía por Efecto Joule."> 
+        <span>Su resistividad cae abruptamente a exactamente cero, permitiendo el flujo ininterrumpido de corriente sin disipación de energía (superconductividad).</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden4" value="d" data-fb="Incorrecto. La resistividad es una propiedad escalar intrínseca; no se 'invierte' forzando a la corriente a desobedecer la fuente de voltaje."> 
+        <span>Su resistividad se invierte hacia valores negativos, provocando que la corriente fluya espontáneamente en sentido contrario al campo aplicado.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qden4', 'feedback-den4')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-den4"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        5. En el análisis matemático de la resistencia entre dos esferas conductoras concéntricas sometidas a una corriente I con simetría radial, se deduce que el campo eléctrico E decae de forma proporcional a 1/r². ¿Cuál es la razón geométrica y física que obliga a este decaimiento radial?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qden5" value="a" data-fb="Incorrecto. Por el principio de conservación, la corriente total I en estado estacionario es la misma sin importar qué radio cruce."> 
+        <span>Porque la corriente macroscópica total I va consumiéndose y disminuyendo gradualmente a medida que avanza desde la esfera interior a la exterior.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden5" value="b" data-correct="true" data-fb="¡Exacto! La corriente I debe atravesar superficies esféricas imaginarias que crecen mientras nos alejamos. El área de estas superficies es A = 4πr². Al calcular la densidad J = I / (4πr²), la densidad disminuye como 1/r², y como la Ley de Ohm microscópica afirma que E = ρJ, el campo eléctrico decae con esa misma proporción espacial."> 
+        <span>Porque la densidad de corriente (J) está inversamente relacionada al área de la superficie esférica de paso (4πr²), la cual aumenta al alejarnos del centro.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden5" value="c" data-fb="Incorrecto. La resistividad (ρ) es una propiedad del material (constante en este caso uniforme); no depende espacialmente del radio."> 
+        <span>Porque la resistividad interna (ρ) del material conductor sólido entre las esferas aumenta proporcionalmente al cuadrado del radio.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qden5" value="d" data-fb="Incorrecto. La Ley de Ohm microscópica (J = σE) es universal a nivel local y se aplica independientemente de la geometría global del problema."> 
+        <span>Porque la Ley de Ohm microscópica es únicamente válida para cables cilíndricos rectos, presentando un error predictivo en simetrías esféricas.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qden5', 'feedback-den5')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-den5"></div>
+</div>
+</div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -997,6 +1445,7 @@ Si fluye una corriente <span class="math notranslate nohighlight">\(I\)</span> c
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-ohm-macroscopica">Ley de Ohm macroscópica</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencia-de-la-temperatura">Dependencia de la temperatura</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-esferas-conductoras-concentricas">Ejemplo: Esferas conductoras concéntricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
   </nav></div>
 

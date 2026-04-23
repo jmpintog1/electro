@@ -197,6 +197,33 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3.3 Energía Potencial y Trabajo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_04_oscilatorio.html">3.4 Movimiento Oscilatorio de un Electrón</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_05_tierra.html">3.5 Conductores Conectados a Tierra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4 Capacitancia y Dieléctricos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_01_capacitancia.html">4.1 Capacitancia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_02_geometrias.html">4.2 Cálculo de Capacitancia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_03_energia.html">4.3 Energía en un Condensador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_04_serie_paralelo.html">4.4 Condensadores en Circuitos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_05_dielectricos.html">4.5 Dieléctricos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_06_dielec_capacidad.html">4.6 Dieléctricos en Condensadores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5 Corriente, Resistencia y Fuerza Electromotriz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_01_corriente.html">5.1 Corriente Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_densidad.html">5.2 Densidad de Corriente y Ley de Ohm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6 Circuitos de Corriente Directa</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07_01_magnetismo.html">7.1 Magnetismo</a></li>
 </ul>
 
     </div>
@@ -436,6 +463,7 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
             </nav>
         </div>
@@ -534,6 +562,346 @@ U &amp;= \frac{1}{2} \rho \frac{4\pi Q}{8\pi\epsilon_0 R^3} \frac{4}{5}R^5 = \fr
 </section>
 </section>
 </section>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_energia_trabajo_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    if (typeof window.checkFisiQuiz === &#39;undefined&#39;) {</span>
+<span class="s2">        window.checkFisiQuiz = function(radioName, feedbackId) {</span>
+<span class="s2">            var radios = document.getElementsByName(radioName);</span>
+<span class="s2">            var selected = null;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">            </span>
+<span class="s2">            for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                if (radios[i].checked) {</span>
+<span class="s2">                    selected = radios[i];</span>
+<span class="s2">                    break;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            if (!selected) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">            var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            if (isCorrect) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            }</span>
+<span class="s2">        };</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/script&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Un agente externo mueve una carga de prueba positiva desde el infinito hasta un punto cerca de otra carga positiva fija, haciéndolo a velocidad constante. ¿Cuál es la relación entre el trabajo realizado por el agente externo (W_ext) y la variación de energía potencial del sistema (ΔU)?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Si eso ocurriera, la carga ganaría energía cinética, lo cual contradice la premisa de que se mueve a velocidad constante (ΔK = 0).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El trabajo externo es mayor que la variación de energía potencial (W_ext &gt; ΔU), ya que parte de la energía se pierde en forma de calor.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Como la velocidad es constante, el cambio de energía cinética es cero (ΔK = 0). Por el teorema del trabajo y la energía (W_total = 0), el trabajo del agente externo debe contrarrestar exactamente al trabajo eléctrico, por lo que W_ext = ΔU = qΔV.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El trabajo realizado por el agente externo es exactamente igual al aumento de la energía potencial del sistema (W_ext = ΔU).&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Esa es la relación para el trabajo realizado por el propio campo eléctrico (W_q = -ΔU). El agente externo debe &#39;luchar&#39; contra el campo, realizando trabajo positivo.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El trabajo realizado por el agente externo es igual al negativo de la variación de la energía potencial (W_ext = -ΔU).&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener1&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. El agente externo está empujando una carga positiva hacia otra carga positiva (hay repulsión), por lo tanto, debe realizar trabajo para vencer esa fuerza electrostática.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El trabajo externo es cero porque al moverse a velocidad constante la fuerza neta es nula, dejando solo el trabajo del campo eléctrico.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qener1&#39;, &#39;feedback-ener1&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-ener1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. Al armar un sistema de dos cargas puntuales trayéndolas desde el infinito, la energía potencial electrostática final resulta ser negativa (U &lt; 0). ¿Qué nos indica físicamente este resultado?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. El potencial en el infinito se define por convención como cero. Una energía final negativa significa que el sistema disminuyó su energía respecto al infinito, lo cual es propio de fuerzas atractivas.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el sistema de referencia para el potencial (V=0) se ubicó incorrectamente, generando un error de cálculo.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener2&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Si las cargas fueran del mismo signo (ambas positivas o ambas negativas), el producto q1*q2 sería positivo y U sería mayor que cero, implicando repulsión.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que ambas cargas tienen el mismo signo, experimentando una intensa fuerza de repulsión mutua.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener2&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Una energía potencial menor a cero (U &lt; 0) implica que el producto q1*q2 es negativo (tienen signos opuestos). Esto significa que el propio campo eléctrico realizó trabajo positivo para atraer las cargas, tratándose de un estado &#39;ligado&#39; o de atracción mutua.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que las cargas tienen signos opuestos, por lo que la fuerza entre ellas es de atracción y se formó un estado ligado.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener2&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. En electrostática, las cargas no necesitan estar en movimiento para que exista energía potencial; esta es la energía almacenada en la configuración espacial del sistema.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el sistema no alcanzó el equilibrio electrostático y las cargas continúan moviéndose aceleradamente.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qener2&#39;, &#39;feedback-ener2&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-ener2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. En el análisis de la energía de una esfera aislante uniformemente cargada (carga total Q, radio R), se demuestra que la energía almacenada es U = (3/5) * [Q² / (4πε₀R)]. ¿Qué representa físicamente este valor de energía?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener3&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Esa energía describe el proceso de acelerar la carga en un campo externo (cinética), no la energía inherente a la configuración misma del objeto cargado.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La energía cinética máxima que alcanzaría la esfera si fuera soltada libremente en el espacio infinito.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener3&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Esta ecuación representa el trabajo que tuvo que realizar un agente externo para &#39;construir&#39; la esfera trayendo infinitos diferenciales de carga (dq) desde el infinito, superando la fuerza de repulsión de las cargas ya ensambladas, hasta formar la esfera de radio R.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El trabajo total realizado por un agente externo para ensamblar la esfera, trayendo cargas elementales desde el infinito contra la repulsión electrostática.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener3&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. El potencial eléctrico en el centro de la esfera es una magnitud diferente, V = (3Q) / (8πε₀R). La fórmula dada corresponde a la energía de toda la distribución.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El potencial eléctrico existente en el centro geométrico de la esfera.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener3&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Ese trabajo para ir de la superficie al centro se relaciona con la diferencia de potencial (ΔV), pero no representa la energía total de ensamble de toda la carga de la esfera.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El trabajo necesario para mover una sola carga de prueba desde la superficie de la esfera hasta su centro exacto.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qener3&#39;, &#39;feedback-ener3&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-ener3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_energia_trabajo_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<script>
+    if (typeof window.checkFisiQuiz === 'undefined') {
+        window.checkFisiQuiz = function(radioName, feedbackId) {
+            var radios = document.getElementsByName(radioName);
+            var selected = null;
+            var feedbackDiv = document.getElementById(feedbackId);
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i];
+                    break;
+                }
+            }
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selected) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.style.color = '#856404';
+                feedbackDiv.style.border = '1px solid #ffeeba';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                return;
+            }
+            
+            var isCorrect = selected.getAttribute('data-correct') === 'true';
+            var msg = selected.getAttribute('data-fb');
+            
+            if (isCorrect) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.style.border = '1px solid #c3e6cb';
+                feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.style.border = '1px solid #f5c6cb';
+                feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+            }
+        };
+    }
+</script>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        1. Un agente externo mueve una carga de prueba positiva desde el infinito hasta un punto cerca de otra carga positiva fija, haciéndolo a velocidad constante. ¿Cuál es la relación entre el trabajo realizado por el agente externo (W_ext) y la variación de energía potencial del sistema (ΔU)?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qener1" value="a" data-fb="Incorrecto. Si eso ocurriera, la carga ganaría energía cinética, lo cual contradice la premisa de que se mueve a velocidad constante (ΔK = 0)."> 
+        <span>El trabajo externo es mayor que la variación de energía potencial (W_ext > ΔU), ya que parte de la energía se pierde en forma de calor.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener1" value="b" data-correct="true" data-fb="¡Correcto! Como la velocidad es constante, el cambio de energía cinética es cero (ΔK = 0). Por el teorema del trabajo y la energía (W_total = 0), el trabajo del agente externo debe contrarrestar exactamente al trabajo eléctrico, por lo que W_ext = ΔU = qΔV."> 
+        <span>El trabajo realizado por el agente externo es exactamente igual al aumento de la energía potencial del sistema (W_ext = ΔU).</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener1" value="c" data-fb="Incorrecto. Esa es la relación para el trabajo realizado por el propio campo eléctrico (W_q = -ΔU). El agente externo debe 'luchar' contra el campo, realizando trabajo positivo."> 
+        <span>El trabajo realizado por el agente externo es igual al negativo de la variación de la energía potencial (W_ext = -ΔU).</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener1" value="d" data-fb="Incorrecto. El agente externo está empujando una carga positiva hacia otra carga positiva (hay repulsión), por lo tanto, debe realizar trabajo para vencer esa fuerza electrostática."> 
+        <span>El trabajo externo es cero porque al moverse a velocidad constante la fuerza neta es nula, dejando solo el trabajo del campo eléctrico.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qener1', 'feedback-ener1')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-ener1"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        2. Al armar un sistema de dos cargas puntuales trayéndolas desde el infinito, la energía potencial electrostática final resulta ser negativa (U < 0). ¿Qué nos indica físicamente este resultado?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qener2" value="a" data-fb="Incorrecto. El potencial en el infinito se define por convención como cero. Una energía final negativa significa que el sistema disminuyó su energía respecto al infinito, lo cual es propio de fuerzas atractivas."> 
+        <span>Que el sistema de referencia para el potencial (V=0) se ubicó incorrectamente, generando un error de cálculo.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener2" value="b" data-fb="Incorrecto. Si las cargas fueran del mismo signo (ambas positivas o ambas negativas), el producto q1*q2 sería positivo y U sería mayor que cero, implicando repulsión."> 
+        <span>Que ambas cargas tienen el mismo signo, experimentando una intensa fuerza de repulsión mutua.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener2" value="c" data-correct="true" data-fb="¡Exacto! Una energía potencial menor a cero (U < 0) implica que el producto q1*q2 es negativo (tienen signos opuestos). Esto significa que el propio campo eléctrico realizó trabajo positivo para atraer las cargas, tratándose de un estado 'ligado' o de atracción mutua."> 
+        <span>Que las cargas tienen signos opuestos, por lo que la fuerza entre ellas es de atracción y se formó un estado ligado.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener2" value="d" data-fb="Incorrecto. En electrostática, las cargas no necesitan estar en movimiento para que exista energía potencial; esta es la energía almacenada en la configuración espacial del sistema."> 
+        <span>Que el sistema no alcanzó el equilibrio electrostático y las cargas continúan moviéndose aceleradamente.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qener2', 'feedback-ener2')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-ener2"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        3. En el análisis de la energía de una esfera aislante uniformemente cargada (carga total Q, radio R), se demuestra que la energía almacenada es U = (3/5) * [Q² / (4πε₀R)]. ¿Qué representa físicamente este valor de energía?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qener3" value="a" data-fb="Incorrecto. Esa energía describe el proceso de acelerar la carga en un campo externo (cinética), no la energía inherente a la configuración misma del objeto cargado."> 
+        <span>La energía cinética máxima que alcanzaría la esfera si fuera soltada libremente en el espacio infinito.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener3" value="b" data-correct="true" data-fb="¡Correcto! Esta ecuación representa el trabajo que tuvo que realizar un agente externo para 'construir' la esfera trayendo infinitos diferenciales de carga (dq) desde el infinito, superando la fuerza de repulsión de las cargas ya ensambladas, hasta formar la esfera de radio R."> 
+        <span>El trabajo total realizado por un agente externo para ensamblar la esfera, trayendo cargas elementales desde el infinito contra la repulsión electrostática.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener3" value="c" data-fb="Incorrecto. El potencial eléctrico en el centro de la esfera es una magnitud diferente, V = (3Q) / (8πε₀R). La fórmula dada corresponde a la energía de toda la distribución."> 
+        <span>El potencial eléctrico existente en el centro geométrico de la esfera.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener3" value="d" data-fb="Incorrecto. Ese trabajo para ir de la superficie al centro se relaciona con la diferencia de potencial (ΔV), pero no representa la energía total de ensamble de toda la carga de la esfera."> 
+        <span>El trabajo necesario para mover una sola carga de prueba desde la superficie de la esfera hasta su centro exacto.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qener3', 'feedback-ener3')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-ener3"></div>
+</div>
+</div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -612,6 +980,7 @@ U &amp;= \frac{1}{2} \rho \frac{4\pi Q}{8\pi\epsilon_0 R^3} \frac{4}{5}R^5 = \fr
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
   </nav></div>
 

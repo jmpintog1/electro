@@ -197,6 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_04_oscilatorio.html">3.4 Movimiento Oscilatorio de un Electrón</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_05_tierra.html">3.5 Conductores Conectados a Tierra</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4 Capacitancia y Dieléctricos</span></p>
 <ul class="current nav bd-sidenav">
@@ -206,6 +207,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="04_04_serie_paralelo.html">4.4 Condensadores en Circuitos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_05_dielectricos.html">4.5 Dieléctricos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_06_dielec_capacidad.html">4.6 Dieléctricos en Condensadores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5 Corriente, Resistencia y Fuerza Electromotriz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_01_corriente.html">5.1 Corriente Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_densidad.html">5.2 Densidad de Corriente y Ley de Ohm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6 Circuitos de Corriente Directa</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07_01_magnetismo.html">7.1 Magnetismo</a></li>
 </ul>
 
     </div>
@@ -433,6 +451,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#densidad-de-energia">Densidad de energía</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
             </nav>
         </div>
@@ -461,6 +480,346 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[u = \frac{dU}{d\mathcal{V}} = \frac{1}{2}\epsilon_0 E^2\]</div>
 <p>Este resultado, aunque derivado para placas paralelas, es válido para cualquier campo eléctrico en el vacío.</p>
+</section>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_energia_cond_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    if (typeof window.checkFisiQuiz === &#39;undefined&#39;) {</span>
+<span class="s2">        window.checkFisiQuiz = function(radioName, feedbackId) {</span>
+<span class="s2">            var radios = document.getElementsByName(radioName);</span>
+<span class="s2">            var selected = null;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">            </span>
+<span class="s2">            for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                if (radios[i].checked) {</span>
+<span class="s2">                    selected = radios[i];</span>
+<span class="s2">                    break;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            if (!selected) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">            var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            if (isCorrect) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            }</span>
+<span class="s2">        };</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/script&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Al cargar un condensador hasta alcanzar una carga total Q y un voltaje final V, la energía almacenada resulta ser U = ½ QV. ¿Por qué aparece matemáticamente el factor &quot;½&quot; en lugar de ser simplemente el producto total QV?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener_cond1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. La energía no se &#39;divide&#39; geográficamente; el valor total de la energía almacenada en todo el sistema está modelado por esa ecuación.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque la energía suministrada se divide equitativamente, almacenándose la mitad en la placa positiva y la otra mitad en la negativa.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener_cond1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Transportar los primeros diferenciales de carga (dq) cuesta muy poco trabajo porque casi no hay voltaje. A medida que se acumula carga, el voltaje aumenta linealmente (v = q/C). El trabajo total es la integral del voltaje respecto a la carga, lo que genera matemáticamente el factor ½, equivalente al voltaje promedio durante el proceso.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque durante el proceso de carga el voltaje no es constante; comienza en cero y aumenta gradualmente. Al integrar el trabajo (V dq), resulta el área de un triángulo (½ base × altura).&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener_cond1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Aunque en circuitos reales con resistencias (RC) se disipa energía, la deducción de U = ½ QV proviene estrictamente de la definición del trabajo eléctrico ideal (integral de q/C dq), no de pérdidas térmicas.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque, debido al efecto Joule, exactamente la mitad de la energía entregada por la batería se disipa inevitablemente en forma de calor durante la carga.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener_cond1&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. La capacitancia es una constante geométrica que no limita el almacenamiento a una &#39;mitad&#39; teórica antes del voltaje de ruptura.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque la geometría de cualquier condensador ideal solo permite utilizar la mitad de su capacidad teórica antes de sufrir una ruptura dieléctrica.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qener_cond1&#39;, &#39;feedback-enercond1&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-enercond1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. Tienes un condensador de capacitancia variable conectado permanentemente a una batería ideal (lo que garantiza un voltaje &quot;V&quot; constante). Si logras modificar la geometría del condensador para aumentar su capacitancia (C), ¿qué ocurrirá con la energía almacenada (U) en él?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener_cond2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Para usar esa fórmula necesitas que Q sea constante. Como está conectado a una batería, el voltaje es el constante, por lo que la batería suministrará más carga (Q aumenta) para mantener V.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Disminuirá, ya que según la fórmula U = Q² / (2C), la energía almacenada es inversamente proporcional a la capacitancia.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener_cond2&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Cuando el sistema está a voltaje constante (conectado a la fuente), la expresión más útil es U = ½ C V². Si el voltaje V es constante y aumentas C, la energía almacenada U aumentará de forma directamente proporcional, ya que el condensador acumulará más carga.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Aumentará proporcionalmente, dado que al estar conectado a un voltaje constante, utilizamos la relación U = ½ C V², donde U es directamente proporcional a C.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener_cond2&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. La batería fuerza un voltaje constante, pero si la capacitancia cambia, el dispositivo podrá almacenar más energía eléctrica total.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Se mantendrá constante, porque la conexión ininterrumpida a la batería obliga al sistema a conservar su estado de energía original.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener_cond2&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Al contrario, si el voltaje está fijo y aumentas la capacitancia (por ejemplo, acercando las placas), el campo eléctrico no disminuye.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Disminuirá a la mitad, porque el aumento de la capacitancia relaja la densidad del campo eléctrico en su interior.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qener_cond2&#39;, &#39;feedback-enercond2&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-enercond2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. En el apunte se deriva la expresión para la densidad de energía &quot;u = ½ ε₀ E²&quot; partiendo del volumen de un condensador de placas paralelas (Ad). ¿Cuál de las siguientes afirmaciones describe con mayor precisión la aplicabilidad física real de esta fórmula?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener_cond3&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Aunque se usó una geometría simple (placas paralelas) para deducirla fácilmente, el resultado es aplicable a cualquier geometría.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Solo es matemáticamente válida para condensadores de placas planas, ya que su deducción depende críticamente de las variables geométricas de Área (A) y distancia (d).&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener_cond3&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. La fórmula tiene el término ε₀ (permitividad del vacío). Si se usara un dieléctrico, se reemplazaría por ε, pero la fórmula base no requiere la presencia de un dieléctrico material.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Solo se aplica si el condensador posee un material dieléctrico (aislante) perfecto entre sus placas; en el vacío la fórmula diverge.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener_cond3&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Es un resultado electrostático; no representa un flujo dinámico ni cargas en movimiento.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Representa la energía cinética transitoria de las corrientes de fuga eléctricas mientras atraviesan el espacio de separación.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qener_cond3&quot; value=&quot;d&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Esta es una de las ideas más profundas del electromagnetismo: la energía no está solo en las cargas, está almacenada en el campo eléctrico mismo. Esta ecuación tiene validez universal y predice la energía contenida en cualquier región del vacío donde exista un campo E, sin importar qué geometría lo haya generado.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Es un resultado de validez universal: establece que en cualquier región del espacio vacío donde exista un campo eléctrico E, existe energía localmente almacenada en dicho campo.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qener_cond3&#39;, &#39;feedback-enercond3&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-enercond3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_energia_cond_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<script>
+    if (typeof window.checkFisiQuiz === 'undefined') {
+        window.checkFisiQuiz = function(radioName, feedbackId) {
+            var radios = document.getElementsByName(radioName);
+            var selected = null;
+            var feedbackDiv = document.getElementById(feedbackId);
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i];
+                    break;
+                }
+            }
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selected) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.style.color = '#856404';
+                feedbackDiv.style.border = '1px solid #ffeeba';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                return;
+            }
+            
+            var isCorrect = selected.getAttribute('data-correct') === 'true';
+            var msg = selected.getAttribute('data-fb');
+            
+            if (isCorrect) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.style.border = '1px solid #c3e6cb';
+                feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.style.border = '1px solid #f5c6cb';
+                feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+            }
+        };
+    }
+</script>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        1. Al cargar un condensador hasta alcanzar una carga total Q y un voltaje final V, la energía almacenada resulta ser U = ½ QV. ¿Por qué aparece matemáticamente el factor "½" en lugar de ser simplemente el producto total QV?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qener_cond1" value="a" data-fb="Incorrecto. La energía no se 'divide' geográficamente; el valor total de la energía almacenada en todo el sistema está modelado por esa ecuación."> 
+        <span>Porque la energía suministrada se divide equitativamente, almacenándose la mitad en la placa positiva y la otra mitad en la negativa.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener_cond1" value="b" data-correct="true" data-fb="¡Exacto! Transportar los primeros diferenciales de carga (dq) cuesta muy poco trabajo porque casi no hay voltaje. A medida que se acumula carga, el voltaje aumenta linealmente (v = q/C). El trabajo total es la integral del voltaje respecto a la carga, lo que genera matemáticamente el factor ½, equivalente al voltaje promedio durante el proceso."> 
+        <span>Porque durante el proceso de carga el voltaje no es constante; comienza en cero y aumenta gradualmente. Al integrar el trabajo (V dq), resulta el área de un triángulo (½ base × altura).</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener_cond1" value="c" data-fb="Incorrecto. Aunque en circuitos reales con resistencias (RC) se disipa energía, la deducción de U = ½ QV proviene estrictamente de la definición del trabajo eléctrico ideal (integral de q/C dq), no de pérdidas térmicas."> 
+        <span>Porque, debido al efecto Joule, exactamente la mitad de la energía entregada por la batería se disipa inevitablemente en forma de calor durante la carga.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener_cond1" value="d" data-fb="Incorrecto. La capacitancia es una constante geométrica que no limita el almacenamiento a una 'mitad' teórica antes del voltaje de ruptura."> 
+        <span>Porque la geometría de cualquier condensador ideal solo permite utilizar la mitad de su capacidad teórica antes de sufrir una ruptura dieléctrica.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qener_cond1', 'feedback-enercond1')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-enercond1"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        2. Tienes un condensador de capacitancia variable conectado permanentemente a una batería ideal (lo que garantiza un voltaje "V" constante). Si logras modificar la geometría del condensador para aumentar su capacitancia (C), ¿qué ocurrirá con la energía almacenada (U) en él?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qener_cond2" value="a" data-fb="Incorrecto. Para usar esa fórmula necesitas que Q sea constante. Como está conectado a una batería, el voltaje es el constante, por lo que la batería suministrará más carga (Q aumenta) para mantener V."> 
+        <span>Disminuirá, ya que según la fórmula U = Q² / (2C), la energía almacenada es inversamente proporcional a la capacitancia.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener_cond2" value="b" data-correct="true" data-fb="¡Correcto! Cuando el sistema está a voltaje constante (conectado a la fuente), la expresión más útil es U = ½ C V². Si el voltaje V es constante y aumentas C, la energía almacenada U aumentará de forma directamente proporcional, ya que el condensador acumulará más carga."> 
+        <span>Aumentará proporcionalmente, dado que al estar conectado a un voltaje constante, utilizamos la relación U = ½ C V², donde U es directamente proporcional a C.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener_cond2" value="c" data-fb="Incorrecto. La batería fuerza un voltaje constante, pero si la capacitancia cambia, el dispositivo podrá almacenar más energía eléctrica total."> 
+        <span>Se mantendrá constante, porque la conexión ininterrumpida a la batería obliga al sistema a conservar su estado de energía original.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener_cond2" value="d" data-fb="Incorrecto. Al contrario, si el voltaje está fijo y aumentas la capacitancia (por ejemplo, acercando las placas), el campo eléctrico no disminuye."> 
+        <span>Disminuirá a la mitad, porque el aumento de la capacitancia relaja la densidad del campo eléctrico en su interior.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qener_cond2', 'feedback-enercond2')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-enercond2"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        3. En el apunte se deriva la expresión para la densidad de energía "u = ½ ε₀ E²" partiendo del volumen de un condensador de placas paralelas (Ad). ¿Cuál de las siguientes afirmaciones describe con mayor precisión la aplicabilidad física real de esta fórmula?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qener_cond3" value="a" data-fb="Incorrecto. Aunque se usó una geometría simple (placas paralelas) para deducirla fácilmente, el resultado es aplicable a cualquier geometría."> 
+        <span>Solo es matemáticamente válida para condensadores de placas planas, ya que su deducción depende críticamente de las variables geométricas de Área (A) y distancia (d).</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener_cond3" value="b" data-fb="Incorrecto. La fórmula tiene el término ε₀ (permitividad del vacío). Si se usara un dieléctrico, se reemplazaría por ε, pero la fórmula base no requiere la presencia de un dieléctrico material."> 
+        <span>Solo se aplica si el condensador posee un material dieléctrico (aislante) perfecto entre sus placas; en el vacío la fórmula diverge.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener_cond3" value="c" data-fb="Incorrecto. Es un resultado electrostático; no representa un flujo dinámico ni cargas en movimiento."> 
+        <span>Representa la energía cinética transitoria de las corrientes de fuga eléctricas mientras atraviesan el espacio de separación.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qener_cond3" value="d" data-correct="true" data-fb="¡Exacto! Esta es una de las ideas más profundas del electromagnetismo: la energía no está solo en las cargas, está almacenada en el campo eléctrico mismo. Esta ecuación tiene validez universal y predice la energía contenida en cualquier región del vacío donde exista un campo E, sin importar qué geometría lo haya generado."> 
+        <span>Es un resultado de validez universal: establece que en cualquier región del espacio vacío donde exista un campo eléctrico E, existe energía localmente almacenada en dicho campo.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qener_cond3', 'feedback-enercond3')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-enercond3"></div>
+</div>
+</div></div>
+</div>
 </section>
 </section>
 
@@ -528,6 +887,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#densidad-de-energia">Densidad de energía</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
   </nav></div>
 

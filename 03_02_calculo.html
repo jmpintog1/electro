@@ -197,6 +197,33 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3.2 Cálculo del Potencial Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_04_oscilatorio.html">3.4 Movimiento Oscilatorio de un Electrón</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_05_tierra.html">3.5 Conductores Conectados a Tierra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4 Capacitancia y Dieléctricos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_01_capacitancia.html">4.1 Capacitancia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_02_geometrias.html">4.2 Cálculo de Capacitancia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_03_energia.html">4.3 Energía en un Condensador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_04_serie_paralelo.html">4.4 Condensadores en Circuitos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_05_dielectricos.html">4.5 Dieléctricos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_06_dielec_capacidad.html">4.6 Dieléctricos en Condensadores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5 Corriente, Resistencia y Fuerza Electromotriz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_01_corriente.html">5.1 Corriente Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_densidad.html">5.2 Densidad de Corriente y Ley de Ohm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6 Circuitos de Corriente Directa</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07_01_magnetismo.html">7.1 Magnetismo</a></li>
 </ul>
 
     </div>
@@ -430,6 +457,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3-esfera-no-conductora">Ejemplo 3: Esfera No Conductora</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-4-esfera-conductora">Ejemplo 4: Esfera Conductora</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-5-dos-esferas-conductoras-conectadas">Ejemplo 5: Dos Esferas Conductoras Conectadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
             </nav>
         </div>
@@ -687,6 +715,346 @@ Por lo tanto, la diferencia de potencial al moverse desde la superficie hacia cu
 \[\frac{E_1}{E_2} = \frac{R_1}{R_2} \cdot \frac{R_2^2}{R_1^2} = \frac{R_2}{R_1}\]</div>
 <p>Dado que <span class="math notranslate nohighlight">\(R_1 &lt; R_2\)</span>, concluimos que <span class="math notranslate nohighlight">\(E_1 &gt; E_2\)</span>. Esto demuestra analíticamente el efecto de las puntas: en un conductor, el campo eléctrico es más intenso en las superficies de menor radio de curvatura.</p>
 </section>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_calculo_potencial_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    if (typeof window.checkFisiQuiz === &#39;undefined&#39;) {</span>
+<span class="s2">        window.checkFisiQuiz = function(radioName, feedbackId) {</span>
+<span class="s2">            var radios = document.getElementsByName(radioName);</span>
+<span class="s2">            var selected = null;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">            </span>
+<span class="s2">            for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                if (radios[i].checked) {</span>
+<span class="s2">                    selected = radios[i];</span>
+<span class="s2">                    break;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            if (!selected) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">            var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            if (isCorrect) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            }</span>
+<span class="s2">        };</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/script&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Al comparar el potencial eléctrico en el interior (r &lt; R) de una esfera conductora y una esfera no conductora, ambas con la misma carga total Q y radio R, ¿cuál de las siguientes afirmaciones es correcta?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. En la esfera no conductora, la carga está distribuida en el volumen, por lo que el campo interno no es cero y se debe realizar trabajo para mover una carga desde la superficie hacia el centro.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;En ambas esferas el potencial en el interior es exactamente igual al potencial en su superficie, ya que ambas tienen la misma carga total.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc1&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Es justamente al revés. En el conductor, el campo interno es cero, por lo que el potencial es constante. En la no conductora, el potencial varía con la posición (depende de r²).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El potencial es constante en la esfera no conductora, pero varía proporcionalmente al cuadrado de la distancia (r²) en la conductora.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc1&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Como el campo eléctrico interno de un conductor es cero, no hay cambio de potencial respecto a la superficie (es constante). Sin embargo, en una esfera no conductora (aislante), el campo eléctrico no es nulo, por lo que el potencial sigue aumentando a medida que nos acercamos al centro.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El potencial es constante e igual al de la superficie en la esfera conductora, mientras que en la no conductora el potencial depende de la posición (r) y es mayor en el centro.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc1&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. El potencial eléctrico dentro de un material conductor cargado en equilibrio nunca es nulo, es constante y tiene el mismo valor que en su superficie exterior.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El potencial eléctrico es nulo en todas partes del interior del conductor, y constante en el interior de la esfera no conductora.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qcalc1&#39;, &#39;feedback-calc1&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-calc1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. Tienes dos esferas conductoras aisladas, una pequeña (radio R1) y una grande (radio R2), con R1 &lt; R2. Si las conectas con un alambre conductor largo y fino, ¿qué ocurre con sus potenciales y con el campo eléctrico en sus superficies una vez alcanzado el equilibrio electrostático?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Al conectarse con un conductor, ambas esferas forman un único sistema equipotencial, por lo que sus potenciales deben igualarse, no el campo.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Los campos eléctricos en las superficies se igualan (E1 = E2), pero la esfera pequeña adquiere un mayor potencial eléctrico.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc2&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Al conectarlas, la carga fluye hasta que los potenciales se igualan (V1 = V2). Sin embargo, la razón entre los campos eléctricos es E1/E2 = R2/R1, lo que matemáticamente demuestra el &#39;efecto de las puntas&#39;: la esfera de menor radio presenta un campo eléctrico más intenso.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Ambas esferas alcanzan el mismo potencial eléctrico (V1 = V2), pero el campo eléctrico es más intenso en la superficie de la esfera más pequeña (E1 &gt; E2).&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc2&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Aunque el potencial se iguala, el campo eléctrico no será mayor en la esfera grande. Matemáticamente se demuestra que E1/E2 = R2/R1.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Alcanzan el mismo potencial eléctrico (V1 = V2) y la esfera más grande concentra un campo eléctrico más intenso en su superficie debido a que acumula más carga.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc2&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Las cargas se redistribuyen proporcionalmente a sus radios (Q1/Q2 = R1/R2) para igualar sus potenciales, por lo que no terminan con la misma cantidad exacta de carga (a menos que sean idénticas).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Ambas esferas terminan exactamente con la misma cantidad de carga (Q1 = Q2), lo que hace que tanto sus campos como sus potenciales sean diferentes.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qcalc2&#39;, &#39;feedback-calc2&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-calc2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. Para calcular el potencial eléctrico V en un punto P debido a un alambre cargado de longitud finita, se divide el alambre en diferenciales de carga (dq&#39;). ¿Por qué no se puede utilizar directamente la fórmula de una carga puntual (V = kQ/r) reemplazando la distancia &quot;r&quot; por la distancia desde el centro del alambre al punto P?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc3&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. El campo conservativo garantiza que el potencial es una función escalar bien definida, pero no nos exime de sumar (integrar) las contribuciones individuales.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque el campo eléctrico alrededor del alambre deja de ser conservativo debido a la asimetría geométrica, invalidando el concepto de potencial escalar.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc3&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Una distribución continua de carga siempre está formada por cargas estáticas (electrostática). El problema no es el movimiento, sino la distribución espacial.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque los portadores de carga dentro del alambre están en constante movimiento, lo que requiere un tratamiento dinámico en lugar de electrostático.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc3&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Aunque esa fórmula se suele usar para el potencial fuera de una esfera (teorema de Gauss esférico), no funciona para un alambre debido a que carece de simetría esférica.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Sí se puede. De hecho, por la ley de Gauss, cualquier distribución finita simétrica puede ser tratada concentrando toda su carga Q en su centro geométrico.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc3&quot; value=&quot;d&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! En una distribución extensa como un alambre, cada porción diferencial de carga (dq&#39;) se encuentra a una distancia geométrica distinta (|r - r&#39;|) del punto P. El potencial total es la superposición escalar (integral) de todos estos aportes individuales.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque la carga total Q está distribuida espacialmente, lo que significa que cada elemento diferencial de carga se encuentra a una distancia geométrica diferente respecto al punto P.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qcalc3&#39;, &#39;feedback-calc3&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-calc3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_calculo_potencial_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<script>
+    if (typeof window.checkFisiQuiz === 'undefined') {
+        window.checkFisiQuiz = function(radioName, feedbackId) {
+            var radios = document.getElementsByName(radioName);
+            var selected = null;
+            var feedbackDiv = document.getElementById(feedbackId);
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i];
+                    break;
+                }
+            }
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selected) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.style.color = '#856404';
+                feedbackDiv.style.border = '1px solid #ffeeba';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                return;
+            }
+            
+            var isCorrect = selected.getAttribute('data-correct') === 'true';
+            var msg = selected.getAttribute('data-fb');
+            
+            if (isCorrect) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.style.border = '1px solid #c3e6cb';
+                feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.style.border = '1px solid #f5c6cb';
+                feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+            }
+        };
+    }
+</script>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        1. Al comparar el potencial eléctrico en el interior (r < R) de una esfera conductora y una esfera no conductora, ambas con la misma carga total Q y radio R, ¿cuál de las siguientes afirmaciones es correcta?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc1" value="a" data-fb="Incorrecto. En la esfera no conductora, la carga está distribuida en el volumen, por lo que el campo interno no es cero y se debe realizar trabajo para mover una carga desde la superficie hacia el centro."> 
+        <span>En ambas esferas el potencial en el interior es exactamente igual al potencial en su superficie, ya que ambas tienen la misma carga total.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc1" value="b" data-fb="Incorrecto. Es justamente al revés. En el conductor, el campo interno es cero, por lo que el potencial es constante. En la no conductora, el potencial varía con la posición (depende de r²)."> 
+        <span>El potencial es constante en la esfera no conductora, pero varía proporcionalmente al cuadrado de la distancia (r²) en la conductora.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc1" value="c" data-correct="true" data-fb="¡Correcto! Como el campo eléctrico interno de un conductor es cero, no hay cambio de potencial respecto a la superficie (es constante). Sin embargo, en una esfera no conductora (aislante), el campo eléctrico no es nulo, por lo que el potencial sigue aumentando a medida que nos acercamos al centro."> 
+        <span>El potencial es constante e igual al de la superficie en la esfera conductora, mientras que en la no conductora el potencial depende de la posición (r) y es mayor en el centro.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc1" value="d" data-fb="Incorrecto. El potencial eléctrico dentro de un material conductor cargado en equilibrio nunca es nulo, es constante y tiene el mismo valor que en su superficie exterior."> 
+        <span>El potencial eléctrico es nulo en todas partes del interior del conductor, y constante en el interior de la esfera no conductora.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qcalc1', 'feedback-calc1')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-calc1"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        2. Tienes dos esferas conductoras aisladas, una pequeña (radio R1) y una grande (radio R2), con R1 < R2. Si las conectas con un alambre conductor largo y fino, ¿qué ocurre con sus potenciales y con el campo eléctrico en sus superficies una vez alcanzado el equilibrio electrostático?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc2" value="a" data-fb="Incorrecto. Al conectarse con un conductor, ambas esferas forman un único sistema equipotencial, por lo que sus potenciales deben igualarse, no el campo."> 
+        <span>Los campos eléctricos en las superficies se igualan (E1 = E2), pero la esfera pequeña adquiere un mayor potencial eléctrico.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc2" value="b" data-correct="true" data-fb="¡Exacto! Al conectarlas, la carga fluye hasta que los potenciales se igualan (V1 = V2). Sin embargo, la razón entre los campos eléctricos es E1/E2 = R2/R1, lo que matemáticamente demuestra el 'efecto de las puntas': la esfera de menor radio presenta un campo eléctrico más intenso."> 
+        <span>Ambas esferas alcanzan el mismo potencial eléctrico (V1 = V2), pero el campo eléctrico es más intenso en la superficie de la esfera más pequeña (E1 > E2).</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc2" value="c" data-fb="Incorrecto. Aunque el potencial se iguala, el campo eléctrico no será mayor en la esfera grande. Matemáticamente se demuestra que E1/E2 = R2/R1."> 
+        <span>Alcanzan el mismo potencial eléctrico (V1 = V2) y la esfera más grande concentra un campo eléctrico más intenso en su superficie debido a que acumula más carga.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc2" value="d" data-fb="Incorrecto. Las cargas se redistribuyen proporcionalmente a sus radios (Q1/Q2 = R1/R2) para igualar sus potenciales, por lo que no terminan con la misma cantidad exacta de carga (a menos que sean idénticas)."> 
+        <span>Ambas esferas terminan exactamente con la misma cantidad de carga (Q1 = Q2), lo que hace que tanto sus campos como sus potenciales sean diferentes.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qcalc2', 'feedback-calc2')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-calc2"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        3. Para calcular el potencial eléctrico V en un punto P debido a un alambre cargado de longitud finita, se divide el alambre en diferenciales de carga (dq'). ¿Por qué no se puede utilizar directamente la fórmula de una carga puntual (V = kQ/r) reemplazando la distancia "r" por la distancia desde el centro del alambre al punto P?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc3" value="a" data-fb="Incorrecto. El campo conservativo garantiza que el potencial es una función escalar bien definida, pero no nos exime de sumar (integrar) las contribuciones individuales."> 
+        <span>Porque el campo eléctrico alrededor del alambre deja de ser conservativo debido a la asimetría geométrica, invalidando el concepto de potencial escalar.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc3" value="b" data-fb="Incorrecto. Una distribución continua de carga siempre está formada por cargas estáticas (electrostática). El problema no es el movimiento, sino la distribución espacial."> 
+        <span>Porque los portadores de carga dentro del alambre están en constante movimiento, lo que requiere un tratamiento dinámico en lugar de electrostático.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc3" value="c" data-fb="Incorrecto. Aunque esa fórmula se suele usar para el potencial fuera de una esfera (teorema de Gauss esférico), no funciona para un alambre debido a que carece de simetría esférica."> 
+        <span>Sí se puede. De hecho, por la ley de Gauss, cualquier distribución finita simétrica puede ser tratada concentrando toda su carga Q en su centro geométrico.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc3" value="d" data-correct="true" data-fb="¡Correcto! En una distribución extensa como un alambre, cada porción diferencial de carga (dq') se encuentra a una distancia geométrica distinta (|r - r'|) del punto P. El potencial total es la superposición escalar (integral) de todos estos aportes individuales."> 
+        <span>Porque la carga total Q está distribuida espacialmente, lo que significa que cada elemento diferencial de carga se encuentra a una distancia geométrica diferente respecto al punto P.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qcalc3', 'feedback-calc3')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-calc3"></div>
+</div>
+</div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -759,6 +1127,7 @@ Por lo tanto, la diferencia de potencial al moverse desde la superficie hacia cu
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3-esfera-no-conductora">Ejemplo 3: Esfera No Conductora</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-4-esfera-conductora">Ejemplo 4: Esfera Conductora</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-5-dos-esferas-conductoras-conectadas">Ejemplo 5: Dos Esferas Conductoras Conectadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
   </nav></div>
 

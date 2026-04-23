@@ -67,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '03_04_oscilatorio';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3.5 Conductores Conectados a Tierra" href="03_05_tierra.html" />
     <link rel="prev" title="3.3 Energía Potencial y Trabajo" href="03_03_energia.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -196,6 +197,33 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3.4 Movimiento Oscilatorio de un Electrón</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_05_tierra.html">3.5 Conductores Conectados a Tierra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4 Capacitancia y Dieléctricos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_01_capacitancia.html">4.1 Capacitancia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_02_geometrias.html">4.2 Cálculo de Capacitancia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_03_energia.html">4.3 Energía en un Condensador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_04_serie_paralelo.html">4.4 Condensadores en Circuitos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_05_dielectricos.html">4.5 Dieléctricos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_06_dielec_capacidad.html">4.6 Dieléctricos en Condensadores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5 Corriente, Resistencia y Fuerza Electromotriz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_01_corriente.html">5.1 Corriente Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_densidad.html">5.2 Densidad de Corriente y Ley de Ohm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6 Circuitos de Corriente Directa</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07_01_magnetismo.html">7.1 Magnetismo</a></li>
 </ul>
 
     </div>
@@ -399,7 +427,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -415,6 +445,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -455,6 +493,346 @@ m_e v \frac{d^2z}{dt^2} + \frac{e\lambda}{2\epsilon_0 R^2} z v &amp;= 0\end{alig
 <p>Y finalmente, el período de oscilación <span class="math notranslate nohighlight">\(T = \frac{2\pi}{\omega}\)</span> queda determinado por:</p>
 <div class="math notranslate nohighlight">
 \[T = 2\pi \sqrt{\frac{2\epsilon_0 R^2 m_e}{e\lambda}}\]</div>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_oscilatorio_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    if (typeof window.checkFisiQuiz === &#39;undefined&#39;) {</span>
+<span class="s2">        window.checkFisiQuiz = function(radioName, feedbackId) {</span>
+<span class="s2">            var radios = document.getElementsByName(radioName);</span>
+<span class="s2">            var selected = null;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">            </span>
+<span class="s2">            for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                if (radios[i].checked) {</span>
+<span class="s2">                    selected = radios[i];</span>
+<span class="s2">                    break;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            if (!selected) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">            var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            if (isCorrect) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            }</span>
+<span class="s2">        };</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/script&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. En el modelo presentado, el electrón experimenta un movimiento oscilatorio a lo largo del eje z que cruza el centro de un anillo de radio R. ¿Por qué es estrictamente necesario que la densidad lineal de carga del anillo (λ) sea positiva para que exista este movimiento oscilatorio estable?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qosci1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. La conservación de la energía se aplica independientemente del signo de la carga, el problema radica en la dirección de la fuerza neta.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque si fuera negativa, se violaría el principio de conservación de la energía mecánica del sistema.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qosci1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Un anillo con carga positiva atrae al electrón (carga negativa) hacia el centro geométrico z=0. Esta fuerza de atracción actúa como una fuerza restauradora. Si el anillo fuera negativo, la fuerza repelería al electrón, expulsándolo indefinidamente del sistema sin oscilar.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque un anillo positivo genera una fuerza neta de atracción hacia el centro (fuerza restauradora) sobre el electrón negativo. Si fuera negativo, la fuerza lo repelería hacia el infinito.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qosci1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. La aproximación de Taylor depende netamente de la condición geométrica (z &lt;&lt; R), no del signo de las cargas eléctricas involucradas.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque la aproximación matemática de Taylor solo es válida matemáticamente para potenciales eléctricos positivos.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qosci1&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Aunque el campo eléctrico en el centro exacto (z=0) de cualquier anillo uniformemente cargado es cero, no explica el comportamiento restaurador en las cercanías (z ≠ 0).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque una carga negativa en el anillo provocaría que el campo eléctrico en el centro (z=0) no fuera nulo, impidiendo el equilibrio.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qosci1&#39;, &#39;feedback-osci1&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-osci1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. Durante el desarrollo matemático, se aplica la expansión de Taylor de primer orden para aproximar el término (z² + R²)⁻¹/² bajo la condición de que z &amp;lt;&amp;lt; R. ¿Cuál es la consecuencia física directa de introducir esta aproximación en la ecuación de energía?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qosci2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. La aproximación no elimina la masa del electrón; de hecho, la masa m_e sigue siendo parte fundamental de la energía cinética y determina la inercia en la ecuación final.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Permite eliminar la dependencia de la masa del electrón, demostrando que cualquier partícula oscilaría con la misma frecuencia.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qosci2&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Aunque el campo eléctrico y el potencial varían espacialmente, la aproximación de Taylor no implica que la distribución de carga deje de ser constante a lo largo de la longitud del anillo.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Asume que la densidad de carga (λ) deja de ser constante y se concentra en puntos específicos del anillo.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qosci2&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. La aproximación asume que el electrón se mueve muy cerca del centro geométrico, por lo que su velocidad no se aproxima a la velocidad de la luz (no hay efectos relativistas aquí).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Involucra correcciones relativistas, asumiendo que el electrón alcanza velocidades cercanas a la de la luz al pasar por el centro.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qosci2&quot; value=&quot;d&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Al mantener solo el término cuadrático de la posición (z²) en la energía potencial, modelamos la región central del anillo como un pozo parabólico perfecto. Esto implica físicamente que la fuerza resultante es linealmente proporcional al desplazamiento (F ∝ -z), requisito fundamental para obtener la ecuación del oscilador armónico simple.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Convierte la curva de energía potencial en un pozo parabólico, garantizando que la fuerza restauradora sea linealmente proporcional al desplazamiento (Oscilador Armónico Simple).&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qosci2&#39;, &#39;feedback-osci2&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-osci2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. Observando la fórmula obtenida para el período T = 2π√(2ε₀R²m_e / eλ), supón que decides construir un nuevo anillo con el doble de radio (2R), pero mantienes idéntica la densidad lineal de carga λ. ¿Qué efecto tendrá este cambio en el período de oscilación del electrón?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qosci3&quot; value=&quot;a&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! En la fórmula del período, el radio R está elevado al cuadrado dentro de la raíz cuadrada (√(R²) = R), por lo que el período es directamente proporcional al radio del anillo (T ∝ R). Si el radio se duplica, el período también se duplica, haciendo la oscilación más lenta.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El período se duplicará (2T), lo que significa que el electrón tardará el doble de tiempo en completar un ciclo de oscilación.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qosci3&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. El radio R está dentro de la raíz pero elevado al cuadrado. Por tanto, la relación entre T y R es lineal, no cuadrática (no aumenta por un factor de 4).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El período aumentará en un factor de 4, haciendo la oscilación mucho más lenta debido al mayor volumen abarcado.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qosci3&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Un aumento del radio (manteniendo λ constante) aleja la carga del eje central, debilitando el campo restaurador en la vecindad de z=0 y, por consiguiente, aumentando el tiempo necesario para oscilar, no reduciéndolo.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El período se reducirá a la mitad (T/2), oscilando el doble de rápido.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qosci3&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Si bien la fórmula tiene el término de permitividad y carga, el radio R no se cancela matemáticamente. Juega un papel directo en la magnitud de la fuerza restauradora central.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;El período se mantendrá exactamente igual, ya que el tamaño del anillo no afecta a una partícula ubicada en el centro del eje.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qosci3&#39;, &#39;feedback-osci3&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-osci3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_oscilatorio_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<script>
+    if (typeof window.checkFisiQuiz === 'undefined') {
+        window.checkFisiQuiz = function(radioName, feedbackId) {
+            var radios = document.getElementsByName(radioName);
+            var selected = null;
+            var feedbackDiv = document.getElementById(feedbackId);
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i];
+                    break;
+                }
+            }
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selected) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.style.color = '#856404';
+                feedbackDiv.style.border = '1px solid #ffeeba';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                return;
+            }
+            
+            var isCorrect = selected.getAttribute('data-correct') === 'true';
+            var msg = selected.getAttribute('data-fb');
+            
+            if (isCorrect) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.style.border = '1px solid #c3e6cb';
+                feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.style.border = '1px solid #f5c6cb';
+                feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+            }
+        };
+    }
+</script>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        1. En el modelo presentado, el electrón experimenta un movimiento oscilatorio a lo largo del eje z que cruza el centro de un anillo de radio R. ¿Por qué es estrictamente necesario que la densidad lineal de carga del anillo (λ) sea positiva para que exista este movimiento oscilatorio estable?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qosci1" value="a" data-fb="Incorrecto. La conservación de la energía se aplica independientemente del signo de la carga, el problema radica en la dirección de la fuerza neta."> 
+        <span>Porque si fuera negativa, se violaría el principio de conservación de la energía mecánica del sistema.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qosci1" value="b" data-correct="true" data-fb="¡Correcto! Un anillo con carga positiva atrae al electrón (carga negativa) hacia el centro geométrico z=0. Esta fuerza de atracción actúa como una fuerza restauradora. Si el anillo fuera negativo, la fuerza repelería al electrón, expulsándolo indefinidamente del sistema sin oscilar."> 
+        <span>Porque un anillo positivo genera una fuerza neta de atracción hacia el centro (fuerza restauradora) sobre el electrón negativo. Si fuera negativo, la fuerza lo repelería hacia el infinito.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qosci1" value="c" data-fb="Incorrecto. La aproximación de Taylor depende netamente de la condición geométrica (z << R), no del signo de las cargas eléctricas involucradas."> 
+        <span>Porque la aproximación matemática de Taylor solo es válida matemáticamente para potenciales eléctricos positivos.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qosci1" value="d" data-fb="Incorrecto. Aunque el campo eléctrico en el centro exacto (z=0) de cualquier anillo uniformemente cargado es cero, no explica el comportamiento restaurador en las cercanías (z ≠ 0)."> 
+        <span>Porque una carga negativa en el anillo provocaría que el campo eléctrico en el centro (z=0) no fuera nulo, impidiendo el equilibrio.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qosci1', 'feedback-osci1')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-osci1"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        2. Durante el desarrollo matemático, se aplica la expansión de Taylor de primer orden para aproximar el término (z² + R²)⁻¹/² bajo la condición de que z &lt;&lt; R. ¿Cuál es la consecuencia física directa de introducir esta aproximación en la ecuación de energía?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qosci2" value="a" data-fb="Incorrecto. La aproximación no elimina la masa del electrón; de hecho, la masa m_e sigue siendo parte fundamental de la energía cinética y determina la inercia en la ecuación final."> 
+        <span>Permite eliminar la dependencia de la masa del electrón, demostrando que cualquier partícula oscilaría con la misma frecuencia.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qosci2" value="b" data-fb="Incorrecto. Aunque el campo eléctrico y el potencial varían espacialmente, la aproximación de Taylor no implica que la distribución de carga deje de ser constante a lo largo de la longitud del anillo."> 
+        <span>Asume que la densidad de carga (λ) deja de ser constante y se concentra en puntos específicos del anillo.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qosci2" value="c" data-fb="Incorrecto. La aproximación asume que el electrón se mueve muy cerca del centro geométrico, por lo que su velocidad no se aproxima a la velocidad de la luz (no hay efectos relativistas aquí)."> 
+        <span>Involucra correcciones relativistas, asumiendo que el electrón alcanza velocidades cercanas a la de la luz al pasar por el centro.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qosci2" value="d" data-correct="true" data-fb="¡Exacto! Al mantener solo el término cuadrático de la posición (z²) en la energía potencial, modelamos la región central del anillo como un pozo parabólico perfecto. Esto implica físicamente que la fuerza resultante es linealmente proporcional al desplazamiento (F ∝ -z), requisito fundamental para obtener la ecuación del oscilador armónico simple."> 
+        <span>Convierte la curva de energía potencial en un pozo parabólico, garantizando que la fuerza restauradora sea linealmente proporcional al desplazamiento (Oscilador Armónico Simple).</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qosci2', 'feedback-osci2')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-osci2"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        3. Observando la fórmula obtenida para el período T = 2π√(2ε₀R²m_e / eλ), supón que decides construir un nuevo anillo con el doble de radio (2R), pero mantienes idéntica la densidad lineal de carga λ. ¿Qué efecto tendrá este cambio en el período de oscilación del electrón?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qosci3" value="a" data-correct="true" data-fb="¡Correcto! En la fórmula del período, el radio R está elevado al cuadrado dentro de la raíz cuadrada (√(R²) = R), por lo que el período es directamente proporcional al radio del anillo (T ∝ R). Si el radio se duplica, el período también se duplica, haciendo la oscilación más lenta."> 
+        <span>El período se duplicará (2T), lo que significa que el electrón tardará el doble de tiempo en completar un ciclo de oscilación.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qosci3" value="b" data-fb="Incorrecto. El radio R está dentro de la raíz pero elevado al cuadrado. Por tanto, la relación entre T y R es lineal, no cuadrática (no aumenta por un factor de 4)."> 
+        <span>El período aumentará en un factor de 4, haciendo la oscilación mucho más lenta debido al mayor volumen abarcado.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qosci3" value="c" data-fb="Incorrecto. Un aumento del radio (manteniendo λ constante) aleja la carga del eje central, debilitando el campo restaurador en la vecindad de z=0 y, por consiguiente, aumentando el tiempo necesario para oscilar, no reduciéndolo."> 
+        <span>El período se reducirá a la mitad (T/2), oscilando el doble de rápido.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qosci3" value="d" data-fb="Incorrecto. Si bien la fórmula tiene el término de permitividad y carga, el radio R no se cancela matemáticamente. Juega un papel directo en la magnitud de la fuerza restauradora central."> 
+        <span>El período se mantendrá exactamente igual, ya que el tamaño del anillo no afecta a una partícula ubicada en el centro del eje.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qosci3', 'feedback-osci3')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-osci3"></div>
+</div>
+</div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -496,12 +874,35 @@ m_e v \frac{d^2z}{dt^2} + \frac{e\lambda}{2\epsilon_0 R^2} z v &amp;= 0\end{alig
         <p class="prev-next-title">3.3 Energía Potencial y Trabajo</p>
       </div>
     </a>
+    <a class="right-next"
+       href="03_05_tierra.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.5 Conductores Conectados a Tierra</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
