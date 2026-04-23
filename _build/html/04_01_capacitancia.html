@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4.2 Cálculo de Capacitancia" href="04_02_geometrias.html" />
-    <link rel="prev" title="3.4 Movimiento Oscilatorio de un Electrón" href="03_04_oscilatorio.html" />
+    <link rel="prev" title="3.5 Conductores Conectados a Tierra" href="03_05_tierra.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -197,6 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_04_oscilatorio.html">3.4 Movimiento Oscilatorio de un Electrón</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_05_tierra.html">3.5 Conductores Conectados a Tierra</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4 Capacitancia y Dieléctricos</span></p>
 <ul class="current nav bd-sidenav">
@@ -204,6 +205,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="04_02_geometrias.html">4.2 Cálculo de Capacitancia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_03_energia.html">4.3 Energía en un Condensador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_04_serie_paralelo.html">4.4 Condensadores en Circuitos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_05_dielectricos.html">4.5 Dieléctricos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_06_dielec_capacidad.html">4.6 Dieléctricos en Condensadores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5 Corriente, Resistencia y Fuerza Electromotriz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_01_corriente.html">5.1 Corriente Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_densidad.html">5.2 Densidad de Corriente y Ley de Ohm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6 Circuitos de Corriente Directa</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07_01_magnetismo.html">7.1 Magnetismo</a></li>
 </ul>
 
     </div>
@@ -407,7 +427,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -423,6 +445,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -445,6 +475,346 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[dim \, (\text{Capacidad}) = \frac{dim \, (\text{Carga})}{dim \, (\text{Voltaje})} \implies 1 \, \text{F} = 1 \, \frac{\text{C}}{\text{V}}\]</div>
 <p>Dado que el faradio es una unidad muy grande, en la práctica se suelen utilizar submúltiplos como el microfaradio (<span class="math notranslate nohighlight">\(1\text{ }\mu\text{F} = 10^{-6}\text{ F}\)</span>) y el picofaradio (<span class="math notranslate nohighlight">\(1\text{ pF} = 10^{-12}\text{ F}\)</span>). La capacitancia de un sistema depende exclusivamente de su geometría y del material que separa los conductores.</p>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_capacitancia_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    if (typeof window.checkFisiQuiz === &#39;undefined&#39;) {</span>
+<span class="s2">        window.checkFisiQuiz = function(radioName, feedbackId) {</span>
+<span class="s2">            var radios = document.getElementsByName(radioName);</span>
+<span class="s2">            var selected = null;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">            </span>
+<span class="s2">            for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                if (radios[i].checked) {</span>
+<span class="s2">                    selected = radios[i];</span>
+<span class="s2">                    break;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            if (!selected) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">            var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            if (isCorrect) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            }</span>
+<span class="s2">        };</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/script&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Un condensador está compuesto por dos conductores aislados. Al conectarse a una fuente de voltaje, ¿cómo se distribuye la carga entre ellos y a qué se refiere exactamente el valor &quot;Q&quot; en la fórmula C = Q / ΔV?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcap1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Los condensadores no almacenan cargas del mismo signo; la batería extrae electrones de una placa para depositarlos en la otra.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Ambos conductores adquieren cargas del mismo signo (+Q y +Q), y se utiliza la suma de ambas (2Q) en la fórmula de la capacitancia.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcap1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! El condensador en su conjunto permanece eléctricamente neutro (carga neta cero). Sin embargo, cuando hablamos de &#39;la carga del condensador&#39; (Q), nos referimos exclusivamente a la magnitud absoluta de la carga presente en uno solo de sus conductores.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Un conductor adquiere una carga +Q y el otro -Q (carga neta total cero), pero en la fórmula &quot;Q&quot; representa únicamente la magnitud absoluta de la carga en cualquiera de los conductores.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcap1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Por conservación de la carga y el funcionamiento del circuito, ambos conductores siempre adquieren magnitudes de carga idénticas, independientemente de su tamaño.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Los conductores adquieren cargas de diferente magnitud dependiendo de sus tamaños geométricos, por lo que se utiliza el promedio en la fórmula.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcap1&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Si un conductor estuviera neutro, no se establecería un campo eléctrico uniforme entre ellos y no funcionaría como condensador.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Un conductor acumula toda la carga (+Q) mientras que el otro permanece siempre en estado neutro (0).&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qcap1&#39;, &#39;feedback-cap1&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-cap1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. Basándote en la relación matemática C = Q / ΔV, ¿qué interpretación física podemos deducir si decimos que un sistema posee una &quot;alta capacitancia&quot;?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcap2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Si requiere un gran voltaje para almacenar poca carga, significa que la fracción Q/ΔV es pequeña, es decir, tiene una baja capacitancia.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el condensador requiere que se le aplique una diferencia de potencial inmensamente alta para poder almacenar una pequeña cantidad de carga.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcap2&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. La capacitancia mide la capacidad estática de almacenamiento de carga por unidad de voltaje, no la velocidad del movimiento de las cargas.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que las cargas eléctricas pueden viajar extremadamente rápido entre los conductores debido a un campo eléctrico muy intenso.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcap2&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Una capacitancia alta (una gran cantidad de Faradios) indica que el dispositivo es muy eficiente guardando carga eléctrica: con apenas aplicar unos pocos voltios (ΔV pequeño), es capaz de acumular una gran cantidad de carga (Q grande).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el condensador es capaz de almacenar una gran cantidad de carga eléctrica (Q) incluso cuando se le aplica una diferencia de potencial (ΔV) muy pequeña.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcap2&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. El condensador no convierte ni anula el voltaje para transformarlo en calor (eso es propio del efecto Joule en las resistencias).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Que el dispositivo anula rápidamente todo el voltaje externo aplicado, disipando la energía en forma térmica.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qcap2&#39;, &#39;feedback-cap2&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-cap2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. Si conectas un condensador a una batería de 5 V, y luego lo desconectas y lo conectas a una batería más potente de 10 V (duplicando el voltaje ΔV), ¿qué ocurrirá con el valor de su capacitancia (C)?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcap3&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Aunque la fórmula es C = Q/ΔV, C no depende de ΔV. Al duplicar el voltaje, la carga Q que fluye hacia las placas también se duplicará, manteniendo el cociente constante.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La capacitancia se reducirá exactamente a la mitad, ya que matemáticamente es inversamente proporcional al voltaje aplicado.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcap3&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. La capacitancia no aumenta al subir el voltaje; lo que aumenta al doble es la cantidad de carga almacenada.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La capacitancia se duplicará, acompañando linealmente el aumento de la diferencia de potencial.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcap3&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Esta es una de las reglas de oro: la capacitancia de un sistema es una propiedad intrínseca que depende exclusivamente de su geometría (tamaño, forma, separación) y del material aislante (dieléctrico) entre sus placas. No depende ni del voltaje aplicado ni de la carga almacenada.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La capacitancia se mantendrá exactamente igual, ya que este valor depende exclusivamente de la geometría del dispositivo y del material entre los conductores.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcap3&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. La capacitancia es una constante geométrica en un condensador ideal y no fluctúa buscando estabilización por cambios de voltaje externo.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La capacitancia fluctuará de manera caótica hasta que el campo eléctrico se vuelva a estabilizar en las placas.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qcap3&#39;, &#39;feedback-cap3&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-cap3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_capacitancia_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<script>
+    if (typeof window.checkFisiQuiz === 'undefined') {
+        window.checkFisiQuiz = function(radioName, feedbackId) {
+            var radios = document.getElementsByName(radioName);
+            var selected = null;
+            var feedbackDiv = document.getElementById(feedbackId);
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i];
+                    break;
+                }
+            }
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selected) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.style.color = '#856404';
+                feedbackDiv.style.border = '1px solid #ffeeba';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                return;
+            }
+            
+            var isCorrect = selected.getAttribute('data-correct') === 'true';
+            var msg = selected.getAttribute('data-fb');
+            
+            if (isCorrect) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.style.border = '1px solid #c3e6cb';
+                feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.style.border = '1px solid #f5c6cb';
+                feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+            }
+        };
+    }
+</script>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        1. Un condensador está compuesto por dos conductores aislados. Al conectarse a una fuente de voltaje, ¿cómo se distribuye la carga entre ellos y a qué se refiere exactamente el valor "Q" en la fórmula C = Q / ΔV?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qcap1" value="a" data-fb="Incorrecto. Los condensadores no almacenan cargas del mismo signo; la batería extrae electrones de una placa para depositarlos en la otra."> 
+        <span>Ambos conductores adquieren cargas del mismo signo (+Q y +Q), y se utiliza la suma de ambas (2Q) en la fórmula de la capacitancia.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcap1" value="b" data-correct="true" data-fb="¡Exacto! El condensador en su conjunto permanece eléctricamente neutro (carga neta cero). Sin embargo, cuando hablamos de 'la carga del condensador' (Q), nos referimos exclusivamente a la magnitud absoluta de la carga presente en uno solo de sus conductores."> 
+        <span>Un conductor adquiere una carga +Q y el otro -Q (carga neta total cero), pero en la fórmula "Q" representa únicamente la magnitud absoluta de la carga en cualquiera de los conductores.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcap1" value="c" data-fb="Incorrecto. Por conservación de la carga y el funcionamiento del circuito, ambos conductores siempre adquieren magnitudes de carga idénticas, independientemente de su tamaño."> 
+        <span>Los conductores adquieren cargas de diferente magnitud dependiendo de sus tamaños geométricos, por lo que se utiliza el promedio en la fórmula.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcap1" value="d" data-fb="Incorrecto. Si un conductor estuviera neutro, no se establecería un campo eléctrico uniforme entre ellos y no funcionaría como condensador."> 
+        <span>Un conductor acumula toda la carga (+Q) mientras que el otro permanece siempre en estado neutro (0).</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qcap1', 'feedback-cap1')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-cap1"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        2. Basándote en la relación matemática C = Q / ΔV, ¿qué interpretación física podemos deducir si decimos que un sistema posee una "alta capacitancia"?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qcap2" value="a" data-fb="Incorrecto. Si requiere un gran voltaje para almacenar poca carga, significa que la fracción Q/ΔV es pequeña, es decir, tiene una baja capacitancia."> 
+        <span>Que el condensador requiere que se le aplique una diferencia de potencial inmensamente alta para poder almacenar una pequeña cantidad de carga.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcap2" value="b" data-fb="Incorrecto. La capacitancia mide la capacidad estática de almacenamiento de carga por unidad de voltaje, no la velocidad del movimiento de las cargas."> 
+        <span>Que las cargas eléctricas pueden viajar extremadamente rápido entre los conductores debido a un campo eléctrico muy intenso.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcap2" value="c" data-correct="true" data-fb="¡Correcto! Una capacitancia alta (una gran cantidad de Faradios) indica que el dispositivo es muy eficiente guardando carga eléctrica: con apenas aplicar unos pocos voltios (ΔV pequeño), es capaz de acumular una gran cantidad de carga (Q grande)."> 
+        <span>Que el condensador es capaz de almacenar una gran cantidad de carga eléctrica (Q) incluso cuando se le aplica una diferencia de potencial (ΔV) muy pequeña.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcap2" value="d" data-fb="Incorrecto. El condensador no convierte ni anula el voltaje para transformarlo en calor (eso es propio del efecto Joule en las resistencias)."> 
+        <span>Que el dispositivo anula rápidamente todo el voltaje externo aplicado, disipando la energía en forma térmica.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qcap2', 'feedback-cap2')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-cap2"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        3. Si conectas un condensador a una batería de 5 V, y luego lo desconectas y lo conectas a una batería más potente de 10 V (duplicando el voltaje ΔV), ¿qué ocurrirá con el valor de su capacitancia (C)?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qcap3" value="a" data-fb="Incorrecto. Aunque la fórmula es C = Q/ΔV, C no depende de ΔV. Al duplicar el voltaje, la carga Q que fluye hacia las placas también se duplicará, manteniendo el cociente constante."> 
+        <span>La capacitancia se reducirá exactamente a la mitad, ya que matemáticamente es inversamente proporcional al voltaje aplicado.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcap3" value="b" data-fb="Incorrecto. La capacitancia no aumenta al subir el voltaje; lo que aumenta al doble es la cantidad de carga almacenada."> 
+        <span>La capacitancia se duplicará, acompañando linealmente el aumento de la diferencia de potencial.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcap3" value="c" data-correct="true" data-fb="¡Exacto! Esta es una de las reglas de oro: la capacitancia de un sistema es una propiedad intrínseca que depende exclusivamente de su geometría (tamaño, forma, separación) y del material aislante (dieléctrico) entre sus placas. No depende ni del voltaje aplicado ni de la carga almacenada."> 
+        <span>La capacitancia se mantendrá exactamente igual, ya que este valor depende exclusivamente de la geometría del dispositivo y del material entre los conductores.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcap3" value="d" data-fb="Incorrecto. La capacitancia es una constante geométrica en un condensador ideal y no fluctúa buscando estabilización por cambios de voltaje externo."> 
+        <span>La capacitancia fluctuará de manera caótica hasta que el campo eléctrico se vuelva a estabilizar en las placas.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qcap3', 'feedback-cap3')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-cap3"></div>
+</div>
+</div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -478,12 +848,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="03_04_oscilatorio.html"
+       href="03_05_tierra.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">3.4 Movimiento Oscilatorio de un Electrón</p>
+        <p class="prev-next-title">3.5 Conductores Conectados a Tierra</p>
       </div>
     </a>
     <a class="right-next"
@@ -501,6 +871,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

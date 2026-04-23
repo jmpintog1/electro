@@ -197,6 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_04_oscilatorio.html">3.4 Movimiento Oscilatorio de un Electrón</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_05_tierra.html">3.5 Conductores Conectados a Tierra</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4 Capacitancia y Dieléctricos</span></p>
 <ul class="current nav bd-sidenav">
@@ -206,6 +207,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="04_04_serie_paralelo.html">4.4 Condensadores en Circuitos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_05_dielectricos.html">4.5 Dieléctricos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_06_dielec_capacidad.html">4.6 Dieléctricos en Condensadores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5 Corriente, Resistencia y Fuerza Electromotriz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_01_corriente.html">5.1 Corriente Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_densidad.html">5.2 Densidad de Corriente y Ley de Ohm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6 Circuitos de Corriente Directa</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07_01_magnetismo.html">7.1 Magnetismo</a></li>
 </ul>
 
     </div>
@@ -435,6 +453,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condensador-esferico">Condensador esférico</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condensador-cilindrico">Condensador cilíndrico</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condensador-de-placas-paralelas">Condensador de placas paralelas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
             </nav>
         </div>
@@ -1147,6 +1166,346 @@ document.write(`
 </div></div>
 </div>
 </section>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_calculo_cap_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    if (typeof window.checkFisiQuiz === &#39;undefined&#39;) {</span>
+<span class="s2">        window.checkFisiQuiz = function(radioName, feedbackId) {</span>
+<span class="s2">            var radios = document.getElementsByName(radioName);</span>
+<span class="s2">            var selected = null;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">            </span>
+<span class="s2">            for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                if (radios[i].checked) {</span>
+<span class="s2">                    selected = radios[i];</span>
+<span class="s2">                    break;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            if (!selected) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">            var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            if (isCorrect) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            }</span>
+<span class="s2">        };</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/script&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Según la metodología descrita para deducir analíticamente la capacitancia de cualquier arreglo geométrico, ¿cuál es el orden lógico y correcto de los pasos a seguir, partiendo de la suposición de que los conductores poseen cargas +Q y -Q?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc_cap1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. No puedes determinar la diferencia de potencial sin conocer primero cómo se distribuye el campo eléctrico en el espacio entre los conductores.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Determinar primero la diferencia de potencial, luego aplicar la Ley de Gauss para el campo eléctrico, y finalmente multiplicar dicho campo por la carga.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc_cap1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! El algoritmo clásico es: 1) Asumir carga Q. 2) Hallar el campo eléctrico E (usando Gauss si hay simetría). 3) Integrar E para encontrar la diferencia de potencial ΔV. 4) Dividir Q entre ΔV, con lo cual la carga Q se simplifica y queda solo la dependencia geométrica.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Calcular el campo eléctrico mediante la Ley de Gauss, luego determinar la diferencia de potencial integrando el campo, y finalmente dividir la carga Q por dicha diferencia de potencial.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc_cap1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Aunque la capacitancia se relaciona con la energía, este no es el método primario de deducción geométrica propuesto.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Medir la energía potencial almacenada en el sistema, dividirla por el cuadrado de la carga, y finalmente aplicar el gradiente para hallar la capacitancia.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc_cap1&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. La capacitancia es un fenómeno puramente electrostático; no requiere la integración de flujo magnético ni el uso de la Ley de Ohm.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Integrar la densidad de flujo magnético para encontrar las corrientes de fuga, y luego aplicar la Ley de Ohm para despejar la capacidad.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qcalc_cap1&#39;, &#39;feedback-calccap1&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-calccap1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. Observando la expresión deducida para el condensador esférico, C = 4πε₀ [ab / (b-a)], ¿qué sucede físicamente con el valor de la capacitancia si la distancia entre los dos cascarones se hace extremadamente pequeña (es decir, el radio exterior &#39;b&#39; se aproxima mucho al radio interior &#39;a&#39;)?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc_cap2&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Al acercarse los cascarones, la diferencia (b-a) en el denominador se vuelve casi cero, lo que matemáticamente hace crecer el valor total de la fracción, no lo disminuye.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La capacitancia tiende a cero, ya que el volumen disponible para almacenar el campo eléctrico desaparece casi por completo.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc_cap2&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. La permitividad del vacío es constante, pero la capacitancia depende críticamente del factor geométrico dictado por los radios.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La capacitancia se mantiene constante, pues este valor depende únicamente de la permitividad del vacío (ε₀) y no de la proximidad de las placas.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc_cap2&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! Matemáticamente, a medida que (b-a) tiende a cero, el denominador se hace muy pequeño y la capacitancia tiende a infinito. Físicamente, placas muy cercanas experimentan una fuerte atracción entre sus cargas opuestas, lo que permite almacenar muchísima carga Q con un esfuerzo (voltaje ΔV) muy pequeño.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La capacitancia tiende a infinito, ya que el denominador (b-a) se hace cada vez más pequeño, permitiendo almacenar grandes cantidades de carga con muy bajo voltaje.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc_cap2&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. El radio &#39;b&#39; es estrictamente mayor que &#39;a&#39; por la geometría concéntrica (b &gt; a), por lo que el denominador siempre es positivo y la capacitancia nunca es negativa.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La capacitancia se vuelve un valor negativo, indicando que el dispositivo comienza a repeler la carga en lugar de almacenarla.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qcalc_cap2&#39;, &#39;feedback-calccap2&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-calccap2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. En un condensador de placas paralelas conectado permanentemente a una batería (lo que mantiene constante el voltaje ΔV), decides alejar las placas físicamente, aumentando la distancia &#39;d&#39; pero manteniendo la misma área &#39;A&#39;. Según las ecuaciones de esta sección, ¿qué ocurre con la capacitancia (C) y con la magnitud del campo eléctrico (E) entre las placas?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc_cap3&quot; value=&quot;a&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Según la fórmula C = ε₀A/d, al aumentar &#39;d&#39;, la capacitancia C disminuye (son inversamente proporcionales). Por otro lado, como E = ΔV/d y el voltaje está fijado por la batería, el campo eléctrico E también disminuye obligatoriamente al alejar las placas.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La capacitancia C disminuye y el campo eléctrico E también disminuye, ya que ambas variables son inversamente proporcionales a la distancia d.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc_cap3&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Al aumentar &#39;d&#39;, el denominador crece, por lo que la capacitancia C disminuye, no aumenta.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La capacitancia C aumenta proporcionalmente al nuevo volumen creado, mientras que el campo eléctrico E se mantiene constante.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc_cap3&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Si el voltaje está fijo, el campo eléctrico no puede aumentar si se alarga la distancia sobre la cual se distribuye esa misma &#39;caída&#39; de potencial (E = ΔV/d).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;La capacitancia C disminuye, pero la intensidad del campo eléctrico E aumenta fuertemente debido a la tensión generada entre las placas alejadas.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcalc_cap3&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. El voltaje es constante, pero ni la capacitancia ni el campo eléctrico lo son; ambos dependen inversamente de la variable geométrica &#39;d&#39;.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Ambas magnitudes, C y E, permanecen inalteradas, puesto que sus valores están completamente gobernados y estabilizados por el voltaje fijo de la batería.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qcalc_cap3&#39;, &#39;feedback-calccap3&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-calccap3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_calculo_cap_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<script>
+    if (typeof window.checkFisiQuiz === 'undefined') {
+        window.checkFisiQuiz = function(radioName, feedbackId) {
+            var radios = document.getElementsByName(radioName);
+            var selected = null;
+            var feedbackDiv = document.getElementById(feedbackId);
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i];
+                    break;
+                }
+            }
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selected) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.style.color = '#856404';
+                feedbackDiv.style.border = '1px solid #ffeeba';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                return;
+            }
+            
+            var isCorrect = selected.getAttribute('data-correct') === 'true';
+            var msg = selected.getAttribute('data-fb');
+            
+            if (isCorrect) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.style.border = '1px solid #c3e6cb';
+                feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.style.border = '1px solid #f5c6cb';
+                feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+            }
+        };
+    }
+</script>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        1. Según la metodología descrita para deducir analíticamente la capacitancia de cualquier arreglo geométrico, ¿cuál es el orden lógico y correcto de los pasos a seguir, partiendo de la suposición de que los conductores poseen cargas +Q y -Q?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc_cap1" value="a" data-fb="Incorrecto. No puedes determinar la diferencia de potencial sin conocer primero cómo se distribuye el campo eléctrico en el espacio entre los conductores."> 
+        <span>Determinar primero la diferencia de potencial, luego aplicar la Ley de Gauss para el campo eléctrico, y finalmente multiplicar dicho campo por la carga.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc_cap1" value="b" data-correct="true" data-fb="¡Exacto! El algoritmo clásico es: 1) Asumir carga Q. 2) Hallar el campo eléctrico E (usando Gauss si hay simetría). 3) Integrar E para encontrar la diferencia de potencial ΔV. 4) Dividir Q entre ΔV, con lo cual la carga Q se simplifica y queda solo la dependencia geométrica."> 
+        <span>Calcular el campo eléctrico mediante la Ley de Gauss, luego determinar la diferencia de potencial integrando el campo, y finalmente dividir la carga Q por dicha diferencia de potencial.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc_cap1" value="c" data-fb="Incorrecto. Aunque la capacitancia se relaciona con la energía, este no es el método primario de deducción geométrica propuesto."> 
+        <span>Medir la energía potencial almacenada en el sistema, dividirla por el cuadrado de la carga, y finalmente aplicar el gradiente para hallar la capacitancia.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc_cap1" value="d" data-fb="Incorrecto. La capacitancia es un fenómeno puramente electrostático; no requiere la integración de flujo magnético ni el uso de la Ley de Ohm."> 
+        <span>Integrar la densidad de flujo magnético para encontrar las corrientes de fuga, y luego aplicar la Ley de Ohm para despejar la capacidad.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qcalc_cap1', 'feedback-calccap1')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-calccap1"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        2. Observando la expresión deducida para el condensador esférico, C = 4πε₀ [ab / (b-a)], ¿qué sucede físicamente con el valor de la capacitancia si la distancia entre los dos cascarones se hace extremadamente pequeña (es decir, el radio exterior 'b' se aproxima mucho al radio interior 'a')?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc_cap2" value="a" data-fb="Incorrecto. Al acercarse los cascarones, la diferencia (b-a) en el denominador se vuelve casi cero, lo que matemáticamente hace crecer el valor total de la fracción, no lo disminuye."> 
+        <span>La capacitancia tiende a cero, ya que el volumen disponible para almacenar el campo eléctrico desaparece casi por completo.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc_cap2" value="b" data-fb="Incorrecto. La permitividad del vacío es constante, pero la capacitancia depende críticamente del factor geométrico dictado por los radios."> 
+        <span>La capacitancia se mantiene constante, pues este valor depende únicamente de la permitividad del vacío (ε₀) y no de la proximidad de las placas.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc_cap2" value="c" data-correct="true" data-fb="¡Correcto! Matemáticamente, a medida que (b-a) tiende a cero, el denominador se hace muy pequeño y la capacitancia tiende a infinito. Físicamente, placas muy cercanas experimentan una fuerte atracción entre sus cargas opuestas, lo que permite almacenar muchísima carga Q con un esfuerzo (voltaje ΔV) muy pequeño."> 
+        <span>La capacitancia tiende a infinito, ya que el denominador (b-a) se hace cada vez más pequeño, permitiendo almacenar grandes cantidades de carga con muy bajo voltaje.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc_cap2" value="d" data-fb="Incorrecto. El radio 'b' es estrictamente mayor que 'a' por la geometría concéntrica (b > a), por lo que el denominador siempre es positivo y la capacitancia nunca es negativa."> 
+        <span>La capacitancia se vuelve un valor negativo, indicando que el dispositivo comienza a repeler la carga en lugar de almacenarla.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qcalc_cap2', 'feedback-calccap2')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-calccap2"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        3. En un condensador de placas paralelas conectado permanentemente a una batería (lo que mantiene constante el voltaje ΔV), decides alejar las placas físicamente, aumentando la distancia 'd' pero manteniendo la misma área 'A'. Según las ecuaciones de esta sección, ¿qué ocurre con la capacitancia (C) y con la magnitud del campo eléctrico (E) entre las placas?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc_cap3" value="a" data-correct="true" data-fb="¡Exacto! Según la fórmula C = ε₀A/d, al aumentar 'd', la capacitancia C disminuye (son inversamente proporcionales). Por otro lado, como E = ΔV/d y el voltaje está fijado por la batería, el campo eléctrico E también disminuye obligatoriamente al alejar las placas."> 
+        <span>La capacitancia C disminuye y el campo eléctrico E también disminuye, ya que ambas variables son inversamente proporcionales a la distancia d.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc_cap3" value="b" data-fb="Incorrecto. Al aumentar 'd', el denominador crece, por lo que la capacitancia C disminuye, no aumenta."> 
+        <span>La capacitancia C aumenta proporcionalmente al nuevo volumen creado, mientras que el campo eléctrico E se mantiene constante.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc_cap3" value="c" data-fb="Incorrecto. Si el voltaje está fijo, el campo eléctrico no puede aumentar si se alarga la distancia sobre la cual se distribuye esa misma 'caída' de potencial (E = ΔV/d)."> 
+        <span>La capacitancia C disminuye, pero la intensidad del campo eléctrico E aumenta fuertemente debido a la tensión generada entre las placas alejadas.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcalc_cap3" value="d" data-fb="Incorrecto. El voltaje es constante, pero ni la capacitancia ni el campo eléctrico lo son; ambos dependen inversamente de la variable geométrica 'd'."> 
+        <span>Ambas magnitudes, C y E, permanecen inalteradas, puesto que sus valores están completamente gobernados y estabilizados por el voltaje fijo de la batería.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qcalc_cap3', 'feedback-calccap3')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-calccap3"></div>
+</div>
+</div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1215,6 +1574,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condensador-esferico">Condensador esférico</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condensador-cilindrico">Condensador cilíndrico</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condensador-de-placas-paralelas">Condensador de placas paralelas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
   </nav></div>
 

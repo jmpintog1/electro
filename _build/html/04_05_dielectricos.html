@@ -197,6 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_04_oscilatorio.html">3.4 Movimiento Oscilatorio de un Electrón</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_05_tierra.html">3.5 Conductores Conectados a Tierra</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4 Capacitancia y Dieléctricos</span></p>
 <ul class="current nav bd-sidenav">
@@ -209,7 +210,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">5 Corriente, Resistencia y Fuerza Electromotriz</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="05_01_corriente.html">5.1 Corriente eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_01_corriente.html">5.1 Corriente Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_densidad.html">5.2 Densidad de Corriente y Ley de Ohm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6 Circuitos de Corriente Directa</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07_01_magnetismo.html">7.1 Magnetismo</a></li>
 </ul>
 
     </div>
@@ -438,6 +452,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dipolos-electricos-y-polarizacion">Dipolos eléctricos y polarización</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dielectricos-lineales-y-desplazamiento-electrico">Dieléctricos lineales y desplazamiento eléctrico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
             </nav>
         </div>
@@ -489,6 +504,346 @@ document.write(`
 <p>Definimos la permitividad del material como <span class="math notranslate nohighlight">\(\epsilon = \epsilon_0 + \chi\)</span>, cumpliendo que <span class="math notranslate nohighlight">\(\epsilon \ge \epsilon_0\)</span>. A la razón geométrica entre ambas permitividades se le denomina constante dieléctrica <span class="math notranslate nohighlight">\(K\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[K = \frac{\epsilon}{\epsilon_0} \ge 1\]</div>
+</section>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_dielectricos_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    if (typeof window.checkFisiQuiz === &#39;undefined&#39;) {</span>
+<span class="s2">        window.checkFisiQuiz = function(radioName, feedbackId) {</span>
+<span class="s2">            var radios = document.getElementsByName(radioName);</span>
+<span class="s2">            var selected = null;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">            </span>
+<span class="s2">            for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                if (radios[i].checked) {</span>
+<span class="s2">                    selected = radios[i];</span>
+<span class="s2">                    break;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            if (!selected) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">            var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            if (isCorrect) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            }</span>
+<span class="s2">        };</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/script&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Cuando un material dieléctrico se somete a un campo eléctrico, sus dipolos internos se alinean. A nivel macroscópico, ¿qué describe físicamente el vector de polarización (P)?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdielec1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. El torque es la causa mecánica de la rotación (τ = p × E), pero el vector de polarización describe el resultado de esa alineación en el volumen.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Representa el torque total ejercido por el campo eléctrico externo sobre cada molécula individual.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdielec1&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. La polarización tiene dimensiones de carga por unidad de área, pero no describe flujo de cargas libres, sino el reacomodo de cargas ligadas.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Representa la densidad de carga libre neta que atraviesa una unidad de área del material.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdielec1&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! El vector polarización (P) se define matemáticamente como la derivada del momento dipolar respecto al volumen (P = dp/dV). Es una medida de la densidad del momento dipolar eléctrico acumulado en un material.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Representa el momento dipolar eléctrico neto acumulado por cada unidad de volumen del material.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdielec1&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. La diferencia de potencial depende de la integral del campo y la distancia, no es la definición intrínseca de la polarización macroscópica.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Representa la diferencia de potencial generada entre los extremos del material, dividida por la constante dieléctrica.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qdielec1&#39;, &#39;feedback-dielec1&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-dielec1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. Al aplicar la Ley de Gauss en un dieléctrico, se agrupa la permisividad y la polarización para definir el vector de desplazamiento eléctrico D = ε₀E + P. ¿Por qué resulta matemáticamente tan útil definir este nuevo vector en el estudio del electromagnetismo?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdielec2&quot; value=&quot;a&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! En los materiales reales es muy difícil medir la &#39;carga de polarización&#39; (Q_p) ligada a los átomos. Al reordenar la ecuación de Gauss usando el vector D, la integral de superficie de D queda igualada únicamente a la &#39;carga libre&#39; (Q), la cual es fácilmente medible y controlable en un laboratorio.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque permite reescribir la Ley de Gauss de modo que el flujo dependa exclusivamente de la carga libre (Q), integrando matemáticamente el efecto de la carga de polarización (Q_p) dentro del propio vector D.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdielec2&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. El vector D no anula el campo E. De hecho, el campo eléctrico E resultante en el material suele ser menor que el campo externo, pero no es nulo salvo que sea un conductor perfecto.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque el vector D anula completamente el campo eléctrico interno (E = 0), simplificando el material dieléctrico a las ecuaciones de un conductor ideal.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdielec2&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Es justamente lo opuesto: E es el campo que define las fuerzas eléctricas reales y la diferencia de potencial medible con un voltímetro; D es una construcción matemática útil.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque este vector de desplazamiento D es el único componente eléctrico que puede ser medido directamente mediante un voltímetro convencional.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdielec2&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. El flujo depende de la carga encerrada. Si hay carga libre en el interior, el flujo del vector D no será cero.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque garantiza geométricamente que el flujo eléctrico neto a través de cualquier superficie gaussiana cerrada sea siempre igual a cero.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qdielec2&#39;, &#39;feedback-dielec2&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-dielec2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. Para un dieléctrico lineal, la constante dieléctrica se define como K = ε / ε₀. Sabiendo que, por definición física, K ≥ 1 para cualquier material, ¿qué implicancia directa tiene esto respecto a la permitividad del material?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdielec3&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Matemáticamente K = ε / ε₀ ≥ 1 implica que ε ≥ ε₀. La permitividad del material es mayor, no menor, que la del vacío.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Implica que la permitividad del material (ε) siempre será menor que la del vacío, debilitando fuertemente el almacenamiento de carga.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdielec3&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Dado que ε = ε₀ + χ, para que ε ≥ ε₀ se requiere necesariamente que la susceptibilidad (χ) sea un valor positivo o cero.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Implica que la susceptibilidad eléctrica (χ) del dieléctrico es siempre negativa, oponiéndose permanentemente a la presencia del campo E.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdielec3&quot; value=&quot;c&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Como ε = ε₀ + χ, y sabiendo que la susceptibilidad eléctrica (χ) de un dieléctrico responde favorablemente al campo (es positiva), la permitividad total del material (ε) siempre será igual o mayor a la permitividad base del vacío (ε₀). El valor 1 corresponde al vacío puro.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Implica que la permitividad total del material (ε), debido a la respuesta de su susceptibilidad (χ), siempre será igual o mayor que la permitividad propia del vacío (ε₀).&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qdielec3&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. La constante K es una razón intrínseca del material. No establece un valor mínimo de voltaje o campo externo para que comience la polarización (en dieléctricos lineales la respuesta ocurre desde el principio).&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Implica que un material dieléctrico lineal solo puede polarizarse de forma constante si el campo eléctrico externo supera la magnitud de 1 V/m.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qdielec3&#39;, &#39;feedback-dielec3&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-dielec3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_dielectricos_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<script>
+    if (typeof window.checkFisiQuiz === 'undefined') {
+        window.checkFisiQuiz = function(radioName, feedbackId) {
+            var radios = document.getElementsByName(radioName);
+            var selected = null;
+            var feedbackDiv = document.getElementById(feedbackId);
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i];
+                    break;
+                }
+            }
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selected) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.style.color = '#856404';
+                feedbackDiv.style.border = '1px solid #ffeeba';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                return;
+            }
+            
+            var isCorrect = selected.getAttribute('data-correct') === 'true';
+            var msg = selected.getAttribute('data-fb');
+            
+            if (isCorrect) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.style.border = '1px solid #c3e6cb';
+                feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.style.border = '1px solid #f5c6cb';
+                feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+            }
+        };
+    }
+</script>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        1. Cuando un material dieléctrico se somete a un campo eléctrico, sus dipolos internos se alinean. A nivel macroscópico, ¿qué describe físicamente el vector de polarización (P)?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qdielec1" value="a" data-fb="Incorrecto. El torque es la causa mecánica de la rotación (τ = p × E), pero el vector de polarización describe el resultado de esa alineación en el volumen."> 
+        <span>Representa el torque total ejercido por el campo eléctrico externo sobre cada molécula individual.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdielec1" value="b" data-fb="Incorrecto. La polarización tiene dimensiones de carga por unidad de área, pero no describe flujo de cargas libres, sino el reacomodo de cargas ligadas."> 
+        <span>Representa la densidad de carga libre neta que atraviesa una unidad de área del material.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdielec1" value="c" data-correct="true" data-fb="¡Exacto! El vector polarización (P) se define matemáticamente como la derivada del momento dipolar respecto al volumen (P = dp/dV). Es una medida de la densidad del momento dipolar eléctrico acumulado en un material."> 
+        <span>Representa el momento dipolar eléctrico neto acumulado por cada unidad de volumen del material.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdielec1" value="d" data-fb="Incorrecto. La diferencia de potencial depende de la integral del campo y la distancia, no es la definición intrínseca de la polarización macroscópica."> 
+        <span>Representa la diferencia de potencial generada entre los extremos del material, dividida por la constante dieléctrica.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qdielec1', 'feedback-dielec1')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-dielec1"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        2. Al aplicar la Ley de Gauss en un dieléctrico, se agrupa la permisividad y la polarización para definir el vector de desplazamiento eléctrico D = ε₀E + P. ¿Por qué resulta matemáticamente tan útil definir este nuevo vector en el estudio del electromagnetismo?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qdielec2" value="a" data-correct="true" data-fb="¡Correcto! En los materiales reales es muy difícil medir la 'carga de polarización' (Q_p) ligada a los átomos. Al reordenar la ecuación de Gauss usando el vector D, la integral de superficie de D queda igualada únicamente a la 'carga libre' (Q), la cual es fácilmente medible y controlable en un laboratorio."> 
+        <span>Porque permite reescribir la Ley de Gauss de modo que el flujo dependa exclusivamente de la carga libre (Q), integrando matemáticamente el efecto de la carga de polarización (Q_p) dentro del propio vector D.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdielec2" value="b" data-fb="Incorrecto. El vector D no anula el campo E. De hecho, el campo eléctrico E resultante en el material suele ser menor que el campo externo, pero no es nulo salvo que sea un conductor perfecto."> 
+        <span>Porque el vector D anula completamente el campo eléctrico interno (E = 0), simplificando el material dieléctrico a las ecuaciones de un conductor ideal.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdielec2" value="c" data-fb="Incorrecto. Es justamente lo opuesto: E es el campo que define las fuerzas eléctricas reales y la diferencia de potencial medible con un voltímetro; D es una construcción matemática útil."> 
+        <span>Porque este vector de desplazamiento D es el único componente eléctrico que puede ser medido directamente mediante un voltímetro convencional.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdielec2" value="d" data-fb="Incorrecto. El flujo depende de la carga encerrada. Si hay carga libre en el interior, el flujo del vector D no será cero."> 
+        <span>Porque garantiza geométricamente que el flujo eléctrico neto a través de cualquier superficie gaussiana cerrada sea siempre igual a cero.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qdielec2', 'feedback-dielec2')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-dielec2"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        3. Para un dieléctrico lineal, la constante dieléctrica se define como K = ε / ε₀. Sabiendo que, por definición física, K ≥ 1 para cualquier material, ¿qué implicancia directa tiene esto respecto a la permitividad del material?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qdielec3" value="a" data-fb="Incorrecto. Matemáticamente K = ε / ε₀ ≥ 1 implica que ε ≥ ε₀. La permitividad del material es mayor, no menor, que la del vacío."> 
+        <span>Implica que la permitividad del material (ε) siempre será menor que la del vacío, debilitando fuertemente el almacenamiento de carga.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdielec3" value="b" data-fb="Incorrecto. Dado que ε = ε₀ + χ, para que ε ≥ ε₀ se requiere necesariamente que la susceptibilidad (χ) sea un valor positivo o cero."> 
+        <span>Implica que la susceptibilidad eléctrica (χ) del dieléctrico es siempre negativa, oponiéndose permanentemente a la presencia del campo E.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdielec3" value="c" data-correct="true" data-fb="¡Exacto! Como ε = ε₀ + χ, y sabiendo que la susceptibilidad eléctrica (χ) de un dieléctrico responde favorablemente al campo (es positiva), la permitividad total del material (ε) siempre será igual o mayor a la permitividad base del vacío (ε₀). El valor 1 corresponde al vacío puro."> 
+        <span>Implica que la permitividad total del material (ε), debido a la respuesta de su susceptibilidad (χ), siempre será igual o mayor que la permitividad propia del vacío (ε₀).</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qdielec3" value="d" data-fb="Incorrecto. La constante K es una razón intrínseca del material. No establece un valor mínimo de voltaje o campo externo para que comience la polarización (en dieléctricos lineales la respuesta ocurre desde el principio)."> 
+        <span>Implica que un material dieléctrico lineal solo puede polarizarse de forma constante si el campo eléctrico externo supera la magnitud de 1 V/m.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qdielec3', 'feedback-dielec3')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-dielec3"></div>
+</div>
+</div></div>
+</div>
 </section>
 </section>
 
@@ -557,6 +912,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dipolos-electricos-y-polarizacion">Dipolos eléctricos y polarización</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dielectricos-lineales-y-desplazamiento-electrico">Dieléctricos lineales y desplazamiento eléctrico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
   </nav></div>
 

@@ -214,6 +214,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="05_02_densidad.html">5.2 Densidad de Corriente y Ley de Ohm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6 Circuitos de Corriente Directa</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07_01_magnetismo.html">7.1 Magnetismo</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -440,6 +451,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-microscopico">Modelo microscópico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
             </nav>
         </div>
@@ -868,6 +880,346 @@ t &amp;= -\frac{m}{\gamma} \ln\left(\frac{qE - \gamma v}{qE}\right)\end{aligned}
 </div></div>
 </div>
 </section>
+<section id="preguntas-de-analisis">
+<h2>Preguntas de Análisis<a class="headerlink" href="#preguntas-de-analisis" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_corriente_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .fisi-quiz-container {</span>
+<span class="s2">        border: 1px solid #e0e0e0;</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin-bottom: 25px;</span>
+<span class="s2">        border-radius: 8px;</span>
+<span class="s2">        background-color: #f8f9fa;</span>
+<span class="s2">        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-question {</span>
+<span class="s2">        font-weight: 600;</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        color: #2c3e50;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option {</span>
+<span class="s2">        margin-bottom: 10px;</span>
+<span class="s2">        display: flex;</span>
+<span class="s2">        align-items: flex-start;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-option input {</span>
+<span class="s2">        margin-top: 4px;</span>
+<span class="s2">        margin-right: 10px;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn {</span>
+<span class="s2">        background-color: #f73bc5;</span>
+<span class="s2">        color: white;</span>
+<span class="s2">        border: none;</span>
+<span class="s2">        padding: 8px 20px;</span>
+<span class="s2">        border-radius: 4px;</span>
+<span class="s2">        cursor: pointer;</span>
+<span class="s2">        font-size: 14px;</span>
+<span class="s2">        margin-top: 10px;</span>
+<span class="s2">        font-weight: 500;</span>
+<span class="s2">    }</span>
+<span class="s2">    .fisi-check-btn:hover { background-color: #ab2988; }</span>
+<span class="s2">    .fisi-feedback {</span>
+<span class="s2">        margin-top: 15px;</span>
+<span class="s2">        padding: 12px;</span>
+<span class="s2">        border-radius: 6px;</span>
+<span class="s2">        display: none;</span>
+<span class="s2">        font-size: 0.95em;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    if (typeof window.checkFisiQuiz === &#39;undefined&#39;) {</span>
+<span class="s2">        window.checkFisiQuiz = function(radioName, feedbackId) {</span>
+<span class="s2">            var radios = document.getElementsByName(radioName);</span>
+<span class="s2">            var selected = null;</span>
+<span class="s2">            var feedbackDiv = document.getElementById(feedbackId);</span>
+<span class="s2">            </span>
+<span class="s2">            for (var i = 0; i &lt; radios.length; i++) {</span>
+<span class="s2">                if (radios[i].checked) {</span>
+<span class="s2">                    selected = radios[i];</span>
+<span class="s2">                    break;</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            feedbackDiv.style.display = &#39;block&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            if (!selected) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#fff3cd&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#856404&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #ffeeba&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;⚠️ Por favor, selecciona una opción.&#39;;</span>
+<span class="s2">                return;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            var isCorrect = selected.getAttribute(&#39;data-correct&#39;) === &#39;true&#39;;</span>
+<span class="s2">            var msg = selected.getAttribute(&#39;data-fb&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            if (isCorrect) {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#d4edda&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#155724&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #c3e6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;✅ &lt;strong&gt;¡Correcto!&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            } else {</span>
+<span class="s2">                feedbackDiv.style.backgroundColor = &#39;#f8d7da&#39;;</span>
+<span class="s2">                feedbackDiv.style.color = &#39;#721c24&#39;;</span>
+<span class="s2">                feedbackDiv.style.border = &#39;1px solid #f5c6cb&#39;;</span>
+<span class="s2">                feedbackDiv.innerHTML = &#39;❌ &lt;strong&gt;Incorrecto.&lt;/strong&gt;&lt;br&gt;&#39; + msg;</span>
+<span class="s2">            }</span>
+<span class="s2">        };</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/script&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        1. Si en un alambre metálico observamos un flujo neto de electrones (cargas negativas) moviéndose hacia la izquierda debido a la presencia de un campo eléctrico, ¿cómo se define convencionalmente el sentido de la corriente eléctrica (I)?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcorr1&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Aunque el flujo físico real sea de electrones hacia la izquierda, la convención histórica dicta lo contrario.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Hacia la izquierda, ya que el vector de corriente eléctrica siempre debe apuntar en la dirección real del flujo de las cargas libres mayoritarias.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcorr1&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Por convención histórica (establecida antes de conocerse los electrones), la dirección de la corriente eléctrica se define como el sentido en el que fluirían los portadores de carga positivos. Por ende, un flujo de electrones hacia la izquierda es matemáticamente equivalente a una corriente positiva hacia la derecha.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Hacia la derecha, porque por convención se define la corriente en la dirección en la que se moverían los portadores de carga positivos bajo la influencia de ese mismo campo eléctrico.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcorr1&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. Los electrones en movimiento constituyen una corriente real y medible. No es necesario que haya protones moviéndose para que exista corriente eléctrica.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Es nula, puesto que los electrones tienen carga negativa y solo un movimiento físico de partículas positivas puede generar una corriente eléctrica medible.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcorr1&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. Si el campo eléctrico es unidireccional y constante, el movimiento neto de cargas producirá una corriente continua (DC), no alterna.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Alternante, ya que la corriente cambia de sentido periódicamente en cualquier conductor que posea una red atómica rígida.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qcorr1&#39;, &#39;feedback-corr1&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-corr1&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        2. De acuerdo con la deducción microscópica (I = q·n·A·v_d), si logramos sustituir el material del conductor por uno distinto que posea el doble de densidad volumétrica de portadores de carga libres (n), asumiendo que el área transversal (A) y la velocidad de deriva (v_d) logran mantenerse iguales, ¿qué ocurrirá con la corriente total I?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcorr2&quot; value=&quot;a&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Correcto! En la ecuación I = q·n·A·v_d, la corriente I es directamente proporcional a &#39;n&#39; (la cantidad de cargas libres disponibles por unidad de volumen). Al haber el doble de portadores moviéndose a la misma velocidad por la misma área, la cantidad de carga que atraviesa la sección por segundo se duplica.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Se duplicará, ya que la corriente es directamente proporcional a la densidad volumétrica de portadores (n).&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcorr2&quot; value=&quot;b&quot; data-fb=&quot;Incorrecto. Una mayor densidad de portadores libres (&#39;n&#39;) no significa necesariamente un aumento en la fricción (γ). El enunciado asume explícitamente que la velocidad de deriva v_d se logra mantener.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Se reducirá a la mitad, porque un material más denso aumenta las colisiones internas, dificultando severamente el paso de la corriente.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcorr2&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. La velocidad de deriva v_d indica qué tan rápido se mueve el &#39;enjambre&#39;, pero &#39;n&#39; indica cuántas partículas conforman ese enjambre. Ambas variables impactan la corriente total.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Permanecerá constante, debido a que la velocidad de deriva (v_d) determina de manera exclusiva la magnitud final de la corriente en un circuito.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcorr2&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. La relación entre la corriente (I) y la densidad de portadores (n) es estrictamente lineal, no cuadrática.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Se cuadruplicará, ya que al aumentar la densidad (n) también aumenta geométricamente la probabilidad de colisión entre cargas libres.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qcorr2&#39;, &#39;feedback-corr2&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-corr2&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;div class=&quot;fisi-quiz-container&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-question&quot;&gt;</span>
+<span class="s2">        3. En el modelo microscópico descrito, la velocidad de deriva (v_d) que alcanzan los electrones en un cable de cobre doméstico suele ser diminuta (del orden de milímetros por segundo). Sin embargo, al encender un interruptor, la ampolleta de una habitación se ilumina de forma prácticamente instantánea. ¿Cómo explica la física esta aparente contradicción?</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcorr3&quot; value=&quot;a&quot; data-fb=&quot;Incorrecto. Los electrones tienen masa y no pueden alcanzar la velocidad de la luz en el vacío (c). El valor v_d = milímetros por segundo es real, no una ficción matemática.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque los electrones individuales en realidad viajan a la velocidad de la luz, y la ecuación de Drude solo es un promedio estadístico ficticio que no representa el movimiento real.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcorr3&quot; value=&quot;b&quot; data-correct=&quot;true&quot; data-fb=&quot;¡Exacto! Aunque el movimiento neto de cada electrón (velocidad de deriva) es muy lento, al cerrar el circuito se establece un campo eléctrico que se propaga por todo el alambre a una velocidad cercana a la de la luz. Este campo empuja casi simultáneamente a TODOS los electrones libres que ya estaban dentro del filamento de la ampolleta, generando corriente instantáneamente sin necesidad de esperar a que un electrón viaje desde el interruptor.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque lo que viaja casi a la velocidad de la luz por el cable es el campo eléctrico, el cual pone en movimiento simultáneo a todos los electrones del circuito, incluyendo a los que ya estaban en la ampolleta.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcorr3&quot; value=&quot;c&quot; data-fb=&quot;Incorrecto. La fricción con la red cristalina (colisiones) no desaparece al inicio; está presente en todo momento y es lo que evita que los electrones se aceleren infinitamente.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque la fuerza de fricción atómica desaparece en la primera fracción de segundo del encendido, permitiendo que la nube de electrones adquiera una aceleración momentánea infinita.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;label class=&quot;fisi-option&quot;&gt;</span>
+<span class="s2">        &lt;input type=&quot;radio&quot; name=&quot;qcorr3&quot; value=&quot;d&quot; data-fb=&quot;Incorrecto. En los conductores sólidos metálicos, los núcleos atómicos (protones) están rígidamente unidos en la red cristalina y no contribuyen en absoluto a la conducción de la corriente.&quot;&gt; </span>
+<span class="s2">        &lt;span&gt;Porque mientras los electrones se mueven lentamente, los protones del metal se desplazan velozmente en la dirección opuesta, siendo ellos los que transportan la energía inicial.&lt;/span&gt;</span>
+<span class="s2">    &lt;/label&gt;</span>
+<span class="s2">    &lt;button class=&quot;fisi-check-btn&quot; onclick=&quot;checkFisiQuiz(&#39;qcorr3&#39;, &#39;feedback-corr3&#39;)&quot;&gt;Comprobar&lt;/button&gt;</span>
+<span class="s2">    &lt;div class=&quot;fisi-feedback&quot; id=&quot;feedback-corr3&quot;&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">quiz_corriente_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+    .fisi-quiz-container {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fisi-question {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    .fisi-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    .fisi-option input {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+    .fisi-check-btn {
+        background-color: #f73bc5;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+    .fisi-check-btn:hover { background-color: #ab2988; }
+    .fisi-feedback {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-size: 0.95em;
+    }
+</style>
+
+<script>
+    if (typeof window.checkFisiQuiz === 'undefined') {
+        window.checkFisiQuiz = function(radioName, feedbackId) {
+            var radios = document.getElementsByName(radioName);
+            var selected = null;
+            var feedbackDiv = document.getElementById(feedbackId);
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i];
+                    break;
+                }
+            }
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selected) {
+                feedbackDiv.style.backgroundColor = '#fff3cd';
+                feedbackDiv.style.color = '#856404';
+                feedbackDiv.style.border = '1px solid #ffeeba';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecciona una opción.';
+                return;
+            }
+            
+            var isCorrect = selected.getAttribute('data-correct') === 'true';
+            var msg = selected.getAttribute('data-fb');
+            
+            if (isCorrect) {
+                feedbackDiv.style.backgroundColor = '#d4edda';
+                feedbackDiv.style.color = '#155724';
+                feedbackDiv.style.border = '1px solid #c3e6cb';
+                feedbackDiv.innerHTML = '✅ <strong>¡Correcto!</strong><br>' + msg;
+            } else {
+                feedbackDiv.style.backgroundColor = '#f8d7da';
+                feedbackDiv.style.color = '#721c24';
+                feedbackDiv.style.border = '1px solid #f5c6cb';
+                feedbackDiv.innerHTML = '❌ <strong>Incorrecto.</strong><br>' + msg;
+            }
+        };
+    }
+</script>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        1. Si en un alambre metálico observamos un flujo neto de electrones (cargas negativas) moviéndose hacia la izquierda debido a la presencia de un campo eléctrico, ¿cómo se define convencionalmente el sentido de la corriente eléctrica (I)?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qcorr1" value="a" data-fb="Incorrecto. Aunque el flujo físico real sea de electrones hacia la izquierda, la convención histórica dicta lo contrario."> 
+        <span>Hacia la izquierda, ya que el vector de corriente eléctrica siempre debe apuntar en la dirección real del flujo de las cargas libres mayoritarias.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcorr1" value="b" data-correct="true" data-fb="¡Exacto! Por convención histórica (establecida antes de conocerse los electrones), la dirección de la corriente eléctrica se define como el sentido en el que fluirían los portadores de carga positivos. Por ende, un flujo de electrones hacia la izquierda es matemáticamente equivalente a una corriente positiva hacia la derecha."> 
+        <span>Hacia la derecha, porque por convención se define la corriente en la dirección en la que se moverían los portadores de carga positivos bajo la influencia de ese mismo campo eléctrico.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcorr1" value="c" data-fb="Incorrecto. Los electrones en movimiento constituyen una corriente real y medible. No es necesario que haya protones moviéndose para que exista corriente eléctrica."> 
+        <span>Es nula, puesto que los electrones tienen carga negativa y solo un movimiento físico de partículas positivas puede generar una corriente eléctrica medible.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcorr1" value="d" data-fb="Incorrecto. Si el campo eléctrico es unidireccional y constante, el movimiento neto de cargas producirá una corriente continua (DC), no alterna."> 
+        <span>Alternante, ya que la corriente cambia de sentido periódicamente en cualquier conductor que posea una red atómica rígida.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qcorr1', 'feedback-corr1')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-corr1"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        2. De acuerdo con la deducción microscópica (I = q·n·A·v_d), si logramos sustituir el material del conductor por uno distinto que posea el doble de densidad volumétrica de portadores de carga libres (n), asumiendo que el área transversal (A) y la velocidad de deriva (v_d) logran mantenerse iguales, ¿qué ocurrirá con la corriente total I?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qcorr2" value="a" data-correct="true" data-fb="¡Correcto! En la ecuación I = q·n·A·v_d, la corriente I es directamente proporcional a 'n' (la cantidad de cargas libres disponibles por unidad de volumen). Al haber el doble de portadores moviéndose a la misma velocidad por la misma área, la cantidad de carga que atraviesa la sección por segundo se duplica."> 
+        <span>Se duplicará, ya que la corriente es directamente proporcional a la densidad volumétrica de portadores (n).</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcorr2" value="b" data-fb="Incorrecto. Una mayor densidad de portadores libres ('n') no significa necesariamente un aumento en la fricción (γ). El enunciado asume explícitamente que la velocidad de deriva v_d se logra mantener."> 
+        <span>Se reducirá a la mitad, porque un material más denso aumenta las colisiones internas, dificultando severamente el paso de la corriente.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcorr2" value="c" data-fb="Incorrecto. La velocidad de deriva v_d indica qué tan rápido se mueve el 'enjambre', pero 'n' indica cuántas partículas conforman ese enjambre. Ambas variables impactan la corriente total."> 
+        <span>Permanecerá constante, debido a que la velocidad de deriva (v_d) determina de manera exclusiva la magnitud final de la corriente en un circuito.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcorr2" value="d" data-fb="Incorrecto. La relación entre la corriente (I) y la densidad de portadores (n) es estrictamente lineal, no cuadrática."> 
+        <span>Se cuadruplicará, ya que al aumentar la densidad (n) también aumenta geométricamente la probabilidad de colisión entre cargas libres.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qcorr2', 'feedback-corr2')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-corr2"></div>
+</div>
+
+<div class="fisi-quiz-container">
+    <div class="fisi-question">
+        3. En el modelo microscópico descrito, la velocidad de deriva (v_d) que alcanzan los electrones en un cable de cobre doméstico suele ser diminuta (del orden de milímetros por segundo). Sin embargo, al encender un interruptor, la ampolleta de una habitación se ilumina de forma prácticamente instantánea. ¿Cómo explica la física esta aparente contradicción?
+    </div>
+    <label class="fisi-option">
+        <input type="radio" name="qcorr3" value="a" data-fb="Incorrecto. Los electrones tienen masa y no pueden alcanzar la velocidad de la luz en el vacío (c). El valor v_d = milímetros por segundo es real, no una ficción matemática."> 
+        <span>Porque los electrones individuales en realidad viajan a la velocidad de la luz, y la ecuación de Drude solo es un promedio estadístico ficticio que no representa el movimiento real.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcorr3" value="b" data-correct="true" data-fb="¡Exacto! Aunque el movimiento neto de cada electrón (velocidad de deriva) es muy lento, al cerrar el circuito se establece un campo eléctrico que se propaga por todo el alambre a una velocidad cercana a la de la luz. Este campo empuja casi simultáneamente a TODOS los electrones libres que ya estaban dentro del filamento de la ampolleta, generando corriente instantáneamente sin necesidad de esperar a que un electrón viaje desde el interruptor."> 
+        <span>Porque lo que viaja casi a la velocidad de la luz por el cable es el campo eléctrico, el cual pone en movimiento simultáneo a todos los electrones del circuito, incluyendo a los que ya estaban en la ampolleta.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcorr3" value="c" data-fb="Incorrecto. La fricción con la red cristalina (colisiones) no desaparece al inicio; está presente en todo momento y es lo que evita que los electrones se aceleren infinitamente."> 
+        <span>Porque la fuerza de fricción atómica desaparece en la primera fracción de segundo del encendido, permitiendo que la nube de electrones adquiera una aceleración momentánea infinita.</span>
+    </label>
+    <label class="fisi-option">
+        <input type="radio" name="qcorr3" value="d" data-fb="Incorrecto. En los conductores sólidos metálicos, los núcleos atómicos (protones) están rígidamente unidos en la red cristalina y no contribuyen en absoluto a la conducción de la corriente."> 
+        <span>Porque mientras los electrones se mueven lentamente, los protones del metal se desplazan velozmente en la dirección opuesta, siendo ellos los que transportan la energía inicial.</span>
+    </label>
+    <button class="fisi-check-btn" onclick="checkFisiQuiz('qcorr3', 'feedback-corr3')">Comprobar</button>
+    <div class="fisi-feedback" id="feedback-corr3"></div>
+</div>
+</div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -934,6 +1286,7 @@ t &amp;= -\frac{m}{\gamma} \ln\left(\frac{qE - \gamma v}{qE}\right)\end{aligned}
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-microscopico">Modelo microscópico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-analisis">Preguntas de Análisis</a></li>
 </ul>
   </nav></div>
 
