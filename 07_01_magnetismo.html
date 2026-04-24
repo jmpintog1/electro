@@ -611,11 +611,13 @@ document.write(`
 <span class="s2">                ctx.textAlign = &#39;center&#39;;</span>
 <span class="s2">                ctx.textBaseline = &#39;middle&#39;;</span>
 <span class="s2">                const spacing = 40;</span>
-<span class="s2">                const symbol = B &gt; 0 ? &#39;×&#39; : &#39;·&#39;;</span>
+<span class="s2">                </span>
+<span class="s2">                // CORRECCIÓN: B &gt; 0 representa campo hacia afuera (círculos), B &lt; 0 campo hacia adentro (cruces)</span>
+<span class="s2">                const symbol = B &gt; 0 ? &#39;·&#39; : &#39;×&#39;;</span>
 <span class="s2">                </span>
 <span class="s2">                for (let x = spacing/2; x &lt; canvas.width; x += spacing) {</span>
 <span class="s2">                    for (let y = spacing/2; y &lt; canvas.height; y += spacing) {</span>
-<span class="s2">                        if (B &lt; 0) {</span>
+<span class="s2">                        if (B &gt; 0) { // Ahora dibujamos el círculo cuando B es positivo (hacia afuera)</span>
 <span class="s2">                            ctx.beginPath();</span>
 <span class="s2">                            ctx.arc(x, y, 4, 0, Math.PI*2);</span>
 <span class="s2">                            ctx.strokeStyle = &#39;#a0aabc&#39;;</span>
@@ -753,58 +755,58 @@ document.write(`
         <div style="flex: 1.5; min-width: 300px;">
             <div style="margin-bottom: 10px;">
                 <label style="font-weight: 600; display: inline-block; width: 140px;">Carga (q):</label>
-                <select id="charge_60022" style="padding: 4px; width: 45%;">
+                <select id="charge_12070" style="padding: 4px; width: 45%;">
                     <option value="1">Positiva (+)</option>
                     <option value="-1">Negativa (-)</option>
                     <option value="0">Neutra (0)</option>
                 </select>
             </div>
             <div style="margin-bottom: 8px;">
-                <label style="font-weight: 600; display: inline-block; width: 140px;">Campo (B): <span id="valB_60022" style="font-weight: normal;">2.0</span></label>
-                <input type="range" id="B_60022" min="-5" max="5" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
+                <label style="font-weight: 600; display: inline-block; width: 140px;">Campo (B): <span id="valB_12070" style="font-weight: normal;">2.0</span></label>
+                <input type="range" id="B_12070" min="-5" max="5" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
             </div>
             <div style="margin-bottom: 8px;">
-                <label style="font-weight: 600; display: inline-block; width: 140px;">Masa (m): <span id="valM_60022" style="font-weight: normal;">2.0</span></label>
-                <input type="range" id="M_60022" min="1" max="10" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
+                <label style="font-weight: 600; display: inline-block; width: 140px;">Masa (m): <span id="valM_12070" style="font-weight: normal;">2.0</span></label>
+                <input type="range" id="M_12070" min="1" max="10" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
             </div>
             <div style="margin-bottom: 8px;">
-                <label style="font-weight: 600; display: inline-block; width: 140px;">Velocidad (v₀): <span id="valV_60022" style="font-weight: normal;">3.0</span></label>
-                <input type="range" id="V_60022" min="1" max="6" step="0.5" value="3.0" style="width: 45%; vertical-align: middle;">
+                <label style="font-weight: 600; display: inline-block; width: 140px;">Velocidad (v₀): <span id="valV_12070" style="font-weight: normal;">3.0</span></label>
+                <input type="range" id="V_12070" min="1" max="6" step="0.5" value="3.0" style="width: 45%; vertical-align: middle;">
             </div>
         </div>
 
         <div style="flex: 1; min-width: 220px; display: flex; flex-direction: column; justify-content: center; gap: 10px;">
-            <button id="launch_60022" style="background-color: #f73bc5; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;">🚀 Lanzar Partícula</button>
-            <button id="clear_60022" style="background-color: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">Limpiar Trayectorias</button>
+            <button id="launch_12070" style="background-color: #f73bc5; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;">🚀 Lanzar Partícula</button>
+            <button id="clear_12070" style="background-color: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">Limpiar Trayectorias</button>
         </div>
     </div>
     
     <div style="text-align: center; position: relative; overflow: hidden;">
-        <canvas id="canvas_60022" width="800" height="500" style="background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+        <canvas id="canvas_12070" width="800" height="500" style="background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
     </div>
 </div>
 
 <script>
     (function() {
         function initSimulation() {
-            const canvas = document.getElementById('canvas_60022');
+            const canvas = document.getElementById('canvas_12070');
             if (!canvas) {
                 setTimeout(initSimulation, 50); 
                 return;
             }
             
             const ctx = canvas.getContext('2d');
-            const in_charge = document.getElementById('charge_60022');
-            const in_B = document.getElementById('B_60022');
-            const in_M = document.getElementById('M_60022');
-            const in_V = document.getElementById('V_60022');
+            const in_charge = document.getElementById('charge_12070');
+            const in_B = document.getElementById('B_12070');
+            const in_M = document.getElementById('M_12070');
+            const in_V = document.getElementById('V_12070');
             
-            const val_B = document.getElementById('valB_60022');
-            const val_M = document.getElementById('valM_60022');
-            const val_V = document.getElementById('valV_60022');
+            const val_B = document.getElementById('valB_12070');
+            const val_M = document.getElementById('valM_12070');
+            const val_V = document.getElementById('valV_12070');
             
-            const btn_launch = document.getElementById('launch_60022');
-            const btn_clear = document.getElementById('clear_60022');
+            const btn_launch = document.getElementById('launch_12070');
+            const btn_clear = document.getElementById('clear_12070');
             
             let particles = [];
             let deadPaths = []; 
@@ -830,11 +832,13 @@ document.write(`
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
                 const spacing = 40;
-                const symbol = B > 0 ? '×' : '·';
+                
+                // CORRECCIÓN: B > 0 representa campo hacia afuera (círculos), B < 0 campo hacia adentro (cruces)
+                const symbol = B > 0 ? '·' : '×';
                 
                 for (let x = spacing/2; x < canvas.width; x += spacing) {
                     for (let y = spacing/2; y < canvas.height; y += spacing) {
-                        if (B < 0) {
+                        if (B > 0) { // Ahora dibujamos el círculo cuando B es positivo (hacia afuera)
                             ctx.beginPath();
                             ctx.arc(x, y, 4, 0, Math.PI*2);
                             ctx.strokeStyle = '#a0aabc';
