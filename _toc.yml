@@ -52,6 +52,8 @@ parts:
   - caption: 6 Circuitos de Corriente Directa
     chapters:
       - file: 06_01_circuitos
+      - file: 06_02_conexiones
+      - file: 06_03_kirchhoff
 
   - caption: 7 Campo Magnético y Fuerzas Magnéticas
     chapters:

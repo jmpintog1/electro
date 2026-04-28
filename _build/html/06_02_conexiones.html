@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Bienvenidos al Curso de Electricidad y Magnetismo &#8212; Curso de Electricidad y Magnetismo</title>
+    <title>6.2 Conexiones entre Resistencias &#8212; Curso de Electricidad y Magnetismo</title>
   
   
   
@@ -62,10 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06_02_conexiones';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1.1 Carga Eléctrica" href="01_01_carga.html" />
+    <link rel="next" title="6.3 Reglas de Kirchhoff" href="06_03_kirchhoff.html" />
+    <link rel="prev" title="6.1 Simbología y Conceptos Básicos" href="06_01_circuitos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -141,7 +144,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -161,8 +164,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Bienvenidos al Curso de Electricidad y Magnetismo
                 </a>
             </li>
@@ -212,9 +215,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">6 Circuitos de Corriente Directa</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_02_conexiones.html">6.2 Conexiones entre Resistencias</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6.2 Conexiones entre Resistencias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_03_kirchhoff.html">6.3 Reglas de Kirchhoff</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
@@ -266,6 +269,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmpintog1/electro/blob/main/./06_02_conexiones.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -291,7 +325,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2F06_02_conexiones.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -321,7 +355,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/06_02_conexiones.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +365,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -405,7 +439,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Bienvenidos al Curso de Electricidad y Magnetismo</h1>
+    <h1>6.2 Conexiones entre Resistencias</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -415,7 +449,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usar-este-libro-digital">¿Por qué usar este libro digital?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conexion-en-serie">Conexión en Serie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conexion-en-paralelo">Conexión en Paralelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1">Ejemplo 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3">Ejemplo 3</a></li>
 </ul>
             </nav>
         </div>
@@ -427,33 +465,56 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="bienvenidos-al-curso-de-electricidad-y-magnetismo">
-<h1>Bienvenidos al Curso de Electricidad y Magnetismo<a class="headerlink" href="#bienvenidos-al-curso-de-electricidad-y-magnetismo" title="Permalink to this heading">#</a></h1>
-<p>Este espacio no es un libro de texto convencional; es un entorno interactivo diseñado específicamente para los desafíos de la ingeniería en la Universidad. Aquí, la teoría deja de ser estática para convertirse en una herramienta de experimentación.</p>
-<section id="por-que-usar-este-libro-digital">
-<h2>¿Por qué usar este libro digital?<a class="headerlink" href="#por-que-usar-este-libro-digital" title="Permalink to this heading">#</a></h2>
-<p>A diferencia de los textos clásicos como el Sears-Zemansky, este recurso te permite:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="conexiones-entre-resistencias">
+<h1>6.2 Conexiones entre Resistencias<a class="headerlink" href="#conexiones-entre-resistencias" title="Permalink to this heading">#</a></h1>
+<section id="conexion-en-serie">
+<h2>Conexión en Serie<a class="headerlink" href="#conexion-en-serie" title="Permalink to this heading">#</a></h2>
+<p>Cuando las resistencias se conectan una tras otra, la corriente que fluye a través de ellas es la misma, pero el voltaje total se divide entre cada componente:</p>
 <ul class="simple">
-<li><p><strong>Visualizar dinámicamente.</strong> Observa cómo se comportan los campos eléctricos y magnéticos en tiempo real.</p></li>
-<li><p><strong>Interactuar con el código.</strong> Modifica variables y observa los resultados de inmediato para validar tu intuición física.</p></li>
-<li><p><strong>Aprender haciendo.</strong> Experimenta con modelos computacionales sin restricciones, integrando la física con las capacidades de la programación moderna.</p></li>
+<li><p>Corriente: <span class="math notranslate nohighlight">\(I = I_1 = I_2\)</span></p></li>
+<li><p>Voltaje: <span class="math notranslate nohighlight">\(V = V_1 + V_2\)</span></p></li>
 </ul>
-<p>El conocimiento está a un clic de distancia. Comienza explorando el primer capítulo en la barra lateral.</p>
+<p> </p>
+<a class="reference internal image-reference" href="_images/06_03.svg"><img alt="Circuito en serie" class="align-center" src="_images/06_03.svg" width="60%" /></a>
+<p> </p>
+<p>Aplicando la Ley de Ohm (<span class="math notranslate nohighlight">\(V = I_1R_1 + I_2R_2\)</span>), obtenemos que la resistencia equivalente (<span class="math notranslate nohighlight">\(R_{eq}\)</span>) es la suma algebraica de las resistencias individuales:</p>
+<div class="math notranslate nohighlight">
+\[R_{eq} = \sum_{j=1}^{N} R_j\]</div>
 </section>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+<section id="conexion-en-paralelo">
+<h2>Conexión en Paralelo<a class="headerlink" href="#conexion-en-paralelo" title="Permalink to this heading">#</a></h2>
+<p>En una conexión en paralelo, los terminales de las resistencias están conectados a los mismos puntos, por lo que la diferencia de potencial es la misma para todas, pero la corriente total se divide:</p>
+<ul class="simple">
+<li><p>Voltaje: <span class="math notranslate nohighlight">\(V = V_1 = V_2\)</span></p></li>
+<li><p>Corriente: <span class="math notranslate nohighlight">\(I = I_1 + I_2\)</span></p></li>
+</ul>
+<p> </p>
+<a class="reference internal image-reference" href="_images/06_04.svg"><img alt="Circuito en paralelo" class="align-center" src="_images/06_04.svg" width="60%" /></a>
+<p> </p>
+<p>Al sustituir las corrientes (<span class="math notranslate nohighlight">\(I_1 = V/R_1\)</span> y <span class="math notranslate nohighlight">\(I_2 = V/R_2\)</span>), la resistencia equivalente se calcula mediante la suma de sus inversos:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{R_{eq}} = \sum_{j=1}^{N} \frac{1}{R_j}\]</div>
+</section>
+<section id="ejemplo-1">
+<h2>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Permalink to this heading">#</a></h2>
+<p> </p>
+<a class="reference internal image-reference" href="_images/06_05.svg"><img alt="Ejemplo 1" class="align-center" src="_images/06_05.svg" width="80%" /></a>
+<p> </p>
+</section>
+<section id="ejemplo-2">
+<h2>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Permalink to this heading">#</a></h2>
+<p>Puente de Wheatstone equilibrado.</p>
+<p> </p>
+<a class="reference internal image-reference" href="_images/06_06.svg"><img alt="Ejemplo 2" class="align-center" src="_images/06_06.svg" width="80%" /></a>
+<p> </p>
+</section>
+<section id="ejemplo-3">
+<h2>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Permalink to this heading">#</a></h2>
+<p>Red simétrica compleja.</p>
+<p> </p>
+<a class="reference internal image-reference" href="_images/06_07.svg"><img alt="Ejemplo 3" class="align-center" src="_images/06_07.svg" width="80%" /></a>
+<p> </p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -486,12 +547,21 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="06_01_circuitos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">6.1 Simbología y Conceptos Básicos</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="01_01_carga.html"
+       href="06_03_kirchhoff.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1.1 Carga Eléctrica</p>
+        <p class="prev-next-title">6.3 Reglas de Kirchhoff</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -510,7 +580,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usar-este-libro-digital">¿Por qué usar este libro digital?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conexion-en-serie">Conexión en Serie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conexion-en-paralelo">Conexión en Paralelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1">Ejemplo 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3">Ejemplo 3</a></li>
 </ul>
   </nav></div>
 
