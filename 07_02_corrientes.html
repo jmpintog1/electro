@@ -483,8 +483,8 @@ document.write(`
 </ul>
 <p>Recordando que la corriente eléctrica se define como <span class="math notranslate nohighlight">\(I = n q v_d A\)</span>, obtenemos la expresión para la fuerza magnética sobre un alambre recto de longitud <span class="math notranslate nohighlight">\(l\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\vec{F} = I\vec{l} \times \vec{B}\]</div>
-<p>Por ejemplo, si tenemos un alambre sobre el eje <span class="math notranslate nohighlight">\(y\)</span> con una corriente <span class="math notranslate nohighlight">\(I\)</span> y un campo magnético uniforme apuntando hacia adentro de la página (<span class="math notranslate nohighlight">\(\vec{B} = B(-\hat{k})\)</span>):</p>
+\[\vec{F} = I \, \vec{l} \times \vec{B}\]</div>
+<p>Por ejemplo, si tenemos un alambre sobre el eje <span class="math notranslate nohighlight">\(y\)</span> con una corriente <span class="math notranslate nohighlight">\(I\)</span> y un campo magnético uniforme apuntando hacia adentro de la página (<span class="math notranslate nohighlight">\(\vec{B} = - B\, \hat{k}\)</span>):</p>
 <div class="math notranslate nohighlight">
 \[\vec{F} = I l \hat{j} \times B(-\hat{k}) = -I l B \, \hat{\imath}\]</div>
 <section id="expresion-general-para-un-alambre-de-forma-arbitraria">
@@ -504,11 +504,11 @@ document.write(`
 <h3>Ejemplo: Alambre semicircular<a class="headerlink" href="#ejemplo-alambre-semicircular" title="Permalink to this heading">#</a></h3>
 <p>Para un alambre semicircular de radio <span class="math notranslate nohighlight">\(R\)</span> en el plano <span class="math notranslate nohighlight">\(xy\)</span> bajo un campo <span class="math notranslate nohighlight">\(\vec{B} = B(-\hat{k})\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\vec{F} = I \left( \int d\vec{l} \right) \times \vec{B} = I \int_{0}^{\pi} (-\sin\theta \hat{i} + \cos\theta \hat{j}) R d\theta \times B(-\hat{k})\]</div>
+\[\vec{F} = I \left( \int d\vec{l} \right) \times \vec{B} = I \int_{0}^{\pi} (-\sin\theta \, \hat{\imath} + \cos\theta \, \hat{\jmath}) R d\theta \times B(-\hat{k})\]</div>
 </section>
 <section id="ejemplo-espira-cuadrada">
 <h3>Ejemplo: Espira cuadrada<a class="headerlink" href="#ejemplo-espira-cuadrada" title="Permalink to this heading">#</a></h3>
-<p>Consideremos una espira cuadrada de lado <span class="math notranslate nohighlight">\(a\)</span>. La fuerza neta es la suma de las fuerzas sobre cada segmento: <span class="math notranslate nohighlight">\(\vec{F} = \vec{F}_1 + \vec{F}_2 + \vec{F}_3 + \vec{F}_4\)</span>. Para un campo magnético particular, las fuerzas opuestas se cancelan (por ejemplo, <span class="math notranslate nohighlight">\(\vec{F}_1 = IaB(-\hat{k})\)</span> y <span class="math notranslate nohighlight">\(\vec{F}_3 = IaB(+\hat{k})\)</span>), resultando nuevamente en <span class="math notranslate nohighlight">\(\vec{F} = \vec{0}\)</span>.</p>
+<p>Consideremos una espira cuadrada de lado <span class="math notranslate nohighlight">\(a\)</span>. La fuerza neta es la suma de las fuerzas sobre cada segmento: <span class="math notranslate nohighlight">\(\vec{F} = \vec{F}_1 + \vec{F}_2 + \vec{F}_3 + \vec{F}_4\)</span>. Para un campo magnético particular, las fuerzas opuestas se cancelan. Por ejemplo, <span class="math notranslate nohighlight">\(\vec{F}_1 = IaB(-\hat{k})\)</span> y <span class="math notranslate nohighlight">\(\vec{F}_3 = IaB(+\hat{k})\)</span>, resultando nuevamente en <span class="math notranslate nohighlight">\(\vec{F} = \vec{0}\)</span>.</p>
 </section>
 </section>
 <section id="torque-sobre-una-espira">
