@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Bienvenidos al Curso de Electricidad y Magnetismo &#8212; Curso de Electricidad y Magnetismo</title>
+    <title>Fuerzas sobre corrientes &#8212; Curso de Electricidad y Magnetismo</title>
   
   
   
@@ -62,10 +62,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '07_02_corrientes';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1.1 Carga Eléctrica" href="01_01_carga.html" />
+    <link rel="prev" title="7.1 Magnetismo" href="07_01_magnetismo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -141,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -161,8 +163,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Bienvenidos al Curso de Electricidad y Magnetismo
                 </a>
             </li>
@@ -218,9 +220,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="06_03_kirchhoff.html">6.3 Reglas de Kirchhoff</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="07_01_magnetismo.html">7.1 Magnetismo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_02_corrientes.html">Fuerzas sobre corrientes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fuerzas sobre corrientes</a></li>
 </ul>
 
     </div>
@@ -267,6 +269,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmpintog1/electro/blob/main/./07_02_corrientes.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -292,7 +325,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2F07_02_corrientes.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -322,7 +355,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/07_02_corrientes.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -332,7 +365,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -406,7 +439,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Bienvenidos al Curso de Electricidad y Magnetismo</h1>
+    <h1>Fuerzas sobre corrientes</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -416,7 +449,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usar-este-libro-digital">¿Por qué usar este libro digital?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expresion-general-para-un-alambre-de-forma-arbitraria">Expresión general para un alambre de forma arbitraria</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-alambre-semicircular">Ejemplo: Alambre semicircular</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-espira-cuadrada">Ejemplo: Espira cuadrada</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#torque-sobre-una-espira">Torque sobre una espira</a></li>
 </ul>
             </nav>
         </div>
@@ -428,33 +466,70 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="bienvenidos-al-curso-de-electricidad-y-magnetismo">
-<h1>Bienvenidos al Curso de Electricidad y Magnetismo<a class="headerlink" href="#bienvenidos-al-curso-de-electricidad-y-magnetismo" title="Permalink to this heading">#</a></h1>
-<p>Este espacio no es un libro de texto convencional; es un entorno interactivo diseñado específicamente para los desafíos de la ingeniería en la Universidad. Aquí, la teoría deja de ser estática para convertirse en una herramienta de experimentación.</p>
-<section id="por-que-usar-este-libro-digital">
-<h2>¿Por qué usar este libro digital?<a class="headerlink" href="#por-que-usar-este-libro-digital" title="Permalink to this heading">#</a></h2>
-<p>A diferencia de los textos clásicos como el Sears-Zemansky, este recurso te permite:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="fuerzas-sobre-corrientes">
+<h1>Fuerzas sobre corrientes<a class="headerlink" href="#fuerzas-sobre-corrientes" title="Permalink to this heading">#</a></h1>
+<p>¿Qué pasa cuando hay muchas cargas en movimiento? Analizaremos la fuerza magnética sobre un conductor que lleva corriente.</p>
+<p>La fuerza magnética para una sola carga en movimiento está dada por:</p>
+<div class="math notranslate nohighlight">
+\[\vec{F} = q \, \vec{v}_d \times \vec{B}\]</div>
+<p>Considerando todas las cargas en el volumen, la fuerza total es:</p>
+<div class="math notranslate nohighlight">
+\[\vec{F} = n q \vec{v}_d A l \times \vec{B} = (n q v_d A) \vec{l} \times \vec{B}\]</div>
+<p>Donde:</p>
 <ul class="simple">
-<li><p><strong>Visualizar dinámicamente.</strong> Observa cómo se comportan los campos eléctricos y magnéticos en tiempo real.</p></li>
-<li><p><strong>Interactuar con el código.</strong> Modifica variables y observa los resultados de inmediato para validar tu intuición física.</p></li>
-<li><p><strong>Aprender haciendo.</strong> Experimenta con modelos computacionales sin restricciones, integrando la física con las capacidades de la programación moderna.</p></li>
+<li><p><span class="math notranslate nohighlight">\(N\)</span> es el número de partículas.</p></li>
+<li><p><span class="math notranslate nohighlight">\(V\)</span> es el volumen del conductor, tal que <span class="math notranslate nohighlight">\(V = Al\)</span> (<span class="math notranslate nohighlight">\(A\)</span> es el área transversal y <span class="math notranslate nohighlight">\(l\)</span> la longitud).</p></li>
+<li><p><span class="math notranslate nohighlight">\(n = \frac{N}{V}\)</span> es la densidad de partículas.</p></li>
 </ul>
-<p>El conocimiento está a un clic de distancia. Comienza explorando el primer capítulo en la barra lateral.</p>
+<p>Recordando que la corriente eléctrica se define como <span class="math notranslate nohighlight">\(I = n q v_d A\)</span>, obtenemos la expresión para la fuerza magnética sobre un alambre recto de longitud <span class="math notranslate nohighlight">\(l\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\vec{F} = I\vec{l} \times \vec{B}\]</div>
+<p>Por ejemplo, si tenemos un alambre sobre el eje <span class="math notranslate nohighlight">\(y\)</span> con una corriente <span class="math notranslate nohighlight">\(I\)</span> y un campo magnético uniforme apuntando hacia adentro de la página (<span class="math notranslate nohighlight">\(\vec{B} = B(-\hat{k})\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\vec{F} = I l \hat{j} \times B(-\hat{k}) = -I l B \, \hat{\imath}\]</div>
+<section id="expresion-general-para-un-alambre-de-forma-arbitraria">
+<h2>Expresión general para un alambre de forma arbitraria<a class="headerlink" href="#expresion-general-para-un-alambre-de-forma-arbitraria" title="Permalink to this heading">#</a></h2>
+<p>Para un conductor de forma arbitraria, podemos tomar un elemento diferencial de longitud <span class="math notranslate nohighlight">\(d\vec{l}\)</span>. La fuerza sobre este pequeño segmento es:</p>
+<div class="math notranslate nohighlight">
+\[d\vec{F} = I d\vec{l} \times \vec{B}\]</div>
+<p>Integrando a lo largo del conductor desde un punto inicial <span class="math notranslate nohighlight">\(i\)</span> hasta un punto final <span class="math notranslate nohighlight">\(f\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\vec{F} = \int_{i}^{f} I d\vec{l} \times \vec{B}\]</div>
+<p><strong>Si el campo magnético <span class="math notranslate nohighlight">\(\vec{B}\)</span> es constante</strong>, puede salir de la integral:</p>
+<div class="math notranslate nohighlight">
+\[\vec{F} = I \left( \int_{i}^{f} d\vec{l} \right) \times \vec{B}\]</div>
+<p>Una <strong>espira</strong> es un alambre cerrado. En este caso, el punto inicial coincide con el punto final (<span class="math notranslate nohighlight">\(i=f\)</span>), por lo que <span class="math notranslate nohighlight">\(\int d\vec{l} = \vec{0}\)</span>. En consecuencia:</p>
+<p>La fuerza neta sobre una espira conductora cerrada, inmersa en un campo magnético constante, es igual a cero (<span class="math notranslate nohighlight">\(\vec{F} = \vec{0}\)</span>).</p>
+<section id="ejemplo-alambre-semicircular">
+<h3>Ejemplo: Alambre semicircular<a class="headerlink" href="#ejemplo-alambre-semicircular" title="Permalink to this heading">#</a></h3>
+<p>Para un alambre semicircular de radio <span class="math notranslate nohighlight">\(R\)</span> en el plano <span class="math notranslate nohighlight">\(xy\)</span> bajo un campo <span class="math notranslate nohighlight">\(\vec{B} = B(-\hat{k})\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\vec{F} = I \left( \int d\vec{l} \right) \times \vec{B} = I \int_{0}^{\pi} (-\sin\theta \hat{i} + \cos\theta \hat{j}) R d\theta \times B(-\hat{k})\]</div>
 </section>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+<section id="ejemplo-espira-cuadrada">
+<h3>Ejemplo: Espira cuadrada<a class="headerlink" href="#ejemplo-espira-cuadrada" title="Permalink to this heading">#</a></h3>
+<p>Consideremos una espira cuadrada de lado <span class="math notranslate nohighlight">\(a\)</span>. La fuerza neta es la suma de las fuerzas sobre cada segmento: <span class="math notranslate nohighlight">\(\vec{F} = \vec{F}_1 + \vec{F}_2 + \vec{F}_3 + \vec{F}_4\)</span>. Para un campo magnético particular, las fuerzas opuestas se cancelan (por ejemplo, <span class="math notranslate nohighlight">\(\vec{F}_1 = IaB(-\hat{k})\)</span> y <span class="math notranslate nohighlight">\(\vec{F}_3 = IaB(+\hat{k})\)</span>), resultando nuevamente en <span class="math notranslate nohighlight">\(\vec{F} = \vec{0}\)</span>.</p>
+</section>
+</section>
+<section id="torque-sobre-una-espira">
+<h2>Torque sobre una espira<a class="headerlink" href="#torque-sobre-una-espira" title="Permalink to this heading">#</a></h2>
+<p>Aunque la fuerza neta sobre una espira en un campo uniforme es cero, las fuerzas magnéticas pueden ejercer un momento de torsión (torque) que hace girar la espira.</p>
+<p>Considerando la espira cuadrada de lado <span class="math notranslate nohighlight">\(a\)</span>, el torque neto respecto al centro se calcula sumando los torques individuales <span class="math notranslate nohighlight">\(\vec{\tau}_i = \vec{r}_i \times \vec{F}_i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\vec{\tau} = \vec{\tau}_1 + \vec{\tau}_2 + \vec{\tau}_3 + \vec{\tau}_4 = \vec{r}_1 \times \vec{F}_1 + \vec{r}_2 \times \vec{F}_2\]</div>
+<p>Evaluando para las fuerzas no nulas en un campo magnético:</p>
+<div class="math notranslate nohighlight">
+\[\vec{\tau} = \frac{a}{2} \hat{i} \times I a B (-\hat{k}) + \frac{a}{2} (-\hat{\imath}) \times I a B \, \hat{k} = \frac{1}{2} a^2 I B \, \hat{\jmath} + \frac{1}{2} a^2 I B \, \hat{\jmath} = I a^2 B \, \hat{\jmath}\]</div>
+<p>Reconociendo que el área de la espira es <span class="math notranslate nohighlight">\(A = a^2\)</span>, podemos generalizar el resultado mediante un producto cruz:</p>
+<div class="math notranslate nohighlight">
+\[\vec{\tau} = I \vec{A} \times \vec{B}\]</div>
+<p>Definimos el <strong>momento magnético</strong> de la espira como:</p>
+<div class="math notranslate nohighlight">
+\[\vec{\mu} = I \vec{A}\]</div>
+<p>Por lo tanto, el torque magnético sobre cualquier espira plana se escribe en su forma general como:</p>
+<div class="math notranslate nohighlight">
+\[\vec{\tau} = \vec{\mu} \times \vec{B}\]</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -487,14 +562,14 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="01_01_carga.html"
-       title="next page">
+    <a class="left-prev"
+       href="07_01_magnetismo.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1.1 Carga Eléctrica</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">7.1 Magnetismo</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -511,7 +586,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usar-este-libro-digital">¿Por qué usar este libro digital?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expresion-general-para-un-alambre-de-forma-arbitraria">Expresión general para un alambre de forma arbitraria</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-alambre-semicircular">Ejemplo: Alambre semicircular</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-espira-cuadrada">Ejemplo: Espira cuadrada</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#torque-sobre-una-espira">Torque sobre una espira</a></li>
 </ul>
   </nav></div>
 
