@@ -58,6 +58,7 @@ parts:
   - caption: 7 Campo Magnético y Fuerzas Magnéticas
     chapters:
       - file: 07_01_magnetismo
+      - file: 07_02_corrientes
 
 #  - caption: 8 Fuentes de Campo Magnético
 #  - caption: 9 Inducción Electromagnética
