@@ -54,6 +54,7 @@ parts:
       - file: 06_01_circuitos
       - file: 06_02_conexiones
       - file: 06_03_kirchhoff
+      - file: 06_04_circuitosRC
 
   - caption: 7 Campo Magnético y Fuerzas Magnéticas
     chapters:

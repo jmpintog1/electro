@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Bienvenidos al Curso de Electricidad y Magnetismo &#8212; Curso de Electricidad y Magnetismo</title>
+    <title>6.4 Circuitos RC &#8212; Curso de Electricidad y Magnetismo</title>
   
   
   
@@ -62,10 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06_04_circuitosRC';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1.1 Carga Eléctrica" href="01_01_carga.html" />
+    <link rel="next" title="7.1 Magnetismo" href="07_01_magnetismo.html" />
+    <link rel="prev" title="6.3 Reglas de Kirchhoff" href="06_03_kirchhoff.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -141,7 +144,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -161,8 +164,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Bienvenidos al Curso de Electricidad y Magnetismo
                 </a>
             </li>
@@ -212,11 +215,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">6 Circuitos de Corriente Directa</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_02_conexiones.html">6.2 Conexiones entre Resistencias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_03_kirchhoff.html">6.3 Reglas de Kirchhoff</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_04_circuitosRC.html">6.4 Circuitos RC</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6.4 Circuitos RC</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
 <ul class="nav bd-sidenav">
@@ -268,6 +271,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmpintog1/electro/blob/main/./06_04_circuitosRC.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -293,7 +327,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/jmpintog1/electro/issues/new?title=Issue%20on%20page%20%2F06_04_circuitosRC.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -323,7 +357,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/06_04_circuitosRC.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -333,7 +367,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -407,7 +441,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Bienvenidos al Curso de Electricidad y Magnetismo</h1>
+    <h1>6.4 Circuitos RC</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -417,7 +451,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usar-este-libro-digital">¿Por qué usar este libro digital?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-un-condensador">Carga de un Condensador</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descarga-de-un-condensador">Descarga de un Condensador</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-analisis-rc-circuito-con-ramas-paralelas">Ejemplo de Análisis RC: Circuito con Ramas Paralelas</a></li>
 </ul>
             </nav>
         </div>
@@ -429,33 +465,52 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="bienvenidos-al-curso-de-electricidad-y-magnetismo">
-<h1>Bienvenidos al Curso de Electricidad y Magnetismo<a class="headerlink" href="#bienvenidos-al-curso-de-electricidad-y-magnetismo" title="Permalink to this heading">#</a></h1>
-<p>Este espacio no es un libro de texto convencional; es un entorno interactivo diseñado específicamente para los desafíos de la ingeniería en la Universidad. Aquí, la teoría deja de ser estática para convertirse en una herramienta de experimentación.</p>
-<section id="por-que-usar-este-libro-digital">
-<h2>¿Por qué usar este libro digital?<a class="headerlink" href="#por-que-usar-este-libro-digital" title="Permalink to this heading">#</a></h2>
-<p>A diferencia de los textos clásicos como el Sears-Zemansky, este recurso te permite:</p>
-<ul class="simple">
-<li><p><strong>Visualizar dinámicamente.</strong> Observa cómo se comportan los campos eléctricos y magnéticos en tiempo real.</p></li>
-<li><p><strong>Interactuar con el código.</strong> Modifica variables y observa los resultados de inmediato para validar tu intuición física.</p></li>
-<li><p><strong>Aprender haciendo.</strong> Experimenta con modelos computacionales sin restricciones, integrando la física con las capacidades de la programación moderna.</p></li>
-</ul>
-<p>El conocimiento está a un clic de distancia. Comienza explorando el primer capítulo en la barra lateral.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="circuitos-rc">
+<h1>6.4 Circuitos RC<a class="headerlink" href="#circuitos-rc" title="Permalink to this heading">#</a></h1>
+<p>En esta sección analizaremos los circuitos que contienen tanto resistencias como condensadores, conocidos como circuitos RC. A diferencia de los circuitos puramente resistivos donde las corrientes alcanzan un estado estacionario instantáneamente, en los circuitos RC la corriente y la carga varían con el tiempo durante los procesos de carga y descarga.</p>
+<section id="carga-de-un-condensador">
+<h2>Carga de un Condensador<a class="headerlink" href="#carga-de-un-condensador" title="Permalink to this heading">#</a></h2>
+<p>Consideremos el circuito de la figura adjunta, compuesto por una fuente de voltaje <span class="math notranslate nohighlight">\(V_0\)</span>, una resistencia <span class="math notranslate nohighlight">\(R\)</span>, un condensador <span class="math notranslate nohighlight">\(C\)</span> y un interruptor <span class="math notranslate nohighlight">\(S\)</span>. Asumiremos que inicialmente el condensador está descargado. En el instante <span class="math notranslate nohighlight">\(t=0\)</span>, se cierra el interruptor <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p>Para un tiempo <span class="math notranslate nohighlight">\(t&gt;0\)</span>, aplicamos la regla de mallas de Kirchhoff, lo que nos entrega la siguiente relación de voltajes:</p>
+<div class="math notranslate nohighlight">
+\[V_0 - IR - \frac{q}{C} = 0\]</div>
+<p>Dado que la corriente eléctrica <span class="math notranslate nohighlight">\(I\)</span> corresponde a la tasa de variación temporal de la carga en el condensador (<span class="math notranslate nohighlight">\(I = \frac{dq}{dt}\)</span>), podemos reescribir la expresión como una ecuación diferencial lineal de primer orden:</p>
+<div class="math notranslate nohighlight">
+\[V_0 = R \frac{dq}{dt} + \frac{q}{C}\]</div>
+<p>Resolviendo esta ecuación diferencial e integrando con la condición inicial de carga nula en <span class="math notranslate nohighlight">\(t=0\)</span>, obtenemos la función de carga en el tiempo:</p>
+<div class="math notranslate nohighlight">
+\[q(t) = V_0 C (1 - e^{-t/RC})\]</div>
+<p>Derivando esta expresión respecto al tiempo, encontramos el comportamiento de la corriente:</p>
+<div class="math notranslate nohighlight">
+\[I(t) = \frac{V_0}{R} e^{-t/RC}\]</div>
+<p>El término <span class="math notranslate nohighlight">\(\tau = RC\)</span> define la constante de tiempo del circuito. En <span class="math notranslate nohighlight">\(t = \tau\)</span>, la corriente ha decaído a aproximadamente el <span class="math notranslate nohighlight">\(37\%\)</span> de su valor inicial <span class="math notranslate nohighlight">\(I_0\)</span>.</p>
 </section>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+<section id="descarga-de-un-condensador">
+<h2>Descarga de un Condensador<a class="headerlink" href="#descarga-de-un-condensador" title="Permalink to this heading">#</a></h2>
+<p>Analicemos ahora el proceso inverso. Asumimos que el condensador posee una carga inicial <span class="math notranslate nohighlight">\(Q = V_0 C\)</span> y, en <span class="math notranslate nohighlight">\(t&gt;0\)</span>, cerramos el circuito permitiendo que se descargue a través de la resistencia <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<p>La nueva ecuación de malla prescinde de la fuente electromotriz:</p>
+<div class="math notranslate nohighlight">
+\[0 = IR + \frac{q}{C} \implies RC \frac{dq}{dt} + q = 0\]</div>
+<p>Al integrar esta ecuación desde la carga inicial <span class="math notranslate nohighlight">\(Q\)</span>, la carga remanente en el condensador decae exponencialmente:</p>
+<div class="math notranslate nohighlight">
+\[q(t) = Q e^{-t/RC}\]</div>
+<p>Por consiguiente, la corriente de descarga resulta ser:</p>
+<div class="math notranslate nohighlight">
+\[I(t) = -\frac{V_0}{R} e^{-t/RC}\]</div>
+</section>
+<section id="ejemplo-de-analisis-rc-circuito-con-ramas-paralelas">
+<h2>Ejemplo de Análisis RC: Circuito con Ramas Paralelas<a class="headerlink" href="#ejemplo-de-analisis-rc-circuito-con-ramas-paralelas" title="Permalink to this heading">#</a></h2>
+<p>Consideremos un circuito con una fuente <span class="math notranslate nohighlight">\(V\)</span>, un interruptor <span class="math notranslate nohighlight">\(S\)</span>, una resistencia <span class="math notranslate nohighlight">\(R\)</span> en la rama principal, y un nodo que divide la corriente hacia una rama con un condensador <span class="math notranslate nohighlight">\(C\)</span> y otra rama con una resistencia <span class="math notranslate nohighlight">\(2R\)</span>.</p>
+<p>El análisis se puede dividir en tres etapas temporales críticas:</p>
+<ol class="arabic simple">
+<li><p><strong>En <span class="math notranslate nohighlight">\(t=0\)</span> (condensador inicialmente descargado):</strong> Al cerrar <span class="math notranslate nohighlight">\(S\)</span>, la diferencia de potencial en el condensador es cero. Esto fuerza a que la diferencia de potencial en la rama paralela (<span class="math notranslate nohighlight">\(2R\)</span>) también sea cero. Por lo tanto, no fluye corriente por <span class="math notranslate nohighlight">\(2R\)</span> (<span class="math notranslate nohighlight">\(I_2(0) = 0\)</span>). El condensador actúa como un cortocircuito momentáneo, y la corriente total es <span class="math notranslate nohighlight">\(I_1(0) = I_3(0) = \frac{V}{R}\)</span>.</p></li>
+<li><p><strong>En <span class="math notranslate nohighlight">\(t \to \infty\)</span> (estado estacionario):</strong> Tras dejar pasar un tiempo muy largo, el condensador se carga completamente y bloquea el paso de corriente por su rama (<span class="math notranslate nohighlight">\(I_3(\infty) = 0\)</span>). El circuito se reduce a las resistencias <span class="math notranslate nohighlight">\(R\)</span> y <span class="math notranslate nohighlight">\(2R\)</span> conectadas en serie. La corriente se estabiliza en <span class="math notranslate nohighlight">\(I_1(\infty) = I_2(\infty) = \frac{V}{3R}\)</span>, y la carga máxima acumulada en el condensador es <span class="math notranslate nohighlight">\(q(\infty) = \frac{2}{3}CV\)</span>.</p></li>
+<li><p><strong>Para un tiempo finito <span class="math notranslate nohighlight">\(t&gt;0\)</span>:</strong> Planteando las reglas de Kirchhoff para los nodos (<span class="math notranslate nohighlight">\(I_1 = I_2 + I_3\)</span>) y las mallas, llegamos a la ecuación diferencial que modela el sistema de manera dinámica:
+$<span class="math notranslate nohighlight">\(R \frac{dq}{dt} + \frac{3}{2}\frac{q}{C} = V\)</span><span class="math notranslate nohighlight">\(
+ Cuya solución nos entrega la evolución temporal de la carga:
+ \)</span><span class="math notranslate nohighlight">\(q(t) = \frac{2CV}{3} \left(1 - e^{-\frac{3}{2RC}t}\right)\)</span>$</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -488,12 +543,21 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="06_03_kirchhoff.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">6.3 Reglas de Kirchhoff</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="01_01_carga.html"
+       href="07_01_magnetismo.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1.1 Carga Eléctrica</p>
+        <p class="prev-next-title">7.1 Magnetismo</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -512,7 +576,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usar-este-libro-digital">¿Por qué usar este libro digital?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-un-condensador">Carga de un Condensador</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descarga-de-un-condensador">Descarga de un Condensador</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-analisis-rc-circuito-con-ramas-paralelas">Ejemplo de Análisis RC: Circuito con Ramas Paralelas</a></li>
 </ul>
   </nav></div>
 
