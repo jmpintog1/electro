@@ -502,13 +502,16 @@ document.write(`
 <h2>Ejemplo de Análisis RC: Circuito con Ramas Paralelas<a class="headerlink" href="#ejemplo-de-analisis-rc-circuito-con-ramas-paralelas" title="Permalink to this heading">#</a></h2>
 <p>Consideremos un circuito con una fuente <span class="math notranslate nohighlight">\(V\)</span>, un interruptor <span class="math notranslate nohighlight">\(S\)</span>, una resistencia <span class="math notranslate nohighlight">\(R\)</span> en la rama principal, y un nodo que divide la corriente hacia una rama con un condensador <span class="math notranslate nohighlight">\(C\)</span> y otra rama con una resistencia <span class="math notranslate nohighlight">\(2R\)</span>.</p>
 <p>El análisis se puede dividir en tres etapas temporales críticas:</p>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p><strong>En <span class="math notranslate nohighlight">\(t=0\)</span> (condensador inicialmente descargado):</strong> Al cerrar <span class="math notranslate nohighlight">\(S\)</span>, la diferencia de potencial en el condensador es cero. Esto fuerza a que la diferencia de potencial en la rama paralela (<span class="math notranslate nohighlight">\(2R\)</span>) también sea cero. Por lo tanto, no fluye corriente por <span class="math notranslate nohighlight">\(2R\)</span> (<span class="math notranslate nohighlight">\(I_2(0) = 0\)</span>). El condensador actúa como un cortocircuito momentáneo, y la corriente total es <span class="math notranslate nohighlight">\(I_1(0) = I_3(0) = \frac{V}{R}\)</span>.</p></li>
 <li><p><strong>En <span class="math notranslate nohighlight">\(t \to \infty\)</span> (estado estacionario):</strong> Tras dejar pasar un tiempo muy largo, el condensador se carga completamente y bloquea el paso de corriente por su rama (<span class="math notranslate nohighlight">\(I_3(\infty) = 0\)</span>). El circuito se reduce a las resistencias <span class="math notranslate nohighlight">\(R\)</span> y <span class="math notranslate nohighlight">\(2R\)</span> conectadas en serie. La corriente se estabiliza en <span class="math notranslate nohighlight">\(I_1(\infty) = I_2(\infty) = \frac{V}{3R}\)</span>, y la carga máxima acumulada en el condensador es <span class="math notranslate nohighlight">\(q(\infty) = \frac{2}{3}CV\)</span>.</p></li>
-<li><p><strong>Para un tiempo finito <span class="math notranslate nohighlight">\(t&gt;0\)</span>:</strong> Planteando las reglas de Kirchhoff para los nodos (<span class="math notranslate nohighlight">\(I_1 = I_2 + I_3\)</span>) y las mallas, llegamos a la ecuación diferencial que modela el sistema de manera dinámica:
-$<span class="math notranslate nohighlight">\(R \frac{dq}{dt} + \frac{3}{2}\frac{q}{C} = V\)</span><span class="math notranslate nohighlight">\(
- Cuya solución nos entrega la evolución temporal de la carga:
- \)</span><span class="math notranslate nohighlight">\(q(t) = \frac{2CV}{3} \left(1 - e^{-\frac{3}{2RC}t}\right)\)</span>$</p></li>
+<li><p><strong>Para un tiempo finito <span class="math notranslate nohighlight">\(t&gt;0\)</span>:</strong> Planteando las reglas de Kirchhoff para los nodos (<span class="math notranslate nohighlight">\(I_1 = I_2 + I_3\)</span>) y las mallas, llegamos a la ecuación diferencial que modela el sistema de manera dinámica:</p>
+<div class="math notranslate nohighlight">
+\[R \frac{dq}{dt} + \frac{3}{2}\frac{q}{C} = V\]</div>
+<p>Cuya solución nos entrega la evolución temporal de la carga:</p>
+<div class="math notranslate nohighlight">
+\[q(t) = \frac{2CV}{3} \left(1 - e^{-\frac{3}{2RC}t}\right)\]</div>
+</li>
 </ol>
 </section>
 </section>
