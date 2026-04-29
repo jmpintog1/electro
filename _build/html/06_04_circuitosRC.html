@@ -541,23 +541,23 @@ Aplicamos la función exponencial en ambos lados para eliminar el logaritmo:</p>
 </section>
 <section id="descarga-de-un-condensador">
 <h2>Descarga de un Condensador<a class="headerlink" href="#descarga-de-un-condensador" title="Permalink to this heading">#</a></h2>
-<p>Analicemos ahora el proceso inverso. Asumimos que el condensador posee una carga inicial <span class="math notranslate nohighlight">\(Q = V_0 C\)</span> y, en <span class="math notranslate nohighlight">\(t&gt;0\)</span>, cerramos el circuito permitiendo que se descargue a través de la resistencia <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<p>Analicemos ahora el proceso inverso. Asumimos que el condensador posee una carga inicial <span class="math notranslate nohighlight">\(Q_0 = V_0 C\)</span> y, en <span class="math notranslate nohighlight">\(t&gt;0\)</span>, cerramos el circuito permitiendo que se descargue a través de la resistencia <span class="math notranslate nohighlight">\(R\)</span>.</p>
 <p> </p>
 <a class="reference internal image-reference" href="_images/06_13.svg"><img alt="Descarga de un condensador" class="align-center" src="_images/06_13.svg" width="50%" /></a>
 <p> </p>
 <p>La nueva ecuación de malla prescinde de la fuente electromotriz:</p>
 <div class="math notranslate nohighlight">
 \[0 = IR + \frac{q}{C} \implies RC \frac{dq}{dt} + q = 0\]</div>
-<p>Al integrar esta ecuación desde la carga inicial <span class="math notranslate nohighlight">\(Q\)</span>, la carga remanente en el condensador decae exponencialmente:</p>
+<p>Al integrar esta ecuación desde la carga inicial <span class="math notranslate nohighlight">\(Q_0\)</span>, la carga remanente en el condensador decae exponencialmente:</p>
 <div class="math notranslate nohighlight">
-\[q(t) = Q e^{-t/RC}\]</div>
+\[q(t) = Q_0 e^{-t/RC}\]</div>
 <p>Por consiguiente, la corriente de descarga resulta ser:</p>
 <div class="math notranslate nohighlight">
 \[I(t) = -\frac{V_0}{R} e^{-t/RC}\]</div>
 </section>
 <section id="ejemplo-circuito-con-ramas-paralelas">
 <h2>Ejemplo: Circuito con ramas paralelas<a class="headerlink" href="#ejemplo-circuito-con-ramas-paralelas" title="Permalink to this heading">#</a></h2>
-<p>Consideremos un circuito con una fuente <span class="math notranslate nohighlight">\(V\)</span>, un interruptor <span class="math notranslate nohighlight">\(S\)</span>, una resistencia <span class="math notranslate nohighlight">\(R\)</span> en la rama principal, y un nodo que divide la corriente hacia una rama con un condensador <span class="math notranslate nohighlight">\(C\)</span> y otra rama con una resistencia <span class="math notranslate nohighlight">\(2R\)</span>.</p>
+<p>Consideremos un circuito con una fuente <span class="math notranslate nohighlight">\(V\)</span>, un interruptor <span class="math notranslate nohighlight">\(S\)</span>, una resistencia <span class="math notranslate nohighlight">\(R\)</span> en la rama principal, y un nodo <span class="math notranslate nohighlight">\(a\)</span> que divide la corriente hacia una rama con un condensador <span class="math notranslate nohighlight">\(C\)</span> y otra rama con una resistencia <span class="math notranslate nohighlight">\(2R\)</span>.</p>
 <p> </p>
 <a class="reference internal image-reference" href="_images/06_14.svg"><img alt="Ejemplo de circuito RC" class="align-center" src="_images/06_14.svg" width="55%" /></a>
 <p> </p>
@@ -569,6 +569,58 @@ Aplicamos la función exponencial en ambos lados para eliminar el logaritmo:</p>
 <div class="math notranslate nohighlight">
 \[R \frac{dq}{dt} + \frac{3}{2}\frac{q}{C} = V\]</div>
 <p>Cuya solución nos entrega la evolución temporal de la carga:</p>
+<div class="math notranslate nohighlight">
+\[q(t) = \frac{2CV}{3} \left(1 - e^{-\frac{3}{2RC}t}\right)\]</div>
+<p>La forma estándar para la carga de un condensador en función del tiempo está dada por la expresión <span class="math notranslate nohighlight">\(q(t) = Q_{\text{máx}} \left(1 - e^{-t/\tau}\right)\)</span>, donde <span class="math notranslate nohighlight">\(\tau\)</span> es el tiempo característico.</p>
+<p>Para encontrar nuestro <span class="math notranslate nohighlight">\(\tau\)</span>, igualamos el argumento de la función exponencial de nuestra solución con el de la forma estándar:</p>
+<div class="math notranslate nohighlight">
+\[-\frac{3}{2RC}t = -\frac{t}{\tau}\]</div>
+<p>Simplificamos el tiempo <span class="math notranslate nohighlight">\(t\)</span> a ambos lados y despejamos <span class="math notranslate nohighlight">\(\tau\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\frac{3}{2RC} = \frac{1}{\tau}\]</div>
+<div class="math notranslate nohighlight">
+\[\tau = \frac{2RC}{3}\]</div>
+<p>A continuación se presenta el paso a paso para obtener la solución a la ecuación diferencial utilizando el método de separación de variables. Partimos de la ecuación planteada:</p>
+<div class="math notranslate nohighlight">
+\[R \frac{dq}{dt} + \frac{3}{2C}q = V\]</div>
+<p><strong>Paso 1: Reordenar la ecuación</strong></p>
+<p>Primero, restamos el término que contiene a la carga <span class="math notranslate nohighlight">\(q\)</span> a ambos lados de la igualdad:</p>
+<div class="math notranslate nohighlight">
+\[R \frac{dq}{dt} = V - \frac{3q}{2C}\]</div>
+<p>Buscamos un denominador común en el lado derecho de la ecuación:</p>
+<div class="math notranslate nohighlight">
+\[R \frac{dq}{dt} = \frac{2CV - 3q}{2C}\]</div>
+<p>Luego, dividimos todo por la resistencia <span class="math notranslate nohighlight">\(R\)</span> para aislar la derivada:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dq}{dt} = \frac{2CV - 3q}{2RC}\]</div>
+<p><strong>Paso 2: Separación de variables</strong></p>
+<p>Agrupamos todos los términos dependientes de <span class="math notranslate nohighlight">\(q\)</span> en el lado izquierdo y los dependientes del tiempo <span class="math notranslate nohighlight">\(t\)</span> en el lado derecho:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dq}{2CV - 3q} = \frac{dt}{2RC}\]</div>
+<p><strong>Paso 3: Integración con condiciones iniciales</strong></p>
+<p>Integramos a ambos lados asumiendo que el condensador parte completamente descargado; es decir, en <span class="math notranslate nohighlight">\(t=0\)</span>, la carga es <span class="math notranslate nohighlight">\(q(0)=0\)</span>. Para un instante de tiempo <span class="math notranslate nohighlight">\(t\)</span>, la carga será <span class="math notranslate nohighlight">\(q\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\int_{0}^{q} \frac{dq'}{2CV - 3q'} = \int_{0}^{t} \frac{dt'}{2RC}\]</div>
+<p>La integral del lado derecho es directa. Para el lado izquierdo, utilizamos la regla de la cadena (donde el término <span class="math notranslate nohighlight">\(-3q'\)</span> aporta un factor de <span class="math notranslate nohighlight">\(-1/3\)</span> al integrar):</p>
+<div class="math notranslate nohighlight">
+\[-\frac{1}{3} \ln(2CV - 3q') \Biggr|_{0}^{q} = \frac{t}{2RC}\]</div>
+<p>Evaluamos los límites de integración correspondientes:</p>
+<div class="math notranslate nohighlight">
+\[-\frac{1}{3} \Big[ \ln(2CV - 3q) - \ln(2CV) \Big] = \frac{t}{2RC}\]</div>
+<p>Multiplicamos por <span class="math notranslate nohighlight">\(-3\)</span> a ambos lados y aplicamos la propiedad de la resta de logaritmos (<span class="math notranslate nohighlight">\(\ln(a) - \ln(b) = \ln(a/b)\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\ln\left(\frac{2CV - 3q}{2CV}\right) = -\frac{3t}{2RC}\]</div>
+<p><strong>Paso 4: Despejar la función de la carga <span class="math notranslate nohighlight">\(q(t)\)</span></strong></p>
+<p>Aplicamos la función exponencial a ambos lados de la ecuación para anular el logaritmo natural:</p>
+<div class="math notranslate nohighlight">
+\[\frac{2CV - 3q}{2CV} = e^{-\frac{3}{2RC}t}\]</div>
+<p>Separamos la fracción del lado izquierdo:</p>
+<div class="math notranslate nohighlight">
+\[1 - \frac{3q}{2CV} = e^{-\frac{3}{2RC}t}\]</div>
+<p>Reordenamos los términos algebraicamente para aislar la fracción que contiene a <span class="math notranslate nohighlight">\(q\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\frac{3q}{2CV} = 1 - e^{-\frac{3}{2RC}t}\]</div>
+<p>Multiplicamos por <span class="math notranslate nohighlight">\(\frac{2CV}{3}\)</span> obteniendo la solución de nuestra ecuación diferencial para la evolución temporal de la carga:</p>
 <div class="math notranslate nohighlight">
 \[q(t) = \frac{2CV}{3} \left(1 - e^{-\frac{3}{2RC}t}\right)\]</div>
 </li>
