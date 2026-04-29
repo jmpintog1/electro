@@ -451,7 +451,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-un-condensador">Carga de un Condensador</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-un-condensador">Carga de un Condensador</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-de-la-ecuacion-diferencial">Resolución de la ecuación diferencial</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descarga-de-un-condensador">Descarga de un Condensador</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-circuito-con-ramas-paralelas">Ejemplo: Circuito con ramas paralelas</a></li>
 </ul>
@@ -470,7 +473,11 @@ document.write(`
 <p>En esta sección analizaremos los circuitos que contienen tanto resistencias como condensadores, conocidos como circuitos RC. A diferencia de los circuitos puramente resistivos donde las corrientes alcanzan un estado estacionario instantáneamente, en los circuitos RC la corriente y la carga varían con el tiempo durante los procesos de carga y descarga.</p>
 <section id="carga-de-un-condensador">
 <h2>Carga de un Condensador<a class="headerlink" href="#carga-de-un-condensador" title="Permalink to this heading">#</a></h2>
-<p>Consideremos el circuito de la figura adjunta, compuesto por una fuente de voltaje <span class="math notranslate nohighlight">\(V_0\)</span>, una resistencia <span class="math notranslate nohighlight">\(R\)</span>, un condensador <span class="math notranslate nohighlight">\(C\)</span> y un interruptor <span class="math notranslate nohighlight">\(S\)</span>. Asumiremos que inicialmente el condensador está descargado. En el instante <span class="math notranslate nohighlight">\(t=0\)</span>, se cierra el interruptor <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p>Consideremos el circuito de la figura adjunta, compuesto por una fuente de voltaje <span class="math notranslate nohighlight">\(V_0\)</span>, una resistencia <span class="math notranslate nohighlight">\(R\)</span>, un condensador <span class="math notranslate nohighlight">\(C\)</span> y un interruptor <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p> </p>
+<a class="reference internal image-reference" href="images_tikz/06_11.svg"><img alt="Circuito RC" class="align-center" src="images_tikz/06_11.svg" width="40%" /></a>
+<p> </p>
+<p>Asumiremos que inicialmente el condensador está descargado. En el instante <span class="math notranslate nohighlight">\(t=0\)</span>, se cierra el interruptor <span class="math notranslate nohighlight">\(S\)</span>.</p>
 <p>Para un tiempo <span class="math notranslate nohighlight">\(t&gt;0\)</span>, aplicamos la regla de mallas de Kirchhoff, lo que nos entrega la siguiente relación de voltajes:</p>
 <div class="math notranslate nohighlight">
 \[V_0 - IR - \frac{q}{C} = 0\]</div>
@@ -484,10 +491,60 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[I(t) = \frac{V_0}{R} e^{-t/RC}\]</div>
 <p>El término <span class="math notranslate nohighlight">\(\tau = RC\)</span> define la constante de tiempo del circuito. En <span class="math notranslate nohighlight">\(t = \tau\)</span>, la corriente ha decaído a aproximadamente el <span class="math notranslate nohighlight">\(37\%\)</span> de su valor inicial <span class="math notranslate nohighlight">\(I_0\)</span>.</p>
+<p>A continuación se presentan los gráficos de la carga del condensador y de la corriente en función del tiempo.</p>
+<p> </p>
+<a class="reference internal image-reference" href="images_tikz/06_12.svg"><img alt="Gráficos de carga" class="align-center" src="images_tikz/06_12.svg" width="80%" /></a>
+<p> </p>
+<section id="resolucion-de-la-ecuacion-diferencial">
+<h3>Resolución de la ecuación diferencial<a class="headerlink" href="#resolucion-de-la-ecuacion-diferencial" title="Permalink to this heading">#</a></h3>
+<p>Para obtener la expresión de la carga <span class="math notranslate nohighlight">\(q(t)\)</span>, resolvemos la ecuación diferencial de primer orden por el método de <strong>separación de variables</strong>:</p>
+<p><strong>1. Reordenamiento de la ecuación:</strong>
+Partimos de la ley de mallas de Kirchhoff:</p>
+<div class="math notranslate nohighlight">
+\[V_0 = R \frac{dq}{dt} + \frac{q}{C}\]</div>
+<p>Aislamos el término que contiene la derivada:</p>
+<div class="math notranslate nohighlight">
+\[R \frac{dq}{dt} = V_0 - \frac{q}{C}\]</div>
+<p>Combinamos los términos del lado derecho en una sola fracción para facilitar la separación:</p>
+<div class="math notranslate nohighlight">
+\[R \frac{dq}{dt} = \frac{CV_0 - q}{C}\]</div>
+<p><strong>2. Separación de variables:</strong>
+Agrupamos todos los términos con <span class="math notranslate nohighlight">\(q\)</span> en el lado izquierdo y los términos con <span class="math notranslate nohighlight">\(t\)</span> en el derecho:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dq}{CV_0 - q} = \frac{dt}{RC}\]</div>
+<p><strong>3. Integración con condiciones iniciales:</strong>
+Integramos ambos lados aplicando la condición inicial de que el condensador está descargado en el instante inicial (<span class="math notranslate nohighlight">\(q=0\)</span> en <span class="math notranslate nohighlight">\(t=0\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\int_{0}^{q(t)} \frac{dq}{CV_0 - q} = \int_{0}^{t} \frac{dt}{RC}\]</div>
+<p><strong>4. Cálculo de las integrales:</strong>
+Al resolver la integral del lado izquierdo (usando la sustitución <span class="math notranslate nohighlight">\(u = CV_0 - q\)</span>), obtenemos un logaritmo natural negativo:</p>
+<div class="math notranslate nohighlight">
+\[-\ln(CV_0 - q) \Big|_{0}^{q(t)} = \frac{t}{RC} \Big|_{0}^{t}\]</div>
+<p>Evaluamos los límites:</p>
+<div class="math notranslate nohighlight">
+\[-\ln(CV_0 - q(t)) - (-\ln(CV_0)) = \frac{t}{RC}\]</div>
+<p>Aplicamos propiedades de los logaritmos (<span class="math notranslate nohighlight">\(\ln A - \ln B = \ln \frac{A}{B}\)</span>) y movemos el signo negativo:</p>
+<div class="math notranslate nohighlight">
+\[\ln\left( \frac{CV_0 - q(t)}{CV_0} \right) = -\frac{t}{RC}\]</div>
+<p><strong>5. Despeje de la carga <span class="math notranslate nohighlight">\(q(t)\)</span>:</strong>
+Aplicamos la función exponencial en ambos lados para eliminar el logaritmo:</p>
+<div class="math notranslate nohighlight">
+\[\frac{CV_0 - q(t)}{CV_0} = e^{-t/RC}\]</div>
+<p>Multiplicamos por <span class="math notranslate nohighlight">\(CV_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[CV_0 - q(t) = CV_0 e^{-t/RC}\]</div>
+<p>Finalmente, despejamos <span class="math notranslate nohighlight">\(q(t)\)</span> y factorizamos el término común <span class="math notranslate nohighlight">\(CV_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[q(t) = V_0 C (1 - e^{-t/RC})\]</div>
+<p>Esta expresión describe cómo la carga en el condensador aumenta de forma asintótica hasta alcanzar su valor máximo <span class="math notranslate nohighlight">\(Q_{\text{máx}} = V_0 C\)</span>.</p>
+</section>
 </section>
 <section id="descarga-de-un-condensador">
 <h2>Descarga de un Condensador<a class="headerlink" href="#descarga-de-un-condensador" title="Permalink to this heading">#</a></h2>
 <p>Analicemos ahora el proceso inverso. Asumimos que el condensador posee una carga inicial <span class="math notranslate nohighlight">\(Q = V_0 C\)</span> y, en <span class="math notranslate nohighlight">\(t&gt;0\)</span>, cerramos el circuito permitiendo que se descargue a través de la resistencia <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<p> </p>
+<a class="reference internal image-reference" href="images_tikz/06_13.svg"><img alt="Descarga de un condensador" class="align-center" src="images_tikz/06_13.svg" width="40%" /></a>
+<p> </p>
 <p>La nueva ecuación de malla prescinde de la fuente electromotriz:</p>
 <div class="math notranslate nohighlight">
 \[0 = IR + \frac{q}{C} \implies RC \frac{dq}{dt} + q = 0\]</div>
@@ -501,6 +558,9 @@ document.write(`
 <section id="ejemplo-circuito-con-ramas-paralelas">
 <h2>Ejemplo: Circuito con ramas paralelas<a class="headerlink" href="#ejemplo-circuito-con-ramas-paralelas" title="Permalink to this heading">#</a></h2>
 <p>Consideremos un circuito con una fuente <span class="math notranslate nohighlight">\(V\)</span>, un interruptor <span class="math notranslate nohighlight">\(S\)</span>, una resistencia <span class="math notranslate nohighlight">\(R\)</span> en la rama principal, y un nodo que divide la corriente hacia una rama con un condensador <span class="math notranslate nohighlight">\(C\)</span> y otra rama con una resistencia <span class="math notranslate nohighlight">\(2R\)</span>.</p>
+<p> </p>
+<a class="reference internal image-reference" href="images_tikz/06_14.svg"><img alt="Ejemplo de circuito RC" class="align-center" src="images_tikz/06_14.svg" width="40%" /></a>
+<p> </p>
 <p>El análisis se puede dividir en tres etapas temporales críticas:</p>
 <ol class="arabic">
 <li><p><strong>En <span class="math notranslate nohighlight">\(t=0\)</span> (condensador inicialmente descargado):</strong> Al cerrar <span class="math notranslate nohighlight">\(S\)</span>, la diferencia de potencial en el condensador es cero. Esto fuerza a que la diferencia de potencial en la rama paralela (<span class="math notranslate nohighlight">\(2R\)</span>) también sea cero. Por lo tanto, no fluye corriente por <span class="math notranslate nohighlight">\(2R\)</span> (<span class="math notranslate nohighlight">\(I_2(0) = 0\)</span>). El condensador actúa como un cortocircuito momentáneo, y la corriente total es <span class="math notranslate nohighlight">\(I_1(0) = I_3(0) = \frac{V}{R}\)</span>.</p></li>
@@ -579,7 +639,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-un-condensador">Carga de un Condensador</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-un-condensador">Carga de un Condensador</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-de-la-ecuacion-diferencial">Resolución de la ecuación diferencial</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descarga-de-un-condensador">Descarga de un Condensador</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-circuito-con-ramas-paralelas">Ejemplo: Circuito con ramas paralelas</a></li>
 </ul>
