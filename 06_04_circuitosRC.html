@@ -554,6 +554,756 @@ Aplicamos la función exponencial en ambos lados para eliminar el logaritmo:</p>
 <p>Por consiguiente, la corriente de descarga resulta ser:</p>
 <div class="math notranslate nohighlight">
 \[I(t) = -\frac{V_0}{R} e^{-t/RC}\]</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">simulacion_rc_tiempo_html</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;div style=&quot;border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif;&quot;&gt;</span>
+<span class="s2">    &lt;h3 style=&quot;margin-top:0; color: #2c3e50;&quot;&gt;Dinámica del Circuito RC en Tiempo Real&lt;/h3&gt;</span>
+<span class="s2">    &lt;p style=&quot;font-size: 0.95em; color: #555; margin-bottom: 15px;&quot;&gt;Conmuta el interruptor para cargar o descargar el condensador. Ajusta la velocidad de simulación si el proceso es muy lento.&lt;/p&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;&quot;&gt;</span>
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 280px; max-width: 350px;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 150px;&quot;&gt;Voltaje (V): &lt;span id=&quot;rc_valV_v8&quot; style=&quot;font-weight: normal;&quot;&gt;10&lt;/span&gt; V&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;rc_V_v8&quot; min=&quot;5&quot; max=&quot;15&quot; step=&quot;1&quot; value=&quot;10&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 150px;&quot;&gt;Resistencia (R): &lt;span id=&quot;rc_valR_v8&quot; style=&quot;font-weight: normal;&quot;&gt;100&lt;/span&gt; kΩ&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;rc_R_v8&quot; min=&quot;10&quot; max=&quot;200&quot; step=&quot;10&quot; value=&quot;100&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 150px;&quot;&gt;Capacitor (C): &lt;span id=&quot;rc_valC_v8&quot; style=&quot;font-weight: normal;&quot;&gt;470&lt;/span&gt; μF&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;rc_C_v8&quot; min=&quot;300&quot; max=&quot;600&quot; step=&quot;10&quot; value=&quot;470&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 150px;&quot;&gt;Velocidad Tiempo: &lt;span id=&quot;rc_valSpeed_v8&quot; style=&quot;color: #d63384; font-weight: bold;&quot;&gt;1&lt;/span&gt;x&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;rc_Speed_v8&quot; min=&quot;1&quot; max=&quot;5&quot; step=&quot;1&quot; value=&quot;1&quot; style=&quot;width: 40%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            </span>
+<span class="s2">            &lt;div style=&quot;margin-top: 15px; display: flex; gap: 10px;&quot;&gt;</span>
+<span class="s2">                &lt;button id=&quot;rc_btnCharge_v8&quot; style=&quot;flex: 1; padding: 8px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;&quot;&gt;[A] Cargar&lt;/button&gt;</span>
+<span class="s2">                &lt;button id=&quot;rc_btnDischarge_v8&quot; style=&quot;flex: 1; padding: 8px; background-color: #0d6efd; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;&quot;&gt;[B] Descargar&lt;/button&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-top: 10px; text-align: center;&quot;&gt;</span>
+<span class="s2">                &lt;button id=&quot;rc_btnReset_v8&quot; style=&quot;padding: 6px 12px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9em;&quot;&gt;Reiniciar Simulador&lt;/button&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center;&quot;&gt;</span>
+<span class="s2">            &lt;canvas id=&quot;rc_cvs_circ_v8&quot; width=&quot;260&quot; height=&quot;150&quot; style=&quot;background: #eef2f5; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;&quot;&gt;&lt;/canvas&gt;</span>
+<span class="s2">            </span>
+<span class="s2">            &lt;div style=&quot;display: flex; gap: 15px; font-size: 0.9em; background: #fff; padding: 10px 15px; border-radius: 6px; border: 1px solid #ccc; width: 100%; box-sizing: border-box; flex-wrap: wrap; justify-content: space-around;&quot;&gt;</span>
+<span class="s2">                &lt;div style=&quot;width: 30%;&quot;&gt;&lt;b&gt;Tiempo:&lt;/b&gt; &lt;span id=&quot;rc_valTimeElapsed_v8&quot; style=&quot;color: #d63384; font-weight: bold;&quot;&gt;0.00&lt;/span&gt; s&lt;/div&gt;</span>
+<span class="s2">                &lt;div style=&quot;width: 30%;&quot;&gt;&lt;b&gt;τ:&lt;/b&gt; &lt;span id=&quot;rc_valTau_v8&quot; style=&quot;color: #333;&quot;&gt;0.0&lt;/span&gt; s&lt;/div&gt;</span>
+<span class="s2">                &lt;div style=&quot;width: 30%;&quot;&gt;&lt;b&gt;q(t):&lt;/b&gt; &lt;span id=&quot;rc_valQ_v8&quot; style=&quot;color: #dc3545; font-weight: bold;&quot;&gt;0.0&lt;/span&gt; μC&lt;/div&gt;</span>
+<span class="s2">                &lt;div style=&quot;width: 30%;&quot;&gt;&lt;b&gt;i(t):&lt;/b&gt; &lt;span id=&quot;rc_valI_v8&quot; style=&quot;color: #198754; font-weight: bold;&quot;&gt;0.00&lt;/span&gt; μA&lt;/div&gt;</span>
+<span class="s2">                &lt;div style=&quot;width: 30%;&quot;&gt;&lt;b&gt;Vc(t):&lt;/b&gt; &lt;span id=&quot;rc_valVc_v8&quot; style=&quot;color: #0d6efd; font-weight: bold;&quot;&gt;0.0&lt;/span&gt; V&lt;/div&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;width: 100%;&quot;&gt;</span>
+<span class="s2">        &lt;canvas id=&quot;rc_cvs_graph_v8&quot; width=&quot;800&quot; height=&quot;480&quot; style=&quot;background: #fff; border: 1px solid #ccc; border-radius: 4px; width: 100%; max-width: 100%; box-shadow: inset 0 0 10px rgba(0,0,0,0.02);&quot;&gt;&lt;/canvas&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    setTimeout(function() {</span>
+<span class="s2">        const cvsCirc = document.getElementById(&#39;rc_cvs_circ_v8&#39;);</span>
+<span class="s2">        const cvsGraph = document.getElementById(&#39;rc_cvs_graph_v8&#39;);</span>
+<span class="s2">        if (!cvsCirc || !cvsGraph) return;</span>
+<span class="s2">        const ctxC = cvsCirc.getContext(&#39;2d&#39;);</span>
+<span class="s2">        const ctxG = cvsGraph.getContext(&#39;2d&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const slider_V = document.getElementById(&#39;rc_V_v8&#39;);</span>
+<span class="s2">        const slider_R = document.getElementById(&#39;rc_R_v8&#39;);</span>
+<span class="s2">        const slider_C = document.getElementById(&#39;rc_C_v8&#39;);</span>
+<span class="s2">        const slider_Speed = document.getElementById(&#39;rc_Speed_v8&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        const val_Tau = document.getElementById(&#39;rc_valTau_v8&#39;);</span>
+<span class="s2">        const val_Q = document.getElementById(&#39;rc_valQ_v8&#39;);</span>
+<span class="s2">        const val_I = document.getElementById(&#39;rc_valI_v8&#39;);</span>
+<span class="s2">        const val_Vc = document.getElementById(&#39;rc_valVc_v8&#39;);</span>
+<span class="s2">        const val_Speed = document.getElementById(&#39;rc_valSpeed_v8&#39;);</span>
+<span class="s2">        const val_TimeElapsed = document.getElementById(&#39;rc_valTimeElapsed_v8&#39;);</span>
+
+<span class="s2">        const btnCharge = document.getElementById(&#39;rc_btnCharge_v8&#39;);</span>
+<span class="s2">        const btnDischarge = document.getElementById(&#39;rc_btnDischarge_v8&#39;);</span>
+<span class="s2">        const btnReset = document.getElementById(&#39;rc_btnReset_v8&#39;);</span>
+<span class="s2">        </span>
+<span class="s2">        let V=10, R_k=100, C_u=470, Tau=0, Qmax=0, Imax=0;</span>
+<span class="s2">        let state = 0; </span>
+<span class="s2">        let globalTime = 0;</span>
+<span class="s2">        let localTime = 0;</span>
+<span class="s2">        let Q0 = 0; </span>
+<span class="s2">        </span>
+<span class="s2">        let currentQ = 0;</span>
+<span class="s2">        let currentI = 0;</span>
+<span class="s2">        let currentVc = 0;</span>
+<span class="s2">        </span>
+<span class="s2">        let historyData = [];</span>
+<span class="s2">        let simSpeedFactor = 1.0; </span>
+<span class="s2">        </span>
+<span class="s2">        const particlesPos = [];</span>
+<span class="s2">        const particlesNeg = [];</span>
+
+<span class="s2">        function updateParams() {</span>
+<span class="s2">            V = parseFloat(slider_V.value);</span>
+<span class="s2">            R_k = parseFloat(slider_R.value); </span>
+<span class="s2">            C_u = parseFloat(slider_C.value); </span>
+<span class="s2">            simSpeedFactor = parseFloat(slider_Speed.value);</span>
+<span class="s2">            </span>
+<span class="s2">            Tau = (R_k * 1000) * (C_u / 1000000); </span>
+<span class="s2">            Qmax = C_u * V; </span>
+<span class="s2">            Imax = (V / (R_k * 1000)) * 1000000; </span>
+<span class="s2">            </span>
+<span class="s2">            document.getElementById(&#39;rc_valV_v8&#39;).innerText = V;</span>
+<span class="s2">            document.getElementById(&#39;rc_valR_v8&#39;).innerText = R_k;</span>
+<span class="s2">            document.getElementById(&#39;rc_valC_v8&#39;).innerText = C_u;</span>
+<span class="s2">            val_Speed.innerText = simSpeedFactor;</span>
+<span class="s2">            val_Tau.innerText = Tau.toFixed(1);</span>
+<span class="s2">            </span>
+<span class="s2">            if (state === 0) Qmax = C_u * V;</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function switchState(newState) {</span>
+<span class="s2">            if (state === newState) return;</span>
+<span class="s2">            state = newState;</span>
+<span class="s2">            localTime = 0;</span>
+<span class="s2">            Q0 = currentQ; </span>
+<span class="s2">            </span>
+<span class="s2">            if (state === 1) {</span>
+<span class="s2">                btnCharge.style.backgroundColor = &#39;#a71d2a&#39;;</span>
+<span class="s2">                btnDischarge.style.backgroundColor = &#39;#0d6efd&#39;;</span>
+<span class="s2">            } else if (state === 2) {</span>
+<span class="s2">                btnCharge.style.backgroundColor = &#39;#dc3545&#39;;</span>
+<span class="s2">                btnDischarge.style.backgroundColor = &#39;#0a58ca&#39;;</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function resetSimulation() {</span>
+<span class="s2">            state = 0;</span>
+<span class="s2">            globalTime = 0;</span>
+<span class="s2">            localTime = 0;</span>
+<span class="s2">            Q0 = 0;</span>
+<span class="s2">            currentQ = 0; currentI = 0; currentVc = 0;</span>
+<span class="s2">            historyData = [];</span>
+<span class="s2">            particlesPos.length = 0;</span>
+<span class="s2">            particlesNeg.length = 0;</span>
+<span class="s2">            </span>
+<span class="s2">            btnCharge.style.backgroundColor = &#39;#dc3545&#39;;</span>
+<span class="s2">            btnDischarge.style.backgroundColor = &#39;#0d6efd&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            updateValuesUI();</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function updateValuesUI() {</span>
+<span class="s2">            val_Q.innerText = currentQ.toFixed(1);</span>
+<span class="s2">            val_I.innerText = currentI.toFixed(2);</span>
+<span class="s2">            val_Vc.innerText = currentVc.toFixed(2);</span>
+<span class="s2">            val_TimeElapsed.innerText = globalTime.toFixed(2);</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function drawStaticCircuit() {</span>
+<span class="s2">            ctxC.clearRect(0, 0, cvsCirc.width, cvsCirc.height);</span>
+<span class="s2">            ctxC.strokeStyle = &#39;#333&#39;; ctxC.lineWidth = 2;</span>
+<span class="s2">            </span>
+<span class="s2">            ctxC.lineWidth = 2; ctxC.beginPath(); ctxC.moveTo(30, 50); ctxC.lineTo(60, 50); ctxC.stroke(); </span>
+<span class="s2">            ctxC.lineWidth = 5; ctxC.beginPath(); ctxC.moveTo(38, 65); ctxC.lineTo(52, 65); ctxC.stroke();</span>
+<span class="s2">            </span>
+<span class="s2">            ctxC.lineWidth = 2;</span>
+<span class="s2">            ctxC.beginPath(); ctxC.moveTo(45, 50); ctxC.lineTo(45, 20); ctxC.lineTo(80, 20); ctxC.stroke(); </span>
+<span class="s2">            ctxC.beginPath(); ctxC.moveTo(45, 65); ctxC.lineTo(45, 110); ctxC.lineTo(80, 110); ctxC.stroke(); </span>
+<span class="s2">            </span>
+<span class="s2">            ctxC.fillStyle = &#39;#dc3545&#39;; ctxC.beginPath(); ctxC.arc(80, 20, 4, 0, Math.PI*2); ctxC.fill(); </span>
+<span class="s2">            ctxC.fillStyle = &#39;#0d6efd&#39;; ctxC.beginPath(); ctxC.arc(80, 110, 4, 0, Math.PI*2); ctxC.fill(); </span>
+<span class="s2">            ctxC.fillStyle = &#39;#333&#39;; ctxC.beginPath(); ctxC.arc(110, 65, 4, 0, Math.PI*2); ctxC.fill(); </span>
+<span class="s2">            </span>
+<span class="s2">            ctxC.font = &#39;12px sans-serif&#39;; ctxC.fillStyle = &#39;#333&#39;;</span>
+<span class="s2">            ctxC.fillText(&#39;[A]&#39;, 65, 15); ctxC.fillText(&#39;[B]&#39;, 65, 125);</span>
+<span class="s2">            </span>
+<span class="s2">            ctxC.strokeStyle = &#39;#666&#39;; ctxC.lineWidth = 3;</span>
+<span class="s2">            if (state === 1) { ctxC.beginPath(); ctxC.moveTo(110, 65); ctxC.lineTo(80, 20); ctxC.stroke(); } </span>
+<span class="s2">            else if (state === 2) { ctxC.beginPath(); ctxC.moveTo(110, 65); ctxC.lineTo(80, 110); ctxC.stroke(); } </span>
+<span class="s2">            else { ctxC.beginPath(); ctxC.moveTo(110, 65); ctxC.lineTo(80, 65); ctxC.stroke(); }</span>
+<span class="s2">            </span>
+<span class="s2">            ctxC.strokeStyle = &#39;#333&#39;; ctxC.lineWidth = 2;</span>
+<span class="s2">            </span>
+<span class="s2">            ctxC.beginPath(); ctxC.moveTo(110, 65); ctxC.lineTo(130, 65); </span>
+<span class="s2">            ctxC.lineTo(135, 55); ctxC.lineTo(145, 75); ctxC.lineTo(155, 55); </span>
+<span class="s2">            ctxC.lineTo(165, 75); ctxC.lineTo(170, 65); ctxC.lineTo(180, 65); ctxC.stroke();</span>
+<span class="s2">            </span>
+<span class="s2">            ctxC.beginPath(); ctxC.moveTo(180, 65); ctxC.lineTo(210, 65); ctxC.lineTo(210, 85); ctxC.stroke(); </span>
+<span class="s2">            ctxC.beginPath(); ctxC.moveTo(195, 85); ctxC.lineTo(225, 85); ctxC.stroke(); </span>
+<span class="s2">            ctxC.beginPath(); ctxC.moveTo(195, 95); ctxC.lineTo(225, 95); ctxC.stroke(); </span>
+<span class="s2">            </span>
+<span class="s2">            ctxC.beginPath(); ctxC.moveTo(210, 95); ctxC.lineTo(210, 110); ctxC.lineTo(45, 110); ctxC.stroke();</span>
+<span class="s2">            </span>
+<span class="s2">            ctxC.font = &#39;14px sans-serif&#39;; ctxC.fillStyle = &#39;#333&#39;;</span>
+<span class="s2">            ctxC.fillText(&#39;V&#39;, 15, 60); ctxC.fillText(&#39;R&#39;, 150, 45); ctxC.fillText(&#39;C&#39;, 235, 95);</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function drawGraphs() {</span>
+<span class="s2">            ctxG.clearRect(0, 0, cvsGraph.width, cvsGraph.height);</span>
+<span class="s2">            </span>
+<span class="s2">            let maxT = Math.max(Tau * 5, globalTime * 1.05); </span>
+<span class="s2">            if (maxT &lt; 1) maxT = 1;</span>
+
+<span class="s2">            const pX = 60; </span>
+<span class="s2">            const pW = cvsGraph.width - pX - 30; </span>
+<span class="s2">            const pH = 110; </span>
+<span class="s2">            const gap = 35; </span>
+<span class="s2">            </span>
+<span class="s2">            ctxG.font = &#39;12px sans-serif&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            const titles = [&#39;Carga q(t)&#39;, &#39;Corriente i(t)&#39;, &#39;Voltaje Vc(t)&#39;];</span>
+<span class="s2">            const colors = [&#39;#dc3545&#39;, &#39;#198754&#39;, &#39;#0d6efd&#39;];</span>
+<span class="s2">            </span>
+<span class="s2">            for(let i=0; i&lt;3; i++) {</span>
+<span class="s2">                let yT = 30 + i * (pH + gap); </span>
+<span class="s2">                let yB = yT + pH; </span>
+<span class="s2">                let yZ = (i === 1) ? yT + pH/2 : yB; </span>
+<span class="s2">                </span>
+<span class="s2">                ctxG.fillStyle = &#39;#fafafa&#39;;</span>
+<span class="s2">                ctxG.fillRect(pX, yT, pW, pH);</span>
+<span class="s2">                </span>
+<span class="s2">                ctxG.fillStyle = colors[i];</span>
+<span class="s2">                ctxG.font = &#39;bold 13px sans-serif&#39;;</span>
+<span class="s2">                ctxG.fillText(titles[i], pX, yT - 8);</span>
+<span class="s2">                ctxG.font = &#39;12px sans-serif&#39;;</span>
+<span class="s2">                </span>
+<span class="s2">                ctxG.strokeStyle = &#39;#333&#39;; ctxG.lineWidth = 1.5;</span>
+<span class="s2">                ctxG.beginPath(); ctxG.moveTo(pX, yT); ctxG.lineTo(pX, yB); ctxG.stroke();</span>
+<span class="s2">                </span>
+<span class="s2">                ctxG.beginPath(); ctxG.moveTo(pX, yZ); ctxG.lineTo(pX + pW, yZ); ctxG.stroke();</span>
+<span class="s2">                </span>
+<span class="s2">                ctxG.strokeStyle = &#39;#e0e0e0&#39;; ctxG.lineWidth = 1;</span>
+<span class="s2">                ctxG.strokeRect(pX, yT, pW, pH);</span>
+<span class="s2">                </span>
+<span class="s2">                ctxG.fillStyle = &#39;#555&#39;;</span>
+<span class="s2">                ctxG.textAlign = &#39;right&#39;;</span>
+<span class="s2">                if(i===0) { </span>
+<span class="s2">                    ctxG.fillText(Qmax.toFixed(0) + &#39; μC&#39;, pX - 8, yT + 10); </span>
+<span class="s2">                    ctxG.fillText(&#39;0&#39;, pX - 8, yB); </span>
+<span class="s2">                }</span>
+<span class="s2">                if(i===1) { </span>
+<span class="s2">                    ctxG.fillText(Imax.toFixed(0) + &#39; μA&#39;, pX - 8, yT + 10); </span>
+<span class="s2">                    ctxG.fillText(&#39;0&#39;, pX - 8, yZ + 4); </span>
+<span class="s2">                    ctxG.fillText(&#39;-&#39;+Imax.toFixed(0), pX - 8, yB); </span>
+<span class="s2">                }</span>
+<span class="s2">                if(i===2) { </span>
+<span class="s2">                    ctxG.fillText(V.toFixed(1) + &#39; V&#39;, pX - 8, yT + 10); </span>
+<span class="s2">                    ctxG.fillText(&#39;0&#39;, pX - 8, yB); </span>
+<span class="s2">                }</span>
+<span class="s2">                ctxG.textAlign = &#39;left&#39;;</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            let yBottomGraph = 30 + 2 * (pH + gap) + pH;</span>
+<span class="s2">            ctxG.fillStyle = &#39;#333&#39;;</span>
+<span class="s2">            ctxG.textAlign = &#39;center&#39;;</span>
+<span class="s2">            for(let j=0; j&lt;=5; j++) {</span>
+<span class="s2">                let tTick = (maxT / 5) * j;</span>
+<span class="s2">                let xTick = pX + (j/5) * pW;</span>
+<span class="s2">                </span>
+<span class="s2">                ctxG.strokeStyle = &#39;#333&#39;; ctxG.lineWidth = 1.5;</span>
+<span class="s2">                ctxG.beginPath(); ctxG.moveTo(xTick, yBottomGraph); ctxG.lineTo(xTick, yBottomGraph + 6); ctxG.stroke();</span>
+<span class="s2">                </span>
+<span class="s2">                ctxG.strokeStyle = &#39;#f0f0f0&#39;; ctxG.lineWidth = 1;</span>
+<span class="s2">                ctxG.beginPath(); ctxG.moveTo(xTick, 30); ctxG.lineTo(xTick, yBottomGraph); ctxG.stroke();</span>
+<span class="s2">                </span>
+<span class="s2">                ctxG.fillText(tTick.toFixed(1) + &#39;s&#39;, xTick, yBottomGraph + 20);</span>
+<span class="s2">            }</span>
+<span class="s2">            ctxG.font = &#39;bold 12px sans-serif&#39;;</span>
+<span class="s2">            ctxG.fillText(&#39;Tiempo&#39;, pX + pW/2, yBottomGraph + 35);</span>
+<span class="s2">            ctxG.textAlign = &#39;left&#39;;</span>
+
+<span class="s2">            if (historyData.length &lt; 2) return;</span>
+
+<span class="s2">            ctxG.lineWidth = 2.5;</span>
+<span class="s2">            ctxG.lineJoin = &#39;round&#39;;</span>
+<span class="s2">            </span>
+<span class="s2">            ctxG.strokeStyle = &#39;#dc3545&#39;;</span>
+<span class="s2">            ctxG.beginPath();</span>
+<span class="s2">            let yT0 = 30;</span>
+<span class="s2">            historyData.forEach((pt, idx) =&gt; {</span>
+<span class="s2">                let x = pX + (pt.t / maxT) * pW;</span>
+<span class="s2">                let y = (yT0 + pH) - (pt.q / Qmax) * pH;</span>
+<span class="s2">                if (idx === 0) ctxG.moveTo(x, y); else ctxG.lineTo(x, y);</span>
+<span class="s2">            });</span>
+<span class="s2">            ctxG.stroke();</span>
+
+<span class="s2">            ctxG.strokeStyle = &#39;#198754&#39;;</span>
+<span class="s2">            ctxG.beginPath();</span>
+<span class="s2">            let yT1 = 30 + 1 * (pH + gap);</span>
+<span class="s2">            historyData.forEach((pt, idx) =&gt; {</span>
+<span class="s2">                let x = pX + (pt.t / maxT) * pW;</span>
+<span class="s2">                let y = (yT1 + pH/2) - (pt.i / Imax) * (pH/2);</span>
+<span class="s2">                if (idx === 0) ctxG.moveTo(x, y); else ctxG.lineTo(x, y);</span>
+<span class="s2">            });</span>
+<span class="s2">            ctxG.stroke();</span>
+
+<span class="s2">            ctxG.strokeStyle = &#39;#0d6efd&#39;;</span>
+<span class="s2">            ctxG.beginPath();</span>
+<span class="s2">            let yT2 = 30 + 2 * (pH + gap);</span>
+<span class="s2">            historyData.forEach((pt, idx) =&gt; {</span>
+<span class="s2">                let x = pX + (pt.t / maxT) * pW;</span>
+<span class="s2">                let y = (yT2 + pH) - (pt.vc / V) * pH;</span>
+<span class="s2">                if (idx === 0) ctxG.moveTo(x, y); else ctxG.lineTo(x, y);</span>
+<span class="s2">            });</span>
+<span class="s2">            ctxG.stroke();</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function calculatePhysics(dt) {</span>
+<span class="s2">            if (state === 0) return;</span>
+<span class="s2">            </span>
+<span class="s2">            globalTime += dt;</span>
+<span class="s2">            localTime += dt;</span>
+<span class="s2">            </span>
+<span class="s2">            if (state === 1) { </span>
+<span class="s2">                currentQ = Qmax - (Qmax - Q0) * Math.exp(-localTime / Tau);</span>
+<span class="s2">                currentI = ((Qmax - Q0) / Tau) * Math.exp(-localTime / Tau); </span>
+<span class="s2">            } </span>
+<span class="s2">            else if (state === 2) { </span>
+<span class="s2">                currentQ = Q0 * Math.exp(-localTime / Tau);</span>
+<span class="s2">                currentI = -(Q0 / Tau) * Math.exp(-localTime / Tau); </span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            currentVc = currentQ / C_u;</span>
+<span class="s2">            </span>
+<span class="s2">            historyData.push({ t: globalTime, q: currentQ, i: currentI, vc: currentVc });</span>
+<span class="s2">            if (historyData.length &gt; 50000) historyData.shift(); </span>
+<span class="s2">        }</span>
+
+<span class="s2">        function drawParticles() {</span>
+<span class="s2">            let numP = Math.floor((currentQ / Qmax) * 40); </span>
+<span class="s2">            if (numP &gt; particlesPos.length) {</span>
+<span class="s2">                particlesPos.push({x: 198 + Math.random()*24, y: 85 - 4});</span>
+<span class="s2">                particlesNeg.push({x: 198 + Math.random()*24, y: 95 + 4});</span>
+<span class="s2">            } else if (numP &lt; particlesPos.length) {</span>
+<span class="s2">                particlesPos.pop();</span>
+<span class="s2">                particlesNeg.pop();</span>
+<span class="s2">            }</span>
+<span class="s2">            </span>
+<span class="s2">            ctxC.fillStyle = &#39;#dc3545&#39;; </span>
+<span class="s2">            particlesPos.forEach(p =&gt; { ctxC.beginPath(); ctxC.arc(p.x, p.y, 2, 0, Math.PI*2); ctxC.fill(); });</span>
+<span class="s2">            ctxC.fillStyle = &#39;#0d6efd&#39;; </span>
+<span class="s2">            particlesNeg.forEach(p =&gt; { ctxC.beginPath(); ctxC.arc(p.x, p.y, 2, 0, Math.PI*2); ctxC.fill(); });</span>
+<span class="s2">        }</span>
+
+<span class="s2">        let lastTime = 0;</span>
+<span class="s2">        function animate(timestamp) {</span>
+<span class="s2">            if (!lastTime) lastTime = timestamp;</span>
+<span class="s2">            let realDt = (timestamp - lastTime) / 1000; </span>
+<span class="s2">            lastTime = timestamp;</span>
+<span class="s2">            </span>
+<span class="s2">            if (realDt &gt; 0.1) realDt = 0.1; </span>
+<span class="s2">            </span>
+<span class="s2">            let dt = realDt * simSpeedFactor; </span>
+<span class="s2">            calculatePhysics(dt);</span>
+<span class="s2">            updateValuesUI();</span>
+<span class="s2">            </span>
+<span class="s2">            drawStaticCircuit();</span>
+<span class="s2">            drawParticles();</span>
+<span class="s2">            drawGraphs();</span>
+
+<span class="s2">            requestAnimationFrame(animate);</span>
+<span class="s2">        }</span>
+
+<span class="s2">        slider_V.addEventListener(&#39;input&#39;, updateParams);</span>
+<span class="s2">        slider_R.addEventListener(&#39;input&#39;, updateParams);</span>
+<span class="s2">        slider_C.addEventListener(&#39;input&#39;, updateParams);</span>
+<span class="s2">        slider_Speed.addEventListener(&#39;input&#39;, updateParams);</span>
+
+<span class="s2">        btnCharge.addEventListener(&#39;click&#39;, () =&gt; { lastTime = 0; switchState(1); });</span>
+<span class="s2">        btnDischarge.addEventListener(&#39;click&#39;, () =&gt; { lastTime = 0; switchState(2); });</span>
+<span class="s2">        btnReset.addEventListener(&#39;click&#39;, resetSimulation);</span>
+
+<span class="s2">        updateParams();</span>
+<span class="s2">        requestAnimationFrame(animate); </span>
+<span class="s2">    }, 150); </span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">simulacion_rc_tiempo_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+    <h3 style="margin-top:0; color: #2c3e50;">Dinámica del Circuito RC en Tiempo Real</h3>
+    <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">Conmuta el interruptor para cargar o descargar el condensador. Ajusta la velocidad de simulación si el proceso es muy lento.</p>
+    
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
+        <div style="flex: 1; min-width: 280px; max-width: 350px;">
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 150px;">Voltaje (V): <span id="rc_valV_v8" style="font-weight: normal;">10</span> V</label>
+                <input type="range" id="rc_V_v8" min="5" max="15" step="1" value="10" style="width: 40%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 150px;">Resistencia (R): <span id="rc_valR_v8" style="font-weight: normal;">100</span> kΩ</label>
+                <input type="range" id="rc_R_v8" min="10" max="200" step="10" value="100" style="width: 40%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 150px;">Capacitor (C): <span id="rc_valC_v8" style="font-weight: normal;">470</span> μF</label>
+                <input type="range" id="rc_C_v8" min="300" max="600" step="10" value="470" style="width: 40%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 150px;">Velocidad Tiempo: <span id="rc_valSpeed_v8" style="color: #d63384; font-weight: bold;">1</span>x</label>
+                <input type="range" id="rc_Speed_v8" min="1" max="5" step="1" value="1" style="width: 40%; vertical-align: middle;">
+            </div>
+            
+            <div style="margin-top: 15px; display: flex; gap: 10px;">
+                <button id="rc_btnCharge_v8" style="flex: 1; padding: 8px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">[A] Cargar</button>
+                <button id="rc_btnDischarge_v8" style="flex: 1; padding: 8px; background-color: #0d6efd; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">[B] Descargar</button>
+            </div>
+            <div style="margin-top: 10px; text-align: center;">
+                <button id="rc_btnReset_v8" style="padding: 6px 12px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9em;">Reiniciar Simulador</button>
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <canvas id="rc_cvs_circ_v8" width="260" height="150" style="background: #eef2f5; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;"></canvas>
+            
+            <div style="display: flex; gap: 15px; font-size: 0.9em; background: #fff; padding: 10px 15px; border-radius: 6px; border: 1px solid #ccc; width: 100%; box-sizing: border-box; flex-wrap: wrap; justify-content: space-around;">
+                <div style="width: 30%;"><b>Tiempo:</b> <span id="rc_valTimeElapsed_v8" style="color: #d63384; font-weight: bold;">0.00</span> s</div>
+                <div style="width: 30%;"><b>τ:</b> <span id="rc_valTau_v8" style="color: #333;">0.0</span> s</div>
+                <div style="width: 30%;"><b>q(t):</b> <span id="rc_valQ_v8" style="color: #dc3545; font-weight: bold;">0.0</span> μC</div>
+                <div style="width: 30%;"><b>i(t):</b> <span id="rc_valI_v8" style="color: #198754; font-weight: bold;">0.00</span> μA</div>
+                <div style="width: 30%;"><b>Vc(t):</b> <span id="rc_valVc_v8" style="color: #0d6efd; font-weight: bold;">0.0</span> V</div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="width: 100%;">
+        <canvas id="rc_cvs_graph_v8" width="800" height="480" style="background: #fff; border: 1px solid #ccc; border-radius: 4px; width: 100%; max-width: 100%; box-shadow: inset 0 0 10px rgba(0,0,0,0.02);"></canvas>
+    </div>
+</div>
+
+<script>
+    setTimeout(function() {
+        const cvsCirc = document.getElementById('rc_cvs_circ_v8');
+        const cvsGraph = document.getElementById('rc_cvs_graph_v8');
+        if (!cvsCirc || !cvsGraph) return;
+        const ctxC = cvsCirc.getContext('2d');
+        const ctxG = cvsGraph.getContext('2d');
+        
+        const slider_V = document.getElementById('rc_V_v8');
+        const slider_R = document.getElementById('rc_R_v8');
+        const slider_C = document.getElementById('rc_C_v8');
+        const slider_Speed = document.getElementById('rc_Speed_v8');
+        
+        const val_Tau = document.getElementById('rc_valTau_v8');
+        const val_Q = document.getElementById('rc_valQ_v8');
+        const val_I = document.getElementById('rc_valI_v8');
+        const val_Vc = document.getElementById('rc_valVc_v8');
+        const val_Speed = document.getElementById('rc_valSpeed_v8');
+        const val_TimeElapsed = document.getElementById('rc_valTimeElapsed_v8');
+
+        const btnCharge = document.getElementById('rc_btnCharge_v8');
+        const btnDischarge = document.getElementById('rc_btnDischarge_v8');
+        const btnReset = document.getElementById('rc_btnReset_v8');
+        
+        let V=10, R_k=100, C_u=470, Tau=0, Qmax=0, Imax=0;
+        let state = 0; 
+        let globalTime = 0;
+        let localTime = 0;
+        let Q0 = 0; 
+        
+        let currentQ = 0;
+        let currentI = 0;
+        let currentVc = 0;
+        
+        let historyData = [];
+        let simSpeedFactor = 1.0; 
+        
+        const particlesPos = [];
+        const particlesNeg = [];
+
+        function updateParams() {
+            V = parseFloat(slider_V.value);
+            R_k = parseFloat(slider_R.value); 
+            C_u = parseFloat(slider_C.value); 
+            simSpeedFactor = parseFloat(slider_Speed.value);
+            
+            Tau = (R_k * 1000) * (C_u / 1000000); 
+            Qmax = C_u * V; 
+            Imax = (V / (R_k * 1000)) * 1000000; 
+            
+            document.getElementById('rc_valV_v8').innerText = V;
+            document.getElementById('rc_valR_v8').innerText = R_k;
+            document.getElementById('rc_valC_v8').innerText = C_u;
+            val_Speed.innerText = simSpeedFactor;
+            val_Tau.innerText = Tau.toFixed(1);
+            
+            if (state === 0) Qmax = C_u * V;
+        }
+
+        function switchState(newState) {
+            if (state === newState) return;
+            state = newState;
+            localTime = 0;
+            Q0 = currentQ; 
+            
+            if (state === 1) {
+                btnCharge.style.backgroundColor = '#a71d2a';
+                btnDischarge.style.backgroundColor = '#0d6efd';
+            } else if (state === 2) {
+                btnCharge.style.backgroundColor = '#dc3545';
+                btnDischarge.style.backgroundColor = '#0a58ca';
+            }
+        }
+
+        function resetSimulation() {
+            state = 0;
+            globalTime = 0;
+            localTime = 0;
+            Q0 = 0;
+            currentQ = 0; currentI = 0; currentVc = 0;
+            historyData = [];
+            particlesPos.length = 0;
+            particlesNeg.length = 0;
+            
+            btnCharge.style.backgroundColor = '#dc3545';
+            btnDischarge.style.backgroundColor = '#0d6efd';
+            
+            updateValuesUI();
+        }
+
+        function updateValuesUI() {
+            val_Q.innerText = currentQ.toFixed(1);
+            val_I.innerText = currentI.toFixed(2);
+            val_Vc.innerText = currentVc.toFixed(2);
+            val_TimeElapsed.innerText = globalTime.toFixed(2);
+        }
+
+        function drawStaticCircuit() {
+            ctxC.clearRect(0, 0, cvsCirc.width, cvsCirc.height);
+            ctxC.strokeStyle = '#333'; ctxC.lineWidth = 2;
+            
+            ctxC.lineWidth = 2; ctxC.beginPath(); ctxC.moveTo(30, 50); ctxC.lineTo(60, 50); ctxC.stroke(); 
+            ctxC.lineWidth = 5; ctxC.beginPath(); ctxC.moveTo(38, 65); ctxC.lineTo(52, 65); ctxC.stroke();
+            
+            ctxC.lineWidth = 2;
+            ctxC.beginPath(); ctxC.moveTo(45, 50); ctxC.lineTo(45, 20); ctxC.lineTo(80, 20); ctxC.stroke(); 
+            ctxC.beginPath(); ctxC.moveTo(45, 65); ctxC.lineTo(45, 110); ctxC.lineTo(80, 110); ctxC.stroke(); 
+            
+            ctxC.fillStyle = '#dc3545'; ctxC.beginPath(); ctxC.arc(80, 20, 4, 0, Math.PI*2); ctxC.fill(); 
+            ctxC.fillStyle = '#0d6efd'; ctxC.beginPath(); ctxC.arc(80, 110, 4, 0, Math.PI*2); ctxC.fill(); 
+            ctxC.fillStyle = '#333'; ctxC.beginPath(); ctxC.arc(110, 65, 4, 0, Math.PI*2); ctxC.fill(); 
+            
+            ctxC.font = '12px sans-serif'; ctxC.fillStyle = '#333';
+            ctxC.fillText('[A]', 65, 15); ctxC.fillText('[B]', 65, 125);
+            
+            ctxC.strokeStyle = '#666'; ctxC.lineWidth = 3;
+            if (state === 1) { ctxC.beginPath(); ctxC.moveTo(110, 65); ctxC.lineTo(80, 20); ctxC.stroke(); } 
+            else if (state === 2) { ctxC.beginPath(); ctxC.moveTo(110, 65); ctxC.lineTo(80, 110); ctxC.stroke(); } 
+            else { ctxC.beginPath(); ctxC.moveTo(110, 65); ctxC.lineTo(80, 65); ctxC.stroke(); }
+            
+            ctxC.strokeStyle = '#333'; ctxC.lineWidth = 2;
+            
+            ctxC.beginPath(); ctxC.moveTo(110, 65); ctxC.lineTo(130, 65); 
+            ctxC.lineTo(135, 55); ctxC.lineTo(145, 75); ctxC.lineTo(155, 55); 
+            ctxC.lineTo(165, 75); ctxC.lineTo(170, 65); ctxC.lineTo(180, 65); ctxC.stroke();
+            
+            ctxC.beginPath(); ctxC.moveTo(180, 65); ctxC.lineTo(210, 65); ctxC.lineTo(210, 85); ctxC.stroke(); 
+            ctxC.beginPath(); ctxC.moveTo(195, 85); ctxC.lineTo(225, 85); ctxC.stroke(); 
+            ctxC.beginPath(); ctxC.moveTo(195, 95); ctxC.lineTo(225, 95); ctxC.stroke(); 
+            
+            ctxC.beginPath(); ctxC.moveTo(210, 95); ctxC.lineTo(210, 110); ctxC.lineTo(45, 110); ctxC.stroke();
+            
+            ctxC.font = '14px sans-serif'; ctxC.fillStyle = '#333';
+            ctxC.fillText('V', 15, 60); ctxC.fillText('R', 150, 45); ctxC.fillText('C', 235, 95);
+        }
+
+        function drawGraphs() {
+            ctxG.clearRect(0, 0, cvsGraph.width, cvsGraph.height);
+            
+            let maxT = Math.max(Tau * 5, globalTime * 1.05); 
+            if (maxT < 1) maxT = 1;
+
+            const pX = 60; 
+            const pW = cvsGraph.width - pX - 30; 
+            const pH = 110; 
+            const gap = 35; 
+            
+            ctxG.font = '12px sans-serif';
+            
+            const titles = ['Carga q(t)', 'Corriente i(t)', 'Voltaje Vc(t)'];
+            const colors = ['#dc3545', '#198754', '#0d6efd'];
+            
+            for(let i=0; i<3; i++) {
+                let yT = 30 + i * (pH + gap); 
+                let yB = yT + pH; 
+                let yZ = (i === 1) ? yT + pH/2 : yB; 
+                
+                ctxG.fillStyle = '#fafafa';
+                ctxG.fillRect(pX, yT, pW, pH);
+                
+                ctxG.fillStyle = colors[i];
+                ctxG.font = 'bold 13px sans-serif';
+                ctxG.fillText(titles[i], pX, yT - 8);
+                ctxG.font = '12px sans-serif';
+                
+                ctxG.strokeStyle = '#333'; ctxG.lineWidth = 1.5;
+                ctxG.beginPath(); ctxG.moveTo(pX, yT); ctxG.lineTo(pX, yB); ctxG.stroke();
+                
+                ctxG.beginPath(); ctxG.moveTo(pX, yZ); ctxG.lineTo(pX + pW, yZ); ctxG.stroke();
+                
+                ctxG.strokeStyle = '#e0e0e0'; ctxG.lineWidth = 1;
+                ctxG.strokeRect(pX, yT, pW, pH);
+                
+                ctxG.fillStyle = '#555';
+                ctxG.textAlign = 'right';
+                if(i===0) { 
+                    ctxG.fillText(Qmax.toFixed(0) + ' μC', pX - 8, yT + 10); 
+                    ctxG.fillText('0', pX - 8, yB); 
+                }
+                if(i===1) { 
+                    ctxG.fillText(Imax.toFixed(0) + ' μA', pX - 8, yT + 10); 
+                    ctxG.fillText('0', pX - 8, yZ + 4); 
+                    ctxG.fillText('-'+Imax.toFixed(0), pX - 8, yB); 
+                }
+                if(i===2) { 
+                    ctxG.fillText(V.toFixed(1) + ' V', pX - 8, yT + 10); 
+                    ctxG.fillText('0', pX - 8, yB); 
+                }
+                ctxG.textAlign = 'left';
+            }
+            
+            let yBottomGraph = 30 + 2 * (pH + gap) + pH;
+            ctxG.fillStyle = '#333';
+            ctxG.textAlign = 'center';
+            for(let j=0; j<=5; j++) {
+                let tTick = (maxT / 5) * j;
+                let xTick = pX + (j/5) * pW;
+                
+                ctxG.strokeStyle = '#333'; ctxG.lineWidth = 1.5;
+                ctxG.beginPath(); ctxG.moveTo(xTick, yBottomGraph); ctxG.lineTo(xTick, yBottomGraph + 6); ctxG.stroke();
+                
+                ctxG.strokeStyle = '#f0f0f0'; ctxG.lineWidth = 1;
+                ctxG.beginPath(); ctxG.moveTo(xTick, 30); ctxG.lineTo(xTick, yBottomGraph); ctxG.stroke();
+                
+                ctxG.fillText(tTick.toFixed(1) + 's', xTick, yBottomGraph + 20);
+            }
+            ctxG.font = 'bold 12px sans-serif';
+            ctxG.fillText('Tiempo', pX + pW/2, yBottomGraph + 35);
+            ctxG.textAlign = 'left';
+
+            if (historyData.length < 2) return;
+
+            ctxG.lineWidth = 2.5;
+            ctxG.lineJoin = 'round';
+            
+            ctxG.strokeStyle = '#dc3545';
+            ctxG.beginPath();
+            let yT0 = 30;
+            historyData.forEach((pt, idx) => {
+                let x = pX + (pt.t / maxT) * pW;
+                let y = (yT0 + pH) - (pt.q / Qmax) * pH;
+                if (idx === 0) ctxG.moveTo(x, y); else ctxG.lineTo(x, y);
+            });
+            ctxG.stroke();
+
+            ctxG.strokeStyle = '#198754';
+            ctxG.beginPath();
+            let yT1 = 30 + 1 * (pH + gap);
+            historyData.forEach((pt, idx) => {
+                let x = pX + (pt.t / maxT) * pW;
+                let y = (yT1 + pH/2) - (pt.i / Imax) * (pH/2);
+                if (idx === 0) ctxG.moveTo(x, y); else ctxG.lineTo(x, y);
+            });
+            ctxG.stroke();
+
+            ctxG.strokeStyle = '#0d6efd';
+            ctxG.beginPath();
+            let yT2 = 30 + 2 * (pH + gap);
+            historyData.forEach((pt, idx) => {
+                let x = pX + (pt.t / maxT) * pW;
+                let y = (yT2 + pH) - (pt.vc / V) * pH;
+                if (idx === 0) ctxG.moveTo(x, y); else ctxG.lineTo(x, y);
+            });
+            ctxG.stroke();
+        }
+
+        function calculatePhysics(dt) {
+            if (state === 0) return;
+            
+            globalTime += dt;
+            localTime += dt;
+            
+            if (state === 1) { 
+                currentQ = Qmax - (Qmax - Q0) * Math.exp(-localTime / Tau);
+                currentI = ((Qmax - Q0) / Tau) * Math.exp(-localTime / Tau); 
+            } 
+            else if (state === 2) { 
+                currentQ = Q0 * Math.exp(-localTime / Tau);
+                currentI = -(Q0 / Tau) * Math.exp(-localTime / Tau); 
+            }
+            
+            currentVc = currentQ / C_u;
+            
+            historyData.push({ t: globalTime, q: currentQ, i: currentI, vc: currentVc });
+            if (historyData.length > 50000) historyData.shift(); 
+        }
+
+        function drawParticles() {
+            let numP = Math.floor((currentQ / Qmax) * 40); 
+            if (numP > particlesPos.length) {
+                particlesPos.push({x: 198 + Math.random()*24, y: 85 - 4});
+                particlesNeg.push({x: 198 + Math.random()*24, y: 95 + 4});
+            } else if (numP < particlesPos.length) {
+                particlesPos.pop();
+                particlesNeg.pop();
+            }
+            
+            ctxC.fillStyle = '#dc3545'; 
+            particlesPos.forEach(p => { ctxC.beginPath(); ctxC.arc(p.x, p.y, 2, 0, Math.PI*2); ctxC.fill(); });
+            ctxC.fillStyle = '#0d6efd'; 
+            particlesNeg.forEach(p => { ctxC.beginPath(); ctxC.arc(p.x, p.y, 2, 0, Math.PI*2); ctxC.fill(); });
+        }
+
+        let lastTime = 0;
+        function animate(timestamp) {
+            if (!lastTime) lastTime = timestamp;
+            let realDt = (timestamp - lastTime) / 1000; 
+            lastTime = timestamp;
+            
+            if (realDt > 0.1) realDt = 0.1; 
+            
+            let dt = realDt * simSpeedFactor; 
+            calculatePhysics(dt);
+            updateValuesUI();
+            
+            drawStaticCircuit();
+            drawParticles();
+            drawGraphs();
+
+            requestAnimationFrame(animate);
+        }
+
+        slider_V.addEventListener('input', updateParams);
+        slider_R.addEventListener('input', updateParams);
+        slider_C.addEventListener('input', updateParams);
+        slider_Speed.addEventListener('input', updateParams);
+
+        btnCharge.addEventListener('click', () => { lastTime = 0; switchState(1); });
+        btnDischarge.addEventListener('click', () => { lastTime = 0; switchState(2); });
+        btnReset.addEventListener('click', resetSimulation);
+
+        updateParams();
+        requestAnimationFrame(animate); 
+    }, 150); 
+</script>
+</div></div>
+</div>
 </section>
 <section id="ejemplo-circuito-con-ramas-paralelas">
 <h2>Ejemplo: Circuito con ramas paralelas<a class="headerlink" href="#ejemplo-circuito-con-ramas-paralelas" title="Permalink to this heading">#</a></h2>
