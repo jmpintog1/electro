@@ -67,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '07_02_corrientes';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7.3 Energía Potencial Magnética" href="07_03_energia.html" />
     <link rel="prev" title="7.1 Magnetismo" href="07_01_magnetismo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -218,11 +219,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_02_conexiones.html">6.2 Conexiones entre Resistencias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_03_kirchhoff.html">6.3 Reglas de Kirchhoff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_04_circuitosRC.html">6.4 Circuitos RC</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="07_01_magnetismo.html">7.1 Magnetismo</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">7.2 Fuerzas sobre Corrientes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_03_energia.html">7.3 Energía Potencial Magnética</a></li>
 </ul>
 
     </div>
@@ -529,6 +532,466 @@ document.write(`
 <p>Por lo tanto, el torque magnético sobre cualquier espira plana se escribe en su forma general como:</p>
 <div class="math notranslate nohighlight">
 \[\vec{\tau} = \vec{\mu} \times \vec{B}\]</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">uid_sim5</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">99999</span><span class="p">))</span>
+
+<span class="n">simulacion_dual_html</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;div style=&quot;border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif;&quot;&gt;</span>
+<span class="s2">    &lt;h3 style=&quot;margin-top:0; color: #2c3e50;&quot;&gt;Perspectivas 2D: Fuerzas y Torque&lt;/h3&gt;</span>
+<span class="s2">    &lt;p style=&quot;font-size: 0.95em; color: #555; margin-bottom: 15px;&quot;&gt;Alterna entre las vistas. En la &lt;b&gt;Vista Frontal&lt;/b&gt;, el campo entra a la pantalla y las fuerzas solo expanden la espira ($\tau=0$). En la &lt;b&gt;Vista Superior&lt;/b&gt;, se revela el desfase de las fuerzas que genera el giro.&lt;/p&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;&quot;&gt;</span>
+<span class="s2">        &lt;div style=&quot;flex: 1.2; min-width: 250px;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 120px;&quot;&gt;Corriente (I):&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;I_UID5&quot; min=&quot;1&quot; max=&quot;10&quot; step=&quot;0.5&quot; value=&quot;5.0&quot; style=&quot;width: 45%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 120px;&quot;&gt;Campo (B):&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;B_UID5&quot; min=&quot;0.5&quot; max=&quot;5&quot; step=&quot;0.5&quot; value=&quot;2.0&quot; style=&quot;width: 45%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;</span>
+<span class="s2">                &lt;label style=&quot;font-weight: 600; display: inline-block; width: 120px;&quot;&gt;Ángulo (θ): &lt;span id=&quot;valAng_UID5&quot; style=&quot;font-weight: normal;&quot;&gt;45&lt;/span&gt;°&lt;/label&gt;</span>
+<span class="s2">                &lt;input type=&quot;range&quot; id=&quot;Ang_UID5&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;1&quot; value=&quot;45&quot; style=&quot;width: 45%; vertical-align: middle;&quot;&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-top: 15px; display: flex; gap: 10px;&quot;&gt;</span>
+<span class="s2">                &lt;button id=&quot;btnFrontal_UID5&quot; style=&quot;flex: 1; padding: 8px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;&quot;&gt;[1] Vista Frontal&lt;/button&gt;</span>
+<span class="s2">                &lt;button id=&quot;btnSuperior_UID5&quot; style=&quot;flex: 1; padding: 8px; background-color: #0d6efd; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;&quot;&gt;[2] Vista Superior&lt;/button&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div style=&quot;flex: 1; min-width: 220px; font-size: 1.0em; background: #fff; padding: 15px; border-radius: 6px; border: 1px solid #ccc; display: flex; flex-direction: column; justify-content: center;&quot;&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 10px; font-size: 1.1em;&quot;&gt;&lt;b&gt;Fuerza Neta ($\sum \vec</span><span class="si">{F}</span><span class="s2">$):&lt;/b&gt; &lt;span style=&quot;color: #198754; font-weight: bold;&quot;&gt;0.00 N&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 10px; font-size: 1.1em;&quot;&gt;&lt;b&gt;Torque ($\vec{\tau}$):&lt;/b&gt; &lt;span id=&quot;valTau_UID5&quot; style=&quot;color: #6f42c1; font-weight: bold;&quot;&gt;0.00&lt;/span&gt; N·m&lt;/div&gt;</span>
+<span class="s2">            &lt;div id=&quot;txtExplicacion_UID5&quot; style=&quot;font-size: 0.85em; color: #dc3545; font-style: italic;&quot;&gt;En esta vista, el torque es 0 porque todas las fuerzas empujan desde el centro.&lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    &lt;div style=&quot;text-align: center; position: relative;&quot;&gt;</span>
+<span class="s2">        &lt;canvas id=&quot;canvas_UID5&quot; width=&quot;700&quot; height=&quot;380&quot; style=&quot;background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;&quot;&gt;&lt;/canvas&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;script&gt;</span>
+<span class="s2">    (function() {</span>
+<span class="s2">        setTimeout(function() {</span>
+<span class="s2">            const canvas = document.getElementById(&#39;canvas_UID5&#39;);</span>
+<span class="s2">            if (!canvas) return;</span>
+<span class="s2">            const ctx = canvas.getContext(&#39;2d&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            const in_I = document.getElementById(&#39;I_UID5&#39;);</span>
+<span class="s2">            const in_B = document.getElementById(&#39;B_UID5&#39;);</span>
+<span class="s2">            const in_Ang = document.getElementById(&#39;Ang_UID5&#39;);</span>
+<span class="s2">            const val_Ang = document.getElementById(&#39;valAng_UID5&#39;);</span>
+<span class="s2">            const val_Tau = document.getElementById(&#39;valTau_UID5&#39;);</span>
+<span class="s2">            const txtExpl = document.getElementById(&#39;txtExplicacion_UID5&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            const btnFrontal = document.getElementById(&#39;btnFrontal_UID5&#39;);</span>
+<span class="s2">            const btnSuperior = document.getElementById(&#39;btnSuperior_UID5&#39;);</span>
+<span class="s2">            </span>
+<span class="s2">            let viewMode = &#39;superior&#39;; // &#39;frontal&#39; o &#39;superior&#39;</span>
+<span class="s2">            const area = 0.04; // m^2 (Ej: 20cm x 20cm)</span>
+<span class="s2">            const w_px = 160; </span>
+<span class="s2">            const h_px = 160;</span>
+
+<span class="s2">            function switchView(mode) {</span>
+<span class="s2">                viewMode = mode;</span>
+<span class="s2">                if(mode === &#39;frontal&#39;) {</span>
+<span class="s2">                    btnFrontal.style.backgroundColor = &#39;#0d6efd&#39;;</span>
+<span class="s2">                    btnSuperior.style.backgroundColor = &#39;#6c757d&#39;;</span>
+<span class="s2">                    txtExpl.innerText = &quot;Las fuerzas tiran hacia afuera (expansión). La línea de acción pasa por el centro: Torque = 0.&quot;;</span>
+<span class="s2">                } else {</span>
+<span class="s2">                    btnSuperior.style.backgroundColor = &#39;#0d6efd&#39;;</span>
+<span class="s2">                    btnFrontal.style.backgroundColor = &#39;#6c757d&#39;;</span>
+<span class="s2">                    txtExpl.innerText = &quot;Las fuerzas laterales están desfasadas respecto al centro. ¡Se genera el par de fuerzas que causa el Torque!&quot;;</span>
+<span class="s2">                }</span>
+<span class="s2">                render();</span>
+<span class="s2">            }</span>
+
+<span class="s2">            function drawArrow(x, y, dx, dy, color, width=2, label=&#39;&#39;) {</span>
+<span class="s2">                const headlen = 10;</span>
+<span class="s2">                const angle = Math.atan2(dy, dx);</span>
+<span class="s2">                ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + dx, y + dy);</span>
+<span class="s2">                ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();</span>
+<span class="s2">                </span>
+<span class="s2">                ctx.beginPath();</span>
+<span class="s2">                ctx.moveTo(x + dx, y + dy);</span>
+<span class="s2">                ctx.lineTo(x + dx - headlen * Math.cos(angle - Math.PI / 6), y + dy - headlen * Math.sin(angle - Math.PI / 6));</span>
+<span class="s2">                ctx.lineTo(x + dx - headlen * Math.cos(angle + Math.PI / 6), y + dy - headlen * Math.sin(angle + Math.PI / 6));</span>
+<span class="s2">                ctx.lineTo(x + dx, y + dy);</span>
+<span class="s2">                ctx.fillStyle = color; ctx.fill();</span>
+<span class="s2">                </span>
+<span class="s2">                if(label) {</span>
+<span class="s2">                    ctx.font = &#39;bold 14px sans-serif&#39;;</span>
+<span class="s2">                    ctx.fillText(label, x + dx + 8*Math.cos(angle), y + dy + 8*Math.sin(angle));</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+
+<span class="s2">            function drawCurrentArrow(x1, y1, x2, y2) {</span>
+<span class="s2">                const mx = (x1 + x2) / 2; const my = (y1 + y2) / 2;</span>
+<span class="s2">                const angle = Math.atan2(y2 - y1, x2 - x1);</span>
+<span class="s2">                const hl = 8;</span>
+<span class="s2">                ctx.beginPath();</span>
+<span class="s2">                ctx.moveTo(mx + (hl/2) * Math.cos(angle), my + (hl/2) * Math.sin(angle));</span>
+<span class="s2">                ctx.lineTo(mx - hl * Math.cos(angle - Math.PI / 6), my - hl * Math.sin(angle - Math.PI / 6));</span>
+<span class="s2">                ctx.lineTo(mx - hl * Math.cos(angle + Math.PI / 6), my - hl * Math.sin(angle + Math.PI / 6));</span>
+<span class="s2">                ctx.closePath(); ctx.fillStyle = &#39;#111&#39;; ctx.fill();</span>
+<span class="s2">            }</span>
+
+<span class="s2">            function render() {</span>
+<span class="s2">                ctx.clearRect(0, 0, canvas.width, canvas.height);</span>
+<span class="s2">                const cx = canvas.width / 2;</span>
+<span class="s2">                const cy = canvas.height / 2;</span>
+<span class="s2">                </span>
+<span class="s2">                const I = parseFloat(in_I.value);</span>
+<span class="s2">                const B = parseFloat(in_B.value);</span>
+<span class="s2">                const theta_deg = parseFloat(in_Ang.value);</span>
+<span class="s2">                const theta = theta_deg * Math.PI / 180;</span>
+<span class="s2">                </span>
+<span class="s2">                val_Ang.innerText = theta_deg;</span>
+<span class="s2">                </span>
+<span class="s2">                const f_scale = 10 * B * (I/5); // Factor visual para las flechas</span>
+
+<span class="s2">                if (viewMode === &#39;frontal&#39;) {</span>
+<span class="s2">                    // --- VISTA FRONTAL ---</span>
+<span class="s2">                    val_Tau.innerText = &quot;0.00&quot;; // En esta vista no hay torque</span>
+<span class="s2">                    </span>
+<span class="s2">                    // Fondo: B entrando (Cruces)</span>
+<span class="s2">                    ctx.fillStyle = &#39;#a0aabc&#39;; ctx.font = &#39;14px sans-serif&#39;;</span>
+<span class="s2">                    for(let x=20; x&lt;canvas.width; x+=40) {</span>
+<span class="s2">                        for(let y=20; y&lt;canvas.height; y+=40) {</span>
+<span class="s2">                            ctx.fillText(&#39;×&#39;, x, y);</span>
+<span class="s2">                        }</span>
+<span class="s2">                    }</span>
+<span class="s2">                    ctx.font = &#39;bold 16px sans-serif&#39;; ctx.fillText(&#39;Campo B (Entrando ⊗)&#39;, 20, 30);</span>
+<span class="s2">                    </span>
+<span class="s2">                    // Rotar y dibujar rectángulo</span>
+<span class="s2">                    ctx.save();</span>
+<span class="s2">                    ctx.translate(cx, cy);</span>
+<span class="s2">                    ctx.rotate(-theta); // Rotación visual 2D</span>
+<span class="s2">                    </span>
+<span class="s2">                    ctx.strokeStyle = &#39;#cd7f32&#39;; ctx.lineWidth = 4;</span>
+<span class="s2">                    ctx.strokeRect(-w_px/2, -h_px/2, w_px, h_px);</span>
+<span class="s2">                    </span>
+<span class="s2">                    drawCurrentArrow(-w_px/2, -h_px/2, w_px/2, -h_px/2); // Top</span>
+<span class="s2">                    drawCurrentArrow(w_px/2, -h_px/2, w_px/2, h_px/2);   // Right</span>
+<span class="s2">                    drawCurrentArrow(w_px/2, h_px/2, -w_px/2, h_px/2);   // Bottom</span>
+<span class="s2">                    drawCurrentArrow(-w_px/2, h_px/2, -w_px/2, -h_px/2); // Left</span>
+<span class="s2">                    </span>
+<span class="s2">                    // Fuerzas (siempre perpendiculares y hacia afuera por F = I x B)</span>
+<span class="s2">                    drawArrow(0, -h_px/2, 0, -f_scale*2, &#39;#dc3545&#39;, 3, &#39;F&#39;); // Arriba</span>
+<span class="s2">                    drawArrow(0, h_px/2, 0, f_scale*2, &#39;#dc3545&#39;, 3, &#39;F&#39;);   // Abajo</span>
+<span class="s2">                    drawArrow(w_px/2, 0, f_scale*2, 0, &#39;#dc3545&#39;, 3, &#39;F&#39;);   // Derecha</span>
+<span class="s2">                    drawArrow(-w_px/2, 0, -f_scale*2, 0, &#39;#dc3545&#39;, 3, &#39;F&#39;); // Izquierda</span>
+<span class="s2">                    </span>
+<span class="s2">                    // Vector Momento (Saliendo de la pantalla)</span>
+<span class="s2">                    ctx.beginPath(); ctx.arc(0, 0, 8, 0, Math.PI*2); </span>
+<span class="s2">                    ctx.fillStyle = &#39;#0d6efd&#39;; ctx.fill();</span>
+<span class="s2">                    ctx.fillStyle = &#39;#fff&#39;; ctx.fillText(&#39;·&#39;, -2, 4); // Punto</span>
+<span class="s2">                    ctx.fillStyle = &#39;#0d6efd&#39;; ctx.font = &#39;bold 14px sans-serif&#39;; ctx.fillText(&#39;μ (Saliendo)&#39;, 12, -10);</span>
+<span class="s2">                    </span>
+<span class="s2">                    ctx.restore();</span>
+
+<span class="s2">                } else {</span>
+<span class="s2">                    // --- VISTA SUPERIOR ---</span>
+<span class="s2">                    const tau = I * area * B * Math.sin(theta);</span>
+<span class="s2">                    val_Tau.innerText = Math.abs(tau).toFixed(2);</span>
+<span class="s2">                    </span>
+<span class="s2">                    // Fondo: B hacia la derecha</span>
+<span class="s2">                    ctx.strokeStyle = &#39;#a0aabc&#39;; ctx.lineWidth = 1.5; ctx.setLineDash([10,10]);</span>
+<span class="s2">                    for(let y=40; y&lt;canvas.height; y+=50) {</span>
+<span class="s2">                        drawArrow(10, y, canvas.width - 40, 0, &#39;#a0aabc&#39;, 1.5);</span>
+<span class="s2">                    }</span>
+<span class="s2">                    ctx.setLineDash([]);</span>
+<span class="s2">                    ctx.fillStyle = &#39;#a0aabc&#39;; ctx.font = &#39;bold 16px sans-serif&#39;; ctx.fillText(&#39;Campo B (Horizontal →)&#39;, 20, 30);</span>
+<span class="s2">                    </span>
+<span class="s2">                    // La espira vista desde arriba es una varilla. </span>
+<span class="s2">                    // Si theta = 0, mu apunta a +X, varilla es vertical.</span>
+<span class="s2">                    const alpha = theta + Math.PI/2;</span>
+<span class="s2">                    </span>
+<span class="s2">                    const x1 = cx + (w_px/2) * Math.cos(alpha);</span>
+<span class="s2">                    const y1 = cy - (w_px/2) * Math.sin(alpha); // Invertido en Canvas</span>
+<span class="s2">                    </span>
+<span class="s2">                    const x2 = cx - (w_px/2) * Math.cos(alpha);</span>
+<span class="s2">                    const y2 = cy + (w_px/2) * Math.sin(alpha);</span>
+<span class="s2">                    </span>
+<span class="s2">                    // Pivote</span>
+<span class="s2">                    ctx.beginPath(); ctx.arc(cx, cy, 4, 0, Math.PI*2); ctx.fillStyle = &#39;#333&#39;; ctx.fill();</span>
+<span class="s2">                    </span>
+<span class="s2">                    // Varilla</span>
+<span class="s2">                    ctx.strokeStyle = &#39;#cd7f32&#39;; ctx.lineWidth = 6; ctx.lineCap = &#39;round&#39;;</span>
+<span class="s2">                    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();</span>
+<span class="s2">                    </span>
+<span class="s2">                    // Indicadores de Corriente (Saliente y Entrante)</span>
+<span class="s2">                    // P1 (Corriente saliendo)</span>
+<span class="s2">                    ctx.beginPath(); ctx.arc(x1, y1, 8, 0, Math.PI*2); ctx.fillStyle = &#39;#fff&#39;; ctx.fill();</span>
+<span class="s2">                    ctx.lineWidth = 2; ctx.strokeStyle = &#39;#111&#39;; ctx.stroke();</span>
+<span class="s2">                    ctx.fillStyle = &#39;#111&#39;; ctx.font = &#39;14px sans-serif&#39;; ctx.fillText(&#39;·&#39;, x1-3, y1+4);</span>
+<span class="s2">                    </span>
+<span class="s2">                    // P2 (Corriente entrando)</span>
+<span class="s2">                    ctx.beginPath(); ctx.arc(x2, y2, 8, 0, Math.PI*2); ctx.fillStyle = &#39;#fff&#39;; ctx.fill();</span>
+<span class="s2">                    ctx.lineWidth = 2; ctx.strokeStyle = &#39;#111&#39;; ctx.stroke();</span>
+<span class="s2">                    ctx.fillStyle = &#39;#111&#39;; ctx.fillText(&#39;×&#39;, x2-4, y2+4);</span>
+
+<span class="s2">                    // Momento dipolar (mu)</span>
+<span class="s2">                    const muLen = 80;</span>
+<span class="s2">                    drawArrow(cx, cy, muLen*Math.cos(theta), -muLen*Math.sin(theta), &#39;#0d6efd&#39;, 3, &#39;μ&#39;);</span>
+
+<span class="s2">                    // Fuerzas (P1 sufre F hacia arriba, P2 sufre F hacia abajo)</span>
+<span class="s2">                    drawArrow(x1, y1 - 10, 0, -f_scale*2.5, &#39;#dc3545&#39;, 3, &#39;F&#39;); // Arriba (en canvas -y)</span>
+<span class="s2">                    drawArrow(x2, y2 + 10, 0, f_scale*2.5, &#39;#dc3545&#39;, 3, &#39;F&#39;);  // Abajo (en canvas +y)</span>
+<span class="s2">                }</span>
+<span class="s2">            }</span>
+
+<span class="s2">            in_I.addEventListener(&#39;input&#39;, render);</span>
+<span class="s2">            in_B.addEventListener(&#39;input&#39;, render);</span>
+<span class="s2">            in_Ang.addEventListener(&#39;input&#39;, render);</span>
+<span class="s2">            </span>
+<span class="s2">            btnFrontal.addEventListener(&#39;click&#39;, () =&gt; switchView(&#39;frontal&#39;));</span>
+<span class="s2">            btnSuperior.addEventListener(&#39;click&#39;, () =&gt; switchView(&#39;superior&#39;));</span>
+<span class="s2">            </span>
+<span class="s2">            switchView(&#39;superior&#39;); // Iniciar en vista superior</span>
+<span class="s2">        }, 150);</span>
+<span class="s2">    })();</span>
+<span class="s2">&lt;/script&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;UID5&#39;</span><span class="p">,</span> <span class="n">uid_sim5</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">simulacion_dual_html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+    <h3 style="margin-top:0; color: #2c3e50;">Perspectivas 2D: Fuerzas y Torque</h3>
+    <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">Alterna entre las vistas. En la <b>Vista Frontal</b>, el campo entra a la pantalla y las fuerzas solo expanden la espira ($\tau=0$). En la <b>Vista Superior</b>, se revela el desfase de las fuerzas que genera el giro.</p>
+    
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;">
+        <div style="flex: 1.2; min-width: 250px;">
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 120px;">Corriente (I):</label>
+                <input type="range" id="I_51946" min="1" max="10" step="0.5" value="5.0" style="width: 45%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 120px;">Campo (B):</label>
+                <input type="range" id="B_51946" min="0.5" max="5" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label style="font-weight: 600; display: inline-block; width: 120px;">Ángulo (θ): <span id="valAng_51946" style="font-weight: normal;">45</span>°</label>
+                <input type="range" id="Ang_51946" min="0" max="360" step="1" value="45" style="width: 45%; vertical-align: middle;">
+            </div>
+            <div style="margin-top: 15px; display: flex; gap: 10px;">
+                <button id="btnFrontal_51946" style="flex: 1; padding: 8px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">[1] Vista Frontal</button>
+                <button id="btnSuperior_51946" style="flex: 1; padding: 8px; background-color: #0d6efd; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">[2] Vista Superior</button>
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 220px; font-size: 1.0em; background: #fff; padding: 15px; border-radius: 6px; border: 1px solid #ccc; display: flex; flex-direction: column; justify-content: center;">
+            <div style="margin-bottom: 10px; font-size: 1.1em;"><b>Fuerza Neta ($\sum \vec{F}$):</b> <span style="color: #198754; font-weight: bold;">0.00 N</span></div>
+            <div style="margin-bottom: 10px; font-size: 1.1em;"><b>Torque ($\vec{\tau}$):</b> <span id="valTau_51946" style="color: #6f42c1; font-weight: bold;">0.00</span> N·m</div>
+            <div id="txtExplicacion_51946" style="font-size: 0.85em; color: #dc3545; font-style: italic;">En esta vista, el torque es 0 porque todas las fuerzas empujan desde el centro.</div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; position: relative;">
+        <canvas id="canvas_51946" width="700" height="380" style="background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+    </div>
+</div>
+
+<script>
+    (function() {
+        setTimeout(function() {
+            const canvas = document.getElementById('canvas_51946');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            const in_I = document.getElementById('I_51946');
+            const in_B = document.getElementById('B_51946');
+            const in_Ang = document.getElementById('Ang_51946');
+            const val_Ang = document.getElementById('valAng_51946');
+            const val_Tau = document.getElementById('valTau_51946');
+            const txtExpl = document.getElementById('txtExplicacion_51946');
+            
+            const btnFrontal = document.getElementById('btnFrontal_51946');
+            const btnSuperior = document.getElementById('btnSuperior_51946');
+            
+            let viewMode = 'superior'; // 'frontal' o 'superior'
+            const area = 0.04; // m^2 (Ej: 20cm x 20cm)
+            const w_px = 160; 
+            const h_px = 160;
+
+            function switchView(mode) {
+                viewMode = mode;
+                if(mode === 'frontal') {
+                    btnFrontal.style.backgroundColor = '#0d6efd';
+                    btnSuperior.style.backgroundColor = '#6c757d';
+                    txtExpl.innerText = "Las fuerzas tiran hacia afuera (expansión). La línea de acción pasa por el centro: Torque = 0.";
+                } else {
+                    btnSuperior.style.backgroundColor = '#0d6efd';
+                    btnFrontal.style.backgroundColor = '#6c757d';
+                    txtExpl.innerText = "Las fuerzas laterales están desfasadas respecto al centro. ¡Se genera el par de fuerzas que causa el Torque!";
+                }
+                render();
+            }
+
+            function drawArrow(x, y, dx, dy, color, width=2, label='') {
+                const headlen = 10;
+                const angle = Math.atan2(dy, dx);
+                ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + dx, y + dy);
+                ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();
+                
+                ctx.beginPath();
+                ctx.moveTo(x + dx, y + dy);
+                ctx.lineTo(x + dx - headlen * Math.cos(angle - Math.PI / 6), y + dy - headlen * Math.sin(angle - Math.PI / 6));
+                ctx.lineTo(x + dx - headlen * Math.cos(angle + Math.PI / 6), y + dy - headlen * Math.sin(angle + Math.PI / 6));
+                ctx.lineTo(x + dx, y + dy);
+                ctx.fillStyle = color; ctx.fill();
+                
+                if(label) {
+                    ctx.font = 'bold 14px sans-serif';
+                    ctx.fillText(label, x + dx + 8*Math.cos(angle), y + dy + 8*Math.sin(angle));
+                }
+            }
+
+            function drawCurrentArrow(x1, y1, x2, y2) {
+                const mx = (x1 + x2) / 2; const my = (y1 + y2) / 2;
+                const angle = Math.atan2(y2 - y1, x2 - x1);
+                const hl = 8;
+                ctx.beginPath();
+                ctx.moveTo(mx + (hl/2) * Math.cos(angle), my + (hl/2) * Math.sin(angle));
+                ctx.lineTo(mx - hl * Math.cos(angle - Math.PI / 6), my - hl * Math.sin(angle - Math.PI / 6));
+                ctx.lineTo(mx - hl * Math.cos(angle + Math.PI / 6), my - hl * Math.sin(angle + Math.PI / 6));
+                ctx.closePath(); ctx.fillStyle = '#111'; ctx.fill();
+            }
+
+            function render() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const cx = canvas.width / 2;
+                const cy = canvas.height / 2;
+                
+                const I = parseFloat(in_I.value);
+                const B = parseFloat(in_B.value);
+                const theta_deg = parseFloat(in_Ang.value);
+                const theta = theta_deg * Math.PI / 180;
+                
+                val_Ang.innerText = theta_deg;
+                
+                const f_scale = 10 * B * (I/5); // Factor visual para las flechas
+
+                if (viewMode === 'frontal') {
+                    // --- VISTA FRONTAL ---
+                    val_Tau.innerText = "0.00"; // En esta vista no hay torque
+                    
+                    // Fondo: B entrando (Cruces)
+                    ctx.fillStyle = '#a0aabc'; ctx.font = '14px sans-serif';
+                    for(let x=20; x<canvas.width; x+=40) {
+                        for(let y=20; y<canvas.height; y+=40) {
+                            ctx.fillText('×', x, y);
+                        }
+                    }
+                    ctx.font = 'bold 16px sans-serif'; ctx.fillText('Campo B (Entrando ⊗)', 20, 30);
+                    
+                    // Rotar y dibujar rectángulo
+                    ctx.save();
+                    ctx.translate(cx, cy);
+                    ctx.rotate(-theta); // Rotación visual 2D
+                    
+                    ctx.strokeStyle = '#cd7f32'; ctx.lineWidth = 4;
+                    ctx.strokeRect(-w_px/2, -h_px/2, w_px, h_px);
+                    
+                    drawCurrentArrow(-w_px/2, -h_px/2, w_px/2, -h_px/2); // Top
+                    drawCurrentArrow(w_px/2, -h_px/2, w_px/2, h_px/2);   // Right
+                    drawCurrentArrow(w_px/2, h_px/2, -w_px/2, h_px/2);   // Bottom
+                    drawCurrentArrow(-w_px/2, h_px/2, -w_px/2, -h_px/2); // Left
+                    
+                    // Fuerzas (siempre perpendiculares y hacia afuera por F = I x B)
+                    drawArrow(0, -h_px/2, 0, -f_scale*2, '#dc3545', 3, 'F'); // Arriba
+                    drawArrow(0, h_px/2, 0, f_scale*2, '#dc3545', 3, 'F');   // Abajo
+                    drawArrow(w_px/2, 0, f_scale*2, 0, '#dc3545', 3, 'F');   // Derecha
+                    drawArrow(-w_px/2, 0, -f_scale*2, 0, '#dc3545', 3, 'F'); // Izquierda
+                    
+                    // Vector Momento (Saliendo de la pantalla)
+                    ctx.beginPath(); ctx.arc(0, 0, 8, 0, Math.PI*2); 
+                    ctx.fillStyle = '#0d6efd'; ctx.fill();
+                    ctx.fillStyle = '#fff'; ctx.fillText('·', -2, 4); // Punto
+                    ctx.fillStyle = '#0d6efd'; ctx.font = 'bold 14px sans-serif'; ctx.fillText('μ (Saliendo)', 12, -10);
+                    
+                    ctx.restore();
+
+                } else {
+                    // --- VISTA SUPERIOR ---
+                    const tau = I * area * B * Math.sin(theta);
+                    val_Tau.innerText = Math.abs(tau).toFixed(2);
+                    
+                    // Fondo: B hacia la derecha
+                    ctx.strokeStyle = '#a0aabc'; ctx.lineWidth = 1.5; ctx.setLineDash([10,10]);
+                    for(let y=40; y<canvas.height; y+=50) {
+                        drawArrow(10, y, canvas.width - 40, 0, '#a0aabc', 1.5);
+                    }
+                    ctx.setLineDash([]);
+                    ctx.fillStyle = '#a0aabc'; ctx.font = 'bold 16px sans-serif'; ctx.fillText('Campo B (Horizontal →)', 20, 30);
+                    
+                    // La espira vista desde arriba es una varilla. 
+                    // Si theta = 0, mu apunta a +X, varilla es vertical.
+                    const alpha = theta + Math.PI/2;
+                    
+                    const x1 = cx + (w_px/2) * Math.cos(alpha);
+                    const y1 = cy - (w_px/2) * Math.sin(alpha); // Invertido en Canvas
+                    
+                    const x2 = cx - (w_px/2) * Math.cos(alpha);
+                    const y2 = cy + (w_px/2) * Math.sin(alpha);
+                    
+                    // Pivote
+                    ctx.beginPath(); ctx.arc(cx, cy, 4, 0, Math.PI*2); ctx.fillStyle = '#333'; ctx.fill();
+                    
+                    // Varilla
+                    ctx.strokeStyle = '#cd7f32'; ctx.lineWidth = 6; ctx.lineCap = 'round';
+                    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+                    
+                    // Indicadores de Corriente (Saliente y Entrante)
+                    // P1 (Corriente saliendo)
+                    ctx.beginPath(); ctx.arc(x1, y1, 8, 0, Math.PI*2); ctx.fillStyle = '#fff'; ctx.fill();
+                    ctx.lineWidth = 2; ctx.strokeStyle = '#111'; ctx.stroke();
+                    ctx.fillStyle = '#111'; ctx.font = '14px sans-serif'; ctx.fillText('·', x1-3, y1+4);
+                    
+                    // P2 (Corriente entrando)
+                    ctx.beginPath(); ctx.arc(x2, y2, 8, 0, Math.PI*2); ctx.fillStyle = '#fff'; ctx.fill();
+                    ctx.lineWidth = 2; ctx.strokeStyle = '#111'; ctx.stroke();
+                    ctx.fillStyle = '#111'; ctx.fillText('×', x2-4, y2+4);
+
+                    // Momento dipolar (mu)
+                    const muLen = 80;
+                    drawArrow(cx, cy, muLen*Math.cos(theta), -muLen*Math.sin(theta), '#0d6efd', 3, 'μ');
+
+                    // Fuerzas (P1 sufre F hacia arriba, P2 sufre F hacia abajo)
+                    drawArrow(x1, y1 - 10, 0, -f_scale*2.5, '#dc3545', 3, 'F'); // Arriba (en canvas -y)
+                    drawArrow(x2, y2 + 10, 0, f_scale*2.5, '#dc3545', 3, 'F');  // Abajo (en canvas +y)
+                }
+            }
+
+            in_I.addEventListener('input', render);
+            in_B.addEventListener('input', render);
+            in_Ang.addEventListener('input', render);
+            
+            btnFrontal.addEventListener('click', () => switchView('frontal'));
+            btnSuperior.addEventListener('click', () => switchView('superior'));
+            
+            switchView('superior'); // Iniciar en vista superior
+        }, 150);
+    })();
+</script>
+</div></div>
+</div>
 </section>
 </section>
 
@@ -570,6 +1033,15 @@ document.write(`
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">7.1 Magnetismo</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="07_03_energia.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">7.3 Energía Potencial Magnética</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
