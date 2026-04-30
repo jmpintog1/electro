@@ -67,7 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '07_01_magnetismo';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="6.1 Simbología y Conceptos Básicos" href="06_01_circuitos.html" />
+    <link rel="next" title="7.2 Fuerzas sobre Corrientes" href="07_02_corrientes.html" />
+    <link rel="prev" title="6.4 Circuitos RC" href="06_04_circuitosRC.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,13 +217,15 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">6 Circuitos de Corriente Directa</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="06_02_conexiones.html">6.2 Conexiones entre Resistencias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_03_kirchhoff.html">6.3 Reglas de Kirchhoff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_04_circuitosRC.html">6.4 Circuitos RC</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">7.1 Magnetismo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_02_corrientes.html">7.2 Fuerzas sobre Corrientes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_03_energia.html">7.3 Energía Potencial Magnética</a></li>
 </ul>
 
     </div>
@@ -755,58 +758,58 @@ document.write(`
         <div style="flex: 1.5; min-width: 300px;">
             <div style="margin-bottom: 10px;">
                 <label style="font-weight: 600; display: inline-block; width: 140px;">Carga (q):</label>
-                <select id="charge_12070" style="padding: 4px; width: 45%;">
+                <select id="charge_92649" style="padding: 4px; width: 45%;">
                     <option value="1">Positiva (+)</option>
                     <option value="-1">Negativa (-)</option>
                     <option value="0">Neutra (0)</option>
                 </select>
             </div>
             <div style="margin-bottom: 8px;">
-                <label style="font-weight: 600; display: inline-block; width: 140px;">Campo (B): <span id="valB_12070" style="font-weight: normal;">2.0</span></label>
-                <input type="range" id="B_12070" min="-5" max="5" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
+                <label style="font-weight: 600; display: inline-block; width: 140px;">Campo (B): <span id="valB_92649" style="font-weight: normal;">2.0</span></label>
+                <input type="range" id="B_92649" min="-5" max="5" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
             </div>
             <div style="margin-bottom: 8px;">
-                <label style="font-weight: 600; display: inline-block; width: 140px;">Masa (m): <span id="valM_12070" style="font-weight: normal;">2.0</span></label>
-                <input type="range" id="M_12070" min="1" max="10" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
+                <label style="font-weight: 600; display: inline-block; width: 140px;">Masa (m): <span id="valM_92649" style="font-weight: normal;">2.0</span></label>
+                <input type="range" id="M_92649" min="1" max="10" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
             </div>
             <div style="margin-bottom: 8px;">
-                <label style="font-weight: 600; display: inline-block; width: 140px;">Velocidad (v₀): <span id="valV_12070" style="font-weight: normal;">3.0</span></label>
-                <input type="range" id="V_12070" min="1" max="6" step="0.5" value="3.0" style="width: 45%; vertical-align: middle;">
+                <label style="font-weight: 600; display: inline-block; width: 140px;">Velocidad (v₀): <span id="valV_92649" style="font-weight: normal;">3.0</span></label>
+                <input type="range" id="V_92649" min="1" max="6" step="0.5" value="3.0" style="width: 45%; vertical-align: middle;">
             </div>
         </div>
 
         <div style="flex: 1; min-width: 220px; display: flex; flex-direction: column; justify-content: center; gap: 10px;">
-            <button id="launch_12070" style="background-color: #f73bc5; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;">🚀 Lanzar Partícula</button>
-            <button id="clear_12070" style="background-color: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">Limpiar Trayectorias</button>
+            <button id="launch_92649" style="background-color: #f73bc5; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;">🚀 Lanzar Partícula</button>
+            <button id="clear_92649" style="background-color: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">Limpiar Trayectorias</button>
         </div>
     </div>
     
     <div style="text-align: center; position: relative; overflow: hidden;">
-        <canvas id="canvas_12070" width="800" height="500" style="background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+        <canvas id="canvas_92649" width="800" height="500" style="background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
     </div>
 </div>
 
 <script>
     (function() {
         function initSimulation() {
-            const canvas = document.getElementById('canvas_12070');
+            const canvas = document.getElementById('canvas_92649');
             if (!canvas) {
                 setTimeout(initSimulation, 50); 
                 return;
             }
             
             const ctx = canvas.getContext('2d');
-            const in_charge = document.getElementById('charge_12070');
-            const in_B = document.getElementById('B_12070');
-            const in_M = document.getElementById('M_12070');
-            const in_V = document.getElementById('V_12070');
+            const in_charge = document.getElementById('charge_92649');
+            const in_B = document.getElementById('B_92649');
+            const in_M = document.getElementById('M_92649');
+            const in_V = document.getElementById('V_92649');
             
-            const val_B = document.getElementById('valB_12070');
-            const val_M = document.getElementById('valM_12070');
-            const val_V = document.getElementById('valV_12070');
+            const val_B = document.getElementById('valB_92649');
+            const val_M = document.getElementById('valM_92649');
+            const val_V = document.getElementById('valV_92649');
             
-            const btn_launch = document.getElementById('launch_12070');
-            const btn_clear = document.getElementById('clear_12070');
+            const btn_launch = document.getElementById('launch_92649');
+            const btn_clear = document.getElementById('clear_92649');
             
             let particles = [];
             let deadPaths = []; 
@@ -996,13 +999,22 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="06_01_circuitos.html"
+       href="06_04_circuitosRC.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">6.1 Simbología y Conceptos Básicos</p>
+        <p class="prev-next-title">6.4 Circuitos RC</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="07_02_corrientes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">7.2 Fuerzas sobre Corrientes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
