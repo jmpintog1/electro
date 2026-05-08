@@ -556,7 +556,7 @@ document.write(`
 <span class="n">simulacion_dual_html</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;div style=&quot;border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif;&quot;&gt;</span>
 <span class="s2">    &lt;h3 style=&quot;margin-top:0; color: #2c3e50;&quot;&gt;Perspectivas 2D: Fuerzas y Torque&lt;/h3&gt;</span>
-<span class="s2">    &lt;p style=&quot;font-size: 0.95em; color: #555; margin-bottom: 15px;&quot;&gt;Alterna entre las vistas. En la &lt;b&gt;Vista Frontal&lt;/b&gt;, el campo entra a la pantalla y las fuerzas solo expanden la espira (\(\tau = 0\)). En la &lt;b&gt;Vista Superior&lt;/b&gt;, se revela el desfase de las fuerzas que genera el giro.&lt;/p&gt;</span>
+<span class="s2">    &lt;p style=&quot;font-size: 0.95em; color: #555; margin-bottom: 15px;&quot;&gt;Alterna entre las vistas. En la &lt;b&gt;Vista Frontal&lt;/b&gt;, el campo entra a la pantalla y las fuerzas solo expanden la espira (&amp;tau; = 0). En la &lt;b&gt;Vista Superior&lt;/b&gt;, se revela el desfase de las fuerzas que genera el giro.&lt;/p&gt;</span>
 <span class="s2">    </span>
 <span class="s2">    &lt;div style=&quot;display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;&quot;&gt;</span>
 <span class="s2">        &lt;div style=&quot;flex: 1.2; min-width: 250px;&quot;&gt;</span>
@@ -579,8 +579,8 @@ document.write(`
 <span class="s2">        &lt;/div&gt;</span>
 
 <span class="s2">        &lt;div style=&quot;flex: 1; min-width: 220px; font-size: 1.0em; background: #fff; padding: 15px; border-radius: 6px; border: 1px solid #ccc; display: flex; flex-direction: column; justify-content: center;&quot;&gt;</span>
-<span class="s2">            &lt;div style=&quot;margin-bottom: 10px; font-size: 1.1em;&quot;&gt;&lt;b&gt;Fuerza Neta (\(\sum \vec</span><span class="si">{F}</span><span class="s2">\)):&lt;/b&gt; &lt;span style=&quot;color: #198754; font-weight: bold;&quot;&gt;0.00 N&lt;/span&gt;&lt;/div&gt;</span>
-<span class="s2">            &lt;div style=&quot;margin-bottom: 10px; font-size: 1.1em;&quot;&gt;&lt;b&gt;Torque (\(\vec{\tau}\)):&lt;/b&gt; &lt;span id=&quot;valTau_UID5&quot; style=&quot;color: #6f42c1; font-weight: bold;&quot;&gt;0.00&lt;/span&gt; N·m&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 10px; font-size: 1.1em;&quot;&gt;&lt;b&gt;Fuerza Neta:&lt;/b&gt; &lt;span style=&quot;color: #198754; font-weight: bold;&quot;&gt;0.00 N&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;margin-bottom: 10px; font-size: 1.1em;&quot;&gt;&lt;b&gt;Torque:&lt;/b&gt; &lt;span id=&quot;valTau_UID5&quot; style=&quot;color: #6f42c1; font-weight: bold;&quot;&gt;0.00&lt;/span&gt; N·m&lt;/div&gt;</span>
 <span class="s2">            &lt;div id=&quot;txtExplicacion_UID5&quot; style=&quot;font-size: 0.85em; color: #dc3545; font-style: italic;&quot;&gt;En esta vista, el torque es 0 porque todas las fuerzas empujan desde el centro.&lt;/div&gt;</span>
 <span class="s2">        &lt;/div&gt;</span>
 <span class="s2">    &lt;/div&gt;</span>
@@ -783,56 +783,56 @@ document.write(`
 <div class="output text_html">
 <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
     <h3 style="margin-top:0; color: #2c3e50;">Perspectivas 2D: Fuerzas y Torque</h3>
-    <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">Alterna entre las vistas. En la <b>Vista Frontal</b>, el campo entra a la pantalla y las fuerzas solo expanden la espira (\(\tau = 0\)). En la <b>Vista Superior</b>, se revela el desfase de las fuerzas que genera el giro.</p>
+    <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">Alterna entre las vistas. En la <b>Vista Frontal</b>, el campo entra a la pantalla y las fuerzas solo expanden la espira (&tau; = 0). En la <b>Vista Superior</b>, se revela el desfase de las fuerzas que genera el giro.</p>
     
     <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;">
         <div style="flex: 1.2; min-width: 250px;">
             <div style="margin-bottom: 8px;">
                 <label style="font-weight: 600; display: inline-block; width: 120px;">Corriente (I):</label>
-                <input type="range" id="I_29599" min="1" max="10" step="0.5" value="5.0" style="width: 45%; vertical-align: middle;">
+                <input type="range" id="I_58292" min="1" max="10" step="0.5" value="5.0" style="width: 45%; vertical-align: middle;">
             </div>
             <div style="margin-bottom: 8px;">
                 <label style="font-weight: 600; display: inline-block; width: 120px;">Campo (B):</label>
-                <input type="range" id="B_29599" min="0.5" max="5" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
+                <input type="range" id="B_58292" min="0.5" max="5" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
             </div>
             <div style="margin-bottom: 8px;">
-                <label style="font-weight: 600; display: inline-block; width: 120px;">Ángulo (θ): <span id="valAng_29599" style="font-weight: normal;">45</span>°</label>
-                <input type="range" id="Ang_29599" min="0" max="360" step="1" value="45" style="width: 45%; vertical-align: middle;">
+                <label style="font-weight: 600; display: inline-block; width: 120px;">Ángulo (θ): <span id="valAng_58292" style="font-weight: normal;">45</span>°</label>
+                <input type="range" id="Ang_58292" min="0" max="360" step="1" value="45" style="width: 45%; vertical-align: middle;">
             </div>
             <div style="margin-top: 15px; display: flex; gap: 10px;">
-                <button id="btnFrontal_29599" style="flex: 1; padding: 8px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">[1] Vista Frontal</button>
-                <button id="btnSuperior_29599" style="flex: 1; padding: 8px; background-color: #0d6efd; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">[2] Vista Superior</button>
+                <button id="btnFrontal_58292" style="flex: 1; padding: 8px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">[1] Vista Frontal</button>
+                <button id="btnSuperior_58292" style="flex: 1; padding: 8px; background-color: #0d6efd; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">[2] Vista Superior</button>
             </div>
         </div>
 
         <div style="flex: 1; min-width: 220px; font-size: 1.0em; background: #fff; padding: 15px; border-radius: 6px; border: 1px solid #ccc; display: flex; flex-direction: column; justify-content: center;">
-            <div style="margin-bottom: 10px; font-size: 1.1em;"><b>Fuerza Neta (\(\sum \vec{F}\)):</b> <span style="color: #198754; font-weight: bold;">0.00 N</span></div>
-            <div style="margin-bottom: 10px; font-size: 1.1em;"><b>Torque (\(\vec{\tau}\)):</b> <span id="valTau_29599" style="color: #6f42c1; font-weight: bold;">0.00</span> N·m</div>
-            <div id="txtExplicacion_29599" style="font-size: 0.85em; color: #dc3545; font-style: italic;">En esta vista, el torque es 0 porque todas las fuerzas empujan desde el centro.</div>
+            <div style="margin-bottom: 10px; font-size: 1.1em;"><b>Fuerza Neta:</b> <span style="color: #198754; font-weight: bold;">0.00 N</span></div>
+            <div style="margin-bottom: 10px; font-size: 1.1em;"><b>Torque:</b> <span id="valTau_58292" style="color: #6f42c1; font-weight: bold;">0.00</span> N·m</div>
+            <div id="txtExplicacion_58292" style="font-size: 0.85em; color: #dc3545; font-style: italic;">En esta vista, el torque es 0 porque todas las fuerzas empujan desde el centro.</div>
         </div>
     </div>
     
     <div style="text-align: center; position: relative;">
-        <canvas id="canvas_29599" width="700" height="380" style="background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+        <canvas id="canvas_58292" width="700" height="380" style="background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
     </div>
 </div>
 
 <script>
     (function() {
         setTimeout(function() {
-            const canvas = document.getElementById('canvas_29599');
+            const canvas = document.getElementById('canvas_58292');
             if (!canvas) return;
             const ctx = canvas.getContext('2d');
             
-            const in_I = document.getElementById('I_29599');
-            const in_B = document.getElementById('B_29599');
-            const in_Ang = document.getElementById('Ang_29599');
-            const val_Ang = document.getElementById('valAng_29599');
-            const val_Tau = document.getElementById('valTau_29599');
-            const txtExpl = document.getElementById('txtExplicacion_29599');
+            const in_I = document.getElementById('I_58292');
+            const in_B = document.getElementById('B_58292');
+            const in_Ang = document.getElementById('Ang_58292');
+            const val_Ang = document.getElementById('valAng_58292');
+            const val_Tau = document.getElementById('valTau_58292');
+            const txtExpl = document.getElementById('txtExplicacion_58292');
             
-            const btnFrontal = document.getElementById('btnFrontal_29599');
-            const btnSuperior = document.getElementById('btnSuperior_29599');
+            const btnFrontal = document.getElementById('btnFrontal_58292');
+            const btnSuperior = document.getElementById('btnSuperior_58292');
             
             let viewMode = 'superior'; // 'frontal' o 'superior'
             const area = 0.04; // m^2 (Ej: 20cm x 20cm)
