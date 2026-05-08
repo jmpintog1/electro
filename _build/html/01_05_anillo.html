@@ -179,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1.5 Anillo Uniformemente Cargado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_06_disco.html">1.6 Disco Cargado Uniformemente</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_07_alambre.html">1.7 Alambre Infinito</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Explorando la Densidad de Carga en un Disco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_08_no_uniforme.html">1.8 Densidad de Carga No Uniforme</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2 Ley de Gauss</span></p>
 <ul class="nav bd-sidenav">
@@ -189,13 +189,43 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="02_04_gauss_cilindro.html">2.4 Simetría Cilíndrica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_05_gauss_plano.html">2.5 Simetría Plana</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_06_conductores.html">2.6 Conductores y Aislantes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera Aislante</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_07_cavidades.html">2.7 Cavidades en una Esfera</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3 Potencial Eléctrico</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="03_01_potencial.html">3.1 Campo y Potencial Eléctrico</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_02_energia.html">3.2 Energía Potencial Electrostática y Trabajo</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="03_02_calculo.html">3.2 Cálculo del Potencial Eléctrico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_03_energia.html">3.3 Energía Potencial y Trabajo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_04_oscilatorio.html">3.4 Movimiento Oscilatorio de un Electrón</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_05_tierra.html">3.5 Conductores Conectados a Tierra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4 Capacitancia y Dieléctricos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_01_capacitancia.html">4.1 Capacitancia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_02_geometrias.html">4.2 Cálculo de Capacitancia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_03_energia.html">4.3 Energía en un Condensador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_04_serie_paralelo.html">4.4 Condensadores en Circuitos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_05_dielectricos.html">4.5 Dieléctricos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_06_dielec_capacidad.html">4.6 Dieléctricos en Condensadores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5 Corriente, Resistencia y Fuerza Electromotriz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_01_corriente.html">5.1 Corriente Eléctrica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_densidad.html">5.2 Densidad de Corriente y Ley de Ohm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_03_joule.html">5.3 Efecto Joule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6 Circuitos de Corriente Directa</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_01_circuitos.html">6.1 Simbología y Conceptos Básicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_02_conexiones.html">6.2 Conexiones entre Resistencias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_03_kirchhoff.html">6.3 Reglas de Kirchhoff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_04_circuitosRC.html">6.4 Circuitos RC</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7 Campo Magnético y Fuerzas Magnéticas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07_01_magnetismo.html">7.1 Magnetismo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_02_corrientes.html">7.2 Fuerzas sobre Corrientes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_03_energia.html">7.3 Energía Potencial Magnética</a></li>
 </ul>
 
     </div>
@@ -469,8 +499,8 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">uuid</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
 
 <span class="c1"># Generamos un identificador único para evitar conflictos en Jupyter</span>
 <span class="n">uid</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">())[:</span><span class="mi">8</span><span class="p">]</span>
@@ -501,7 +531,7 @@ document.write(`
 <span class="s2">&lt;/div&gt;</span>
 
 <span class="s2">&lt;script&gt;</span>
-<span class="s2">    (function() </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">    (function() </span><span class="se">{{</span>
 <span class="s2">        const canvas = document.getElementById(&#39;dl_canvas_</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&#39;);</span>
 <span class="s2">        const ctx = canvas.getContext(&#39;2d&#39;);</span>
 <span class="s2">        const slider = document.getElementById(&#39;slider_angle_</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&#39;);</span>
@@ -513,7 +543,7 @@ document.write(`
 <span class="s2">        const startAngleDeg = 30; </span>
 <span class="s2">        const startAngleRad = startAngleDeg * Math.PI / 180;</span>
 
-<span class="s2">        function drawSimulation() </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">        function drawSimulation() </span><span class="se">{{</span>
 <span class="s2">            ctx.clearRect(0, 0, canvas.width, canvas.height);</span>
 <span class="s2">            </span>
 <span class="s2">            let dThetaDeg = parseFloat(slider.value);</span>
@@ -556,7 +586,7 @@ document.write(`
 <span class="s2">            ctx.fillText(&quot;R&quot;, rLabelX, rLabelY);</span>
 
 <span class="s2">            // 4. Avance del diferencial</span>
-<span class="s2">            if (dThetaDeg &gt; 0) </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">            if (dThetaDeg &gt; 0) </span><span class="se">{{</span>
 <span class="s2">                let endX = centerX + R * Math.cos(endAngleRad);</span>
 <span class="s2">                let endY = centerY - R * Math.sin(endAngleRad);</span>
 <span class="s2">                </span>
@@ -604,14 +634,14 @@ document.write(`
 <span class="s2">                ctx.textAlign = &quot;center&quot;;</span>
 <span class="s2">                ctx.fillText(&quot;dl&quot;, 0, 0);</span>
 <span class="s2">                ctx.restore();</span>
-<span class="s2">            </span><span class="se">}}</span><span class="s2"> else </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">}}</span><span class="s2"> else </span><span class="se">{{</span>
 <span class="s2">                // Estado 0°</span>
 <span class="s2">                ctx.beginPath();</span>
 <span class="s2">                ctx.arc(startX, startY, 7, 0, 2 * Math.PI);</span>
 <span class="s2">                ctx.fillStyle = &quot;blue&quot;;</span>
 <span class="s2">                ctx.fill();</span>
-<span class="s2">            </span><span class="se">}}</span><span class="s2"></span>
-<span class="s2">        </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            </span><span class="se">}}</span>
+<span class="s2">        </span><span class="se">}}</span>
 
 <span class="s2">        slider.addEventListener(&#39;input&#39;, drawSimulation);</span>
 <span class="s2">        slider.addEventListener(&#39;change&#39;, drawSimulation); </span>
@@ -636,9 +666,9 @@ document.write(`
         </p>
 
         <label style="font-weight: bold; font-size: 14px; display: block; margin-bottom: 10px;">
-            Avanzar ángulo (dθ): <span id="val_angle_5446c835" style="color: #d32f2f;">0</span>°
+            Avanzar ángulo (dθ): <span id="val_angle_7a1ab978" style="color: #d32f2f;">0</span>°
         </label>
-        <input type="range" id="slider_angle_5446c835" min="0" max="30" step="1" value="0" style="width: 100%; cursor: pointer; margin-bottom: 25px;">
+        <input type="range" id="slider_angle_7a1ab978" min="0" max="30" step="1" value="0" style="width: 100%; cursor: pointer; margin-bottom: 25px;">
         
         <div style="font-size: 16px; font-weight: bold; color: #1976d2; background: #e3f2fd; padding: 12px; border-radius: 6px; text-align: center; border: 1px solid #bbdefb;">
             dl = R · dθ
@@ -646,17 +676,17 @@ document.write(`
     </div>
     
     <div style="flex: 2; min-width: 400px; text-align: center;">
-        <canvas id="dl_canvas_5446c835" width="500" height="500" style="background: white; border: 1px solid #ccc; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%; height: auto;"></canvas>
+        <canvas id="dl_canvas_7a1ab978" width="500" height="500" style="background: white; border: 1px solid #ccc; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%; height: auto;"></canvas>
     </div>
 
 </div>
 
 <script>
     (function() {
-        const canvas = document.getElementById('dl_canvas_5446c835');
+        const canvas = document.getElementById('dl_canvas_7a1ab978');
         const ctx = canvas.getContext('2d');
-        const slider = document.getElementById('slider_angle_5446c835');
-        const val_label = document.getElementById('val_angle_5446c835');
+        const slider = document.getElementById('slider_angle_7a1ab978');
+        const val_label = document.getElementById('val_angle_7a1ab978');
         
         const centerX = canvas.width / 2;
         const centerY = canvas.height / 2;
@@ -803,10 +833,10 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
 
 <span class="c1"># Configuración de la figura</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
@@ -837,14 +867,14 @@ document.write(`
 
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">():</span>
     <span class="n">point1</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
     <span class="n">point2</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
     <span class="n">Q1</span><span class="o">.</span><span class="n">set_UVC</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]))</span>
     <span class="n">Q2</span><span class="o">.</span><span class="n">set_UVC</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]))</span>
     <span class="k">return</span> <span class="n">point1</span><span class="p">,</span> <span class="n">point2</span><span class="p">,</span> <span class="n">Q1</span><span class="p">,</span> <span class="n">Q2</span>
 
-<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
     <span class="c1"># Animaremos el ángulo theta para media vuelta (0 a pi), </span>
     <span class="c1"># ya que su opuesto cubrirá la otra mitad (pi a 2pi).</span>
     <span class="n">theta</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="mf">50.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
@@ -1067,42 +1097,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img8a02fc57f529458886ce170357cf9f63">
+  <img id="_anim_imge7e9865ab3b54f2683a469af5a756d59">
   <div class="anim-controls">
-    <input id="_anim_slider8a02fc57f529458886ce170357cf9f63" type="range" class="anim-slider"
+    <input id="_anim_slidere7e9865ab3b54f2683a469af5a756d59" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anim8a02fc57f529458886ce170357cf9f63.set_frame(parseInt(this.value));">
+           oninput="anime7e9865ab3b54f2683a469af5a756d59.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim8a02fc57f529458886ce170357cf9f63.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anime7e9865ab3b54f2683a469af5a756d59.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim8a02fc57f529458886ce170357cf9f63.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anime7e9865ab3b54f2683a469af5a756d59.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim8a02fc57f529458886ce170357cf9f63.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anime7e9865ab3b54f2683a469af5a756d59.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim8a02fc57f529458886ce170357cf9f63.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anime7e9865ab3b54f2683a469af5a756d59.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim8a02fc57f529458886ce170357cf9f63.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anime7e9865ab3b54f2683a469af5a756d59.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim8a02fc57f529458886ce170357cf9f63.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anime7e9865ab3b54f2683a469af5a756d59.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim8a02fc57f529458886ce170357cf9f63.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anime7e9865ab3b54f2683a469af5a756d59.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim8a02fc57f529458886ce170357cf9f63.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anime7e9865ab3b54f2683a469af5a756d59.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim8a02fc57f529458886ce170357cf9f63.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anime7e9865ab3b54f2683a469af5a756d59.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select8a02fc57f529458886ce170357cf9f63"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selecte7e9865ab3b54f2683a469af5a756d59"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_8a02fc57f529458886ce170357cf9f63"
+      <input type="radio" name="state" value="once" id="_anim_radio1_e7e9865ab3b54f2683a469af5a756d59"
              >
-      <label for="_anim_radio1_8a02fc57f529458886ce170357cf9f63">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_8a02fc57f529458886ce170357cf9f63"
+      <label for="_anim_radio1_e7e9865ab3b54f2683a469af5a756d59">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_e7e9865ab3b54f2683a469af5a756d59"
              checked>
-      <label for="_anim_radio2_8a02fc57f529458886ce170357cf9f63">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_8a02fc57f529458886ce170357cf9f63"
+      <label for="_anim_radio2_e7e9865ab3b54f2683a469af5a756d59">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_e7e9865ab3b54f2683a469af5a756d59"
              >
-      <label for="_anim_radio3_8a02fc57f529458886ce170357cf9f63">Reflect</label>
+      <label for="_anim_radio3_e7e9865ab3b54f2683a469af5a756d59">Reflect</label>
     </form>
   </div>
 </div>
@@ -1112,9 +1142,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img8a02fc57f529458886ce170357cf9f63";
-    var slider_id = "_anim_slider8a02fc57f529458886ce170357cf9f63";
-    var loop_select_id = "_anim_loop_select8a02fc57f529458886ce170357cf9f63";
+    var img_id = "_anim_imge7e9865ab3b54f2683a469af5a756d59";
+    var slider_id = "_anim_slidere7e9865ab3b54f2683a469af5a756d59";
+    var loop_select_id = "_anim_loop_selecte7e9865ab3b54f2683a469af5a756d59";
     var frames = new Array(50);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAYAAACmKP9/AAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -30568,7 +30598,7 @@ K8sAAAAASUVORK5CYII=\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim8a02fc57f529458886ce170357cf9f63 = new Animation(frames, img_id, slider_id, 100.0,
+        anime7e9865ab3b54f2683a469af5a756d59 = new Animation(frames, img_id, slider_id, 100.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -30588,7 +30618,7 @@ K8sAAAAASUVORK5CYII=\
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
 
 <span class="n">simulacion_anillo_3d_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;div style=&quot;border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif;&quot;&gt;</span>
@@ -31055,7 +31085,7 @@ K8sAAAAASUVORK5CYII=\
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
 
 <span class="n">quiz_comprension_anillo_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;style&gt;</span>
@@ -31521,7 +31551,7 @@ La distancia desde cualquier punto del anillo hasta el punto <span class="math n
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
 
 <span class="n">quiz_analisis_anillo_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;style&gt;</span>

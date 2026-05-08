@@ -539,8 +539,8 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
 
 <span class="n">uid_sim5</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">99999</span><span class="p">))</span>
 
@@ -780,50 +780,50 @@ document.write(`
         <div style="flex: 1.2; min-width: 250px;">
             <div style="margin-bottom: 8px;">
                 <label style="font-weight: 600; display: inline-block; width: 120px;">Corriente (I):</label>
-                <input type="range" id="I_51946" min="1" max="10" step="0.5" value="5.0" style="width: 45%; vertical-align: middle;">
+                <input type="range" id="I_42629" min="1" max="10" step="0.5" value="5.0" style="width: 45%; vertical-align: middle;">
             </div>
             <div style="margin-bottom: 8px;">
                 <label style="font-weight: 600; display: inline-block; width: 120px;">Campo (B):</label>
-                <input type="range" id="B_51946" min="0.5" max="5" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
+                <input type="range" id="B_42629" min="0.5" max="5" step="0.5" value="2.0" style="width: 45%; vertical-align: middle;">
             </div>
             <div style="margin-bottom: 8px;">
-                <label style="font-weight: 600; display: inline-block; width: 120px;">Ángulo (θ): <span id="valAng_51946" style="font-weight: normal;">45</span>°</label>
-                <input type="range" id="Ang_51946" min="0" max="360" step="1" value="45" style="width: 45%; vertical-align: middle;">
+                <label style="font-weight: 600; display: inline-block; width: 120px;">Ángulo (θ): <span id="valAng_42629" style="font-weight: normal;">45</span>°</label>
+                <input type="range" id="Ang_42629" min="0" max="360" step="1" value="45" style="width: 45%; vertical-align: middle;">
             </div>
             <div style="margin-top: 15px; display: flex; gap: 10px;">
-                <button id="btnFrontal_51946" style="flex: 1; padding: 8px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">[1] Vista Frontal</button>
-                <button id="btnSuperior_51946" style="flex: 1; padding: 8px; background-color: #0d6efd; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">[2] Vista Superior</button>
+                <button id="btnFrontal_42629" style="flex: 1; padding: 8px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">[1] Vista Frontal</button>
+                <button id="btnSuperior_42629" style="flex: 1; padding: 8px; background-color: #0d6efd; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">[2] Vista Superior</button>
             </div>
         </div>
 
         <div style="flex: 1; min-width: 220px; font-size: 1.0em; background: #fff; padding: 15px; border-radius: 6px; border: 1px solid #ccc; display: flex; flex-direction: column; justify-content: center;">
             <div style="margin-bottom: 10px; font-size: 1.1em;"><b>Fuerza Neta ($\sum \vec{F}$):</b> <span style="color: #198754; font-weight: bold;">0.00 N</span></div>
-            <div style="margin-bottom: 10px; font-size: 1.1em;"><b>Torque ($\vec{\tau}$):</b> <span id="valTau_51946" style="color: #6f42c1; font-weight: bold;">0.00</span> N·m</div>
-            <div id="txtExplicacion_51946" style="font-size: 0.85em; color: #dc3545; font-style: italic;">En esta vista, el torque es 0 porque todas las fuerzas empujan desde el centro.</div>
+            <div style="margin-bottom: 10px; font-size: 1.1em;"><b>Torque ($\vec{\tau}$):</b> <span id="valTau_42629" style="color: #6f42c1; font-weight: bold;">0.00</span> N·m</div>
+            <div id="txtExplicacion_42629" style="font-size: 0.85em; color: #dc3545; font-style: italic;">En esta vista, el torque es 0 porque todas las fuerzas empujan desde el centro.</div>
         </div>
     </div>
     
     <div style="text-align: center; position: relative;">
-        <canvas id="canvas_51946" width="700" height="380" style="background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
+        <canvas id="canvas_42629" width="700" height="380" style="background: #ffffff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 100%;"></canvas>
     </div>
 </div>
 
 <script>
     (function() {
         setTimeout(function() {
-            const canvas = document.getElementById('canvas_51946');
+            const canvas = document.getElementById('canvas_42629');
             if (!canvas) return;
             const ctx = canvas.getContext('2d');
             
-            const in_I = document.getElementById('I_51946');
-            const in_B = document.getElementById('B_51946');
-            const in_Ang = document.getElementById('Ang_51946');
-            const val_Ang = document.getElementById('valAng_51946');
-            const val_Tau = document.getElementById('valTau_51946');
-            const txtExpl = document.getElementById('txtExplicacion_51946');
+            const in_I = document.getElementById('I_42629');
+            const in_B = document.getElementById('B_42629');
+            const in_Ang = document.getElementById('Ang_42629');
+            const val_Ang = document.getElementById('valAng_42629');
+            const val_Tau = document.getElementById('valTau_42629');
+            const txtExpl = document.getElementById('txtExplicacion_42629');
             
-            const btnFrontal = document.getElementById('btnFrontal_51946');
-            const btnSuperior = document.getElementById('btnSuperior_51946');
+            const btnFrontal = document.getElementById('btnFrontal_42629');
+            const btnSuperior = document.getElementById('btnSuperior_42629');
             
             let viewMode = 'superior'; // 'frontal' o 'superior'
             const area = 0.04; // m^2 (Ej: 20cm x 20cm)
