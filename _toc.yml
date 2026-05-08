@@ -62,8 +62,15 @@ parts:
       - file: 07_02_corrientes
       - file: 07_03_energia
 
-#  - caption: 8 Fuentes de Campo Magnético
-#  - caption: 9 Inducción Electromagnética
+  - caption: 8 Fuentes de Campo Magnético
+    chapters:
+      - file: 08_01_biot_savart
+      - file: 08_02_ampere
+  
+  - caption: 9 Inducción Electromagnética
+    chapters:
+      - file: 09_01_flujo
+
 #  - caption: 10 Inductancia
 #  - caption: 11 Corriente Alterna
 #  - caption: 12 Ondas Electromagnéticas
